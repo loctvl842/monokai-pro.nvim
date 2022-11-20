@@ -1,0 +1,33 @@
+local Cmp = {
+	CmpItemAbbrMatch = { fg = C.base1E, style = "bold" },
+
+	CmpItemAbbrDeprecated = { fg = C.base0E, style = "strikethrough" },
+	CmpItemAbbrMatchFuzzy = { fg = C.base11 },
+	CmpItemKindFunction = { fg = C.base10 },
+	CmpItemKindMethod = { fg = C.base10 },
+	CmpItemKindConstructor = { fg = C.base12 },
+	CmpItemKindClass = { fg = C.base12 },
+	CmpItemKindEnum = { fg = C.base12 },
+	CmpItemKindEvent = { fg = C.base10 },
+	CmpItemKindInterface = { fg = C.base19 },
+	CmpItemKindStruct = { fg = C.base16 },
+	CmpItemKindVariable = { fg = C.base16 },
+	CmpItemKindField = { fg = C.base16 },
+	CmpItemKindProperty = { fg = C.base16 },
+	CmpItemKindEnumMember = { fg = C.base19 },
+	CmpItemKindConstant = { fg = C.base16 },
+	CmpItemKindKeyword = { fg = C.base16 },
+	CmpItemKindModule = { fg = C.base1F },
+	CmpItemKindValue = { fg = C.base1F },
+	CmpItemKindUnit = { fg = C.base1F },
+	CmpItemKindText = { fg = C.base1F },
+	CmpItemKindSnippet = { fg = C.base1F },
+	CmpItemKindFile = { fg = C.base1F },
+	CmpItemKindFolder = { fg = C.base1F },
+	CmpItemKindColor = { fg = C.base1F },
+	CmpItemKindReference = { fg = C.base1F },
+	CmpItemKindOperator = { fg = C.base1F },
+	CmpItemKindTypeParameter = { fg = C.base1F },
+}
+
+return Cmp

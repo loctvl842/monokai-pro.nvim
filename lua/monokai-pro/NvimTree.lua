@@ -1,0 +1,26 @@
+local NvimTree = {
+	NvimTreeFolderIcon = { fg = C.base15 },
+	NvimTreeIndentMarker = { fg = "#606060" },
+	NvimTreeNormal = { fg = C.base1E, bg = C.base03 },
+	NvimTreeVertSplit = { fg = C.base03, bg = C.base03 },
+	NvimTreeFolderName = { fg = C.base15 },
+	NvimTreeOpenedFolderName = { fg = C.base18, style = "italic" },
+	NvimTreeEmptyFolderName = { fg = C.base0E, style = "italic" },
+	NvimTreeGitIgnored = { fg = C.base0E, style = "italic" },
+	NvimTreeImageFile = { fg = C.base1E },
+	NvimTreeSpecialFile = { fg = C.base12 },
+	NvimTreeEndOfBuffer = { fg = C.base03 },
+	NvimTreeCursorLine = { bg = "#2A2D2E" },
+	NvimTreeGitignoreIcon = { fg = "#E64A19" },
+	NvimTreeGitStaged = { fg = C.base15 },
+	NvimTreeGitNew = { fg = C.base15 },
+	NvimTreeGitRenamed = { fg = C.base15 },
+	NvimTreeGitDeleted = { fg = C.base0D },
+	NvimTreeGitMerge = { fg = C.base11 },
+	NvimTreeGitDirty = { fg = C.base11 },
+	NvimTreeSymlink = { fg = C.base19 },
+	NvimTreeRootFolder = { fg = C.base1F, style = "bold" },
+	NvimTreeExecFile = { fg = "#9FBA89" },
+}
+
+return NvimTree
