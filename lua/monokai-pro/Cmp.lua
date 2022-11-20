@@ -1,5 +1,5 @@
 local Cmp = {
-	CmpItemAbbrMatch = { fg = C.base1E, style = "bold" },
+	CmpItemAbbrMatch = { fg = C.white, style = "bold" },
 
 	CmpItemAbbrDeprecated = { fg = C.base0E, style = "strikethrough" },
 	CmpItemAbbrMatchFuzzy = { fg = C.base11 },
