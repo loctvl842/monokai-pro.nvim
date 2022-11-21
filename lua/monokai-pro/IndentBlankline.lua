@@ -1,10 +1,10 @@
 local IndentBlankline = {
-	IndentBlanklineChar = { fg = C.base09 },
-	IndentBlanklineContextChar = { fg = C.base0F },
+	IndentBlanklineChar = { fg = C.indent_blankline_char },
+	IndentBlanklineContextChar = { fg = C.indent_blankline_contextchar },
 
 	IndentBlanklineContextStart = { style = "underline" },
-	IndentBlanklineSpaceChar = { fg = C.base00 },
-	IndentBlanklineSpaceCharBlankline = { fg = C.base18 },
+	IndentBlanklineSpaceChar = { fg = C.bg }, -- highlight the character Tab
+	-- IndentBlanklineSpaceCharBlankline = { fg = C.yellow },
 }
 
 return IndentBlankline

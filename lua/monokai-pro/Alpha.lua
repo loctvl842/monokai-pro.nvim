@@ -1,7 +1,7 @@
 local alpha = {
-	AlphaButton = { fg = C.base0D },
-	AlphaFooter = { fg = C.base0D },
-	AlphaHeader = { fg = C.base0D },
+	AlphaButton = { fg = C.magenta },
+	AlphaFooter = { fg = C.orange },
+	AlphaHeader = { fg = C.yellow },
 }
 
 return alpha

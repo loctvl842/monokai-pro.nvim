@@ -25,8 +25,8 @@ local winbar = {
 	WinbarIconsEvent = { fg = "#EE9D28" },
 	WinbarIconsOperator = { fg = "#C5C5C5" },
 	WinbarIconsTypeParameter = { fg = "#C5C5C5" },
-	WinbarText = { fg = C.base1B },
-	WinbarSeparator = { fg = C.base1B },
+	WinbarText = { fg = C.winbar_text },
+	WinbarSeparator = { fg = C.winbar_separator },
 }
 
 return winbar

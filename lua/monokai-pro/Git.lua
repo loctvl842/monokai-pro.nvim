@@ -1,10 +1,10 @@
 local Git = {
-		SignAdd = {fg = C.base15, },
-		SignChange = {fg = C.base11, },
-		SignDelete = {fg = C.base0D, },
-		GitSignsAdd = {fg = C.base15, },
-		GitSignsChange = {fg = C.base11, },
-		GitSignsDelete = {fg = C.base0D, },
+	SignAdd = { link = "diffAdded" },
+	SignChange = { link = "diffChanged" },
+	SignDelete = { link = "diffRemoved" },
+	GitSignsAdd = { link = "diffAdded" },
+	GitSignsChange = { link = "diffChanged" },
+	GitSignsDelete = { link = "diffRemoved" },
 }
 
 return Git

@@ -33,6 +33,7 @@ local Treesitter = require("monokai-pro.Treesitter")
 local markdown = require("monokai-pro.markdown")
 local Whichkey = require("monokai-pro.Whichkey")
 local winbar = require("monokai-pro.winbar")
+local toggleterm = require("monokai-pro.toggleterm")
 
 local skeletons = {
 	highlights,
@@ -54,9 +55,10 @@ local skeletons = {
 	SymbolOutline,
 	Telescope,
 	Treesitter,
-  Whichkey,
+	Whichkey,
 	markdown,
 	winbar,
+	toggleterm,
 }
 
 for _, skeleton in ipairs(skeletons) do

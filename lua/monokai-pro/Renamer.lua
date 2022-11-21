@@ -1,7 +1,7 @@
 local Renamer = {
-	RenamerNormal = { fg = C.base1E, bg = C.base03 },
-	RenamerBorder = { fg = C.base13, bg = C.base03 },
-	RenamerTitle = { bg = C.base11, fg = C.base00 },
+	RenamerNormal = { fg = C.white, bg = C.float_bg },
+	RenamerBorder = { fg = C.float_bg, bg = C.float_bg },
+	RenamerTitle = { bg = C.yellow, fg = C.black, style = "bold" },
 }
 
 return Renamer

@@ -1,12 +1,12 @@
 local Packer = {
-	packerString = { fg = C.base12 },
-	packerHash = { fg = C.base12 },
-	packerOutput = { fg = C.base14 },
-	packerRelDate = { fg = C.base10 },
-	packerSuccess = { fg = C.base15 },
-	packerStatusSuccess = { fg = C.base15 },
-	packerStatusFail = { fg = C.base0D, bg = C.base0B },
-	packerFail = { fg = C.base0D, bg = C.base0B },
+	packerString = { fg = C.orange },
+	packerHash = { fg = C.orange },
+	packerOutput = { fg = C.yellow },
+	packerRelDate = { fg = C.magenta },
+	packerSuccess = { fg = C.green },
+	packerStatusSuccess = { fg = C.green },
+	packerStatusFail = { fg = C.red, bg = C.float_bg },
+	packerFail = { fg = C.red, bg = C.float_bg },
 }
 
 return Packer
