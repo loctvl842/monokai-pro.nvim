@@ -22,39 +22,6 @@ local Treesitter = {
 	["@number"] = { fg = C.magenta },
 	["@boolean"] = { fg = C.magenta },
 
-	-- TSNONE = { fg = C.base1E },
-
-	["@function.builtin"] = { fg = C.base18 },
-	["@variable.builtin"] = { fg = C.base1E },
-	["@method"] = { fg = C.base14 },
-	["@punctuation.special"] = { fg = C.base0D },
-	["@constant"] = { fg = C.base1E },
-
-	["@annotation"] = { fg = C.base18 },
-	["@attribute"] = { fg = C.base19 },
-	["@type"] = { fg = C.base19 },
-	["@type.builtin"] = { fg = C.base19 },
-	["@exception"] = { fg = C.base10 },
-	["@label"] = { fg = C.base19 },
-	["@namespace"] = { fg = C.base19 },
-	["@float"] = { fg = C.base15 },
-	["@character"] = { fg = C.base12 },
-	["@error"] = { fg = C.base0D },
-	["@constant.macro"] = { fg = C.base19 },
-	["@function.macro"] = { fg = C.base18 },
-	["@field"] = { fg = C.base19 },
-	["@parameter.reference"] = { fg = C.base19 },
-	["@symbol"] = { fg = C.base19 },
-	["@text"] = { fg = C.base1F },
-	["@string.regex"] = { fg = C.base12 },
-	["@string.escape"] = { fg = C.base12 },
-	["@text.emphasis"] = { style = "italic" },
-	["@text.underline"] = { style = "underline" },
-	["@text.title"] = { fg = C.base1F },
-	["@text.literal"] = { fg = C.base12 },
-	["@text.uri"] = { fg = C.base12, style = "underline" },
-	["@text.strong"] = { fg = C.base19, style = "bold" },
-
 	-- scss
 	["@keyword.scss"] = { fg = C.red },
 	["@function.scss"] = { fg = C.cyan },
@@ -89,11 +56,13 @@ local Treesitter = {
 	["@varibale.builtin.python"] = { fg = C.orange, style = "italic" },
 
 	-- lua
-	["@function.builtin.lua"] = { fg = C.base14 },
-	["@field.lua"] = { fg = C.base1E },
-	["@keyword.lua"] = { fg = C.red },
-	["@variable.lua"] = { fg = C.base1E },
-	["conditional.lua"] = { fg = C.base0D },
+	["@variable.lua"] = { fg = C.white },
+	["@function.builtin.lua"] = { fg = C.green },
+	["@field.lua"] = { fg = C.white },
+	["@keyword.lua"] = { fg = C.red, style = "italic" },
+	["@keyword.function.lua"] = { fg = C.red },
+	["@conditional.lua"] = { fg = C.red },
+	["@namespace.lua"] = { fg = C.red },
 }
 
 return Treesitter
