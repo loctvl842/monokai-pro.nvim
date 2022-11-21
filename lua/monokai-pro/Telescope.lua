@@ -2,7 +2,7 @@ local Telescope = {
 	TelescopeSelection = { bg = C.lineNr, fg = C.yellow },
 
 	TelescopeNormal = { bg = C.float_bg },
-	TelescopeBorder = { fg = C.darkGray, bg = C.float_bg },
+	TelescopeBorder = { fg = C.float_bg, bg = Config.transparent_background and "None" or C.bg },
 	TelescopePromptCounter = { fg = C.red },
 
 	TelescopePromptTitle = { bg = C.yellow, fg = C.black, style = "bold" },

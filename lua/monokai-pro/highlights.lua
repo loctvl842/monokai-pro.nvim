@@ -31,7 +31,7 @@ local highlights = {
 	NormalNC = { bg = Config.transparent_background and "NONE" or C.bg, fg = C.fg },
 	NormalFloat = { bg = Config.transparent_background and "NONE" or C.float_bg }, -- Normal text in floating windows. example PackerNormal
 	FloatBorder = {
-		bg = Config.transparent_background and "NONE" or C.float_bg,
+		bg = Config.transparent_background and "NONE" or C.bg,
 		fg = C.float_bg,
 	},
 	Pmenu = { bg = C.float_bg }, -- Popup menu: normal item.
