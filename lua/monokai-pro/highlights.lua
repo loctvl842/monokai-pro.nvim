@@ -55,7 +55,7 @@ local highlights = {
 	-- TabLine = { bg = config.options.transparency and "NONE" or theme.palette.bg }, -- tab pages line, not active tab page label
 	-- TabLineFill = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg }, -- tab pages line, where there are no labels
 	-- TabLineSel = { bg = theme.palette.purple, fg = theme.palette.bg }, -- tab pages line, active tab page label
-	-- TermCursor = { bg = C.magenta }, -- cursor in a focused terminal
+	TermCursor = { bg = C.termcursor }, -- cursor in a focused terminal
 	-- TermCursorNC = { bg = C.gray }, -- cursor in an unfocused terminal
 	Title = { fg = C.yellow }, -- titles for output from ":set all", ":autocmd"
 	Visual = { bg = C.visual }, -- Visual mode selection

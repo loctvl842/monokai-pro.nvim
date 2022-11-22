@@ -18,8 +18,9 @@ local NeoTree = {
 	NeoTreeGitUntracked = { fg = C.green },
 	NeoTreeIndentMarker = { fg = C.neotree_indent_marker },
 	NeoTreeExpander = { fg = C.neotree_expander },
-	NeoTreeFloatNormal = { bg = C.black, fg = C.lightGray },
-	NeoTreeFloatBorder = { bg = C.black, fg = C.lightBlack },
+
+	NeoTreeFloatNormal = { bg = C.float_bg, fg = C.lightGray },
+	NeoTreeFloatBorder = { bg = Config.transparent_background and "None" or C.black, fg = C.float_bg },
 	NeoTreeFloatTitle = { bg = C.yellow, fg = C.black, style = "bold" },
 
 	NeoTreeTabActive = { bg = C.bg, fg = C.white },

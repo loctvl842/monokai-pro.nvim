@@ -11,6 +11,7 @@ local Telescope = {
 	TelescopeMatching = { fg = C.blue, style = "bold" },
 
 	TelescopePreviewLine = { link = "TelescopeSelection" },
+	TelescopePromptPrefix = { fg = C.cyan },
 }
 
 return Telescope
