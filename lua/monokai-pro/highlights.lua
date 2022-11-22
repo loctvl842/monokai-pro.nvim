@@ -118,7 +118,7 @@ local highlights = {
 	-- Ignore = { }, -- (preferred) left blank, hidden  |hl-Ignore|
 	Italic = { style = "italic" },
 	Error = { fg = C.red }, -- (preferred) any erroneous construct
-	Todo = { fg = C.magenta }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+	Todo = { bg = Config.transparent_background and "None" or C.bg, fg = C.magenta, style = "bold" }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 }
 
 return highlights
