@@ -25,7 +25,7 @@ local highlights = {
 	ModeMsg = { link = "Normal" }, -- 'showmode' message (e.g., "-- INSERT -- ")
 	MsgArea = { link = "ModeMsg" }, -- Area for messages and cmdline
 	MsgSeparator = { link = "ModeMsg" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
-	MoreMsg = { fg = C.green }, -- |more-prompt|
+	MoreMsg = { fg = C.termcursor}, -- |more-prompt| ufo
 	NonText = { fg = C.bg }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|. Example the character space between words
 	Normal = { bg = Config.transparent_background and "NONE" or C.bg, fg = C.fg }, -- normal text
 	NormalNC = { bg = Config.transparent_background and "NONE" or C.bg, fg = C.fg },
