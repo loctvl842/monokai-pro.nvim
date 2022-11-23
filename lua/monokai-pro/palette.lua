@@ -29,6 +29,7 @@ local colors = {
 	gray = "#939293",
 	lightGray = "#C1C0C0",
 
+	-- MONOKAI PRO
 	black = "#221f22",
 	lightBlack = "#727072",
 	red = "#ff6188",
@@ -42,9 +43,45 @@ local colors = {
 	lightMagenta = "#ab9df2",
 	magenta = "#ab9df2",
 	cyan = "#78dce8",
-  lightCyan = "#78dce8",
+	 lightCyan = "#78dce8",
 	white = "#fcfcfa",
 	lightWhite = "#BEBDBD",
+
+	-- MONOKAI CLASSIC
+	-- black = "#1d1e19",
+	-- blue = "#fc961f",
+	-- cyan = "#66d9ee",
+	-- green = "#a6e12d",
+	-- lightBlack = "#6e7066",
+	-- lightBlue = "#fc961f",
+	-- lightCyan = "#66d9ee",
+	-- lightGreen = "#a6e12d",
+	-- lightMagenta = "#ae81ff",
+	-- lightRed = "#f82570",
+	-- lightWhite = "#fdfff1",
+	-- lightYellow = "#e4db73",
+	-- magenta = "#ae81ff",
+	-- red = "#f82570",
+	-- white = "#fdfff1",
+	-- yellow = "#e4db73",
+
+	-- OCTAGON FILTER
+	-- black = "#1e1f2b",
+	-- blue = "#ff9b5e",
+	-- lightBlack = "#696d77",
+	-- lightBlue = "#ff9b5e",
+	-- lightCyan = "#9cd1bb",
+	-- lightGreen = "#bad761",
+	-- lightMagenta = "#c39ac9",
+	-- lightRed = "#ff657a",
+	-- lightWhite = "#eaf2f1",
+	-- lightYellow = "#ffd76d",
+	-- cyan = "#9cd1bb",
+	-- green = "#bad761",
+	-- magenta = "#c39ac9",
+	-- red = "#ff657a",
+	-- white = "#eaf2f1",
+	-- yellow = "#ffd76d",
 }
 
 return colors

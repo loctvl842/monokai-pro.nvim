@@ -23,10 +23,10 @@ local NeoTree = {
 	NeoTreeFloatBorder = { bg = Config.transparent_background and "None" or C.black, fg = C.float_bg },
 	NeoTreeFloatTitle = { bg = C.yellow, fg = C.black, style = "bold" },
 
-	NeoTreeTabActive = { bg = C.darkGray, fg = C.yellow },
-	NeoTreeTabInactive = { bg = C.black, fg = C.lightBlack },
-	NeoTreeTabSeparatorActive = { bg = C.black, fg = C.black },
-	NeoTreeTabSeparatorInactive = { bg = C.black, fg = C.black },
+	NeoTreeTabActive = { bg = C.color_column, fg = C.yellow },
+	NeoTreeTabInactive = { bg = C.color_column, fg = C.lightBlack },
+	NeoTreeTabSeparatorActive = { bg = C.color_column, fg = C.black },
+	NeoTreeTabSeparatorInactive = { bg = C.color_column, fg = C.black },
 }
 
 return NeoTree
