@@ -1,5 +1,5 @@
 local SymbolOutline = {
-	SymbolsOutlineConnector = { fg = C.lineNr },
+	SymbolsOutlineConnector = { fg = C.lineNumberForeground },
 	FocusedSymbol = { bg = "#36383F" },
 }
 

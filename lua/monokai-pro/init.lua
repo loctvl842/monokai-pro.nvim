@@ -1,7 +1,5 @@
-vim.api.nvim_command("hi clear")
-if vim.fn.exists("syntax_on") then
-	vim.api.nvim_command("syntax reset")
-end
+local M = {}
+
 vim.o.background = "dark"
 vim.o.termguicolors = true
 vim.g.colors_name = "monokai-pro"
@@ -10,57 +8,57 @@ local util = require("monokai-pro.util")
 Config = require("monokai-pro.config")
 C = require("monokai-pro.palette")
 
-local highlights = require("monokai-pro.highlights")
+local function generate(theme)
+  C = vim.tbl_deep_extend("force", C, theme)
 
-local alpha = require("monokai-pro.Alpha")
-local BufferLine = require("monokai-pro.BufferLine")
-local Cmp = require("monokai-pro.Cmp")
-local Git = require("monokai-pro.Git")
-local Illuminate = require("monokai-pro.Illuminate")
-local IndentBlankline = require("monokai-pro.IndentBlankline")
-local LSP = require("monokai-pro.LSP")
-local Misc = require("monokai-pro.Misc")
-local NeoTree = require("monokai-pro.NeoTree")
-local Notify = require("monokai-pro.Notify")
-local NvimTree = require("monokai-pro.NvimTree")
-local Packer = require("monokai-pro.Packer")
-local Quickscope = require("monokai-pro.Quickscope")
-local Renamer = require("monokai-pro.Renamer")
-local StatusLine = require("monokai-pro.StatusLine")
-local SymbolOutline = require("monokai-pro.SymbolOutline")
-local Telescope = require("monokai-pro.Telescope")
-local Treesitter = require("monokai-pro.Treesitter")
-local markdown = require("monokai-pro.markdown")
-local Whichkey = require("monokai-pro.Whichkey")
-local winbar = require("monokai-pro.winbar")
-local toggleterm = require("monokai-pro.toggleterm")
+  local plugins = {
+    "Alpha",
+    "BufferLine",
+    "Cmp",
+    "Git",
+    "Illuminate",
+    "IndentBlankline",
+    "LSP",
+    "markdown",
+    "Misc",
+    "NeoTree",
+    "Notify",
+    "NvimTree",
+    "Packer",
+    "Quickscope",
+    "Renamer",
+    "StatusLine",
+    "SymbolOutline",
+    "Telescope",
+    "toggleterm",
+    "Treesitter",
+    "Whichkey",
+    "winbar",
+    "loc",
+  }
 
-local skeletons = {
-	highlights,
-	alpha,
-	BufferLine,
-	Cmp,
-	Git,
-	Illuminate,
-	IndentBlankline,
-	LSP,
-	Misc,
-	NeoTree,
-	Notify,
-	NvimTree,
-	Packer,
-	Quickscope,
-	Renamer,
-	StatusLine,
-	SymbolOutline,
-	Telescope,
-	Treesitter,
-	Whichkey,
-	markdown,
-	winbar,
-	toggleterm,
-}
+  local editor = require("monokai-pro.editor")
+  local skeletons = { editor }
 
-for _, skeleton in ipairs(skeletons) do
-	util.initialise(skeleton)
+  for _, p in ipairs(plugins) do
+    local plugin_ok, pluginConfig = pcall(require, "monokai-pro.plugins." .. p)
+    if not plugin_ok then
+      goto continue
+    end
+    table.insert(skeletons, pluginConfig)
+    ::continue::
+  end
+
+  for _, skeleton in ipairs(skeletons) do
+    util.initialise(skeleton)
+  end
 end
+
+function M.setup(user_config)
+  Config = vim.tbl_deep_extend("force", Config, user_config)
+  local theme = require('monokai-pro.themes.monokai-' .. Config.theme)
+  generate(theme)
+  vim.cmd('colorscheme monokai-pro')
+end
+
+return M

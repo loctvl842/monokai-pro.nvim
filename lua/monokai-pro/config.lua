@@ -12,12 +12,18 @@ local function opt(key, default)
 	return vim.g[key]
 end
 
+-- config = {
+-- 	transparent_background = opt("transparent_background", false),
+-- 	italic_comments = opt("italic_keywords", true) and "italic" or "NONE",
+-- 	italic_keywords = opt("italic_keywords", true) and "italic" or "NONE",
+-- 	italic_functions = opt("italic_function", false) and "italic" or "NONE",
+-- 	italic_variables = opt("italic_variables", true) and "italic" or "NONE",
+-- }
+
 config = {
-	transparent_background = opt("transparent_background", false),
-	italic_comments = opt("italic_keywords", true) and "italic" or "NONE",
-	italic_keywords = opt("italic_keywords", true) and "italic" or "NONE",
-	italic_functions = opt("italic_function", false) and "italic" or "NONE",
-	italic_variables = opt("italic_variables", true) and "italic" or "NONE",
+  transparent_background = true,
+  italic_comments = true,
+  theme = "monokai-pro"
 }
 
 return config

@@ -1,8 +1,8 @@
 local markdown = {
 	markdownBlockquote = { fg = C.green },
-	markdownCode = { fg = C.orange },
-	markdownCodeBlock = { fg = C.orange },
-	markdownCodeDelimiter = { fg = C.orange },
+	markdownCode = { fg = C.blue },
+	markdownCodeBlock = { fg = C.blue },
+	markdownCodeDelimiter = { fg = C.blue },
 	markdownH1 = { fg = C.blue },
 	markdownH2 = { fg = C.blue },
 	markdownH3 = { fg = C.blue },
@@ -17,15 +17,15 @@ local markdown = {
 	markdownLinkDelimiter = { fg = C.lightBlack },
 	markdownBold = { fg = C.cyan, style = "bold" },
 	markdownItalic = { style = "italic" },
-	markdownBoldItalic = { fg = C.orange, style = "bold,italic" },
+	markdownBoldItalic = { fg = C.blue, style = "bold,italic" },
 	markdownListMarker = { fg = C.cyan },
 	markdownOrderedListMarker = { fg = C.cyan },
 	markdownRule = { fg = C.lightGray },
 	markdownUrl = { fg = C.cyan, style = "underline" },
 	markdownLinkText = { fg = C.cyan },
-	markdownFootnote = { fg = C.orange },
-	markdownFootnoteDefinition = { fg = C.orange },
-	markdownEscape = { fg = C.orange },
+	markdownFootnote = { fg = C.blue },
+	markdownFootnoteDefinition = { fg = C.blue },
+	markdownEscape = { fg = C.blue },
 }
 
 return markdown

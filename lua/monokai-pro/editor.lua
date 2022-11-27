@@ -1,50 +1,50 @@
-local highlights = {
-	ColorColumn = { bg = C.color_column }, -- used for the columns set with 'colorcolumn'
+local editor = {
+	ColorColumn = { bg = C.background }, -- used for the columns set with 'colorcolumn'
 	-- Conceal      = {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
 	Cursor = { bg = C.red, fg = C.red }, -- character under the cursor
 	-- lCursor      = {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
 	-- CursorIM     = {bg = theme.palette.red}, -- like Cursor, but used when in IME mode |CursorIM|
-	CursorColumn = { bg = C.bg }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-	CursorLine = { bg = C.cursorline }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-	CursorLineNr = { bg = C.bg, fg = C.lightGray }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+	CursorColumn = { bg = C.background }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+	CursorLine = { bg = C.lineHighlightBackground }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+	CursorLineNr = { bg = C.background, fg = C.lineNumberActiveForeground }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 	-- CursorLineNrNC = { bg = C.bg, fg = C.lightGray }, -- CursorLineNr for inactive windows
 	-- Directory = { fg = C.blue }, -- directory names (and other special names in listings)
 	-- DiffAdd = { bg = C.diff_add }, -- diff mode: Added line |diff.txt|
 	-- DiffChange = { }, -- diff mode: Changed line |diff.txt|
 	-- DiffDelete = { bg = C.diff_delete },
 	-- DiffText = { bg = C.diff_text }, -- diff mode: Changed text within a changed line |diff.txt|
-	EndOfBuffer = { fg = C.bg }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
-	ErrorMsg = { bg = C.bg, fg = C.red }, -- error messages on the command line
-	VertSplit = { bg = Config.transparent_background and "NONE" or C.bg, fg = C.black }, -- the column separating vertically split windows
-	Folded = { bg = C.folded }, -- line used for closed folds
-	FoldColumn = { bg = Config.transparent_background and "NONE" or C.bg, fg = C.lightGray }, -- 'foldcolumn'
-	SignColumn = { bg = Config.transparent_background and "NONE" or C.bg }, -- column where |signs| are displayed
+	EndOfBuffer = { fg = C.background }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
+	ErrorMsg = { bg = C.background, fg = C.red }, -- error messages on the command line
+	VertSplit = { bg = Config.transparent_background and "NONE" or C.background, fg = C.black }, -- the column separating vertically split windows
+	Folded = { bg = C.foldBackground }, -- line used for closed folds
+	FoldColumn = { bg = Config.transparent_background and "NONE" or C.background, fg = C.lightGray }, -- 'foldcolumn'
+	SignColumn = { bg = Config.transparent_background and "NONE" or C.background }, -- column where |signs| are displayed
 	-- Substitute = { bg = C.yellow, fg = C.bg }, -- |:substitute| replacement text highlighting
-	LineNr = { bg = Config.transparent_background and "NONE" or C.bg, fg = C.lineNr }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+	LineNr = { bg = Config.transparent_background and "NONE" or C.background, fg = C.lineNumberForeground }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 	MatchParen = { fg = C.black, bg = C.blue }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
 	ModeMsg = { link = "Normal" }, -- 'showmode' message (e.g., "-- INSERT -- ")
 	MsgArea = { link = "ModeMsg" }, -- Area for messages and cmdline
 	MsgSeparator = { link = "ModeMsg" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
-	MoreMsg = { fg = C.termcursor}, -- |more-prompt| ufo
-	NonText = { fg = C.bg }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|. Example the character space between words
-	Normal = { bg = Config.transparent_background and "NONE" or C.bg, fg = C.fg }, -- normal text
-	NormalNC = { bg = Config.transparent_background and "NONE" or C.bg, fg = C.fg },
-	NormalFloat = { bg = Config.transparent_background and "NONE" or C.float_bg }, -- Normal text in floating windows. example PackerNormal
+	MoreMsg = { fg = C.termcursor }, -- |more-prompt| ufo
+	NonText = { fg = C.background }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|. Example the character space between words
+	Normal = { bg = Config.transparent_background and "NONE" or C.background, fg = C.white }, -- normal text
+	NormalNC = { bg = Config.transparent_background and "NONE" or C.background, fg = C.white },
+	NormalFloat = { bg = C.hoverWidgetBackground }, -- Normal text in floating windows. example PackerNormal
 	FloatBorder = {
-		bg = Config.transparent_background and "NONE" or C.bg,
-		fg = C.float_bg,
+		bg = Config.transparent_background and "NONE" or C.background,
+		fg = C.hoverWidgetBackground,
 	},
-	Pmenu = { bg = C.float_bg }, -- Popup menu: normal item.
-	PmenuSel = { bg = C.lightBlack },
-	PmenuSbar = { bg = C.float_bg }, -- Popup menu: scrollbar.
+	Pmenu = { bg = C.suggestWidgetBackground, fg = C.suggestWidgetForeground }, -- Popup menu: normal item.
+	PmenuSel = { bg = C.suggestWidgetSelectedBackground },
+	PmenuSbar = { bg = C.hoverWidgetBackground }, -- Popup menu: scrollbar.
 	PmenuThumb = { bg = C.darkGray },
 	-- Question = { bg = Config.transparent_background and "NONE" or C.bg, fg = C.gray }, -- |hit-enter| prompt and yes/no questions
 	-- QuickFixLine = { bg = C.bg }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 	-- QuickFixLineNC = { bg = C.bg }, -- QuickFixLine, for inactive windows
-	Search = { bg = C.selection, fg = C.lightWhite }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+	Search = { bg = C.findMatchHighlightBackground, fg = C.lightWhite }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
 	-- SpecialKey   = {}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
 	-- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-	IncSearch = { bg = C.white, fg = C.lightBlack }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+	IncSearch = { bg = C.white, fg = C.findMatchBackground }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 	-- StatusLine = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg, style = "bold" }, -- status line of current window
 	-- StatusLineNC = {
 	--     bg = config.options.transparency and "NONE"
@@ -58,13 +58,12 @@ local highlights = {
 	TermCursor = { bg = C.termcursor }, -- cursor in a focused terminal
 	-- TermCursorNC = { bg = C.gray }, -- cursor in an unfocused terminal
 	Title = { fg = C.yellow }, -- titles for output from ":set all", ":autocmd"
-	Visual = { bg = C.visual }, -- Visual mode selection
+	Visual = { bg = C.selectionBackground }, -- Visual mode selection
 	VisualNOS = { link = "Visual" }, -- Visual mode selection when vim is "Not Owning the Selection".
-	WarningMsg = { fg = C.orange }, -- warning messages
-	WinBar = { bg = Config.transparent_background and "NONE" or C.bg, fg = C.fg },
-	WinBarNC = { bg = Config.transparent_background and "NONE" or C.bg, fg = C.fg },
-	WinSeparator = { bg = Config.transparent_background and "NONE" or C.bg, fg = C.black }, -- the column separating windows
-	Whitespace = { fg = C.bg }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
+	WarningMsg = { fg = C.yellow }, -- warning messages
+	WinBar = { bg = Config.transparent_background and "NONE" or C.background, fg = C.breadcrumbForeground },
+	WinSeparator = { bg = Config.transparent_background and "NONE" or C.background, fg = C.black }, -- the column separating windows
+	Whitespace = { fg = C.background }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
 	-- WildMenu = { bg = C.blue, fg = C.black }, -- current match in 'wildmenu' completion
 
 	-- Git
@@ -83,7 +82,7 @@ local highlights = {
 
 	-- syntax
 	Comment = { fg = C.comment, style = "italic" }, -- Comments
-	Constant = { fg = C.orange }, -- (preferred) any constant
+	Constant = { fg = C.blue }, -- (preferred) any constant
 	String = { fg = C.yellow }, --   a string constant: "this is a string"
 	Character = { fg = C.magenta }, -- a character constant: 'c', '\n'
 	Number = { fg = C.magenta }, -- a number constant: 234, 0xff
@@ -108,9 +107,9 @@ local highlights = {
 	Structure = { fg = C.cyan, style = "italic" }, -- struct, union, enum, etc
 	Typedef = { fg = C.red }, -- A typedef
 	Special = { fg = C.blue }, -- (preferred) any special symbol
-	SpecialChar = { fg = C.orange }, -- special character in a constant
+	SpecialChar = { fg = C.blue }, -- special character in a constant
 	-- Tag = {}, -- you can use CTRL-] on this
-	Delimiter = { fg = C.fg }, -- character that needs attention
+	Delimiter = { fg = C.white }, -- character that needs attention
 	SpecialComment = { fg = C.comment }, -- special things inside a comment
 	-- Debug = {}, -- debugging statements
 	Underlined = { style = "underline" }, -- (preferred) text that stands out, HTML links
@@ -118,7 +117,7 @@ local highlights = {
 	-- Ignore = { }, -- (preferred) left blank, hidden  |hl-Ignore|
 	Italic = { style = "italic" },
 	Error = { fg = C.red }, -- (preferred) any erroneous construct
-	Todo = { bg = Config.transparent_background and "None" or C.bg, fg = C.magenta, style = "bold" }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+	Todo = { bg = Config.transparent_background and "None" or C.background, fg = C.magenta, style = "bold" }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 }
 
-return highlights
+return editor

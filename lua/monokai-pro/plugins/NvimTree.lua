@@ -8,7 +8,7 @@ local NvimTree = {
 	NvimTreeEmptyFolderName = { fg = C.lighBlack, style = "italic" },
 	NvimTreeGitIgnored = { fg = C.lighBlack, style = "italic" },
 	NvimTreeImageFile = { fg = C.lightWhite },
-	NvimTreeSpecialFile = { fg = C.orange },
+	NvimTreeSpecialFile = { fg = C.blue },
 	NvimTreeEndOfBuffer = { fg = C.black },
 	NvimTreeCursorLine = { bg = "#2A2D2E" },
 	NvimTreeGitignoreIcon = { fg = "#E64A19" },

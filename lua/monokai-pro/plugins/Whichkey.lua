@@ -1,9 +1,9 @@
 local Whichkey = {
-	WhichKey = { fg = C.orange },
+	WhichKey = { fg = C.blue },
 	WhichKeySeperator = { fg = C.red },
 	WhichKeyGroup = { fg = C.magenta },
 	WhichKeyDesc = { fg = C.yellow },
-	WhichKeyFloat = { bg = C.float_bg },
+	WhichKeyFloat = { bg = C.hoverWidgetBackground },
 }
 
 return Whichkey

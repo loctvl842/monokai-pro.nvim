@@ -1,13 +1,13 @@
 local Cmp = {
-	CmpItemAbbrMatch = { fg = C.orange, style = "bold" },
+	CmpItemAbbrMatch = { fg = C.suggestWidgetHighlightForeground, style = "bold" },
 
 	CmpItemAbbrDeprecated = { fg = C.lightBlack, style = "strikethrough" },
 	CmpItemAbbrMatchFuzzy = { fg = C.blue },
 	CmpItemKindFunction = { fg = C.magenta },
 	CmpItemKindMethod = { fg = C.magenta },
-	CmpItemKindConstructor = { fg = C.orange },
-	CmpItemKindClass = { fg = C.orange },
-	CmpItemKindEnum = { fg = C.orange },
+	CmpItemKindConstructor = { fg = C.blue },
+	CmpItemKindClass = { fg = C.blue },
+	CmpItemKindEnum = { fg = C.blue },
 	CmpItemKindEvent = { fg = C.magenta },
 	CmpItemKindInterface = { fg = C.cyan },
 	CmpItemKindStruct = { fg = C.cyan },

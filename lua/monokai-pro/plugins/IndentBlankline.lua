@@ -3,7 +3,7 @@ local IndentBlankline = {
 	IndentBlanklineContextChar = { fg = C.indent_blankline_contextchar },
 
 	IndentBlanklineContextStart = { style = "underline" },
-	IndentBlanklineSpaceChar = { fg = C.bg }, -- highlight the character Tab
+	IndentBlanklineSpaceChar = { fg = C.background }, -- highlight the character Tab
 	-- IndentBlanklineSpaceCharBlankline = { fg = C.yellow },
 }
 
