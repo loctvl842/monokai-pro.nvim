@@ -25,7 +25,7 @@ local editor = {
 	ModeMsg = { link = "Normal" }, -- 'showmode' message (e.g., "-- INSERT -- ")
 	MsgArea = { link = "ModeMsg" }, -- Area for messages and cmdline
 	MsgSeparator = { link = "ModeMsg" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
-	MoreMsg = { fg = C.termcursor }, -- |more-prompt| ufo
+	MoreMsg = { fg = C.yellow }, -- |more-prompt| ufo
 	NonText = { fg = C.background }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|. Example the character space between words
 	Normal = { bg = Config.transparent_background and "NONE" or C.background, fg = C.white }, -- normal text
 	NormalNC = { bg = Config.transparent_background and "NONE" or C.background, fg = C.white },
@@ -37,7 +37,7 @@ local editor = {
 	Pmenu = { bg = C.suggestWidgetBackground, fg = C.suggestWidgetForeground }, -- Popup menu: normal item.
 	PmenuSel = { bg = C.suggestWidgetSelectedBackground },
 	PmenuSbar = { bg = C.hoverWidgetBackground }, -- Popup menu: scrollbar.
-	PmenuThumb = { bg = C.darkGray },
+	PmenuThumb = { bg = C.scrollbarSliderBackground },
 	-- Question = { bg = Config.transparent_background and "NONE" or C.bg, fg = C.gray }, -- |hit-enter| prompt and yes/no questions
 	-- QuickFixLine = { bg = C.bg }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 	-- QuickFixLineNC = { bg = C.bg }, -- QuickFixLine, for inactive windows
@@ -55,13 +55,17 @@ local editor = {
 	-- TabLine = { bg = config.options.transparency and "NONE" or theme.palette.bg }, -- tab pages line, not active tab page label
 	-- TabLineFill = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg }, -- tab pages line, where there are no labels
 	-- TabLineSel = { bg = theme.palette.purple, fg = theme.palette.bg }, -- tab pages line, active tab page label
-	TermCursor = { bg = C.termcursor }, -- cursor in a focused terminal
+	TermCursor = { fg = "#44c9ad" }, -- cursor in a focused terminal
 	-- TermCursorNC = { bg = C.gray }, -- cursor in an unfocused terminal
 	Title = { fg = C.yellow }, -- titles for output from ":set all", ":autocmd"
 	Visual = { bg = C.selectionBackground }, -- Visual mode selection
 	VisualNOS = { link = "Visual" }, -- Visual mode selection when vim is "Not Owning the Selection".
 	WarningMsg = { fg = C.yellow }, -- warning messages
-	WinBar = { bg = Config.transparent_background and "NONE" or C.background, fg = C.breadcrumbForeground },
+	WinBar = {
+		bg = Config.transparent_background and "NONE" or C.background,
+		fg = C.breadcrumbForeground,
+		style = "NONE",
+	},
 	WinSeparator = { bg = Config.transparent_background and "NONE" or C.background, fg = C.black }, -- the column separating windows
 	Whitespace = { fg = C.background }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
 	-- WildMenu = { bg = C.blue, fg = C.black }, -- current match in 'wildmenu' completion
@@ -81,8 +85,8 @@ local editor = {
 	SpellRare = { fg = C.red, sp = C.red, style = "undercurl" },
 
 	-- syntax
-	Comment = { fg = C.comment, style = "italic" }, -- Comments
-	Constant = { fg = C.blue }, -- (preferred) any constant
+	Comment = { fg = C.lightBlack, style = Config.italic_comments and "italic" or "NONE" }, -- Comments
+	Constant = { fg = C.magenta }, -- (preferred) any constant
 	String = { fg = C.yellow }, --   a string constant: "this is a string"
 	Character = { fg = C.magenta }, -- a character constant: 'c', '\n'
 	Number = { fg = C.magenta }, -- a number constant: 234, 0xff
@@ -110,7 +114,7 @@ local editor = {
 	SpecialChar = { fg = C.blue }, -- special character in a constant
 	-- Tag = {}, -- you can use CTRL-] on this
 	Delimiter = { fg = C.white }, -- character that needs attention
-	SpecialComment = { fg = C.comment }, -- special things inside a comment
+	SpecialComment = { fg = C.lightBlack }, -- special things inside a comment
 	-- Debug = {}, -- debugging statements
 	Underlined = { style = "underline" }, -- (preferred) text that stands out, HTML links
 	Bold = { style = "bold" },

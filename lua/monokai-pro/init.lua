@@ -8,6 +8,14 @@ local util = require("monokai-pro.util")
 Config = require("monokai-pro.config")
 C = require("monokai-pro.palette")
 
+local function applyLualineTheme(theme)
+  local lualine_ok, lualine = pcall(require, "lualine")
+  if not lualine_ok then
+    return
+  end
+  lualine.setup({ options = { theme = "monokai-" .. theme } })
+end
+
 local function generate(theme)
   C = vim.tbl_deep_extend("force", C, theme)
 
@@ -56,8 +64,9 @@ end
 
 function M.setup(user_config)
   Config = vim.tbl_deep_extend("force", Config, user_config)
-  local theme = require('monokai-pro.themes.monokai-' .. Config.theme)
-  generate(theme)
+  local theme_palette = require('monokai-pro.themes.monokai-' .. Config.theme)
+  generate(theme_palette)
+  applyLualineTheme(Config.theme)
   vim.cmd('colorscheme monokai-pro')
 end
 

@@ -5,9 +5,9 @@ local NeoTree = {
 	NeoTreeNormalNC = { bg = C.sideBarBackground, fg = C.sideBarForeground },
 	NeoTreeSignColumn = { bg = C.sideBarBackground, fg = C.sideBarForeground },
 	NeoTreeStatusLine = { bg = "#414339", fg = C.sideBarBackground },
-	NeoTreeCursor = { bg = C.activeSelectionBackground },
-	NeoTreeCursorLine = { bg = C.activeSelectionBackground },
-	NeoTreeCursorLineSign = { bg = C.activeSelectionBackground },
+	NeoTreeCursor = { bg = C.listActiveSelectionBackground },
+	NeoTreeCursorLine = { bg = C.listActiveSelectionBackground },
+	NeoTreeCursorLineSign = { bg = C.listActiveSelectionBackground },
 	NeoTreeWinSeparator = {
 		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.background,
@@ -17,8 +17,8 @@ local NeoTree = {
 	NeoTreeDirectoryName = { fg = C.sideBarForeground },
 	NeoTreeGitModified = { fg = C.yellow },
 	NeoTreeGitUntracked = { fg = C.green },
-	NeoTreeIndentMarker = { fg = C.neotree_indent_marker },
-	NeoTreeExpander = { fg = C.neotree_expander },
+	NeoTreeIndentMarker = { link = "IndentBlanklineChar" },
+	NeoTreeExpander = { link = "NeoTreeDirectoryIcon" },
 
 	NeoTreeFloatNormal = { bg = C.hoverWidgetBackground, fg = C.sideBarForeground },
 	NeoTreeFloatBorder = {

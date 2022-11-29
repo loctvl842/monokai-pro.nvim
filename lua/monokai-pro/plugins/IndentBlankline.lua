@@ -1,6 +1,6 @@
 local IndentBlankline = {
-	IndentBlanklineChar = { fg = C.indent_blankline_char },
-	IndentBlanklineContextChar = { fg = C.indent_blankline_contextchar },
+	IndentBlanklineChar = { fg = C.indentGuideBackground },
+	IndentBlanklineContextChar = { fg = C.indentGuideActiveBackground },
 
 	IndentBlanklineContextStart = { style = "underline" },
 	IndentBlanklineSpaceChar = { fg = C.background }, -- highlight the character Tab

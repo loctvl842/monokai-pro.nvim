@@ -7,6 +7,7 @@ local BufferLine = {
 	Offset = { bg = C.black, fg = C.lightGray }, -- Explorer appear in tree setup by bufferline
 
 	BufferLineFill = { bg = C.black },
+
 	BufferLineBackground = {
 		bg = C.bufferline_background,
 		fg = utils.blend(C.white, C.bufferline_background, normalAlpha),
@@ -106,6 +107,27 @@ local BufferLine = {
 	BufferLineInfoDiagnostic = { link = "BufferLineInfo" },
 	BufferLineInfoDiagnosticVisible = { link = "BufferLineInfoVisible" },
 	BufferLineInfoDiagnosticSelected = { link = "BufferLineInfoSelected" },
+
+	BufferLinePick = {
+		bg = C.bufferline_background,
+		fg = C.red,
+		style = "bold",
+	},
+	BufferLinePickVisible = {
+		bg = C.background,
+		fg = C.red,
+		style = "bold",
+	},
+	BufferLinePickSelected = {
+		bg = C.background,
+		fg = C.red,
+		style = "bold",
+	},
+
+	BufferLineTabClose = {
+		bg = C.black,
+		fg = C.black,
+	},
 }
 
 return BufferLine

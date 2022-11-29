@@ -1,5 +1,6 @@
 local Illuminate = {
-	IlluminatedWordRead = { bg = C.findMatchHighlightBackground, gui = "" },
-	IlluminatedWordText = { bg = C.findMatchHighlightBackground, gui = "" },
+	IlluminatedWordRead = { bg = C.wordHighlightBackground, style = "NONE" },
+	IlluminatedWordText = { bg = C.wordHighlightBackground, style = "NONE" },
+	IlluminatedWordWrite = { bg = C.wordHighlightBackground, style = "NONE" },
 }
 return Illuminate

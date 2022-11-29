@@ -1,6 +1,6 @@
 local colors = {
-	background = "#2d2a2e",
-	foreground = "#fcfcfa",
+	background = "#272822",
+	foreground = "#fdfff1",
 }
 -- LuaFormatter on
 return {
@@ -19,3 +19,4 @@ return {
 		c = { fg = colors.background, bg = colors.background },
 	},
 }
+

@@ -40,6 +40,23 @@ function M.hexExtend(hexColor, background)
 	return M.blend(hex6, background, alpha)
 end
 
+function M.lightenDarkenColor(color, amt)
+	color = hexToRgb(color)
+	color.r = (color.r + amt > 255) and 255 or (color.r + amt)
+	color.g = (color.g + amt > 255) and 255 or (color.g + amt)
+	color.b = (color.b + amt > 255) and 255 or (color.b + amt)
+
+	color.r = (color.r < 0) and 0 or color.r
+	color.g = (color.g < 0) and 0 or color.g
+	color.b = (color.b < 0) and 0 or color.b
+
+	-- rgb to hex
+	local red = string.format("%02x", color.r)
+	local green = string.format("%02x", color.g)
+	local blue = string.format("%02x", color.b)
+	return "#" .. red .. green .. blue
+end
+
 local function highlight(group, properties)
 	local link = properties.link
 	if link ~= nil then
