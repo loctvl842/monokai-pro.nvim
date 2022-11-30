@@ -7,3 +7,9 @@
         </a>
     </div>
 </div>
+Reference [loc](https://monokai.pro/)
+
+## 📦 Installation
+```lua
+use("loctvl842/monokai-pro.nvim", requires = {"nvim-tree/nvim-web-devicons"})
+```
