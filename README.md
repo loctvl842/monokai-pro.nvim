@@ -7,9 +7,37 @@
         </a>
     </div>
 </div>
-Reference [loc](https://monokai.pro/)
+
+Credit goes to the original creator [Monokai Pro](https://monokai.pro/)
 
 ## 📦 Installation
 ```lua
-use("loctvl842/monokai-pro.nvim", requires = {"nvim-tree/nvim-web-devicons"})
+use("loctvl842/monokai-pro.nvim")
 ```
+
+## ⚙️ Configuration
+## Config
+
+There are several themes included in this plugin.
+
+* [Pro](#Pro) – Monokai Pro *(default)*
+* [Octagon](#Octagon) – Monokai Pro (Filter Octagon)
+* [Machine](#Machine) – Monokai Pro (Filter Machine)
+* [Ristretto](#Ristretto) – Monokai Pro (Filter Machine)
+* [Spectrum](#Spectrum) – Monokai Pro (Filter Machine)
+* [Classic](#Classic) – Monokai Classic
+
+Example configuration:
+
+```lua
+require("monokai-pro").setup({
+	transparent_background = false, -- better set to false
+	italic_comments = true,
+	theme = "octagon", -- classic | octagon | pro | machine | ristretto | spectrum
+})
+```
+
+## Classic
+## Octagon
+## Pro
+## Machine
