@@ -37,7 +37,20 @@ require("monokai-pro").setup({
 })
 ```
 
-## Classic
-## Octagon
 ## Pro
+![image](./assets/pro.png)
+
+## Octagon
+![image](./assets/octagon.png)
+
 ## Machine
+![image](./assets/machine.png)
+
+## Ristretto
+![image](./assets/ristretto.png)
+
+## Spectrum
+![image](./assets/spectrum.png)
+
+## Classic
+![image](./assets/classic.png)
