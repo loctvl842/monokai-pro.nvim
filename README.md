@@ -1,5 +1,5 @@
 <body>
-<div class="container">
+<div align="center">
 <div class="b-header">
   <a class="active" href="https://monokai.pro/">
     <div class="b-header__logo"></div>
