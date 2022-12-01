@@ -41,8 +41,7 @@ local function generate(theme)
     "toggleterm",
     "Treesitter",
     "Whichkey",
-    "winbar",
-    "loc",
+    "breadcrumb",
   }
 
   local editor = require("monokai-pro.editor")
