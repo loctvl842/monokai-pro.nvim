@@ -26,7 +26,7 @@ local monokai_spectrum = {
 
 	bufferline_background = util.lightenDarkenColor("#222222", 15),
 
-	black = "#211c1c",
+	black = "#191919",
 	blue = "#fd9353",
 	lightBlack = "#69676c",
 	lightBlue = "#fd9353",
