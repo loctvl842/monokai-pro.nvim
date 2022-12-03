@@ -3,7 +3,7 @@ local Misc = {
 	sassProperty = { fg = C.green },
 	cssProp = { fg = C.green },
 	cssPositioningAttr = { fg = C.cyan },
-	cssCustomProp = { fg = C.lightGray },
+	cssCustomProp = { fg = C.sideBarForeground },
 	sassClass = { fg = C.blue },
 
 	sassInclude = { fg = C.red },

@@ -20,7 +20,6 @@ local markdown = {
 	markdownBoldItalic = { fg = C.blue, style = "bold,italic" },
 	markdownListMarker = { fg = C.cyan },
 	markdownOrderedListMarker = { fg = C.cyan },
-	markdownRule = { fg = C.lightGray },
 	markdownUrl = { fg = C.cyan, style = "underline" },
 	markdownLinkText = { fg = C.cyan },
 	markdownFootnote = { fg = C.blue },

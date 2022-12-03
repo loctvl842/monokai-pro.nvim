@@ -13,7 +13,7 @@ local StatusLine = {
 	SLShiftWidth = { fg = C.yellow, bg = C.hoverWidgetBackground },
 	SLEncoding = { fg = C.green, bg = C.hoverWidgetBackground },
 	SLFiletype = { fg = C.cyan, bg = C.hoverWidgetBackground },
-	SLMode = { fg = C.yellow, bg = C.background },
+	SLMode = { fg = C.yellow, bg = C.background, style="bold" },
 	SLSeparatorUnused = { fg = C.background, bg = C.hoverWidgetBackground },
 	SLPadding = { fg = C.background, bg = C.background },
 }
