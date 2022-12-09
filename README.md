@@ -36,6 +36,14 @@ require("monokai-pro").setup({
 	transparent_background = false, -- better set to false
 	italic_comments = true,
 	theme = "octagon", -- classic | octagon | pro | machine | ristretto | spectrum
+	diagnostic = {
+		background = true, -- highlight background of diagnostic
+	},
+    plugins = {
+        bufferline = {
+            underline_selected = true,
+        }
+    }
 })
 ```
 
@@ -81,6 +89,7 @@ require("monokai-pro").setup({
 ![image](./assets/classic.png)
 
 ## TODO
+
 - [ ] Fix icons in bufferline
 - [ ] options for border in Telescope (float, get_theme)
 - [ ] options for border in NeoTree
@@ -89,4 +98,3 @@ require("monokai-pro").setup({
 - [ ] fix bufferlineCloseButtonVisible
 - [ ] fix lualine theme
 - [ ] options for border in whichkey
-

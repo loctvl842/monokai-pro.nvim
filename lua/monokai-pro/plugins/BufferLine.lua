@@ -46,38 +46,44 @@ local BufferLine = {
 		fg = C.white,
 	},
 	BufferLineCloseButtonVisible = {
-		bg = C.background,
+		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.white,
 	},
 	BufferLineCloseButtonSelected = {
-		bg = C.background,
+		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.yellow,
 		style = isSelectedUnderlined and "underline" or "NONE",
 		sp = C.yellow,
 	},
 
+  -- separator
 	BufferLineSeparator = {
 		bg = C.bufferline_background,
 		fg = C.black,
 	},
 	BufferLineSeparatorVisible = {
-		bg = C.background,
+		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.black,
 	},
 	BufferLineSeparatorSelected = {
-		bg = C.background,
+		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.black,
 		style = isSelectedUnderlined and "underline" or "NONE",
 		sp = C.yellow,
 	},
 
+  -- Modified
 	BufferLineModified = {
 		bg = C.bufferline_background,
-		fg = C.lightGray,
-	},
-	BufferLineModifiedSelected = {
-		bg = C.background,
 		fg = C.white,
+	},
+  BufferLineModifiedVisible = {
+		bg = Config.transparent_background and "NONE" or C.background,
+		fg = C.white,
+  },
+	BufferLineModifiedSelected = {
+		bg = Config.transparent_background and "NONE" or C.background,
+		fg = C.yellow,
 		style = isSelectedUnderlined and "underline" or "NONE",
 		sp = C.yellow,
 	},
@@ -92,7 +98,7 @@ local BufferLine = {
 		fg = utils.blend(C.inputValidationWarningForeground, C.background, visibleAlpha),
 	},
 	BufferLineWarningSelected = {
-		bg = C.background,
+		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.inputValidationWarningForeground,
 		style = isSelectedUnderlined and "underline" or "NONE",
 		sp = C.yellow,
@@ -112,6 +118,7 @@ local BufferLine = {
 		fg = utils.blend(C.inputValidationErrorForeground, C.background, visibleAlpha),
 	},
 	BufferLineErrorSelected = {
+		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.inputValidationErrorForeground,
 		style = "underline",
 		sp = C.yellow,
@@ -131,7 +138,7 @@ local BufferLine = {
 		fg = utils.blend(C.inputValidationInfoForeground, C.background, visibleAlpha),
 	},
 	BufferLineHintSelected = {
-		bg = C.background,
+		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.inputValidationInfoForeground,
 		style = "underline",
 		sp = C.yellow,
@@ -151,7 +158,7 @@ local BufferLine = {
 		fg = utils.blend(C.inputValidationInfoForeground, C.background, visibleAlpha),
 	},
 	BufferLineInfoSelected = {
-		bg = C.background,
+		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.inputValidationInfoForeground,
 		style = "underline",
 		sp = C.yellow,
@@ -167,12 +174,12 @@ local BufferLine = {
 		style = "bold",
 	},
 	BufferLinePickVisible = {
-		bg = C.background,
+		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.red,
 		style = "bold",
 	},
 	BufferLinePickSelected = {
-		bg = C.background,
+		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.red,
 		style = "underline",
 		sp = C.yellow,
@@ -189,11 +196,11 @@ local BufferLine = {
 		fg = C.bufferline_background,
 	},
 	BufferLineIndicatorVisible = {
-		bg = C.background,
+		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.background,
 	},
 	BufferLineIndicatorSelected = {
-		bg = C.background,
+		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.yellow,
 		style = "underline",
 		sp = C.yellow,
