@@ -26,6 +26,11 @@ config = {
   theme = "pro",
   diagnostic = {
     background = true,
+  },
+  plugins = {
+    bufferline = {
+      underline_selected = true,
+    }
   }
 }
 

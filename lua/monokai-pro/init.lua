@@ -8,15 +8,7 @@ local util = require("monokai-pro.util")
 Config = require("monokai-pro.config")
 C = require("monokai-pro.palette")
 
-local function applyLualineTheme(theme)
-  local lualine_ok, lualine = pcall(require, "lualine")
-  if not lualine_ok then
-    return
-  end
-  lualine.setup({ options = { theme = "monokai-" .. theme } })
-end
-
-local function highlightBufferLineIcon(theme_palette)
+local function highlightBufferLineIcon(theme_palette, config)
   local icon_ok, webDevicons = pcall(require, "nvim-web-devicons")
   if icon_ok then
     vim.api.nvim_create_autocmd("BufEnter", {
@@ -34,13 +26,13 @@ local function highlightBufferLineIcon(theme_palette)
             fg = icon_color,
           },
           ["BufferLine" .. icon_name .. "Inactive"] = {
-            bg = theme_palette.background,
+            bg = config.transparent_background and "NONE" or theme_palette.background,
             fg = icon_color,
           },
           ["BufferLine" .. icon_name .. "Selected"] = {
-            bg = theme_palette.background,
+            bg = config.transparent_background and "NONE" or theme_palette.background,
             fg = icon_color,
-            style = "underline",
+            style = config.plugins.bufferline.underline_selected and "underline" or "NONE",
             sp = theme_palette.yellow,
           },
         }
@@ -97,7 +89,7 @@ local function generate(theme)
   for _, skeleton in ipairs(skeletons) do
     util.initialise(skeleton)
   end
-  highlightBufferLineIcon(C)
+  highlightBufferLineIcon(C, Config)
 end
 
 function M.setup(user_config)

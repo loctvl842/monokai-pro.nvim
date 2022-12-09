@@ -2,6 +2,7 @@ local utils = require("monokai-pro.util")
 
 local normalAlpha = 0.6
 local visibleAlpha = 0.8
+local isSelectedUnderlined = Config.plugins.bufferline.underline_selected
 
 local BufferLine = {
 	Offset = { bg = C.black, fg = C.lightGray }, -- Explorer appear in tree setup by bufferline
@@ -19,7 +20,7 @@ local BufferLine = {
 	BufferLineBufferSelected = {
 		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.yellow,
-		style = "underline",
+		style = isSelectedUnderlined and "underline" or "NONE",
 		sp = C.yellow,
 	},
 
@@ -35,7 +36,7 @@ local BufferLine = {
 	BufferLineDuplicateSelected = {
 		bg = Config.transparent_background and "NONE" or C.background,
 		fg = utils.blend(C.white, C.background, 0.5),
-		style = "underline,bold",
+		style = isSelectedUnderlined and "underline" or "NONE",
 		sp = C.yellow,
 	},
 
@@ -51,7 +52,7 @@ local BufferLine = {
 	BufferLineCloseButtonSelected = {
 		bg = C.background,
 		fg = C.yellow,
-		style = "underline",
+		style = isSelectedUnderlined and "underline" or "NONE",
 		sp = C.yellow,
 	},
 
@@ -66,7 +67,7 @@ local BufferLine = {
 	BufferLineSeparatorSelected = {
 		bg = C.background,
 		fg = C.black,
-		style = "underline",
+		style = isSelectedUnderlined and "underline" or "NONE",
 		sp = C.yellow,
 	},
 
@@ -77,7 +78,7 @@ local BufferLine = {
 	BufferLineModifiedSelected = {
 		bg = C.background,
 		fg = C.white,
-		style = "underline",
+		style = isSelectedUnderlined and "underline" or "NONE",
 		sp = C.yellow,
 	},
 
@@ -93,7 +94,7 @@ local BufferLine = {
 	BufferLineWarningSelected = {
 		bg = C.background,
 		fg = C.inputValidationWarningForeground,
-		style = "underline,bold",
+		style = isSelectedUnderlined and "underline" or "NONE",
 		sp = C.yellow,
 	},
 
@@ -112,7 +113,7 @@ local BufferLine = {
 	},
 	BufferLineErrorSelected = {
 		fg = C.inputValidationErrorForeground,
-		style = "underline,bold",
+		style = "underline",
 		sp = C.yellow,
 	},
 
@@ -132,7 +133,7 @@ local BufferLine = {
 	BufferLineHintSelected = {
 		bg = C.background,
 		fg = C.inputValidationInfoForeground,
-		style = "underline,bold",
+		style = "underline",
 		sp = C.yellow,
 	},
 
@@ -152,7 +153,7 @@ local BufferLine = {
 	BufferLineInfoSelected = {
 		bg = C.background,
 		fg = C.inputValidationInfoForeground,
-		style = "underline,bold",
+		style = "underline",
 		sp = C.yellow,
 	},
 
@@ -173,7 +174,7 @@ local BufferLine = {
 	BufferLinePickSelected = {
 		bg = C.background,
 		fg = C.red,
-		style = "underline,bold",
+		style = "underline",
 		sp = C.yellow,
 	},
 
