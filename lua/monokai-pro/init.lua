@@ -103,8 +103,7 @@ end
 function M.setup(user_config)
   Config = vim.tbl_deep_extend("force", Config, user_config)
   local theme_palette = require('monokai-pro.themes.monokai-' .. Config.theme)
-
-
+  vim.g.monokai_pro_filter = Config.theme
   generate(theme_palette)
   applyLualineTheme(Config.theme)
   vim.cmd('colorscheme monokai-pro')
