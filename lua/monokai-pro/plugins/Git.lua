@@ -1,10 +1,10 @@
 local Git = {
-	SignAdd = { link = "diffAdded" },
-	SignChange = { link = "diffChanged" },
-	SignDelete = { link = "diffRemoved" },
-	GitSignsAdd = { link = "diffAdded" },
-	GitSignsChange = { link = "diffChanged" },
-	GitSignsDelete = { link = "diffRemoved" },
+	SignAdd = { fg = C.gitDecorationAddedResourceForeground },
+	SignChange = { fg = C.gitDecorationModifiedResourceForeground },
+	SignDelete = { fg = C.gitDecorationDeletedResourceForeground },
+	GitSignsAdd = { link = "SignAdd" },
+	GitSignsChange = { link = "SignChange" },
+	GitSignsDelete = { link = "SignDelete" },
 }
 
 return Git

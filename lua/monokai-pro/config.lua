@@ -23,7 +23,10 @@ end
 config = {
   transparent_background = true,
   italic_comments = true,
-  theme = "pro"
+  theme = "pro",
+  diagnostic = {
+    background = true,
+  }
 }
 
 return config

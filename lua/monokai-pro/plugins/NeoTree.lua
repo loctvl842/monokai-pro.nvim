@@ -23,7 +23,7 @@ local NeoTree = {
 	NeoTreeGitModified = { fg = C.gitDecorationModifiedResourceForeground },
 	NeoTreeGitStaged = { fg = C.gitDecorationStageModifiedResourceForeground },
 	NeoTreeGitRenamed = { fg = C.gitDecorationUntrackedResourceForeground },
-	NeoTreeGitUntracked = { fg = C.gitDecorationUntrackedResourceForeground },
+	NeoTreeGitUntracked = { fg = C.gitDecorationUntrackedResourceForeground, style="NONE" },
 
 	NeoTreeIndentMarker = { link = "IndentBlanklineChar" },
 	NeoTreeExpander = { link = "NeoTreeDirectoryIcon" },

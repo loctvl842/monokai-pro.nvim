@@ -16,7 +16,7 @@ local editor = {
 	-- DiffDelete = { bg = C.diff_delete },
 	-- DiffText = { bg = C.diff_text }, -- diff mode: Changed text within a changed line |diff.txt|
 	EndOfBuffer = { fg = C.background }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
-	ErrorMsg = { bg = C.background, fg = C.validationErrorForeground }, -- error messages on the command line
+	ErrorMsg = { bg = C.background, fg = C.inputValidationErrorForeground }, -- error messages on the command line
 	VertSplit = { bg = Config.transparent_background and "NONE" or C.background, fg = C.black }, -- the column separating vertically split windows
 	Folded = { bg = C.foldBackground }, -- line used for closed folds
 	FoldColumn = { bg = Config.transparent_background and "NONE" or C.background, fg = C.lightGray }, -- 'foldcolumn'
@@ -39,7 +39,7 @@ local editor = {
 	Pmenu = { bg = C.suggestWidgetBackground, fg = C.suggestWidgetForeground }, -- Popup menu: normal item.
 	PmenuSel = { bg = C.suggestWidgetSelectedBackground },
 	PmenuSbar = { bg = C.hoverWidgetBackground }, -- Popup menu: scrollbar.
-	PmenuThumb = { bg = C.scrollbarSliderBackground },
+	PmenuThumb = { bg = C.scrollbarSliderHoverBackgroundPmenuThumb },
 	-- Question = { bg = Config.transparent_background and "NONE" or C.bg, fg = C.gray }, -- |hit-enter| prompt and yes/no questions
 	-- QuickFixLine = { bg = C.bg }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 	-- QuickFixLineNC = { bg = C.bg }, -- QuickFixLine, for inactive windows
@@ -62,7 +62,7 @@ local editor = {
 	Title = { fg = C.yellow }, -- titles for output from ":set all", ":autocmd"
 	Visual = { bg = C.selectionBackground }, -- Visual mode selection
 	VisualNOS = { link = "Visual" }, -- Visual mode selection when vim is "Not Owning the Selection".
-	WarningMsg = { fg = C.validationWarningForeground }, -- warning messages
+	WarningMsg = { fg = C.inputValidationWarningForeground }, -- warning messages
 	WinBar = {
 		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.breadcrumbForeground,
@@ -122,7 +122,7 @@ local editor = {
 	Bold = { style = "bold" },
 	-- Ignore = { }, -- (preferred) left blank, hidden  |hl-Ignore|
 	Italic = { style = "italic" },
-	Error = { fg = C.red }, -- (preferred) any erroneous construct
+	Error = { fg = C.inputValidationErrorForeground }, -- (preferred) any erroneous construct
 	Todo = { bg = Config.transparent_background and "None" or C.background, fg = C.magenta, style = "bold" }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 }
 

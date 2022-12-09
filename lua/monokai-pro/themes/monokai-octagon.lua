@@ -31,6 +31,15 @@ local monokai_octagon = {
 	gitDecorationStageDeletedResourceForeground = "#ff657a",
 	gitDecorationStageModifiedResourceForeground = "#ffd76d",
 	gitDecorationUntrackedResourceForeground = "#b2b9bd",
+	inputValidationErrorBackground = "#3a3d4b",
+	inputValidationErrorBorder = "#ff657a",
+	inputValidationErrorForeground = "#ff657a",
+	inputValidationInfoBackground = "#3a3d4b",
+	inputValidationInfoBorder = "#9cd1bb",
+	inputValidationInfoForeground = "#9cd1bb",
+	inputValidationWarningBackground = "#3a3d4b",
+	inputValidationWarningBorder = "#ff9b5e",
+	inputValidationWarningForeground = "#ff9b5e",
 
 	bufferline_background = util.lightenDarkenColor("#282a3a", 15),
 

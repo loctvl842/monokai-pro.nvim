@@ -23,8 +23,8 @@ local function highlightBufferLineIcon(theme_palette)
       pattern = "*",
       callback = function()
         local ft = vim.bo.filetype
-        local _, icon_name = webDevicons.get_icon_by_filetype(ft, {default =true})
-        local _, icon_color = webDevicons.get_icon_color_by_filetype(ft, {default = true})
+        local _, icon_name = webDevicons.get_icon_by_filetype(ft, { default = true })
+        local _, icon_color = webDevicons.get_icon_color_by_filetype(ft, { default = true })
         if not icon_name then
           return
         end
@@ -85,6 +85,9 @@ local function generate(theme)
   for _, p in ipairs(plugins) do
     local plugin_ok, pluginConfig = pcall(require, "monokai-pro.plugins." .. p)
     if not plugin_ok then
+      local msg = "There is no highlight config named " .. p
+      local level = "warn"
+      util.notify(msg, level)
       goto continue
     end
     table.insert(skeletons, pluginConfig)

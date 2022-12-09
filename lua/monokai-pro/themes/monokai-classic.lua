@@ -31,6 +31,15 @@ local monokai_classic = {
 	gitDecorationStageDeletedResourceForeground = "#f92672",
 	gitDecorationStageModifiedResourceForeground = "#e6db74",
 	gitDecorationUntrackedResourceForeground = "#c0c1b5",
+	inputValidationErrorBackground = "#3b3c35",
+	inputValidationErrorBorder = "#f92672",
+	inputValidationErrorForeground = "#f92672",
+	inputValidationInfoBackground = "#3b3c35",
+	inputValidationInfoBorder = "#66d9ef",
+	inputValidationInfoForeground = "#66d9ef",
+	inputValidationWarningBackground = "#3b3c35",
+	inputValidationWarningBorder = "#fd971f",
+	inputValidationWarningForeground = "#fd971f",
 
 	bufferline_background = util.lightenDarkenColor("#272822", 15),
 

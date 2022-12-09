@@ -31,6 +31,15 @@ local monokai_spectrum = {
 	gitDecorationStageDeletedResourceForeground = "#fc618d",
 	gitDecorationStageModifiedResourceForeground = "#fce566",
 	gitDecorationUntrackedResourceForeground = "#bab6c0",
+	inputValidationErrorBackground = "#363537",
+	inputValidationErrorBorder = "#fc618d",
+	inputValidationErrorForeground = "#fc618d",
+	inputValidationInfoBackground = "#363537",
+	inputValidationInfoBorder = "#5ad4e6",
+	inputValidationInfoForeground = "#5ad4e6",
+	inputValidationWarningBackground = "#363537",
+	inputValidationWarningBorder = "#fd9353",
+	inputValidationWarningForeground = "#fd9353",
 
 	bufferline_background = util.lightenDarkenColor("#222222", 15),
 

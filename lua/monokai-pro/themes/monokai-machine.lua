@@ -19,7 +19,8 @@ local monokai_machine = {
 	listActiveSelectionBackground = util.hexExtend("#f2fffc0c", "#1d2528"), -- background: sideBarBackground
 	sideBarSectionHeaderForeground = "#6b7678",
 	breadcrumbForeground = "#8b9798",
-	scrollbarSliderBackground = util.hexExtend("#b8c4c326", "#3a4449"), -- background: suggestWidgetBackground
+	scrollbarSliderHoverBackground = util.hexExtend("#f2fffc26", "#273136"), -- background: suggestWidgetBackground
+  scrollbarSliderHoverBackgroundPmenuThumb = util.hexExtend("#fcfcfa26", "#3a4449"), -- background: suggestWidgetBackground
 	indentGuideBackground = "#3a4449",
 	indentGuideActiveBackground = "#545f62",
 	wordHighlightBackground = util.hexExtend("#f2fffc26", "#273136"), -- background: background
@@ -31,6 +32,15 @@ local monokai_machine = {
 	gitDecorationStageDeletedResourceForeground = "#ff6d7e",
 	gitDecorationStageModifiedResourceForeground = "#ffed72",
 	gitDecorationUntrackedResourceForeground = "#b8c4c3",
+	inputValidationErrorBackground = "#3a4449",
+	inputValidationErrorBorder = "#ff6d7e",
+	inputValidationErrorForeground = "#ff6d7e",
+	inputValidationInfoBackground = "#3a4449",
+	inputValidationInfoBorder = "#7cd5f1",
+	inputValidationInfoForeground = "#7cd5f1",
+	inputValidationWarningBackground = "#3a4449",
+	inputValidationWarningBorder = "#ffb270",
+	inputValidationWarningForeground = "#ffb270",
 
 	bufferline_background = util.lightenDarkenColor("#273136", 15),
 

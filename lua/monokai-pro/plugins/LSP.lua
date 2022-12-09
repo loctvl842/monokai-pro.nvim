@@ -1,24 +1,36 @@
 local LSP = {
 	-- Neovim 0.6+
-	DiagnosticError = { fg = C.red },
-	DiagnosticWarn = { fg = C.yellow },
-	DiagnosticInfo = { fg = C.blue },
-	DiagnosticHint = { fg = C.cyan },
+	DiagnosticError = { fg = C.inputValidationErrorForeground },
+	DiagnosticWarn = { fg = C.inputValidationWarningForeground },
+	DiagnosticInfo = { fg = C.inputValidationInfoForeground },
+	DiagnosticHint = { fg = C.inputValidationInfoForeground },
 
-	DiagnosticSignError = { fg = C.red },
-	DiagnosticSignWarn = { fg = C.yellow },
-	DiagnosticSignInfo = { fg = C.blue },
-	DiagnosticSignHint = { fg = C.cyan },
+	DiagnosticSignError = { fg = C.inputValidationErrorForeground },
+	DiagnosticSignWarn = { fg = C.inputValidationWarningForeground },
+	DiagnosticSignInfo = { fg = C.inputValidationInfoForeground },
+	DiagnosticSignHint = { fg = C.inputValidationInfoForeground },
 
-	DiagnosticUnderlineError = { style = "undercurl" },
-	DiagnosticUnderlineWarn = { style = "undercurl" },
-	DiagnosticUnderlineInfo = { style = "undercurl" },
-	DiagnosticUnderlineHint = { style = "undercurl" },
+	DiagnosticVirtualTextError = { fg = C.inputValidationErrorForeground },
+	DiagnosticVirtualTextWarn = { fg = C.inputValidationWarningForeground },
+	DiagnosticVirtualTextInfo = { fg = C.inputValidationInfoForeground },
+	DiagnosticVirtualTextHint = { fg = C.inputValidationInfoForeground },
 
-	DiagnosticVirtualTextError = { fg = C.red },
-	DiagnosticVirtualTextWarn = { fg = C.yellow },
-	DiagnosticVirtualTextInfo = { fg = C.blue },
-	DiagnosticVirtualTextHint = { fg = C.blue },
+	DiagnosticUnderlineError = {
+		bg = Config.diagnostic.background and C.inputValidationErrorBackground or "NONE",
+		style = "undercurl",
+	},
+	DiagnosticUnderlineWarn = {
+		bg = Config.diagnostic.background and C.inputValidationWarningBackground or "NONE",
+		style = "undercurl",
+	},
+	DiagnosticUnderlineInfo = {
+		bg = Config.diagnostic.background and C.inputValidationInfoBackground or "NONE",
+		style = "undercurl",
+	},
+	DiagnosticUnderlineHint = {
+		bg = Config.diagnostic.background and C.inputValidationInfoBackground or "NONE",
+		style = "undercurl",
+	},
 }
 
 return LSP

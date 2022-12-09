@@ -1,5 +1,5 @@
 local scrollbar = {
-  ScrollbarHandle = { bg = C.scrollbarSliderBackground }
+	ScrollbarHandle = { bg = C.scrollbarSliderHoverBackground},
 }
 
 return scrollbar

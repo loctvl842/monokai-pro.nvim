@@ -31,6 +31,15 @@ local monokai_ristretta = {
 	gitDecorationStageDeletedResourceForeground = "#fd6883",
 	gitDecorationStageModifiedResourceForeground = "#f9cc6c",
 	gitDecorationUntrackedResourceForeground = "#c3b7b8",
+	inputValidationErrorBackground = "#403838",
+	inputValidationErrorBorder = "#fd6883",
+	inputValidationErrorForeground = "#fd6883",
+	inputValidationInfoBackground = "#403838",
+	inputValidationInfoBorder = "#85dacc",
+	inputValidationInfoForeground = "#85dacc",
+	inputValidationWarningBackground = "#403838",
+	inputValidationWarningBorder = "#f38d70",
+	inputValidationWarningForeground = "#f38d70",
 
 	bufferline_background = util.lightenDarkenColor("#2c2525", 15),
 

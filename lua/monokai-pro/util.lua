@@ -98,4 +98,16 @@ function M.initialise(skeleton)
 	end
 end
 
+--- Wrapper around `vim.notify` that adds message metadata
+---@param msg string | string[]
+---@param level "error" | "warn" | "info" | "debug" | "trace"
+function M.notify(msg, level, opts)
+  opts = opts or {}
+  level = vim.log.levels[level:upper()]
+  if type(msg) == "table" then msg = table.concat(msg, "\n") end
+  local nopts = { title = "Monokai-pro" }
+  if opts.once then return vim.schedule(function() vim.notify_once(msg, level, nopts) end) end
+  vim.schedule(function() vim.notify(msg, level, nopts) end)
+end
+
 return M
