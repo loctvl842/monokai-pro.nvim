@@ -1,3 +1,5 @@
+local util = require("monokai-pro.util")
+
 local editor = {
 	ColorColumn = { bg = C.background }, -- used for the columns set with 'colorcolumn'
 	-- Conceal      = {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
@@ -14,14 +16,14 @@ local editor = {
 	-- DiffDelete = { bg = C.diff_delete },
 	-- DiffText = { bg = C.diff_text }, -- diff mode: Changed text within a changed line |diff.txt|
 	EndOfBuffer = { fg = C.background }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
-	ErrorMsg = { bg = C.background, fg = C.red }, -- error messages on the command line
+	ErrorMsg = { bg = C.background, fg = C.validationErrorForeground }, -- error messages on the command line
 	VertSplit = { bg = Config.transparent_background and "NONE" or C.background, fg = C.black }, -- the column separating vertically split windows
 	Folded = { bg = C.foldBackground }, -- line used for closed folds
 	FoldColumn = { bg = Config.transparent_background and "NONE" or C.background, fg = C.lightGray }, -- 'foldcolumn'
 	SignColumn = { bg = Config.transparent_background and "NONE" or C.background }, -- column where |signs| are displayed
 	-- Substitute = { bg = C.yellow, fg = C.bg }, -- |:substitute| replacement text highlighting
 	LineNr = { bg = Config.transparent_background and "NONE" or C.background, fg = C.lineNumberForeground }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-	MatchParen = { fg = C.black, bg = C.blue }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+	MatchParen = { fg = C.black, bg = util.blend(C.blue, C.background, 0.7) }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
 	ModeMsg = { link = "Normal" }, -- 'showmode' message (e.g., "-- INSERT -- ")
 	MsgArea = { link = "ModeMsg" }, -- Area for messages and cmdline
 	MsgSeparator = { link = "ModeMsg" }, -- Separator for scrolled messages, `msgsep` flag of 'display'
@@ -60,7 +62,7 @@ local editor = {
 	Title = { fg = C.yellow }, -- titles for output from ":set all", ":autocmd"
 	Visual = { bg = C.selectionBackground }, -- Visual mode selection
 	VisualNOS = { link = "Visual" }, -- Visual mode selection when vim is "Not Owning the Selection".
-	WarningMsg = { fg = C.yellow }, -- warning messages
+	WarningMsg = { fg = C.validationWarningForeground }, -- warning messages
 	WinBar = {
 		bg = Config.transparent_background and "NONE" or C.background,
 		fg = C.breadcrumbForeground,

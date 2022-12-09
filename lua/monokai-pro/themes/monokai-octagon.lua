@@ -23,6 +23,14 @@ local monokai_octagon = {
 	indentGuideBackground = "#3a3d4b",
 	indentGuideActiveBackground = "#535763",
 	wordHighlightBackground = util.hexExtend("#eaf2f126", "#282a3a"), -- background: background
+	gitDecorationAddedResourceForeground = "#bad761",
+	gitDecorationConflictingResourceForeground = "#ff9b5e",
+	gitDecorationDeletedResourceForeground = "#ff657a",
+	gitDecorationIgnoredResourceForeground = "#535763",
+	gitDecorationModifiedResourceForeground = "#ffd76d",
+	gitDecorationStageDeletedResourceForeground = "#ff657a",
+	gitDecorationStageModifiedResourceForeground = "#ffd76d",
+	gitDecorationUntrackedResourceForeground = "#b2b9bd",
 
 	bufferline_background = util.lightenDarkenColor("#282a3a", 15),
 

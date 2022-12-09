@@ -65,6 +65,7 @@ local function highlight(group, properties)
 	else
 		local bg = properties.bg == nil and "" or "guibg=" .. properties.bg
 		local fg = properties.fg == nil and "" or "guifg=" .. properties.fg
+		local sp = properties.sp == nil and "" or "guisp=" .. properties.sp
 		local style = properties.style == nil and "" or "gui=" .. properties.style
 
 		local cmd = table.concat({
@@ -72,11 +73,23 @@ local function highlight(group, properties)
 			group,
 			bg,
 			fg,
+			sp,
 			style,
 		}, " ")
 
 		vim.api.nvim_command(cmd)
 	end
+end
+
+-- @param highlight group to get (string)
+-- @return table { foreground, background }
+function M.get_highlight(group)
+	local hl = vim.api.nvim_get_hl_by_name(group, true)
+  local hl_config = {}
+  for key, value in pairs(hl) do
+    hl_config[key] = string.format("#%02x", value)
+  end
+  return hl_config
 end
 
 function M.initialise(skeleton)

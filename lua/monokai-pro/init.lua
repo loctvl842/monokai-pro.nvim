@@ -16,6 +16,40 @@ local function applyLualineTheme(theme)
   lualine.setup({ options = { theme = "monokai-" .. theme } })
 end
 
+local function highlightBufferLineIcon(theme_palette)
+  local icon_ok, webDevicons = pcall(require, "nvim-web-devicons")
+  if icon_ok then
+    vim.api.nvim_create_autocmd("BufEnter", {
+      pattern = "*",
+      callback = function()
+        local ft = vim.bo.filetype
+        local _, icon_name = webDevicons.get_icon_by_filetype(ft, {default =true})
+        local _, icon_color = webDevicons.get_icon_color_by_filetype(ft, {default = true})
+        if not icon_name then
+          return
+        end
+        local iconSkeleton = {
+          ["BufferLine" .. icon_name] = {
+            bg = theme_palette.bufferline_background,
+            fg = icon_color,
+          },
+          ["BufferLine" .. icon_name .. "Inactive"] = {
+            bg = theme_palette.background,
+            fg = icon_color,
+          },
+          ["BufferLine" .. icon_name .. "Selected"] = {
+            bg = theme_palette.background,
+            fg = icon_color,
+            style = "underline",
+            sp = theme_palette.yellow,
+          },
+        }
+        util.initialise(iconSkeleton)
+      end,
+    })
+  end
+end
+
 local function generate(theme)
   C = vim.tbl_deep_extend("force", C, theme)
 
@@ -60,11 +94,14 @@ local function generate(theme)
   for _, skeleton in ipairs(skeletons) do
     util.initialise(skeleton)
   end
+  highlightBufferLineIcon(C)
 end
 
 function M.setup(user_config)
   Config = vim.tbl_deep_extend("force", Config, user_config)
   local theme_palette = require('monokai-pro.themes.monokai-' .. Config.theme)
+
+
   generate(theme_palette)
   applyLualineTheme(Config.theme)
   vim.cmd('colorscheme monokai-pro')

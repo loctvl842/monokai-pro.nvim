@@ -23,6 +23,14 @@ local monokai_machine = {
 	indentGuideBackground = "#3a4449",
 	indentGuideActiveBackground = "#545f62",
 	wordHighlightBackground = util.hexExtend("#f2fffc26", "#273136"), -- background: background
+	gitDecorationAddedResourceForeground = "#a2e57b",
+	gitDecorationConflictingResourceForeground = "#ffb270",
+	gitDecorationDeletedResourceForeground = "#ff6d7e",
+	gitDecorationIgnoredResourceForeground = "#545f62",
+	gitDecorationModifiedResourceForeground = "#ffed72",
+	gitDecorationStageDeletedResourceForeground = "#ff6d7e",
+	gitDecorationStageModifiedResourceForeground = "#ffed72",
+	gitDecorationUntrackedResourceForeground = "#b8c4c3",
 
 	bufferline_background = util.lightenDarkenColor("#273136", 15),
 

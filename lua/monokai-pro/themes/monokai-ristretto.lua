@@ -23,6 +23,14 @@ local monokai_ristretta = {
 	indentGuideBackground = "#403838",
 	indentGuideActiveBackground = "#5b5353",
 	wordHighlightBackground = util.hexExtend("#fff1f326", "#2c2525"), -- background: background
+	gitDecorationAddedResourceForeground = "#adda78",
+	gitDecorationConflictingResourceForeground = "#f38d70",
+	gitDecorationDeletedResourceForeground = "#fd6883",
+	gitDecorationIgnoredResourceForeground = "#5b5353",
+	gitDecorationModifiedResourceForeground = "#f9cc6c",
+	gitDecorationStageDeletedResourceForeground = "#fd6883",
+	gitDecorationStageModifiedResourceForeground = "#f9cc6c",
+	gitDecorationUntrackedResourceForeground = "#c3b7b8",
 
 	bufferline_background = util.lightenDarkenColor("#2c2525", 15),
 

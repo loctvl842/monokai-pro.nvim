@@ -15,8 +15,16 @@ local NeoTree = {
 	NeoTreeRootName = { guifg = C.sideBarSectionHeaderForeground, style = "bold" },
 	NeoTreeDirectoryIcon = { fg = C.neotree_directory_icon },
 	NeoTreeDirectoryName = { fg = C.sideBarForeground },
-	NeoTreeGitModified = { fg = C.yellow },
-	NeoTreeGitUntracked = { fg = C.green },
+
+	NeoTreeGitAdded = { fg = C.gitDecorationAddedResourceForeground },
+	NeoTreeGitConflict = { fg = C.gitDecorationConflictingResourceForeground },
+	NeoTreeGitDeleted = { fg = C.gitDecorationDeletedResourceForeground },
+	NeoTreeGitIgnored = { fg = C.gitDecorationIgnoredResourceForeground },
+	NeoTreeGitModified = { fg = C.gitDecorationModifiedResourceForeground },
+	NeoTreeGitStaged = { fg = C.gitDecorationStageModifiedResourceForeground },
+	NeoTreeGitRenamed = { fg = C.gitDecorationUntrackedResourceForeground },
+	NeoTreeGitUntracked = { fg = C.gitDecorationUntrackedResourceForeground },
+
 	NeoTreeIndentMarker = { link = "IndentBlanklineChar" },
 	NeoTreeExpander = { link = "NeoTreeDirectoryIcon" },
 
