@@ -8,14 +8,6 @@ local util = require("monokai-pro.util")
 Config = require("monokai-pro.config")
 C = require("monokai-pro.palette")
 
-local function applyLualineTheme(theme)
-  local lualine_ok, lualine = pcall(require, "lualine")
-  if not lualine_ok then
-    return
-  end
-  lualine.setup({ options = { theme = "monokai-" .. theme } })
-end
-
 local function highlightBufferLineIcon(theme_palette)
   local icon_ok, webDevicons = pcall(require, "nvim-web-devicons")
   if icon_ok then
@@ -103,10 +95,8 @@ end
 function M.setup(user_config)
   Config = vim.tbl_deep_extend("force", Config, user_config)
   local theme_palette = require('monokai-pro.themes.monokai-' .. Config.theme)
-
-
+  vim.g.monokai_theme = Config.theme
   generate(theme_palette)
-  applyLualineTheme(Config.theme)
   vim.cmd('colorscheme monokai-pro')
 end
 

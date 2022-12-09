@@ -1,10 +1,11 @@
-local colors = require("monokai-pro.themes.monokai-pro")
+local theme = vim.g.monokai_theme
+local colors = require("monokai-pro.themes.monokai-" .. theme)
 
 local monokai_pro = {}
 
 monokai_pro.normal = {
-	a = { bg = colors.blue, fg = colors.black },
-	b = { bg = colors.suggestWidgetBackground, fg = colors.blue },
+	a = { bg = colors.yellow, fg = colors.black },
+	b = { bg = colors.suggestWidgetBackground, fg = colors.yellow },
 	c = { bg = colors.black, fg = colors.black },
 	x = { bg = colors.black, fg = colors.suggestWidgetForeground },
 }
@@ -30,7 +31,7 @@ monokai_pro.replace = {
 }
 
 monokai_pro.inactive = {
-	a = { bg = colors.black, fg = colors.blue },
+	a = { bg = colors.black, fg = colors.yellow },
 	b = { bg = colors.black, fg = colors.black },
 	c = { bg = colors.black, fg = colors.black },
 }

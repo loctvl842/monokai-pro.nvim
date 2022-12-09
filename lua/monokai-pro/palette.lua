@@ -20,7 +20,7 @@ local colors = {
 	sideBarSectionHeaderForeground = "#6e7066",
 	breadcrumbForeground = "#939293",
 	scrollbarSliderHoverBackground = util.hexExtend("#fcfcfa26", "#2d2a2e"), -- background: background
-  scrollbarSliderHoverBackgroundPmenuThumb = util.hexExtend("#fcfcfa26", "#423f43"), -- background: suggestWidgetBackground
+	scrollbarSliderHoverBackgroundPmenuThumb = util.hexExtend("#fcfcfa26", "#423f43"), -- background: suggestWidgetBackground
 	indentGuideBackground = "#403E41",
 	indentGuideActiveBackground = "#5B595C",
 	wordHighlightBackground = util.hexExtend("#fcfcfa26", "#2d2a2e"),
@@ -42,7 +42,7 @@ local colors = {
 	inputValidationWarningBorder = "#fc9867",
 	inputValidationWarningForeground = "#fc9867",
 
-	neotree_directory_icon = "#90A4AE",
+	neotree_directory_icon = "#b8c4c3",
 	toggleterm = "#3D3B40",
 	toggleterm_border = "#3D3B40",
 	bufferline_background = util.lightenDarkenColor("#2d2a2e", 15),
