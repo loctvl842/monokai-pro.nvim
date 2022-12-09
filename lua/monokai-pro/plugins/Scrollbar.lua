@@ -1,10 +1,10 @@
 local scrollbar = {
-	ScrollbarHandle = { bg = C.scrollbarSliderHoverBackground },
+	ScrollbarHandle = { bg = C.scrollbarSliderHoverBackground, fg = C.white },
 	ScrollbarCursorHandle = { bg = C.scrollbarSliderHoverBackground },
 	ScrollbarCursor = { bg = C.listActiveSelectionBackground, fg = C.listActiveSelectionBackground },
 
 	ScrollbarSearchHandle = { bg = C.scrollbarSliderHoverBackground },
-	ScrollbarSearch = { bg = C.background },
+	ScrollbarSearch = { bg = C.background, fg = C.white },
 
 	ScrollbarErrorHandle = { bg = C.scrollbarSliderHoverBackground, fg = C.inputValidationErrorForeground },
 	ScrollbarError = { bg = C.background, fg = C.inputValidationErrorForeground },
