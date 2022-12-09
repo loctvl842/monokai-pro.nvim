@@ -41,7 +41,7 @@ require("monokai-pro").setup({
 	},
     plugins = {
         bufferline = {
-            underline_selected = true,
+            underline_selected = true, -- better set `false` if you don't use kitty terminal
         }
     }
 })
