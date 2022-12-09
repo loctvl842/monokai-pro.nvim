@@ -1,5 +1,5 @@
-local theme = vim.g.monokai_theme
-local colors = require("monokai-pro.themes.monokai-" .. theme)
+local filter = vim.g.monokai_pro_filter
+local colors = require("monokai-pro.themes.monokai-" .. filter)
 
 local monokai_pro = {}
 
