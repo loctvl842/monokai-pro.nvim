@@ -23,7 +23,7 @@ end
 config = {
   transparent_background = true,
   italic_comments = true,
-  theme = "pro",
+  filter = "pro",
   diagnostic = {
     background = true,
   },

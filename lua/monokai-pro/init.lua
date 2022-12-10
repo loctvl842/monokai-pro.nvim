@@ -94,8 +94,9 @@ end
 
 function M.setup(user_config)
   Config = vim.tbl_deep_extend("force", Config, user_config)
-  local theme_palette = require('monokai-pro.themes.monokai-' .. Config.theme)
-  vim.g.monokai_pro_filter = Config.theme
+  local filter = Config.filter == "" and "pro" or Config.filter
+  local theme_palette = require('monokai-pro.themes.monokai-' .. filter)
+  vim.g.monokai_pro_filter = filter
   generate(theme_palette)
   vim.cmd('colorscheme monokai-pro')
 end
