@@ -1,64 +1,120 @@
 local util = require("monokai-pro.util")
 local monokai_machine = {
-	background = "#273136",
-	foreground = "#f2fffc",
-	lineHighlightBackground = util.hexExtend("#f2fffc0c", "#273136"), -- background: background
-	lineNumberForeground = "#545f62",
-	lineNumberActiveForeground = "#b8c4c3",
-	selectionBackground = util.hexExtend("#b8c4c326", "#273136"), -- background: background
-	findMatchBackground = util.hexExtend("#f2fffc26", "#273136"), -- background: background
-	findMatchHighlightBackground = util.hexExtend("#f2fffc26", "#273136"), -- background: background
-	foldBackground = util.hexExtend("#f2fffc0c", "#273136"), -- background: background
-	hoverWidgetBackground = "#3a4449",
-	suggestWidgetBackground = "#3a4449",
-	suggestWidgetForeground = "#b8c4c3",
-	suggestWidgetHighlightForeground = "#f2fffc",
-	suggestWidgetSelectedBackground = "#6b7678",
-	sideBarBackground = "#1d2528",
-	sideBarForeground = "#8b9798",
-	listActiveSelectionBackground = util.hexExtend("#f2fffc0c", "#1d2528"), -- background: sideBarBackground
-	sideBarSectionHeaderForeground = "#6b7678",
-	breadcrumbForeground = "#8b9798",
-	scrollbarSliderHoverBackground = util.hexExtend("#f2fffc26", "#273136"), -- background: background
-	scrollbarSliderHoverBackgroundPmenuThumb = util.hexExtend("#f2fffc26", "#3a4449"), -- background: suggestWidgetBackground
-	indentGuideBackground = "#3a4449",
-	indentGuideActiveBackground = "#545f62",
-	wordHighlightBackground = util.hexExtend("#f2fffc26", "#273136"), -- background: background
-	gitDecorationAddedResourceForeground = "#a2e57b",
-	gitDecorationConflictingResourceForeground = "#ffb270",
-	gitDecorationDeletedResourceForeground = "#ff6d7e",
-	gitDecorationIgnoredResourceForeground = "#545f62",
-	gitDecorationModifiedResourceForeground = "#ffed72",
-	gitDecorationStageDeletedResourceForeground = "#ff6d7e",
-	gitDecorationStageModifiedResourceForeground = "#ffed72",
-	gitDecorationUntrackedResourceForeground = "#b8c4c3",
-	inputValidationErrorBackground = "#3a4449",
-	inputValidationErrorBorder = "#ff6d7e",
-	inputValidationErrorForeground = "#ff6d7e",
-	inputValidationInfoBackground = "#3a4449",
-	inputValidationInfoBorder = "#7cd5f1",
-	inputValidationInfoForeground = "#7cd5f1",
-	inputValidationWarningBackground = "#3a4449",
-	inputValidationWarningBorder = "#ffb270",
-	inputValidationWarningForeground = "#ffb270",
+	editor = {
+		background = "#273136",
+		foreground = "#f2fffc",
+		lineHighlightBackground = "#f2fffc0c", -- background: background
+		selectionBackground = "#b8c4c326", -- background: background
+		findMatchBackground = "#f2fffc26", -- background: background
+		findMatchHighlightBackground = "#f2fffc26", -- background: background
+		foldBackground = "#f2fffc0c", -- background: background
+		wordHighlightBackground = "#f2fffc26", -- background: background
+	},
+	editorLineNumber = {
+		foreground = "#545f62",
+		activeForeground = "#b8c4c3",
+	},
+	editorHoverWidget = {
+		background = "#3a4449",
+		border = "#273136",
+	},
+	editorSuggestWidget = {
+		background = "#3a4449",
+		foreground = "#b8c4c3",
+		highlightForeground = "#f2fffc",
+		selectedBackground = "#6b7678",
+	},
+	editorIndentGuide = {
+		background = "#3a4449",
+		activeBackground = "#545f62",
+	},
+	editorGroupHeader = {
+		tabsBackground = "#1d2528",
+		tabsBorder = "#1d2528",
+	},
+	sideBar = {
+		background = "#1d2528",
+		foreground = "#8b9798",
+	},
+	sideBarSectionHeader = {
+		background = "#1d2528",
+		foreground = "#6b7678",
+	},
+	sideBarTitle = {
+		foreground = "#545f62",
+	},
+	list = {
+		activeSelectionBackground = "#f2fffc0c", -- background: sideBarBackground,
+	},
+	breadcrumb = {
+		foreground = "#8b9798",
+	},
+	button = {
+		background = "#3a4449",
+		foreground = "#b8c4c3",
+		hoverBackground = "#545f62",
+		separator = "#273136",
+	},
+	scrollbarSlider = {
+		hoverBackground = "#f2fffc26", -- background: background
+	},
+	gitDecoration = {
+		addedResourceForeground = "#a2e57b",
+		conflictingResourceForeground = "#ffb270",
+		deletedResourceForeground = "#ff6d7e",
+		ignoredResourceForeground = "#545f62",
+		modifiedResourceForeground = "#ffed72",
+		stageDeletedResourceForeground = "#ff6d7e",
+		stageModifiedResourceForeground = "#ffed72",
+		untrackedResourceForeground = "#b8c4c3",
+	},
+	inputValidation = {
+		errorBackground = "#3a4449",
+		errorBorder = "#ff6d7e",
+		errorForeground = "#ff6d7e",
+		infoBackground = "#3a4449",
+		infoBorder = "#7cd5f1",
+		infoForeground = "#7cd5f1",
+		warningBackground = "#3a4449",
+		warningBorder = "#ffb270",
+		warningForeground = "#ffb270",
+	},
+	terminal = {
+		background = "#3a4449",
+		foreground = "#f2fffc",
+	},
+	terminalCursor = {
+		background = "#00000000",
+		foreground = "#f2fffc",
+	},
+	tab = {
+		activeBackground = "#273136",
+		activeBorder = "#ffed72",
+		activeForeground = "#ffed72",
+		inactiveBackground = util.lightenDarkenColor("#273136", 15),
+		inactiveForeground = "#8b9798",
+		unfocusedActiveBackground = "#273136",
+		unfocusedActiveBorder = "#8b9798",
+		unfocusedActiveForeground = "#b8c4c3",
+	},
 
-	bufferline_background = util.lightenDarkenColor("#273136", 15),
-
-	black = "#1d2528",
-	blue = "#ffb270",
-	lightBlack = "#6b7678",
-	lightBlue = "#ffb270",
-	lightCyan = "#7cd5f1",
-	lightGreen = "#a2e57b",
-	lightMagenta = "#baa0f8",
-	lightRed = "#ff6d7e",
-	lightWhite = "#f2fffc",
-	lightYellow = "#ffed72",
-	cyan = "#7cd5f1",
-	green = "#a2e57b",
-	magenta = "#baa0f8",
-	red = "#ff6d7e",
-	white = "#f2fffc",
-	yellow = "#ffed72",
+	base = {
+		black = "#1d2528",
+		lightBlack = "#6b7678",
+		red = "#ff6d7e",
+		lightRed = "#ff6d7e",
+		green = "#a2e57b",
+		lightGreen = "#a2e57b",
+		yellow = "#ffed72",
+		lightYellow = "#ffed72",
+		blue = "#ffb270",
+		lightBlue = "#ffb270",
+		magenta = "#baa0f8",
+		lightMagenta = "#baa0f8",
+		cyan = "#7cd5f1",
+		lightCyan = "#7cd5f1",
+		white = "#f2fffc",
+		lightWhite = "#f2fffc",
+	},
 }
 return monokai_machine

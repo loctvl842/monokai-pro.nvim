@@ -1,6 +1,16 @@
 local toggleterm = {
-	ToggleTerm = { bg = C.bg, fg = C.foreground },
-	ToggleTermBorder = { bg = Config.transparent_background and "NONE" or C.background, fg = C.lineNumberForeground},
+	TermCursor = {
+    bg = C.terminalCursor.background,
+		fg = C.terminalCursor.foreground,
+	}, -- cursor in a focused terminal
+	ToggleTerm = {
+		bg = C.terminal.background,
+		fg = C.terminal.foreground,
+	},
+	ToggleTermBorder = {
+		bg = Config.transparent_background and "NONE" or C.editor.background,
+		fg = C.terminal.background,
+	},
 }
 
 return toggleterm

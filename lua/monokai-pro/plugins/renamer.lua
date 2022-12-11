@@ -1,7 +1,7 @@
 local Renamer = {
-	RenamerNormal = { fg = C.white, bg = C.hoverWidgetBackground },
-	RenamerBorder = { fg = C.hoverWidgetBackground, bg = Config.transparent_background and "NONE" or C.background },
-	RenamerTitle = { bg = C.yellow, fg = C.black, style = "bold" },
+	RenamerNormal = { fg = C.editorHoverWidget.foreground, bg = C.editorHoverWidget.background},
+	RenamerBorder = { fg = C.editorHoverWidget.background, bg = C.editor.background },
+	RenamerTitle = { bg = C.base.yellow, fg = C.base.black, style = "bold" },
 }
 
 return Renamer

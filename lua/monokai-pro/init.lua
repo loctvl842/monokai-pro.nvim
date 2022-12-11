@@ -21,19 +21,21 @@ local function highlightBufferLineIcon(theme_palette, config)
           return
         end
         local iconSkeleton = {
+          ["BufferLine" .. icon_name .. "Selected"] = {
+            bg = config.transparent_background and "NONE" or theme_palette.tab.activeBackground,
+            fg = icon_color,
+            sp = theme_palette.tab.activeBorder,
+            style = config.plugins.bufferline.underline_selected and "underline" or "NONE",
+          },
           ["BufferLine" .. icon_name] = {
-            bg = theme_palette.bufferline_background,
+            bg = theme_palette.tab.inactiveBackground,
             fg = icon_color,
           },
           ["BufferLine" .. icon_name .. "Inactive"] = {
-            bg = config.transparent_background and "NONE" or theme_palette.background,
+            bg = config.transparent_background and "NONE" or theme_palette.tab.unfocusedActiveBackground,
             fg = icon_color,
-          },
-          ["BufferLine" .. icon_name .. "Selected"] = {
-            bg = config.transparent_background and "NONE" or theme_palette.background,
-            fg = icon_color,
+            sp = theme_palette.tab.unfocusedActiveBorder,
             style = config.plugins.bufferline.underline_selected and "underline" or "NONE",
-            sp = theme_palette.yellow,
           },
         }
         util.initialise(iconSkeleton)
@@ -50,7 +52,7 @@ local function generate(theme)
     "StatusLine",
     "alpha",
     "breadcrumb",
-    "bufferLine",
+    "bufferline",
     "cmp",
     "gitsign",
     "illuminate",
@@ -66,11 +68,14 @@ local function generate(theme)
     "toggleterm",
     "ufo",
     "which-key",
-
   }
 
   local editor = require("monokai-pro.editor")
-  local skeletons = { editor }
+  local syntax = require("monokai-pro.syntax")
+  local skeletons = {
+    ["editor"] = editor,
+    ["syntax "] = syntax
+  }
 
   for _, p in ipairs(plugins) do
     local plugin_ok, pluginConfig = pcall(require, "monokai-pro.plugins." .. p)
@@ -80,12 +85,19 @@ local function generate(theme)
       util.notify(msg, level)
       goto continue
     end
-    table.insert(skeletons, pluginConfig)
+    skeletons[p] = pluginConfig
     ::continue::
   end
 
-  for _, skeleton in ipairs(skeletons) do
-    util.initialise(skeleton)
+  for skeleton_name, skeleton_config in pairs(skeletons) do
+    local status_ok, _ = pcall(util.initialise, skeleton_config)
+    if not status_ok then
+      local msg = "Highlight failed in skeleton " .. skeleton_name
+      local level = "error"
+      util.notify(msg, level)
+      goto continue
+    end
+    ::continue::
   end
   highlightBufferLineIcon(C, Config)
 end

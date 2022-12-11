@@ -1,4 +1,4 @@
 local ufo = {
-	UfoFoldedBg = { bg = C.background },
+	UfoFoldedBg = { bg = C.editor.background },
 }
 return ufo

@@ -1,35 +1,35 @@
 local scrollbar = {
-	ScrollbarHandle = { bg = C.scrollbarSliderHoverBackground, fg = C.white },
-	ScrollbarCursorHandle = { bg = C.scrollbarSliderHoverBackground },
-	ScrollbarCursor = { bg = C.listActiveSelectionBackground, fg = C.listActiveSelectionBackground },
+	ScrollbarHandle = { bg = C.scrollbarSlider.hoverBackground, fg = C.base.white },
+	ScrollbarCursorHandle = { bg = C.scrollbarSlider.hoverBackground },
+	ScrollbarCursor = { bg = C.list.activeSelectionBackground, fg = C.list.activeSelectionBackground },
 
-	ScrollbarSearchHandle = { bg = C.scrollbarSliderHoverBackground },
-	ScrollbarSearch = { bg = C.background, fg = C.white },
+	ScrollbarSearchHandle = { bg = C.scrollbarSlider.hoverBackground },
+	ScrollbarSearch = { bg = C.editor.background, fg = C.base.white },
 
-	ScrollbarErrorHandle = { bg = C.scrollbarSliderHoverBackground, fg = C.inputValidationErrorForeground },
-	ScrollbarError = { bg = C.background, fg = C.inputValidationErrorForeground },
+	ScrollbarErrorHandle = { bg = C.scrollbarSlider.hoverBackground, fg = C.inputValidation.errorForeground },
+	ScrollbarError = { bg = C.editor.background, fg = C.inputValidation.errorForeground },
 
-	ScrollbarWarnHandle = { bg = C.scrollbarSliderHoverBackground, fg = C.inputValidationWarningForeground },
-	ScrollbarWarn = { bg = C.background, fg = C.inputValidationWarningForeground },
+	ScrollbarWarnHandle = { bg = C.scrollbarSlider.hoverBackground, fg = C.inputValidation.warningForeground },
+	ScrollbarWarn = { bg = C.editor.background, fg = C.inputValidation.warningForeground },
 
-	ScrollbarInfoHandle = { bg = C.scrollbarSliderHoverBackground, fg = C.inputValidationInfoForeground },
-	ScrollbarInfo = { bg = C.background, fg = C.inputValidationInfoForeground },
+	ScrollbarInfoHandle = { bg = C.scrollbarSlider.hoverBackground, fg = C.inputValidation.infoForeground },
+	ScrollbarInfo = { bg = C.editor.background, fg = C.inputValidation.infoForeground },
 
-	ScrollbarHintHandle = { bg = C.scrollbarSliderHoverBackground, fg = C.inputValidationInfoForeground },
-	ScrollbarHint = { bg = C.background, fg = C.inputValidationInfoForeground },
+	ScrollbarHintHandle = { bg = C.scrollbarSlider.hoverBackground, fg = C.inputValidation.infoForeground },
+	ScrollbarHint = { bg = C.editor.background, fg = C.inputValidation.infoForeground },
 
-	ScrollbarGitAddHandle = { bg = C.scrollbarSliderHoverBackground, fg = C.gitDecorationAddedResourceForeground },
-	ScrollbarGitAdd = { bg = C.background, fg = C.gitDecorationAddedResourceForeground },
+	ScrollbarGitAddHandle = { bg = C.scrollbarSlider.hoverBackground, fg = C.gitDecoration.addedResourceForeground },
+	ScrollbarGitAdd = { bg = C.editor.background, fg = C.gitDecoration.addedResourceForeground },
 	ScrollbarGitChangeHandle = {
-		bg = C.scrollbarSliderHoverBackground,
-		fg = C.gitDecorationModifiedResourceForeground,
+		bg = C.scrollbarSlider.hoverBackground,
+		fg = C.gitDecoration.modifiedResourceForeground,
 	},
-	ScrollbarGitChange = { bg = C.background, fg = C.gitDecorationModifiedResourceForeground },
+	ScrollbarGitChange = { bg = C.editor.background, fg = C.gitDecoration.modifiedResourceForeground },
 	ScrollbarGitDeleteHandle = {
-		bg = C.scrollbarSliderHoverBackground,
-		fg = C.gitDecorationDeletedResourceForeground,
+		bg = C.scrollbarSlider.hoverBackground,
+		fg = C.gitDecoration.deletedResourceForeground,
 	},
-	ScrollbarGitDelete = { bg = C.background, fg = C.gitDecorationDeletedResourceForeground },
+	ScrollbarGitDelete = { bg = C.editor.background, fg = C.gitDecoration.deletedResourceForeground },
 }
 
 return scrollbar

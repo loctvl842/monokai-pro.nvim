@@ -1,11 +1,11 @@
 local IndentBlankline = {
-	IndentBlanklineChar = { fg = C.indentGuideBackground },
-	IndentBlanklineContextChar = { fg = C.indentGuideActiveBackground },
-	IndentBlanklineContextStart = { sp = C.indentGuideActiveBackground, style = "underline" },
+	IndentBlanklineChar = { fg = C.editorIndentGuide.background },
+	IndentBlanklineContextChar = { fg = C.editorIndentGuide.activeBackground },
+	IndentBlanklineContextStart = { sp = C.editorIndentGuide.activeBackground, style = "underline" },
 	-- IndentBlanklineContextChar = { fg = C.magenta},
 	-- IndentBlanklineContextStart = { sp = C.magenta, style = "underline" },
 
-	IndentBlanklineSpaceChar = { fg = C.background }, -- highlight the character Tab
+	IndentBlanklineSpaceChar = { fg = C.editor.background }, -- highlight the character Tab
 }
 
 return IndentBlankline

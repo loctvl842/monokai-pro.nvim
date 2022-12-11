@@ -1,21 +1,58 @@
 local StatusLine = {
-	StatusLine = { fg = C.black, bg = C.lightBlack },
-	StatusLineNC = { fg = C.black, bg = C.lightBlack },
-	StatusLineSeparator = { fg = C.black },
-	StatusLineTerm = { fg = C.black },
-	StatusLineTermNC = { fg = C.black },
-	SLGitIcon = { fg = C.suggestWidgetForeground, bg = C.hoverWidgetBackground },
-	SLBranchName = { fg = C.suggestWidgetForeground, bg = C.hoverWidgetBackground },
-	SLSeparator = { fg = C.hoverWidgetBackground, bg = C.background },
-	SLError = { fg = C.inputValidationErrorForeground, bg = C.background },
-	SLWarning = { fg = C.inputValidationWarningForeground, bg = C.background },
-	SLPosition = { fg = C.magenta, bg = C.hoverWidgetBackground },
-	SLShiftWidth = { fg = C.yellow, bg = C.hoverWidgetBackground },
-	SLEncoding = { fg = C.green, bg = C.hoverWidgetBackground },
-	SLFiletype = { fg = C.cyan, bg = C.hoverWidgetBackground },
-	SLMode = { fg = C.yellow, bg = C.background, style = "bold" },
-	SLSeparatorUnused = { fg = C.background, bg = C.hoverWidgetBackground },
-	SLPadding = { fg = C.background, bg = C.background },
+	StatusLine = { fg = C.base.black, bg = C.base.lightBlack },
+	StatusLineNC = { fg = C.base.black, bg = C.base.lightBlack },
+	StatusLineSeparator = { fg = C.base.black },
+	StatusLineTerm = { fg = C.base.black },
+	StatusLineTermNC = { fg = C.base.black },
+	SLGitIcon = {
+		fg = C.base.green,
+		bg = C.editorHoverWidget.background,
+	},
+	SLBranchName = {
+		fg = C.editorHoverWidget.foreground,
+		bg = C.editorHoverWidget.background,
+	},
+	SLSeparator = {
+		fg = C.editorHoverWidget.background,
+		bg = C.editor.background,
+	},
+	SLError = {
+		fg = C.inputValidation.errorForeground,
+		bg = C.editor.background,
+	},
+	SLWarning = {
+		fg = C.inputValidation.warningForeground,
+		bg = C.editor.background,
+	},
+	SLPosition = {
+		fg = C.base.magenta,
+		bg = C.editorHoverWidget.background,
+	},
+	SLShiftWidth = {
+		fg = C.base.yellow,
+		bg = C.editorHoverWidget.background,
+	},
+	SLEncoding = {
+		fg = C.base.green,
+		bg = C.editorHoverWidget.background,
+	},
+	SLFiletype = {
+		fg = C.base.cyan,
+		bg = C.editorHoverWidget.background,
+	},
+	SLMode = {
+		fg = C.base.yellow,
+		bg = C.editor.background,
+		style = "bold",
+	},
+	SLSeparatorUnused = {
+		fg = C.editor.background,
+		bg = C.editorHoverWidget.background,
+	},
+	SLPadding = {
+		fg = C.editor.background,
+		bg = C.editor.background,
+	},
 }
 
 return StatusLine
