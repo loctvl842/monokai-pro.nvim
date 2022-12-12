@@ -12,7 +12,7 @@ local NeoTree = {
 		fg = C.editor.background,
 	},
 	NeoTreeRootName = {
-		bg = C.sideBarSectionHeader.background,
+		-- bg = C.sideBarSectionHeader.background,
 		fg = C.sideBarSectionHeader.foreground,
 		bold = true,
 	},
