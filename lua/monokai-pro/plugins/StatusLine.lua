@@ -1,5 +1,5 @@
 local StatusLine = {
-	StatusLine = { fg = C.base.black, bg = C.base.lightBlack },
+	StatusLine = { fg = C.base.black, bg = C.base.black},
 	StatusLineNC = { fg = C.base.black, bg = C.base.lightBlack },
 	StatusLineSeparator = { fg = C.base.black },
 	StatusLineTerm = { fg = C.base.black },
@@ -43,7 +43,7 @@ local StatusLine = {
 	SLMode = {
 		fg = C.base.yellow,
 		bg = C.editor.background,
-		style = "bold",
+		bold = true,
 	},
 	SLSeparatorUnused = {
 		fg = C.editor.background,

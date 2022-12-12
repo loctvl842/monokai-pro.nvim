@@ -5,10 +5,10 @@ local Telescope = {
 	TelescopeBorder = { fg = C.editorHoverWidget.background, bg = C.editor.background },
 	TelescopePromptCounter = { fg = C.base.red },
 
-	TelescopePromptTitle = { bg = C.base.yellow, fg = C.base.black, style = "bold" },
-	TelescopePreviewTitle = { bg = C.base.yellow, fg = C.base.black, style = "bold" },
-	TelescopeResultsTitle = { bg = C.base.yellow, fg = C.base.black, style = "bold" },
-	TelescopeMatching = { fg = C.base.blue, style = "bold" },
+	TelescopePromptTitle = { bg = C.base.yellow, fg = C.base.black, bold = true },
+	TelescopePreviewTitle = { bg = C.base.yellow, fg = C.base.black, bold = true },
+	TelescopeResultsTitle = { bg = C.base.yellow, fg = C.base.black, bold = true },
+	TelescopeMatching = { fg = C.base.blue, bold = true },
 
 	TelescopePreviewLine = { link = "TelescopeSelection" },
 	TelescopePromptPrefix = { fg = C.base.cyan },

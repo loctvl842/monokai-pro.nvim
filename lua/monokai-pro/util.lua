@@ -70,6 +70,19 @@ local function getRealColor(colorValue, base)
 	return M.hexExtend(colorValue, base)
 end
 
+local function generate_hl_val(hl_config)
+	local bg_value = getRealColor(hl_config.bg, hl_config.bg_base)
+	local fg_value = getRealColor(hl_config.fg, hl_config.fg_base)
+	local sp_value = getRealColor(hl_config.sp, bg_value)
+	hl_config.bg = bg_value
+	hl_config.fg = fg_value
+	hl_config.sp = sp_value
+	hl_config.bg_base = nil
+	hl_config.fg_base = nil
+	hl_config.style = nil
+	return hl_config
+end
+
 local function highlight(group, properties)
 	local link = properties.link
 	if link ~= nil then
@@ -77,25 +90,8 @@ local function highlight(group, properties)
 		vim.api.nvim_command(cmd)
 		return
 	end
-
-	local bg_value = getRealColor(properties.bg, properties.bg_base)
-	local fg_value = getRealColor(properties.fg, properties.fg_base)
-
-	local bg = bg_value == nil and "" or "guibg=" .. bg_value
-	local fg = fg_value == nil and "" or "guifg=" .. fg_value
-	local sp = properties.sp == nil and "" or "guisp=" .. properties.sp
-	local style = properties.style == nil and "" or "gui=" .. properties.style
-
-	local cmd = table.concat({
-		"highlight",
-		group,
-		bg,
-		fg,
-		sp,
-		style,
-	}, " ")
-
-	vim.api.nvim_command(cmd)
+	local hl_val = generate_hl_val(properties)
+	vim.api.nvim_set_hl(0, group, hl_val)
 end
 
 -- @param highlight group to get (string)

@@ -1,5 +1,4 @@
 lua << EOF
-package.loaded['monokai-pro'] = nil
 package.loaded['monokai-pro.editor'] = nil
 package.loaded['monokai-pro.syntax'] = nil
 package.loaded["monokai-pro.plugins.NvimTree"] = nil

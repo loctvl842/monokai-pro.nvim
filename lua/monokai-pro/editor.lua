@@ -35,22 +35,22 @@ local editor = {
 		fg = C.inputValidation.errorForeground,
 	}, -- error messages on the command line
 	VertSplit = {
-		bg = Config.transparent_background and "NONE" or C.editor.background,
+		bg = Config.transparent_background and nil or C.editor.background,
 		fg = C.base.black,
 	}, -- the column separating vertically split windows
 	Folded = {
 		bg = C.editor.foldBackground,
 	}, -- line used for closed folds
 	FoldColumn = {
-		bg = Config.transparent_background and "NONE" or C.editor.background,
+		bg = Config.transparent_background and nil or C.editor.background,
 		fg = C.button.foreground,
 	}, -- 'foldcolumn'
 	SignColumn = {
-		bg = Config.transparent_background and "NONE" or C.editor.background,
+		bg = Config.transparent_background and nil or C.editor.background,
 	}, -- column where |signs| are displayed
 	-- Substitute = { bg = C.yellow, fg = C.bg }, -- |:substitute| replacement text highlighting
 	LineNr = {
-		bg = Config.transparent_background and "NONE" or C.editor.background,
+		bg = Config.transparent_background and nil or C.editor.background,
 		fg = C.editorLineNumber.foreground,
 	}, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 	MatchParen = {
@@ -73,18 +73,18 @@ local editor = {
 		fg = C.editor.background,
 	}, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|. Example the character space between words
 	Normal = {
-		bg = Config.transparent_background and "NONE" or C.editor.background,
+		bg = Config.transparent_background and nil or C.editor.background,
 		fg = C.editor.foreground,
 	}, -- normal text
 	NormalNC = {
-		bg = Config.transparent_background and "NONE" or C.editor.background,
+		bg = Config.transparent_background and nil or C.editor.background,
 		fg = C.editor.foreground,
 	},
 	NormalFloat = {
 		bg = C.editorHoverWidget.background,
 	}, -- Normal text in floating windows. example PackerNormal
 	FloatBorder = {
-		bg = Config.transparent_background and "NONE" or C.editor.background,
+		bg = Config.transparent_background and nil or C.editor.background,
 		fg = C.editorHoverWidget.background,
 	},
 	Pmenu = {
@@ -101,28 +101,28 @@ local editor = {
 		bg = C.scrollbarSlider.hoverBackground,
 		bg_base = C.editorSuggestWidget.background,
 	},
-	-- Question = { bg = Config.transparent_background and "NONE" or C.bg, fg = C.gray }, -- |hit-enter| prompt and yes/no questions
+	-- Question = { bg = Config.transparent_background and nil or C.bg, fg = C.gray }, -- |hit-enter| prompt and yes/no questions
 	-- QuickFixLine = { bg = C.bg }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 	-- QuickFixLineNC = { bg = C.bg }, -- QuickFixLine, for inactive windows
 	Search = {
 		bg = C.editor.findMatchHighlightBackground,
-		fg = "NONE", -- should set to NONE to use treesitter color
+		fg = nil, -- should set to NONE to use treesitter color
 	}, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
 	-- SpecialKey   = {}, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace| SpellBad  Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.  SpellCap  Word that should start with a capital. |spell| Combined with the highlighting used otherwise.  SpellLocal  Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
 	-- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
 	IncSearch = {
-		bg = "NONE",
-		fg = "NONE",
+		bg = nil,
+		fg = nil,
 	}, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-	-- StatusLine = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg, style = "bold" }, -- status line of current window
+	-- StatusLine = { bg = config.options.transparency and nil or theme.palette.bg, fg = theme.palette.fg, style = "bold" }, -- status line of current window
 	-- StatusLineNC = {
-	--     bg = config.options.transparency and "NONE"
+	--     bg = config.options.transparency andnil
 	--         or config.options.window_unfocused_color and theme.generated.color_column
 	--         or theme.palette.bg,
 	--     fg = theme.palette.fg,
 	-- }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-	-- TabLine = { bg = config.options.transparency and "NONE" or theme.palette.bg }, -- tab pages line, not active tab page label
-	-- TabLineFill = { bg = config.options.transparency and "NONE" or theme.palette.bg, fg = theme.palette.fg }, -- tab pages line, where there are no labels
+	-- TabLine = { bg = config.options.transparency and nil or theme.palette.bg }, -- tab pages line, not active tab page label
+	-- TabLineFill = { bg = config.options.transparency and nil or theme.palette.bg, fg = theme.palette.fg }, -- tab pages line, where there are no labels
 	-- TabLineSel = { bg = theme.palette.purple, fg = theme.palette.bg }, -- tab pages line, active tab page label
 	-- TermCursorNC = { bg = C.gray }, -- cursor in an unfocused terminal
 	Title = {
@@ -138,7 +138,7 @@ local editor = {
 		fg = C.inputValidation.warningForeground,
 	}, -- warning messages
 	WinSeparator = {
-		bg = Config.transparent_background and "NONE" or C.editor.background,
+		bg = Config.transparent_background and nil or C.editor.background,
 		fg = C.base.black,
 	}, -- the column separating windows
 	Whitespace = {
@@ -155,10 +155,10 @@ local editor = {
 	diffLine = { fg = C.base.lightCyan },
 
 	-- Spelling
-	SpellBad = { fg = C.base.red, sp = C.base.red, style = "undercurl" },
-	SpellCap = { fg = C.base.red, sp = C.base.red, style = "undercurl" },
-	SpellLocal = { fg = C.base.red, sp = C.base.red, style = "undercurl" },
-	SpellRare = { fg = C.base.red, sp = C.base.red, style = "undercurl" },
+	SpellBad = { fg = C.base.red, sp = C.base.red, undercurl = true },
+	SpellCap = { fg = C.base.red, sp = C.base.red, undercurl = true },
+	SpellLocal = { fg = C.base.red, sp = C.base.red, undercurl = true },
+	SpellRare = { fg = C.base.red, sp = C.base.red, undercurl = true },
 }
 
 return editor

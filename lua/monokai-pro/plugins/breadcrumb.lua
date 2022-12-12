@@ -1,8 +1,7 @@
 local breadcrumb = {
 	WinBar = {
-		bg = Config.transparent_background and "NONE" or C.editor.background,
+		bg = Config.transparent_background and nil or C.editor.background,
 		fg = C.breadcrumb.foreground,
-		style = "NONE",
 	},
 	BreadcrumbIconsArray = { fg = C.base.red },
 	BreadcrumbIconsBoolean = { fg = C.base.red },

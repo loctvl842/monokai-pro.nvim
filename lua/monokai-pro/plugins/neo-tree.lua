@@ -8,13 +8,13 @@ local NeoTree = {
 	NeoTreeCursorLine = { bg = C.list.activeSelectionBackground, bg_base = C.sideBar.background },
 	NeoTreeCursorLineSign = { bg = C.list.activeSelectionBackground, bg_base = C.sideBar.background },
 	NeoTreeWinSeparator = {
-		bg = Config.transparent_background and "NONE" or C.editor.background,
+		bg = Config.transparent_background and nil or C.editor.background,
 		fg = C.editor.background,
 	},
 	NeoTreeRootName = {
-		guibg = C.sideBarSectionHeader.background,
-		guifg = C.sideBarSectionHeader.foreground,
-		style = "bold",
+		bg = C.sideBarSectionHeader.background,
+		fg = C.sideBarSectionHeader.foreground,
+		bold = true,
 	},
 	NeoTreeDirectoryIcon = { fg = C.neotree_directory_icon },
 	NeoTreeDirectoryName = { fg = C.sideBar.foreground },
@@ -26,17 +26,17 @@ local NeoTree = {
 	NeoTreeGitModified = { fg = C.gitDecoration.modifiedResourceForeground },
 	NeoTreeGitStaged = { fg = C.gitDecoration.stageModifiedResourceForeground },
 	NeoTreeGitRenamed = { fg = C.gitDecoration.untrackedResourceForeground },
-	NeoTreeGitUntracked = { fg = C.gitDecoration.untrackedResourceForeground, style = "NONE" },
+	NeoTreeGitUntracked = { fg = C.gitDecoration.untrackedResourceForeground },
 
 	NeoTreeIndentMarker = { link = "IndentBlanklineChar" },
 	NeoTreeExpander = { link = "NeoTreeDirectoryIcon" },
 
 	NeoTreeFloatNormal = { bg = C.editorHoverWidget.background, fg = C.sideBar.foreground },
 	NeoTreeFloatBorder = {
-		bg = Config.transparent_background and "None" or C.sideBar.background,
+		bg = Config.transparent_background and nil or C.sideBar.background,
 		fg = C.editorHoverWidget.background,
 	},
-	NeoTreeFloatTitle = { bg = C.base.yellow, fg = C.sideBar.background, style = "bold" },
+	NeoTreeFloatTitle = { bg = C.base.yellow, fg = C.sideBar.background, bold = true },
 
 	NeoTreeTabActive = { bg = C.button.hoverbackground, fg = C.button.foreground },
 	NeoTreeTabInactive = { bg = C.button.background, fg = C.button.foreground },

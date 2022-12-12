@@ -4,9 +4,9 @@ local NvimTree = {
 	NvimTreeNormal = { fg = C.base.lightWhite, bg = C.base.black },
 	NvimTreeVertSplit = { fg = C.base.black, bg = C.base.black },
 	NvimTreeFolderName = { fg = C.base.green },
-	NvimTreeOpenedFolderName = { fg = C.base.yellow, style = "italic" },
-	NvimTreeEmptyFolderName = { fg = C.base.lightBlack, style = "italic" },
-	NvimTreeGitIgnored = { fg = C.base.lightBlack, style = "italic" },
+	NvimTreeOpenedFolderName = { fg = C.base.yellow, italic = true },
+	NvimTreeEmptyFolderName = { fg = C.base.lightBlack, italic = true },
+	NvimTreeGitIgnored = { fg = C.base.lightBlack, italic = true },
 	NvimTreeImageFile = { fg = C.base.lightWhite },
 	NvimTreeSpecialFile = { fg = C.base.blue },
 	NvimTreeEndOfBuffer = { fg = C.base.black },
@@ -19,7 +19,7 @@ local NvimTree = {
 	NvimTreeGitMerge = { fg = C.base.cyan },
 	NvimTreeGitDirty = { fg = C.base.cyan },
 	NvimTreeSymlink = { fg = C.base.lightCyan },
-	NvimTreeRootFolder = { fg = C.base.white, style = "bold" },
+	NvimTreeRootFolder = { fg = C.base.white, bold = true },
 	NvimTreeExecFile = { fg = "#9FBA89" },
 }
 

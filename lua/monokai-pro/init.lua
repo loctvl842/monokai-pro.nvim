@@ -3,6 +3,7 @@ local M = {}
 vim.o.background = "dark"
 vim.o.termguicolors = true
 vim.g.colors_name = "monokai-pro"
+vim.g.monokai_pro_filter = "pro"
 
 local util = require("monokai-pro.util")
 Config = require("monokai-pro.config")
@@ -25,7 +26,7 @@ local function highlightBufferLineIcon(theme_palette, config)
             bg = config.transparent_background and "NONE" or theme_palette.tab.activeBackground,
             fg = icon_color,
             sp = theme_palette.tab.activeBorder,
-            style = config.plugins.bufferline.underline_selected and "underline" or "NONE",
+            underline = config.plugins.bufferline.underline_selected
           },
           ["BufferLine" .. icon_name] = {
             bg = theme_palette.tab.inactiveBackground,
@@ -35,7 +36,7 @@ local function highlightBufferLineIcon(theme_palette, config)
             bg = config.transparent_background and "NONE" or theme_palette.tab.unfocusedActiveBackground,
             fg = icon_color,
             sp = theme_palette.tab.unfocusedActiveBorder,
-            style = config.plugins.bufferline.underline_selected and "underline" or "NONE",
+            underline = config.plugins.bufferline.underline_selected
           },
         }
         util.initialise(iconSkeleton)
@@ -74,7 +75,7 @@ local function generate(theme)
   local syntax = require("monokai-pro.syntax")
   local skeletons = {
     ["editor"] = editor,
-    ["syntax "] = syntax
+    ["syntax"] = syntax
   }
 
   for _, p in ipairs(plugins) do
@@ -100,6 +101,12 @@ local function generate(theme)
     ::continue::
   end
   highlightBufferLineIcon(C, Config)
+end
+
+function M.get_current_theme()
+  local filter = vim.g.monokai_pro_filter
+  local theme_palette = require('monokai-pro.themes.monokai-' .. filter)
+  return theme_palette.base
 end
 
 function M.setup(user_config)

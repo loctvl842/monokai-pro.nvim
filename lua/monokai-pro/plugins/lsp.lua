@@ -16,20 +16,24 @@ local LSP = {
 	DiagnosticVirtualTextHint = { fg = C.inputValidation.infoForeground },
 
 	DiagnosticUnderlineError = {
-		bg = Config.diagnostic.background and C.inputValidation.errorBackground or "NONE",
-		style = "undercurl",
+		bg = Config.diagnostic.background and C.inputValidation.errorBackground or nil,
+		sp = C.inputValidation.errorBorder,
+		undercurl = true,
 	},
 	DiagnosticUnderlineWarn = {
-		bg = Config.diagnostic.background and C.inputValidation.warningBackground or "NONE",
-		style = "undercurl",
+		bg = Config.diagnostic.background and C.inputValidation.warningBackground or nil,
+		sp = C.inputValidation.warningBorder,
+		undercurl = true,
 	},
 	DiagnosticUnderlineInfo = {
-		bg = Config.diagnostic.background and C.inputValidation.infoBackground or "NONE",
-		style = "undercurl",
+		bg = Config.diagnostic.background and C.inputValidation.infoBackground or nil,
+		sp = C.inputValidation.infoBorder,
+		undercurl = true,
 	},
 	DiagnosticUnderlineHint = {
-		bg = Config.diagnostic.background and C.inputValidation.infoBackground or "NONE",
-		style = "undercurl",
+		bg = Config.diagnostic.background and C.inputValidation.infoBackground or nil,
+		sp = C.inputValidation.infoBorder,
+		undercurl = true,
 	},
 }
 

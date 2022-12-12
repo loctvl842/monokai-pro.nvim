@@ -4,36 +4,36 @@ local colors = require("monokai-pro.themes.monokai-" .. filter)
 local monokai_pro = {}
 
 monokai_pro.normal = {
-	a = { bg = colors.yellow, fg = colors.black, gui = "bold" },
-	b = { bg = colors.suggestWidgetBackground, fg = colors.yellow },
-	c = { bg = colors.black, fg = colors.black },
-	x = { bg = colors.black, fg = colors.suggestWidgetForeground },
+	a = { bg = colors.base.yellow, fg = colors.base.black, gui = "bold" },
+	b = { bg = colors.editorSuggestWidget.background, fg = colors.base.yellow },
+	c = { bg = colors.base.black, fg = colors.base.black },
+	x = { bg = colors.base.black, fg = colors.base.suggestWidgetForeground },
 }
 
 monokai_pro.insert = {
-	a = { bg = colors.green, fg = colors.black },
-	b = { bg = colors.suggestWidgetBackground, fg = colors.green },
+	a = { bg = colors.base.green, fg = colors.base.black },
+	b = { bg = colors.editorSuggestWidget.background, fg = colors.base.green },
 }
 
 monokai_pro.command = {
-	a = { bg = colors.yellow, fg = colors.black },
-	b = { bg = colors.suggestWidgetBackground, fg = colors.yellow },
+	a = { bg = colors.base.yellow, fg = colors.base.black },
+	b = { bg = colors.editorSuggestWidget.background, fg = colors.base.yellow },
 }
 
 monokai_pro.visual = {
-	a = { bg = colors.magenta, fg = colors.black },
-	b = { bg = colors.suggestWidgetBackground, fg = colors.magenta },
+	a = { bg = colors.base.magenta, fg = colors.base.black },
+	b = { bg = colors.editorSuggestWidget.background, fg = colors.base.magenta },
 }
 
 monokai_pro.replace = {
-	a = { bg = colors.red, fg = colors.black },
-	b = { bg = colors.suggestWidgetBackground, fg = colors.red },
+	a = { bg = colors.base.red, fg = colors.base.black },
+	b = { bg = colors.editorSuggestWidget.background, fg = colors.base.red },
 }
 
 monokai_pro.inactive = {
-	a = { bg = colors.black, fg = colors.yellow },
-	b = { bg = colors.black, fg = colors.black },
-	c = { bg = colors.black, fg = colors.black },
+	a = { bg = colors.base.black, fg = colors.base.yellow },
+	b = { bg = colors.base.black, fg = colors.base.black },
+	c = { bg = colors.base.black, fg = colors.base.black },
 }
 
 return monokai_pro
