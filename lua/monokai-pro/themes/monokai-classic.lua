@@ -6,6 +6,7 @@ local monokai_classic = {
 		lineHighlightBackground = "#fdfff10c", -- background: background
 		selectionBackground = "#c0c1b527", -- background: background
 		findMatchBackground = "#fdfff126", -- background: background
+		findMatchBorder = "#e6db74",
 		findMatchHighlightBackground = "#fdfff126", -- background: background
 		foldBackground = "#fdfff10c", -- background: background
 		wordHighlightBackground = "#fdfff126", -- background: background

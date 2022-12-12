@@ -6,6 +6,7 @@ local monokai_ristretta = {
 		lineHighlightBackground = "#fff1f30c", -- background: background
 		selectionBackground = "#c3b7b826", -- background: background
 		findMatchBackground = "#fff1f326", -- background: background
+		findMatchBorder = "#f9cc6c",
 		findMatchHighlightBackground = "#fff1f326", -- background: background
 		foldBackground = "#fff1f30c", -- background: background
 		wordHighlightBackground = "#fff1f326", -- background: background

@@ -6,6 +6,7 @@ local monokai_pro = {
 		lineHighlightBackground = "#fcfcfa0c", -- background: background
 		selectionBackground = "#c1c0c026", -- background: background
 		findMatchBackground = "#fcfcfa26", -- background: background
+		findMatchBorder = "#ffd866",
 		findMatchHighlightBackground = "#fcfcfa26", -- background: background
 		foldBackground = "#fcfcfa0c", -- background: background
 		wordHighlightBackground = "#fcfcfa26", -- background: background

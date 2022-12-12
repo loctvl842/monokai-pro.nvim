@@ -6,6 +6,7 @@ local monokai_octagon = {
 		lineHighlightBackground = "#eaf2f10c", -- background: background
 		selectionBackground = "#b2b9bd26", -- background: background
 		findMatchBackground = "#eaf2f126", -- background: background
+		findMatchBorder = "#ffd76d",
 		findMatchHighlightBackground = "#eaf2f126", -- background: background
 		foldBackground = "#eaf2f10c", -- background: background
 		wordHighlightBackground = "#eaf2f126", -- background: background

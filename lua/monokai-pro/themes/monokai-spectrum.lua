@@ -6,6 +6,7 @@ local monokai_spectrum = {
 		lineHighlightBackground = "#f7f1ff0c", -- background: background
 		selectionBackground = "#bab6c026", -- background: background
 		findMatchBackground = "#f7f1ff26", -- background: background
+		findMatchBorder = "#fce566",
 		findMatchHighlightBackground = "#f7f1ff26", -- background: background
 		foldBackground = "#f7f1ff0c", -- background: background
 		wordHighlightBackground = "#f7f1ff26", -- background: background
