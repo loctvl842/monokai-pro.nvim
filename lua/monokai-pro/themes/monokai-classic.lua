@@ -30,7 +30,7 @@ local monokai_classic = {
 	},
 	sideBar = {
 		background = "#1d1e19",
-		foreground = "#fdfff1",
+		foreground = "#919288",
 	},
 	sideBarTitle = {
 		foreground = "#57584f",

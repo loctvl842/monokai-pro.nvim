@@ -1,7 +1,7 @@
 local toggleterm = {
 	TermCursor = {
-		bg = C.terminalCursor.background,
-		fg = C.terminalCursor.foreground,
+		bg = C.terminalCursor.foreground,
+		fg = C.terminalCursor.background,
 	}, -- cursor in a focused terminal
 	ToggleTerm = {
 		bg = C.terminal.background,
