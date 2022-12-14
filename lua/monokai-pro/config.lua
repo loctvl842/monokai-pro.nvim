@@ -8,6 +8,12 @@ local config = {
   plugins = {
     bufferline = {
       underline_selected = true,
+    },
+    toggleterm = {
+      background_clear = true,
+    },
+    telescope = {
+      background_clear = true,
     }
   }
 }
