@@ -103,7 +103,7 @@ local function generate(theme)
   highlightBufferLineIcon(C, Config)
 end
 
-function M.get_current_theme()
+function M.get_base_color()
   local filter = vim.g.monokai_pro_filter
   local theme_palette = require('monokai-pro.themes.monokai-' .. filter)
   return theme_palette.base
