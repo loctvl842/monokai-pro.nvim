@@ -33,17 +33,23 @@ Example configuration:
 
 ```lua
 require("monokai-pro").setup({
-	transparent_background = false, -- better set to false
+	transparent_background = true,
 	italic_comments = true,
-	theme = "octagon", -- classic | octagon | pro | machine | ristretto | spectrum
+	filter = "octagon", -- classic | octagon | pro | machine | ristretto | spectrum
 	diagnostic = {
-		background = true, -- highlight background of diagnostic
+		background = false,
 	},
-    plugins = {
-        bufferline = {
-            underline_selected = true, -- better set `false` if you don't use kitty terminal
-        }
+	plugins = {
+		bufferline = {
+			underline_selected = true,
+		},
+    toggleterm = {
+      background_clear = true,
+    },
+    telescope = {
+      background_clear = true,
     }
+	},
 })
 ```
 
