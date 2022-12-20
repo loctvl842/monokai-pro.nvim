@@ -23,10 +23,10 @@ local editor = {
 	}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 	-- CursorLineNrNC = { bg = C.bg, fg = C.lightGray }, -- CursorLineNr for inactive windows
 	-- Directory = { fg = C.blue }, -- directory names (and other special names in listings)
-	-- DiffAdd = { bg = C.diff_add }, -- diff mode: Added line |diff.txt|
-	-- DiffChange = { }, -- diff mode: Changed line |diff.txt|
-	-- DiffDelete = { bg = C.diff_delete },
-	-- DiffText = { bg = C.diff_text }, -- diff mode: Changed text within a changed line |diff.txt|
+	DiffAdd = { bg = C.editor.background, fg = C.gitDecoration.addedResourceForeground }, -- diff mode: Added line |diff.txt|
+	DiffChange = { bg = C.editor.background, fg = C.gitDecoration.modifiedResourceForeground }, -- diff mode: Changed line |diff.txt|
+	DiffDelete = { bg = C.editor.background, fg = C.gitDecoration.deletedResourceForeground },
+	DiffText = { bg = C.editor.background, fg = C.editor.foreground }, -- diff mode: Changed text within a changed line |diff.txt|
 	EndOfBuffer = {
 		fg = C.editor.background,
 	}, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
@@ -112,8 +112,8 @@ local editor = {
 	-- SpellRare    = {}, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
 	IncSearch = {
 		bg = C.editor.findMatchBackground,
-    sp = C.editor.findMatchBorder,
-    underline = true
+		sp = C.editor.findMatchBorder,
+		underline = true,
 		-- bg = nil,
 		-- fg = nil,
 	}, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
