@@ -1,5 +1,9 @@
 local M = {}
 
+vim.api.nvim_command("hi clear")
+if vim.fn.exists("syntax_on") then
+	vim.api.nvim_command("syntax reset")
+end
 vim.o.background = "dark"
 vim.o.termguicolors = true
 vim.g.colors_name = "monokai-pro"
@@ -54,6 +58,7 @@ local function generate(theme)
     "breadcrumb",
     "bufferline",
     "cmp",
+    "coc",
     "gitsign",
     "illuminate",
     "indent_blankline",
@@ -115,7 +120,7 @@ function M.setup(user_config)
   local theme_palette = require('monokai-pro.themes.monokai-' .. filter)
   vim.g.monokai_pro_filter = filter
   generate(theme_palette)
-  vim.cmd('colorscheme monokai-pro')
+  -- vim.cmd('colorscheme monokai-pro')
 end
 
 return M

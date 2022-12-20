@@ -1,7 +1,7 @@
 lua << EOF
+package.loaded['monokai-pro'] = nil
 package.loaded['monokai-pro.editor'] = nil
 package.loaded['monokai-pro.syntax'] = nil
-package.loaded["monokai-pro.plugins.NvimTree"] = nil
 package.loaded["monokai-pro.plugins.StatusLine"] = nil
 package.loaded["monokai-pro.plugins.alpha"] = nil
 package.loaded["monokai-pro.plugins.breadcrumb"] = nil
@@ -13,6 +13,7 @@ package.loaded["monokai-pro.plugins.indent_blankline"] = nil
 package.loaded["monokai-pro.plugins.lsp"] = nil
 package.loaded["monokai-pro.plugins.neo-tree"] = nil
 package.loaded["monokai-pro.plugins.notify"] = nil
+package.loaded["monokai-pro.plugins.nvim-tree"] = nil
 package.loaded["monokai-pro.plugins.nvim-treesitter"] = nil
 package.loaded["monokai-pro.plugins.packer"] = nil
 package.loaded["monokai-pro.plugins.renamer"] = nil
