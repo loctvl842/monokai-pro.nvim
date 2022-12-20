@@ -49,7 +49,6 @@ local function generate(theme)
   C = vim.tbl_deep_extend("force", C, theme)
 
   local plugins = {
-    "NvimTree",
     "StatusLine",
     "alpha",
     "breadcrumb",
@@ -61,6 +60,7 @@ local function generate(theme)
     "lsp",
     "neo-tree",
     "notify",
+    "nvim-tree",
     "nvim-treesitter",
     "packer",
     "renamer",

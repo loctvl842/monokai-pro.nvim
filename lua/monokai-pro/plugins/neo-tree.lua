@@ -23,7 +23,7 @@ local NeoTree = {
 	NeoTreeGitConflict = { fg = C.gitDecoration.conflictingResourceForeground },
 	NeoTreeGitDeleted = { fg = C.gitDecoration.deletedResourceForeground },
 	NeoTreeGitIgnored = { fg = C.gitDecoration.ignoredResourceForeground },
-	NeoTreeGitModified = { fg = C.gitDecoration.modifiedResourceForeground },
+	NeoTreeGitModified = { fg = C.gitDecoration.modifiedResourceForeground }, -- unstaged
 	NeoTreeGitStaged = { fg = C.gitDecoration.stageModifiedResourceForeground },
 	NeoTreeGitRenamed = { fg = C.gitDecoration.untrackedResourceForeground },
 	NeoTreeGitUntracked = { fg = C.gitDecoration.untrackedResourceForeground },
