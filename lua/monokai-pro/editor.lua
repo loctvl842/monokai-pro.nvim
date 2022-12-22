@@ -114,10 +114,12 @@ local editor = {
 		bg = C.editor.findMatchBackground,
 		sp = C.editor.findMatchBorder,
 		underline = true,
+		bold = true,
 	} or {
 		bg = C.base.yellow,
-		fg = C.editor.background,
+		fg = C.base.black,
 		underline = false,
+		bold = true,
 	}, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 	-- StatusLine = { bg = config.options.transparency and nil or theme.palette.bg, fg = theme.palette.fg, style = "bold" }, -- status line of current window
 	-- StatusLineNC = {

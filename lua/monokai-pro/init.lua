@@ -75,6 +75,7 @@ local function generate(theme)
     "toggleterm",
     "ufo",
     "which-key",
+    "wilder",
   }
 
   local editor = require("monokai-pro.editor")

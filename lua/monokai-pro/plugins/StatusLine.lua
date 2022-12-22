@@ -1,6 +1,6 @@
 local StatusLine = {
-	StatusLine = { fg = C.base.black, bg = C.base.black},
-	StatusLineNC = { fg = C.base.black, bg = C.base.lightBlack },
+	StatusLine = { bg = C.editorSuggestWidget.background, fg = C.editorSuggestWidget.foreground },
+	StatusLineNC = { bg = C.editorSuggestWidget.foreground, fg = C.editorSuggestWidget.background },
 	StatusLineSeparator = { fg = C.base.black },
 	StatusLineTerm = { fg = C.base.black },
 	StatusLineTermNC = { fg = C.base.black },
