@@ -33,24 +33,24 @@ Example configuration:
 
 ```lua
 require("monokai-pro").setup({
-	transparent_background = true,
-	italic_comments = true,
-	filter = "octagon", -- classic | octagon | pro | machine | ristretto | spectrum
-    inc_search = "underline", -- underline | background
-	diagnostic = {
-		background = false,
-	},
-	plugins = {
-		bufferline = {
-			underline_selected = true,
-		},
-        toggleterm = {
-          background_clear = true,
-        },
-        telescope = {
-          background_clear = true,
-        }
-	},
+  transparent_background = true,
+  italic_comments = true,
+  filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+  inc_search = "underline", -- underline | background
+  diagnostic = {
+    background = true,
+  },
+  plugins = {
+    bufferline = {
+      underline_selected = true,
+    },
+    toggleterm = {
+      background_clear = true,
+    },
+    telescope = {
+      background_clear = true,
+    }
+  }
 })
 ```
 
