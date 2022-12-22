@@ -14,6 +14,7 @@ local config = {
   transparent_background = true,
   italic_comments = true,
   filter = "pro",
+  inc_search = "underline", -- underline | background
   diagnostic = {
     background = true,
   },
