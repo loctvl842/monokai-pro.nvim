@@ -56,20 +56,22 @@ require("monokai-pro").setup({
 
 ## Plugin support
 
-- [Alpha](https://github.com/goolord/alpha-nvim)
-- [BufferLine](https://github.com/akinsho/bufferline.nvim)
-- [Cmp](https://github.com/hrsh7th/nvim-cmp)
-- [Illuminate](https://github.com/RRethy/vim-illuminate)
-- [IndentBlankline](https://github.com/lukas-reineke/indent-blankline.nvim)
-- [NeoTree](https://github.com/nvim-neo-tree/neo-tree.nvim)
-- [Notify](https://github.com/rcarriga/nvim-notify)
-- [Renamer](https://github.com/filipdutescu/renamer.nvim)
-- [Lualine](https://github.com/nvim-lualine/lualine.nvim)
-- [Telescope](https://github.com/nvim-telescope/telescope.nvim)
-- [toggleterm](https://github.com/akinsho/toggleterm.nvim)
-- [Treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- [Whichkey](https://github.com/folke/which-key.nvim)
-- [breadcrumb](https://github.com/loctvl842/breadcrumb.nvim)
+- ##### [alpha-nvim](https://github.com/goolord/alpha-nvim)
+- ##### [bufferLine.nvim](https://github.com/akinsho/bufferline.nvim)
+- ##### [Cmp](https://github.com/hrsh7th/nvim-cmp)
+- ##### [vim-illuminate](https://github.com/RRethy/vim-illuminate)
+- ##### [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
+- ##### [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
+- ##### [nvim-notify](https://github.com/rcarriga/nvim-notify)
+- ##### [renamer.nvim](https://github.com/filipdutescu/renamer.nvim)
+- ##### [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- ##### [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- ##### [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
+- ##### [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- ##### [which-key.nvim](https://github.com/folke/which-key.nvim)
+- ##### [breadcrumb.nvim](https://github.com/loctvl842/breadcrumb.nvim)
+- ##### [nvim-navic](https://github.com/SmiteshP/nvim-navic)
+- ##### [wilder.nvim](https://github.com/gelguy/wilder.nvim)
 
 ## Pro
 
