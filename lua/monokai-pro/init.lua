@@ -65,6 +65,7 @@ local function generate(theme)
     "lsp",
     "neo-tree",
     "notify",
+    "nvim-navic",
     "nvim-tree",
     "nvim-treesitter",
     "packer",
