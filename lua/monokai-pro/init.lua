@@ -123,7 +123,7 @@ local function create_filter_command()
     local menu = util.create_menu("Set monokai filter",
       { "classic", "octagon", "pro", "machine", "ristretto", "spectrum" },
       function(item)
-        local filter = item.text
+        local filter = item.value
         Config.filter = filter
         vim.g.monokai_pro_filter = filter
         M.setup(Config)
