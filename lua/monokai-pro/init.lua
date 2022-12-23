@@ -125,6 +125,17 @@ local function create_filter_command()
     vim.g.monokai_pro_filter = filter
     M.setup(Config)
   end, { nargs = 1 })
+  cmd("MonokaiPro", function()
+    local menu = util.create_menu("Set monokai filter",
+      { "classic", "octagon", "pro", "machine", "ristretto", "spectrum" },
+      function(item)
+        local filter = item.text
+        Config.filter = filter
+        vim.g.monokai_pro_filter = filter
+        M.setup(Config)
+      end)
+    menu:mount()
+  end, { nargs = 0 })
 end
 
 function M.setup(user_config)
