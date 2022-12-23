@@ -12,7 +12,7 @@ C = require("monokai-pro.palette")
 vim.o.background = "dark"
 vim.o.termguicolors = true
 vim.g.colors_name = "monokai-pro"
-vim.g.monokai_pro_config = Config
+vim.g.monokai_pro_filter = "pro"
 
 local function highlightBufferLineIcon(theme_palette, config)
   local icon_ok, webDevicons = pcall(require, "nvim-web-devicons")
@@ -112,7 +112,7 @@ local function generate(theme)
 end
 
 function M.get_base_color()
-  local filter = vim.g.monokai_pro_config.filter
+  local filter = vim.g.monokai_pro_filter
   local theme_palette = require('monokai-pro.themes.monokai-' .. filter)
   return theme_palette.base
 end
@@ -122,7 +122,7 @@ local function create_filter_command()
   cmd("MonokaiPro", function(opts)
     local filter = opts.args
     Config.filter = filter
-    vim.g.monokai_pro_config = Config
+    vim.g.monokai_pro_filter = filter
     M.setup(Config)
   end, { nargs = 1 })
 end
@@ -131,7 +131,7 @@ function M.setup(user_config)
   Config = vim.tbl_deep_extend("force", Config, user_config)
   local filter = Config.filter == "" and "pro" or Config.filter
   local theme_palette = require('monokai-pro.themes.monokai-' .. filter)
-  vim.g.monokai_pro_config = user_config
+  vim.g.monokai_pro_filter = filter
   generate(theme_palette)
   create_filter_command()
   vim.cmd([[colorscheme monokai-pro]])
