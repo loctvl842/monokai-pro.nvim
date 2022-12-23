@@ -4,6 +4,18 @@ local StatusLine = {
 	StatusLineSeparator = { fg = C.base.black },
 	StatusLineTerm = { fg = C.base.black },
 	StatusLineTermNC = { fg = C.base.black },
+	SLDiffAdd = {
+		bg = C.editor.background,
+		fg = C.gitDecoration.addedResourceForeground,
+	},
+	SLDiffChange = {
+		bg = C.editor.background,
+		fg = C.gitDecoration.modifiedResourceForeground,
+	},
+	SLDiffDelete = {
+		bg = C.editor.background,
+		fg = C.gitDecoration.deletedResourceForeground,
+	},
 	SLGitIcon = {
 		fg = C.base.green,
 		bg = C.editorHoverWidget.background,
@@ -24,6 +36,10 @@ local StatusLine = {
 		fg = C.inputValidation.warningForeground,
 		bg = C.editor.background,
 	},
+	SLInfo = {
+		bg = C.editor.background,
+		fg = C.inputValidation.infoForeground,
+	},
 	SLPosition = {
 		fg = C.base.magenta,
 		bg = C.editorHoverWidget.background,
@@ -41,8 +57,8 @@ local StatusLine = {
 		bg = C.editorHoverWidget.background,
 	},
 	SLMode = {
-		fg = C.base.yellow,
-		bg = C.editor.background,
+		fg = C.base.green,
+		bg = C.editorHoverWidget.background,
 		bold = true,
 	},
 	SLSeparatorUnused = {

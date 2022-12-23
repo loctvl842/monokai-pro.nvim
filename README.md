@@ -16,9 +16,7 @@ Credit goes to the original creator [Monokai Pro](https://monokai.pro/)
 use("loctvl842/monokai-pro.nvim")
 ```
 
-## ⚙️ Configuration
-
-## Config
+## ⚙ configuration
 
 There are several themes included in this plugin.
 
@@ -54,7 +52,7 @@ require("monokai-pro").setup({
 })
 ```
 
-## Plugin support
+## ⚓ Plugin support
 
 - ##### [alpha-nvim](https://github.com/goolord/alpha-nvim)
 - ##### [bufferLine.nvim](https://github.com/akinsho/bufferline.nvim)

@@ -5,7 +5,7 @@ local NeoTree = {
 	NeoTreeSignColumn = { bg = C.sideBar.background, fg = C.sideBar.foreground },
 	NeoTreeStatusLine = { bg = C.sideBar.background, fg = C.sideBar.background },
 	NeoTreeCursor = { bg = C.list.activeSelectionBackground, bg_base = C.sideBar.background },
-	NeoTreeCursorLine = { bg = C.list.activeSelectionBackground, bg_base = C.sideBar.background },
+	NeoTreeCursorLine = { bg = C.list.activeSelectionBackground, bg_base = C.sideBar.background, bold = true },
 	NeoTreeCursorLineSign = { bg = C.list.activeSelectionBackground, bg_base = C.sideBar.background },
 	NeoTreeWinSeparator = {
 		bg = Config.transparent_background and nil or C.editor.background,
