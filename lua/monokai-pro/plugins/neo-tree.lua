@@ -38,7 +38,7 @@ local NeoTree = {
 	},
 	NeoTreeFloatTitle = { bg = C.base.yellow, fg = C.sideBar.background, bold = true },
 
-	NeoTreeTabActive = { bg = C.button.hoverbackground, fg = C.button.foreground },
+	NeoTreeTabActive = { bg = C.button.hoverbackground, fg = C.button.foreground, bold = true },
 	NeoTreeTabInactive = { bg = C.button.background, fg = C.button.foreground },
 	NeoTreeTabSeparatorActive = { bg = C.button.hoverbackground, fg = C.button.separator },
 	NeoTreeTabSeparatorInactive = { bg = C.button.background, fg = C.button.separator },
