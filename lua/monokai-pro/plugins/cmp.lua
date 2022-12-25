@@ -1,8 +1,8 @@
 local Cmp = {
 	CmpItemAbbrMatch = { fg = C.editorSuggestWidget.highlightForeground, bold = true },
-
-	CmpItemAbbrDeprecated = { fg = C.base.lightBlack, strikethrough = true },
-	CmpItemAbbrMatchFuzzy = { fg = C.base.blue },
+	CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" },
+	CmpItemMenuDefault = { fg = C.editorSuggestWidget.foreground },
+	CmpItemAbbrDeprecated = { fg = C.editorSuggestWidget.foreground, strikethrough = true },
 
 	CmpItemKindArray = { fg = C.base.red },
 	CmpItemKindBoolean = { fg = C.base.red },
