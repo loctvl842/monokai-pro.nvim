@@ -13,12 +13,12 @@ Credit goes to the original creator [Monokai Pro](https://monokai.pro/)
 ## 📦 Installation
 
 ```lua
-use(
-  "loctvl842/monokai-pro.nvim"
+use {
+  "loctvl842/monokai-pro.nvim",
   config = function()
     require("monokai-pro").setup({})
   end
-)
+}
 ```
 
 ## ⚙ configuration
