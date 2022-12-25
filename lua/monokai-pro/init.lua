@@ -84,9 +84,9 @@ local function generate(theme)
   local semantic_tokens = require("monokai-pro.semantic_tokens")
   local special = require("monokai-pro.special")
   local skeletons = {
-    ["special"] = special,
     ["editor"] = editor,
     ["syntax"] = syntax,
+    ["special"] = special,
     ["semantic_tokens"] = semantic_tokens,
   }
 

@@ -9,6 +9,7 @@ package.loaded["monokai-pro.plugins.alpha"] = nil
 package.loaded["monokai-pro.plugins.breadcrumb"] = nil
 package.loaded["monokai-pro.plugins.bufferline"] = nil
 package.loaded["monokai-pro.plugins.cmp"] = nil
+package.loaded["monokai-pro.plugins.coc"] = nil
 package.loaded["monokai-pro.plugins.gitsign"] = nil
 package.loaded["monokai-pro.plugins.illuminate"] = nil
 package.loaded["monokai-pro.plugins.indent_blankline"] = nil
@@ -24,4 +25,5 @@ package.loaded["monokai-pro.plugins.telescope"] = nil
 package.loaded["monokai-pro.plugins.toggleterm"] = nil
 package.loaded["monokai-pro.plugins.ufo"] = nil
 package.loaded["monokai-pro.plugins.which-key"] = nil
+package.loaded["monokai-pro.plugins.wilder"] = nil
 EOF

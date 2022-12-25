@@ -4,8 +4,8 @@ local semantic_tokens = {
 	["@readonly"] = { fg = C.base.magenta },
 	["@local"] = { fg = C.base.white },
 	["@modifier"] = { fg = C.base.red, italic = true },
-	["@public"] = { fg = C.base.cyan, italic = true },
 	["@namespace"] = { fg = C.base.red, italic = true },
+	["@interface"] = { fg = C.base.cyan, italic = true },
 }
 
 return semantic_tokens
