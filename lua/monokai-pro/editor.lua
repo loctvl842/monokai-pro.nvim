@@ -89,14 +89,14 @@ local editor = {
 	}, -- Normal text in floating windows. example PackerNormal
 	FloatBorder = cmpBackgroundClear and {
 		bg = C.editor.background,
-		fg = C.editorSuggestWidget.border,
+		fg = C.editorSuggestWidget.foreground,
 	} or {
 		bg = C.editor.background,
 		fg = C.editorSuggestWidget.background,
 	},
 	Pmenu = cmpBackgroundClear and {
 		bg = C.editor.background,
-		fg = C.editorSuggestWidget.border,
+		fg = C.editorSuggestWidget.foreground,
 	} or {
 		bg = C.editorSuggestWidget.background,
 		fg = C.editorSuggestWidget.foreground,

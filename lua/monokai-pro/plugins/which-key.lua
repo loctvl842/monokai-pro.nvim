@@ -7,7 +7,7 @@ local Whichkey = {
 	WhichKeyDesc = { fg = C.base.yellow },
 	WhichKeyFloat = whichkeyBackgroundClear and {
 		bg = C.editor.background,
-		fg = C.editorSuggestWidget.border,
+		fg = C.editorSuggestWidget.foreground,
 	} or {
 		bg = C.editorHoverWidget.background,
 	},
