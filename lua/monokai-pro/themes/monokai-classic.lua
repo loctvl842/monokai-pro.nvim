@@ -29,6 +29,11 @@ local monokai_classic = {
 		background = "#3b3c35",
 		activeBackground = "#57584F",
 	},
+	editorGutter = {
+		addedBackground = "#a6e22e",
+		deletedBackground = "#f92672",
+		modifiedBackground = "#fd971f",
+	},
 	sideBar = {
 		background = "#1d1e19",
 		foreground = "#919288",

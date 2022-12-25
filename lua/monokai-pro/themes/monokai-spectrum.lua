@@ -33,6 +33,11 @@ local monokai_spectrum = {
 		tabsBackground = "#191919", -- set to black is better
 		tabsBorder = "#191919",
 	},
+	editorGutter = {
+		addedBackground = "#7bd88f",
+		deletedBackground = "#fc618d",
+		modifiedBackground = "#fd9353",
+	},
 	sideBar = {
 		background = "#191919",
 		foreground = "#8b888f",

@@ -1,9 +1,12 @@
+-- pro | default
+local isContextPro = Config.plugins.indent_blankline.context_highlight == "pro"
+
 local IndentBlankline = {
 	IndentBlanklineChar = { fg = C.editorIndentGuide.background },
-	IndentBlanklineContextChar = { fg = C.editorIndentGuide.activeBackground },
-	IndentBlanklineContextStart = { sp = C.editorIndentGuide.activeBackground, underline = true },
-	-- IndentBlanklineContextChar = { fg = C.magenta},
-	-- IndentBlanklineContextStart = { sp = C.magenta, style = "underline" },
+
+	IndentBlanklineContextChar = isContextPro and { fg = C.base.blue } or { fg = C.editorIndentGuide.activeBackground },
+	IndentBlanklineContextStart = isContextPro and { sp = C.base.blue, underline = true }
+		or { sp = C.editorIndentGuide.activeBackground, underline = true },
 
 	IndentBlanklineSpaceChar = { fg = C.editor.background }, -- highlight the character Tab
 }

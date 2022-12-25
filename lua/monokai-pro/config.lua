@@ -27,6 +27,9 @@ local config = {
     },
     telescope = {
       background_clear = true,
+    },
+    indent_blankline = {
+      context_highlight = "default" -- default | pro
     }
   }
 }

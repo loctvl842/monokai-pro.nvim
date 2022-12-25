@@ -33,6 +33,11 @@ local monokai_ristretta = {
 		tabsBackground = "#211c1c", -- set to black is better
 		tabsBorder = "#211c1c",
 	},
+	editorGutter = {
+		addedBackground = "#adda78",
+		deletedBackground = "#fd6883",
+		modifiedBackground = "#f38d70",
+	},
 	sideBar = {
 		background = "#211c1c",
 		foreground = "#948a8b",

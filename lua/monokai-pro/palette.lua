@@ -29,6 +29,11 @@ local colors = {
 		background = "#403e41",
 		activeBackground = "#5B595C",
 	},
+	editorGutter = {
+		addedBackground = "#a9dc76",
+		deletedBackground = "#ff6188",
+		modifiedBackground = "#fc9867",
+	},
 	sideBar = {
 		background = "#221f22",
 		foreground = "#939293",

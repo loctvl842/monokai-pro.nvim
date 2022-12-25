@@ -1,10 +1,10 @@
-local Git = {
-	SignAdd = { fg = C.gitDecoration.addedResourceForeground },
-	SignChange = { fg = C.gitDecoration.modifiedResourceForeground },
-	SignDelete = { fg = C.gitDecoration.deletedResourceForeground },
+local gitsign = {
+	SignAdd = { fg = C.editorGutter.addedBackground },
+	SignChange = { fg = C.editorGutter.modifiedBackground },
+	SignDelete = { fg = C.editorGutter.deletedBackground },
 	GitSignsAdd = { link = "SignAdd" },
 	GitSignsChange = { link = "SignChange" },
 	GitSignsDelete = { link = "SignDelete" },
 }
 
-return Git
+return gitsign

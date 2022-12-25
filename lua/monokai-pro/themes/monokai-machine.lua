@@ -33,6 +33,11 @@ local monokai_machine = {
 		tabsBackground = "#1d2528",
 		tabsBorder = "#1d2528",
 	},
+	editorGutter = {
+		addedBackground = "#a2e57b",
+		deletedBackground = "#ff6d7e",
+		modifiedBackground = "#ffb270",
+	},
 	sideBar = {
 		background = "#1d2528",
 		foreground = "#8b9798",

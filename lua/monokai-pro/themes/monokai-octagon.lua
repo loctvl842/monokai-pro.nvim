@@ -33,6 +33,13 @@ local monokai_octagon = {
 		tabsBackground = "#1e1f2b", -- set to black is better
 		tabsBorder = "#1e1f2b",
 	},
+	editorGutter = {
+		addedBackground = "#bad761",
+		background = "#282a3a",
+		deletedBackground = "#ff657a",
+		foldingControlForeground = "#b2b9bd",
+		modifiedBackground = "#ff9b5e",
+	},
 	sideBar = {
 		background = "#1e1f2b",
 		foreground = "#888d94",
