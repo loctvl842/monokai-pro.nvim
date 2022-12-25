@@ -66,6 +66,8 @@ require("monokai-pro").setup({
 })
 ```
 
+- Reference my [nvim config](https://github.com/loctvl842/nvim) to see my plugins setup for `border` if you want to set `background_clear = false`
+
 ## ✍ Command
 
 - run command `MonokaiProSelect` to launch a menu to choose theme filter (required: [nui.nvim](https://github.com/MunifTanjim/nui.nvim))
