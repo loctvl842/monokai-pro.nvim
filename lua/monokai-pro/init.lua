@@ -84,9 +84,9 @@ local function generate(theme)
   local semantic_tokens = require("monokai-pro.semantic_tokens")
   local special = require("monokai-pro.special")
   local skeletons = {
+    ["special"] = special,
     ["editor"] = editor,
     ["syntax"] = syntax,
-    ["special"] = special,
     -- ["semantic_tokens"] = semantic_tokens,
   }
 
@@ -113,12 +113,6 @@ local function generate(theme)
     ::continue::
   end
   highlightBufferLineIcon(C, Config)
-end
-
-function M.get_base_color()
-  local filter = vim.g.monokai_pro_filter
-  local theme_palette = require('monokai-pro.themes.monokai-' .. filter)
-  return theme_palette.base
 end
 
 local function create_filter_command()
@@ -150,6 +144,12 @@ function M.setup(user_config)
   generate(theme_palette)
   create_filter_command()
   vim.cmd([[colorscheme monokai-pro]])
+end
+
+function M.get_base_color()
+  local filter = vim.g.monokai_pro_filter
+  local theme_palette = require('monokai-pro.themes.monokai-' .. filter)
+  return theme_palette.base
 end
 
 return M
