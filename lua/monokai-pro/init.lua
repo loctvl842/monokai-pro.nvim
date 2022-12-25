@@ -87,7 +87,7 @@ local function generate(theme)
     ["special"] = special,
     ["editor"] = editor,
     ["syntax"] = syntax,
-    -- ["semantic_tokens"] = semantic_tokens,
+    ["semantic_tokens"] = semantic_tokens,
   }
 
   for _, p in ipairs(plugins) do
