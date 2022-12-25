@@ -1,9 +1,9 @@
-lua << EOF
-package.loaded['monokai-pro'] = nil
-package.loaded['monokai-pro.editor'] = nil
-package.loaded['monokai-pro.syntax'] = nil
-package.loaded['monokai-pro.special'] = nil
-package.loaded['monokai-pro.semantic_tokens'] = nil
+local prev_config = vim.g.monokai_pro_config
+package.loaded["monokai-pro"] = nil
+package.loaded["monokai-pro.editor"] = nil
+package.loaded["monokai-pro.syntax"] = nil
+package.loaded["monokai-pro.special"] = nil
+package.loaded["monokai-pro.semantic_tokens"] = nil
 package.loaded["monokai-pro.plugins.StatusLine"] = nil
 package.loaded["monokai-pro.plugins.alpha"] = nil
 package.loaded["monokai-pro.plugins.breadcrumb"] = nil
@@ -26,4 +26,5 @@ package.loaded["monokai-pro.plugins.toggleterm"] = nil
 package.loaded["monokai-pro.plugins.ufo"] = nil
 package.loaded["monokai-pro.plugins.which-key"] = nil
 package.loaded["monokai-pro.plugins.wilder"] = nil
-EOF
+os.execute('dunstify ' .. 'loc')
+require("monokai-pro").setup(prev_config)

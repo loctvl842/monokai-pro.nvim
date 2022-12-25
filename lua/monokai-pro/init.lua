@@ -135,10 +135,10 @@ local function create_filter_command()
     M.setup(Config)
   end, { nargs = 1 })
 end
-
+vim.g.monokai_pro_config = {}
 function M.setup(user_config)
-  os.execute('dunstify ' .. 'loc')
   Config = vim.tbl_deep_extend("force", Config, user_config)
+  vim.g.monokai_pro_config = Config
   local filter = Config.filter == "" and "pro" or Config.filter
   local theme_palette = require('monokai-pro.themes.monokai-' .. filter)
   vim.g.monokai_pro_filter = filter
