@@ -9,7 +9,9 @@ local monokai_ristretta = {
 		findMatchBorder = "#f9cc6c",
 		findMatchHighlightBackground = "#fff1f326", -- background: background
 		foldBackground = "#fff1f30c", -- background: background
-		wordHighlightBackground = "#fff1f326", -- background: background
+		wordHighlightBackground = "#fff1f326", -- illuminateRead
+		selectionHighlightBackground = "#fff1f326", -- illuminateText
+		wordHighlightStrongBackground = "#fff1f326", -- illuminateWrite
 	},
 	editorLineNumber = {
 		activeForeground = "#c3b7b8",

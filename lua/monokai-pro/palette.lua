@@ -9,7 +9,9 @@ local colors = {
 		findMatchBorder = "#ffd866",
 		findMatchHighlightBackground = "#fcfcfa26", -- background: background
 		foldBackground = "#fcfcfa0c", -- background: background
-		wordHighlightBackground = "#fcfcfa26", -- background: background
+		wordHighlightBackground = "#fcfcfa26", -- illuminateRead
+		selectionHighlightBackground = "#fcfcfa26", -- illuminateText
+		wordHighlightStrongBackground = "#fcfcfa26", -- illuminateWrite
 	},
 	editorLineNumber = {
 		foreground = "#5b595c",
@@ -34,6 +36,7 @@ local colors = {
 		deletedBackground = "#ff6188",
 		modifiedBackground = "#fc9867",
 	},
+
 	sideBar = {
 		background = "#221f22",
 		foreground = "#939293",

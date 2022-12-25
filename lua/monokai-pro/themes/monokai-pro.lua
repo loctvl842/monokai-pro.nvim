@@ -9,7 +9,9 @@ local monokai_pro = {
 		findMatchBorder = "#ffd866",
 		findMatchHighlightBackground = "#fcfcfa26", -- background: background
 		foldBackground = "#fcfcfa0c", -- background: background
-		wordHighlightBackground = "#fcfcfa26", -- background: background
+		wordHighlightBackground = "#fcfcfa26", -- illuminateRead
+		selectionHighlightBackground = "#fcfcfa26", -- illuminateText
+		wordHighlightStrongBackground = "#fcfcfa26", -- illuminateWrite
 	},
 	editorLineNumber = {
 		foreground = "#5b595c",

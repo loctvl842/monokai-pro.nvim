@@ -9,7 +9,9 @@ local monokai_octagon = {
 		findMatchBorder = "#ffd76d",
 		findMatchHighlightBackground = "#eaf2f126", -- background: background
 		foldBackground = "#eaf2f10c", -- background: background
-		wordHighlightBackground = "#eaf2f126", -- background: background
+		wordHighlightBackground = "#eaf2f126", -- illuminateRead
+		selectionHighlightBackground = "#eaf2f126", -- illuminateText
+		wordHighlightStrongBackground = "#eaf2f126", -- illuminateWrite
 	},
 	editorLineNumber = {
 		activeForeground = "#b2b9bd",
