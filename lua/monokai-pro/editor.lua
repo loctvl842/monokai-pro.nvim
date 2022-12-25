@@ -1,4 +1,5 @@
 local util = require("monokai-pro.util")
+local cmpBackgroundClear = Config.plugins.cmp.background_clear
 
 local editor = {
 	ColorColumn = {
@@ -80,18 +81,29 @@ local editor = {
 		bg = Config.transparent_background and nil or C.editor.background,
 		fg = C.editor.foreground,
 	},
-	NormalFloat = {
+	NormalFloat = cmpBackgroundClear and {
+		bg = C.editor.background,
+		fg = C.editorSuggestWidget.foreground,
+	} or {
 		bg = C.editorHoverWidget.background,
 	}, -- Normal text in floating windows. example PackerNormal
-	FloatBorder = {
-		bg = Config.transparent_background and nil or C.editor.background,
-		fg = C.editorHoverWidget.background,
+	FloatBorder = cmpBackgroundClear and {
+		bg = C.editor.background,
+		fg = C.editorSuggestWidget.border,
+	} or {
+		bg = C.editor.background,
+		fg = C.editorSuggestWidget.background,
 	},
-	Pmenu = {
+	Pmenu = cmpBackgroundClear and {
+		bg = C.editor.background,
+		fg = C.editorSuggestWidget.border,
+	} or {
 		bg = C.editorSuggestWidget.background,
 		fg = C.editorSuggestWidget.foreground,
 	}, -- Popup menu: normal item.
-	PmenuSel = {
+	PmenuSel = cmpBackgroundClear and {
+		bg = util.blend(C.editorSuggestWidget.selectedBackground, C.editor.background, 0.7),
+	} or {
 		bg = C.editorSuggestWidget.selectedBackground,
 	},
 	PmenuSbar = {

@@ -23,6 +23,7 @@ local monokai_machine = {
 	},
 	editorSuggestWidget = {
 		background = "#3a4449",
+		border = "#3a4449",
 		foreground = "#b8c4c3",
 		highlightForeground = "#f2fffc",
 		selectedBackground = "#6b7678",

@@ -23,6 +23,7 @@ local colors = {
 	},
 	editorSuggestWidget = {
 		background = "#403e41",
+		border = "#403e41",
 		foreground = "#c1c0c0",
 		highlightForeground = "#fcfcfa",
 		selectedBackground = "#727072",

@@ -23,6 +23,7 @@ local monokai_octagon = {
 	},
 	editorSuggestWidget = {
 		background = "#3a3d4b",
+		border = "#3a3d4b",
 		foreground = "#b2b9bd",
 		highlightForeground = "#eaf2f1",
 		selectedBackground = "#696d77",

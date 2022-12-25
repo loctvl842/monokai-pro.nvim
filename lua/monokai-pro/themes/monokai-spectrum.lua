@@ -23,6 +23,7 @@ local monokai_spectrum = {
 	},
 	editorSuggestWidget = {
 		background = "#363537",
+		border = "#363537",
 		foreground = "#bab6c0",
 		highlightForeground = "#f7f1ff",
 		selectedBackground = "#69676c",

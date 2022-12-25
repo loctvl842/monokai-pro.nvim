@@ -143,7 +143,7 @@ function M.create_menu(title, items, handler)
 	for _, it in ipairs(items) do
 		table.insert(menuItems, Menu.item("   " .. it, { value = it }))
 	end
-	local popup_border_text = NuiText(" " .. title .. " ", "TelescopePromptTitle")
+	local popup_border_text = NuiText(" " .. title .. " ", "SPTitle")
 	local menu = Menu({
 		position = "50%",
 		size = {
@@ -159,7 +159,7 @@ function M.create_menu(title, items, handler)
 			},
 		},
 		win_options = {
-			winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,CursorLine:TelescopeSelection",
+			winhighlight = "Normal:SPNormalFloat,FloatBorder:SPFloatBorder,CursorLine:SPCursorLine",
 		},
 	}, {
 		lines = menuItems,

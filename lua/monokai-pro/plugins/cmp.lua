@@ -1,8 +1,9 @@
 local Cmp = {
-	CmpItemAbbrMatch = { fg = C.editorSuggestWidget.highlightForeground, bold = true },
-	CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" },
-	CmpItemMenuDefault = { fg = C.editorSuggestWidget.foreground },
-	CmpItemAbbrDeprecated = { fg = C.editorSuggestWidget.foreground, strikethrough = true },
+	CmpItemAbbrMatch = { fg = C.editorSuggestWidget.highlightForeground, bold = true }, -- text match in order
+	CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" }, -- text match not in order
+	CmpItemMenu = { fg = C.editorSuggestWidget.foreground }, -- source of cmp. Ex: Lsp | Snippet
+	CmpItemAbbr = { fg = C.editorSuggestWidget.foreground }, -- text that not match
+	CmpItemAbbrDeprecated = { fg = C.editorSuggestWidget.foreground, strikethrough = true }, -- text not match of deprecated
 
 	CmpItemKindArray = { fg = C.base.red },
 	CmpItemKindBoolean = { fg = C.base.red },

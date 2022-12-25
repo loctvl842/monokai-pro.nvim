@@ -23,6 +23,7 @@ local monokai_ristretta = {
 	},
 	editorSuggestWidget = {
 		background = "#403838",
+		border = "#403838",
 		foreground = "#c3b7b8",
 		highlightForeground = "#fff1f3",
 		selectedBackground = "#72696a",
