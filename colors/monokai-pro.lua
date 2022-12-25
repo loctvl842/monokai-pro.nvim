@@ -26,5 +26,4 @@ package.loaded["monokai-pro.plugins.toggleterm"] = nil
 package.loaded["monokai-pro.plugins.ufo"] = nil
 package.loaded["monokai-pro.plugins.which-key"] = nil
 package.loaded["monokai-pro.plugins.wilder"] = nil
-os.execute('dunstify ' .. 'loc')
 require("monokai-pro").setup(prev_config)
