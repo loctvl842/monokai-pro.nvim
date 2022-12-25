@@ -2,8 +2,8 @@ lua << EOF
 package.loaded['monokai-pro'] = nil
 package.loaded['monokai-pro.editor'] = nil
 package.loaded['monokai-pro.syntax'] = nil
-package.loaded['monokai-pro.semantic_tokens'] = nil
 package.loaded['monokai-pro.special'] = nil
+package.loaded['monokai-pro.semantic_tokens'] = nil
 package.loaded["monokai-pro.plugins.StatusLine"] = nil
 package.loaded["monokai-pro.plugins.alpha"] = nil
 package.loaded["monokai-pro.plugins.breadcrumb"] = nil
