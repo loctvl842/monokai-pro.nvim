@@ -59,6 +59,9 @@ require("monokai-pro").setup({
     whichkey = {
       background_clear = true,
     },
+    renamer = {
+      background_clear = true,
+    },
     indent_blankline = {
       context_highlight = "default" -- default | pro
     },

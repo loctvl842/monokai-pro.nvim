@@ -31,9 +31,12 @@ local config = {
 		cmp = {
 			background_clear = true,
 		},
-    whichkey = {
-      background_clear = true,
-    },
+		whichkey = {
+			background_clear = true,
+		},
+		renamer = {
+			background_clear = true,
+		},
 		indent_blankline = {
 			context_highlight = "default", -- default | pro
 		},
