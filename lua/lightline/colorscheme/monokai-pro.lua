@@ -48,4 +48,6 @@ monokai_pro.inactive = {
 	},
 }
 
+package.loaded['colors'] = nil
+
 return monokai_pro

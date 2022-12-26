@@ -71,6 +71,21 @@ require("monokai-pro").setup({
 
 - Reference my [nvim config](https://github.com/loctvl842/nvim) to see my plugins setup for `border` if you want to set `background_clear = false`
 
+- To enable `monokai-pro` for `Lualine`:
+```lua
+require('lualine').setup {
+  options = {
+    -- ... your lualine config
+    theme = 'monokai-pro'
+    -- ... your lualine config
+  }
+}
+```
+- To enable `moonokai-pro` for `lightline`:
+```vim
+" Vim Script
+let g:lightline = {'colorscheme': 'monokaipro'}
+```
 ## ✍ Command
 
 - run command `MonokaiProSelect` to launch a menu to choose theme filter (required: [nui.nvim](https://github.com/MunifTanjim/nui.nvim))
@@ -95,6 +110,7 @@ require("monokai-pro").setup({
 - ##### [breadcrumb.nvim](https://github.com/loctvl842/breadcrumb.nvim)
 - ##### [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - ##### [wilder.nvim](https://github.com/gelguy/wilder.nvim)
+- ##### [Lightline](https://github.com/itchyny/lightline.vim)
 
 ## Pro
 
