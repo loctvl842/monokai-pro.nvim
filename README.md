@@ -119,14 +119,3 @@ require("monokai-pro").setup({
 ## Classic
 
 ![image](./assets/classic.png)
-
-## TODO
-
-- [ ] Fix icons in bufferline
-- [ ] options for border in Telescope (float, get_theme)
-- [ ] options for border in NeoTree
-- [ ] options for border in cmp
-- [ ] options for border session-lens
-- [ ] fix bufferlineCloseButtonVisible
-- [ ] fix lualine theme
-- [ ] options for border in whichkey
