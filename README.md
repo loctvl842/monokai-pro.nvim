@@ -75,12 +75,12 @@ use {
 
 There are several themes included in this plugin.
 
-- [Pro](#Pro) – Monokai Pro _(default)_
-- [Octagon](#Octagon) – Monokai Pro (Filter Octagon)
-- [Machine](#Machine) – Monokai Pro (Filter Machine)
-- [Ristretto](#Ristretto) – Monokai Pro (Filter Machine)
-- [Spectrum](#Spectrum) – Monokai Pro (Filter Machine)
-- [Classic](#Classic) – Monokai Classic
+- [Pro](#-pro) – Monokai Pro _(default)_
+- [Octagon](#-octagon) – Monokai Pro (Filter Octagon)
+- [Machine](#-machine) – Monokai Pro (Filter Machine)
+- [Ristretto](#-ristretto) – Monokai Pro (Filter Machine)
+- [Spectrum](#-spectrum) – Monokai Pro (Filter Machine)
+- [Classic](#-classic) – Monokai Classic
 
 Example configuration:
 
