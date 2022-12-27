@@ -56,6 +56,12 @@ Credit goes to the original creator [Monokai Pro](https://monokai.pro/)
 
 ## 📦 Installation
 
+[vim-plug](https://github.com/junegunn/vim-plug)
+```vim
+Plug 'loctvl842/monokai-pro.nvim'
+```
+
+[packer](https://github.com/wbthomason/packer.nvim)
 ```lua
 use {
   "loctvl842/monokai-pro.nvim",
