@@ -14,7 +14,7 @@ vim.o.termguicolors = true
 vim.g.colors_name = "monokai-pro"
 vim.g.monokai_pro_config = Config
 
-M.plugins = {
+local plugins = {
 	"StatusLine",
 	"alpha",
 	"breadcrumb",
@@ -43,7 +43,7 @@ M.plugins = {
 -- gnerate the colorscheme
 local function generate(theme)
 	C = vim.tbl_deep_extend("force", C, theme)
-	local skeletons = util.load_skeletons(M.plugins)
+	local skeletons = util.load_skeletons(plugins)
 	for skeleton_name, skeleton_config in pairs(skeletons) do
 		local status_ok, _ = pcall(util.initialise, skeleton_config)
 		if not status_ok then

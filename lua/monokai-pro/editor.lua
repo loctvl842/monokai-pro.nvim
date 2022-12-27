@@ -21,6 +21,7 @@ local editor = {
 	CursorLineNr = {
 		bg = C.editor.background,
 		fg = C.editorLineNumber.activeForeground,
+    bold = true,
 	}, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 	-- CursorLineNrNC = { bg = C.bg, fg = C.lightGray }, -- CursorLineNr for inactive windows
 	-- Directory = { fg = C.blue }, -- directory names (and other special names in listings)
