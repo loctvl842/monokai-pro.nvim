@@ -72,6 +72,7 @@ require("monokai-pro").setup({
 - Reference my [nvim config](https://github.com/loctvl842/nvim) to see my plugins setup for `border` if you want to set `background_clear = false`
 
 - To enable `monokai-pro` for `Lualine`:
+
 ```lua
 require('lualine').setup {
   options = {
@@ -81,11 +82,14 @@ require('lualine').setup {
   }
 }
 ```
+
 - To enable `moonokai-pro` for `lightline`:
+
 ```vim
 " Vim Script
 let g:lightline = {'colorscheme': 'monokaipro'}
 ```
+
 ## ✍ Command
 
 - run command `MonokaiProSelect` to launch a menu to choose theme filter (required: [nui.nvim](https://github.com/MunifTanjim/nui.nvim))
@@ -114,27 +118,24 @@ let g:lightline = {'colorscheme': 'monokaipro'}
 
 ## Pro
 
-![image](./assets/pro.png)
+![pro](https://user-images.githubusercontent.com/80513079/209659184-ed5a28c3-cb7f-4de7-8f7c-5d206dc11540.png)
 
 ## Octagon
 
-![image](./assets/octagon.png)
+![octagon](https://user-images.githubusercontent.com/80513079/209659175-97db9a95-edd0-4b6e-8087-7fb1aee45c52.png)
 
 ## Machine
 
-![image](./assets/machine.png)
+![machine](https://user-images.githubusercontent.com/80513079/209659194-d9fe09f5-ea35-4130-b2e8-d854b7b6fb72.png)
 
 ## Ristretto
 
-![image](./assets/ristretto.png)
+![ristretto](https://user-images.githubusercontent.com/80513079/209659205-90200c24-d302-4b70-811a-36e6e7845f6b.png)
 
 ## Spectrum
 
-![image](./assets/spectrum.png)
+![spectrum](https://user-images.githubusercontent.com/80513079/209659126-9df0d401-020f-4b0c-963d-5a930d0a6974.png)
 
 ## Classic
 
-![image](./assets/classic.png)
-
-
-![image](https://user-images.githubusercontent.com/80513079/209657441-4daf4995-f687-427d-9688-ae7e0982604a.jpg)
+![classic](https://user-images.githubusercontent.com/80513079/209659153-9362a05f-2b7f-4b36-acf1-d13bef6a9118.png)
