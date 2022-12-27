@@ -10,27 +10,27 @@
 
 Credit goes to the original creator [Monokai Pro](https://monokai.pro/)
 
-## Pro
+## ⭐ Pro
 
 ![pro](https://user-images.githubusercontent.com/80513079/209659184-ed5a28c3-cb7f-4de7-8f7c-5d206dc11540.png)
 
-## Octagon
+## 🛑 Octagon
 
 ![octagon](https://user-images.githubusercontent.com/80513079/209659175-97db9a95-edd0-4b6e-8087-7fb1aee45c52.png)
 
-## Machine
+## 🎰 Machine
 
 ![machine](https://user-images.githubusercontent.com/80513079/209659194-d9fe09f5-ea35-4130-b2e8-d854b7b6fb72.png)
 
-## Ristretto
+## ☕  Ristretto
 
 ![ristretto](https://user-images.githubusercontent.com/80513079/209659205-90200c24-d302-4b70-811a-36e6e7845f6b.png)
 
-## Spectrum
+## 🎨 Spectrum
 
 ![spectrum](https://user-images.githubusercontent.com/80513079/209659126-9df0d401-020f-4b0c-963d-5a930d0a6974.png)
 
-## Classic
+## 👴 Classic
 
 ![classic](https://user-images.githubusercontent.com/80513079/209659153-9362a05f-2b7f-4b36-acf1-d13bef6a9118.png)
 
