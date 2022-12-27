@@ -1,7 +1,9 @@
-local utils = require("monokai-pro.util")
+local util = require("monokai-pro.util")
 
 local normalAlpha = 0.6
 local visibleAlpha = 0.8
+local duplicateAlpha = 0.8
+local countAlpha = 0.75
 local isSelectedUnderlined = Config.plugins.bufferline.underline_selected
 
 local BufferLine = {
@@ -24,11 +26,11 @@ local BufferLine = {
 	},
 	BufferLineBackground = {
 		bg = C.tab.inactiveBackground,
-		fg = utils.blend(C.base.white, C.tab.inactiveBackground, normalAlpha),
+		fg = util.blend(C.base.white, C.tab.inactiveBackground, normalAlpha),
 	},
 	BufferLineBufferVisible = {
 		bg = Config.transparent_background and nil or C.tab.unfocusedActiveBackground,
-		fg = utils.blend(C.base.white, C.editor.background, visibleAlpha),
+		fg = util.blend(C.base.white, C.editor.background, visibleAlpha),
 		sp = C.tab.unfocusedActiveBorder,
 		underline = isSelectedUnderlined,
 	},
@@ -36,17 +38,17 @@ local BufferLine = {
 	-- Duplicate
 	BufferLineDuplicateSelected = {
 		bg = Config.transparent_background and nil or C.tab.activeBackground,
-		fg = utils.blend(C.base.white, C.tab.activeBackground, normalAlpha),
+		fg = util.blend(C.base.white, C.tab.activeBackground, duplicateAlpha),
 		sp = C.tab.activeBorder,
 		underline = isSelectedUnderlined,
 	},
 	BufferLineDuplicate = {
 		bg = C.tab.inactiveBackground,
-		fg = utils.blend(C.base.white, C.tab.inactiveBackground, normalAlpha),
+		fg = util.blend(C.base.white, C.tab.inactiveBackground, normalAlpha * duplicateAlpha),
 	},
 	BufferLineDuplicateVisible = {
 		bg = Config.transparent_background and nil or C.tab.unfocusedActiveBackground,
-		fg = utils.blend(C.base.white, C.tab.unfocusedActiveBackground, normalAlpha),
+		fg = util.blend(C.base.white, C.tab.unfocusedActiveBackground, visibleAlpha * duplicateAlpha),
 		sp = C.tab.unfocusedActiveBorder,
 		underline = isSelectedUnderlined,
 	},
@@ -114,18 +116,38 @@ local BufferLine = {
 	},
 	BufferLineWarning = {
 		bg = C.tab.inactiveBackground,
-		fg = utils.blend(C.inputValidation.warningForeground, C.tab.inactiveBackground, normalAlpha),
+		fg = util.blend(C.inputValidation.warningForeground, C.tab.inactiveBackground, normalAlpha),
 	},
 	BufferLineWarningVisible = {
 		bg = Config.transparent_background and nil or C.tab.unfocusedActiveBackground,
-		fg = utils.blend(C.inputValidation.warningForeground, C.tab.unfocusedActiveBackground, visibleAlpha),
+		fg = util.blend(C.inputValidation.warningForeground, C.tab.unfocusedActiveBackground, visibleAlpha),
 		sp = C.tab.unfocusedActiveBorder,
 		underline = isSelectedUnderlined,
 	},
-
-	BufferLineWarningDiagnosticSelected = { link = "BufferLineWarningSelected" },
-	BufferLineWarningDiagnostic = { link = "BufferLineWarning" },
-	BufferLineWarningDiagnosticVisible = { link = "BufferLineWarningVisible" },
+	-- Warning count
+	BufferLineWarningDiagnosticSelected = {
+		bg = Config.transparent_background and nil or C.tab.activeBackground,
+		fg = util.blend(C.inputValidation.warningForeground, C.editor.background, countAlpha),
+		sp = C.tab.activeBorder,
+		underline = isSelectedUnderlined,
+		bold = true,
+	},
+	BufferLineWarningDiagnostic = {
+		bg = C.tab.inactiveBackground,
+		fg = util.blend(C.inputValidation.warningForeground, C.tab.inactiveBackground, normalAlpha * countAlpha),
+		bold = true,
+	},
+	BufferLineWarningDiagnosticVisible = {
+		bg = Config.transparent_background and nil or C.tab.unfocusedActiveBackground,
+		fg = util.blend(
+			C.inputValidation.warningForeground,
+			C.tab.unfocusedActiveBackground,
+			visibleAlpha * countAlpha
+		),
+		sp = C.tab.unfocusedActiveBorder,
+		underline = isSelectedUnderlined,
+		bold = true,
+	},
 
 	-- Error
 	BufferLineErrorSelected = {
@@ -136,18 +158,34 @@ local BufferLine = {
 	},
 	BufferLineError = {
 		bg = C.tab.inactiveBackground,
-		fg = utils.blend(C.inputValidation.errorForeground, C.tab.inactiveBackground, normalAlpha),
+		fg = util.blend(C.inputValidation.errorForeground, C.tab.inactiveBackground, normalAlpha),
 	},
 	BufferLineErrorVisible = {
 		bg = Config.transparent_background and nil or C.tab.unfocusedActiveBackground,
-		fg = utils.blend(C.inputValidation.errorForeground, C.tab.unfocusedActiveBackground, visibleAlpha),
+		fg = util.blend(C.inputValidation.errorForeground, C.tab.unfocusedActiveBackground, visibleAlpha),
 		sp = C.tab.unfocusedActiveBorder,
 		underline = isSelectedUnderlined,
 	},
-
-	BufferLineErrorDiagnosticSelected = { link = "BufferLineErrorSelected" },
-	BufferLineErrorDiagnostic = { link = "BufferLineError" },
-	BufferLineErrorDiagnosticVisible = { link = "BufferLineErrorVisible" },
+	-- Error count
+	BufferLineErrorDiagnosticSelected = {
+		bg = Config.transparent_background and nil or C.tab.activeBackground,
+		fg = util.blend(C.inputValidation.errorForeground, C.editor.background, countAlpha),
+		sp = C.tab.activeBorder,
+		underline = isSelectedUnderlined,
+		bold = true,
+	},
+	BufferLineErrorDiagnostic = {
+		bg = C.tab.inactiveBackground,
+		fg = util.blend(C.inputValidation.errorForeground, C.tab.inactiveBackground, normalAlpha * countAlpha),
+		bold = true,
+	},
+	BufferLineErrorDiagnosticVisible = {
+		bg = Config.transparent_background and nil or C.tab.unfocusedActiveBackground,
+		fg = util.blend(C.inputValidation.errorForeground, C.tab.unfocusedActiveBackground, visibleAlpha * countAlpha),
+		sp = C.tab.unfocusedActiveBorder,
+		underline = isSelectedUnderlined,
+		bold = true,
+	},
 
 	-- Info
 	BufferLineInfoSelected = {
@@ -158,27 +196,43 @@ local BufferLine = {
 	},
 	BufferLineInfo = {
 		bg = C.tab.inactiveBackground,
-		fg = utils.blend(C.inputValidation.infoForeground, C.tab.inactiveBackground, normalAlpha),
+		fg = util.blend(C.inputValidation.infoForeground, C.tab.inactiveBackground, normalAlpha),
 	},
 	BufferLineInfoVisible = {
 		bg = Config.transparent_background and nil or C.tab.unfocusedActiveBackground,
-		fg = utils.blend(C.inputValidation.infoForeground, C.tab.unfocusedActiveBackground, visibleAlpha),
+		fg = util.blend(C.inputValidation.infoForeground, C.tab.unfocusedActiveBackground, visibleAlpha),
 		sp = C.tab.unfocusedActiveBorder,
 		underline = isSelectedUnderlined,
 	},
-
-	BufferLineInfoDiagnosticSelected = { link = "BufferLineInfoSelected" },
-	BufferLineInfoDiagnostic = { link = "BufferLineInfo" },
-	BufferLineInfoDiagnosticVisible = { link = "BufferLineInfoVisible" },
+	-- Info count
+	BufferLineInfoDiagnosticSelected = {
+		bg = Config.transparent_background and nil or C.tab.activeBackground,
+		fg = util.blend(C.inputValidation.infoForeground, C.editor.background, countAlpha),
+		sp = C.tab.activeBorder,
+		underline = isSelectedUnderlined,
+		bold = true,
+	},
+	BufferLineInfoDiagnostic = {
+		bg = C.tab.inactiveBackground,
+		fg = util.blend(C.inputValidation.infoForeground, C.tab.inactiveBackground, normalAlpha * countAlpha),
+		bold = true,
+	},
+	BufferLineInfoDiagnosticVisible = {
+		bg = Config.transparent_background and nil or C.tab.unfocusedActiveBackground,
+		fg = util.blend(C.inputValidation.infoForeground, C.tab.unfocusedActiveBackground, visibleAlpha * countAlpha),
+		sp = C.tab.unfocusedActiveBorder,
+		underline = isSelectedUnderlined,
+		bold = true,
+	},
 
 	-- Hint
 	BufferLineHintSelected = { link = "BufferLineInfoSelected" },
 	BufferLineHint = { link = "BufferLineInfo" },
 	BufferLineHintVisible = { link = "BufferLineInfoVisible" },
-
-	BufferLineHintDiagnosticSelected = { link = "BufferLineHintSelected" },
-	BufferLineHintDiagnostic = { link = "BufferLineHint" },
-	BufferLineHintDiagnosticVisible = { link = "BufferLineHintVisible" },
+	-- Hint count
+	BufferLineHintDiagnosticSelected = { link = "BufferLineInfoDiagnosticSelected" },
+	BufferLineHintDiagnostic = { link = "BufferLineInfoDiagnostic" },
+	BufferLineHintDiagnosticVisible = { link = "BufferLineInfoDiagnosticVisible" },
 
 	-- Pick
 	BufferLinePickSelected = {
@@ -190,7 +244,7 @@ local BufferLine = {
 	BufferLinePick = {
 		bg = C.tab.inactiveBackground,
 		fg = C.base.red,
-		style = "bold",
+		bold = true,
 	},
 	BufferLinePickVisible = {
 		bg = Config.transparent_background and nil or C.tab.unfocusedActiveBackground,
@@ -222,5 +276,9 @@ local BufferLine = {
 		underline = isSelectedUnderlined,
 	},
 }
+
+for _, v in pairs(BufferLine) do
+	v["bold"] = true
+end
 
 return BufferLine
