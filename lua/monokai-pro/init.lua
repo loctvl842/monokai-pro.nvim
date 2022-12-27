@@ -77,7 +77,12 @@ local function create_filter_command()
 		Config.filter = filter
 		vim.g.monokai_pro_config = Config
 		M.setup(Config)
-	end, { nargs = 1 })
+	end, {
+		nargs = 1,
+		complete = function()
+			return { "classic", "octagon", "pro", "machine", "ristretto", "spectrum" }
+		end,
+	})
 end
 
 function M.setup(user_config)

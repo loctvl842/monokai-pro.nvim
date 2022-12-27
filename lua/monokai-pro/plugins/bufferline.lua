@@ -2,7 +2,7 @@ local util = require("monokai-pro.util")
 
 local normalAlpha = 0.6
 local visibleAlpha = 0.8
-local duplicateAlpha = 0.8
+local duplicateAlpha = 0.6
 local countAlpha = 0.75
 local isSelectedUnderlined = Config.plugins.bufferline.underline_selected
 
@@ -38,7 +38,7 @@ local BufferLine = {
 	-- Duplicate
 	BufferLineDuplicateSelected = {
 		bg = Config.transparent_background and nil or C.tab.activeBackground,
-		fg = util.blend(C.base.white, C.tab.activeBackground, duplicateAlpha),
+		fg = util.blend(C.tab.activeForeground, C.tab.activeBackground, duplicateAlpha),
 		sp = C.tab.activeBorder,
 		underline = isSelectedUnderlined,
 	},

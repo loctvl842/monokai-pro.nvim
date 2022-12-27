@@ -65,13 +65,6 @@ local Treesitter = {
 	["@keyword.function.lua"] = { fg = C.base.red },
 	["@conditional.lua"] = { fg = C.base.red },
 	["@namespace.lua"] = { fg = C.base.red },
-
-	rainbowcol1 = { fg = C.base.blue },
-	rainbowcol2 = { fg = C.base.red },
-	rainbowcol3 = { fg = C.base.magenta },
-	rainbowcol4 = { fg = C.base.cyan },
-	rainbowcol5 = { fg = C.base.green },
-	rainbowcol6 = { fg = C.base.yellow },
 }
 
 return Treesitter
