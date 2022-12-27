@@ -135,3 +135,6 @@ let g:lightline = {'colorscheme': 'monokaipro'}
 ## Classic
 
 ![image](./assets/classic.png)
+
+
+![image](https://user-images.githubusercontent.com/80513079/209657441-4daf4995-f687-427d-9688-ae7e0982604a.jpg)
