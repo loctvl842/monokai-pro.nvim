@@ -82,11 +82,12 @@ local editor = {
 		fg = C.editor.foreground,
 	},
 	NormalFloat = cmpBackgroundClear and {
-		bg = C.editor.background,
-		fg = C.editorSuggestWidget.foreground,
-	} or {
-		bg = C.editorHoverWidget.background,
-	}, -- Normal text in floating windows. example PackerNormal
+			bg = C.editor.background,
+			fg = C.editorSuggestWidget.foreground,
+		} or {
+			-- bg = C.editorHoverWidget.background,
+			bg = C.base.black,
+		}, -- Normal text in floating windows. example PackerNormal
 	FloatBorder = cmpBackgroundClear and {
 		bg = C.editor.background,
 		fg = C.editorSuggestWidget.foreground,
