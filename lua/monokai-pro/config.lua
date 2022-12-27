@@ -20,7 +20,8 @@ local config = {
 	},
 	plugins = {
 		bufferline = {
-			underline_selected = true,
+			underline_selected = false,
+      underline_visible = false,
 		},
 		toggleterm = {
 			background_clear = true,

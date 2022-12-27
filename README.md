@@ -22,7 +22,7 @@ Credit goes to the original creator [Monokai Pro](https://monokai.pro/)
 
 ![machine](https://user-images.githubusercontent.com/80513079/209659194-d9fe09f5-ea35-4130-b2e8-d854b7b6fb72.png)
 
-## ☕  Ristretto
+## ☕ Ristretto
 
 ![ristretto](https://user-images.githubusercontent.com/80513079/209659205-90200c24-d302-4b70-811a-36e6e7845f6b.png)
 
@@ -35,7 +35,7 @@ Credit goes to the original creator [Monokai Pro](https://monokai.pro/)
 ![classic](https://user-images.githubusercontent.com/80513079/209659153-9362a05f-2b7f-4b36-acf1-d13bef6a9118.png)
 
 ### ⚓ Plugin support
- 
+
 - [alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [bufferLine.nvim](https://github.com/akinsho/bufferline.nvim)
 - [Cmp](https://github.com/hrsh7th/nvim-cmp)
@@ -57,11 +57,13 @@ Credit goes to the original creator [Monokai Pro](https://monokai.pro/)
 ## 📦 Installation
 
 [vim-plug](https://github.com/junegunn/vim-plug)
+
 ```vim
 Plug 'loctvl842/monokai-pro.nvim'
 ```
 
 [packer](https://github.com/wbthomason/packer.nvim)
+
 ```lua
 use {
   "loctvl842/monokai-pro.nvim",
@@ -95,7 +97,8 @@ require("monokai-pro").setup({
   },
   plugins = {
     bufferline = {
-      underline_selected = true,
+      underline_selected = false,
+      underline_visible = false,
     },
     toggleterm = {
       background_clear = true,
@@ -145,4 +148,3 @@ let g:lightline = {'colorscheme': 'monokaipro'}
 - run command `MonokaiProSelect` to launch a menu to choose theme filter (required: [nui.nvim](https://github.com/MunifTanjim/nui.nvim))
 - or we can run command `MonokaiPro` with parameter to change theme filter: For example:
   > `MonokaiPro classic`
-

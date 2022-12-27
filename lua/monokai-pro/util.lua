@@ -225,7 +225,7 @@ function M.highlightBufferLineIcon(theme_palette, config)
           bg = config.transparent_background and "NONE" or theme_palette.tab.unfocusedActiveBackground,
           fg = icon_color,
           sp = theme_palette.tab.unfocusedActiveBorder,
-          underline = config.plugins.bufferline.underline_selected
+          underline = config.plugins.bufferline.underline_visible
         },
       }
       M.initialise(iconSkeleton)
