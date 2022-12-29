@@ -1,4 +1,6 @@
-local gitsign = {
+local M = {}
+
+M.highlight = {
 	SignAdd = { fg = C.editorGutter.addedBackground },
 	SignChange = { fg = C.editorGutter.modifiedBackground },
 	SignDelete = { fg = C.editorGutter.deletedBackground },
@@ -7,4 +9,4 @@ local gitsign = {
 	GitSignsDelete = { link = "SignDelete" },
 }
 
-return gitsign
+return M

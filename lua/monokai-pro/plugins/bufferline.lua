@@ -1,5 +1,7 @@
 local util = require("monokai-pro.util")
 
+local M = {}
+
 local normalAlpha = 0.6
 local visibleAlpha = 0.8
 local duplicateAlpha = 0.6
@@ -7,7 +9,7 @@ local countAlpha = 0.75
 local isSelectedUnderlined = Config.plugins.bufferline.underline_selected
 local isVisibleUnderlined = Config.plugins.bufferline.underline_visible
 
-local BufferLine = {
+M.highlight = {
   Offset = {
     bg = C.sideBar.background,
     fg = C.sideBarTitle.foreground,
@@ -274,8 +276,8 @@ local BufferLine = {
   },
 }
 
-for _, v in pairs(BufferLine) do
+for _, v in pairs(M.highlight) do
   v["bold"] = true
 end
 
-return BufferLine
+return M

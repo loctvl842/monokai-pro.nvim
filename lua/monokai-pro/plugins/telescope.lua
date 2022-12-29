@@ -1,10 +1,14 @@
+local M = {}
 local isTelescopeBackgroundClear = Config.plugins.telescope.background_clear
 
-local Telescope = {
+M.highlight = {
 	TelescopeSelection = { bg = C.editorLineNumber.foreground, fg = C.base.yellow, bold = true },
 
 	TelescopeNormal = { bg = isTelescopeBackgroundClear and C.editor.background or C.editorHoverWidget.background },
-	TelescopeBorder = { fg = isTelescopeBackgroundClear and C.tab.unfocusedActiveBorder or C.editorHoverWidget.background, bg = C.editor.background },
+	TelescopeBorder = {
+		fg = isTelescopeBackgroundClear and C.tab.unfocusedActiveBorder or C.editorHoverWidget.background,
+		bg = C.editor.background,
+	},
 	TelescopePromptCounter = { fg = C.base.red },
 
 	TelescopePromptTitle = { bg = C.base.yellow, fg = C.base.black, bold = true },
@@ -16,4 +20,4 @@ local Telescope = {
 	TelescopePromptPrefix = { fg = C.base.cyan },
 }
 
-return Telescope
+return M

@@ -1,5 +1,7 @@
+local M = {}
+
 local isBackgroundClear = Config.plugins.toggleterm.background_clear
-local toggleterm = {
+M.highlight = {
 	TermCursor = {
 		bg = C.terminalCursor.foreground,
 		fg = C.terminalCursor.background,
@@ -14,4 +16,4 @@ local toggleterm = {
 	},
 }
 
-return toggleterm
+return M

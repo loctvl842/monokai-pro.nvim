@@ -1,4 +1,5 @@
-local NeoTree = {
+local M = {}
+M.highlight = {
 	NeoTreeNormal = { bg = C.sideBar.background, fg = C.sideBar.foreground },
 	NeoTreeEndOfBuffer = { bg = C.sideBar.background, fg = C.sideBar.background },
 	NeoTreeNormalNC = { bg = C.sideBar.background, fg = C.sideBar.foreground },
@@ -44,4 +45,4 @@ local NeoTree = {
 	NeoTreeTabSeparatorInactive = { bg = C.button.background, fg = C.button.separator },
 }
 
-return NeoTree
+return M

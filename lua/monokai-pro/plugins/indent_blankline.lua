@@ -1,7 +1,9 @@
+local M = {}
+
 -- pro | default
 local isContextPro = Config.plugins.indent_blankline.context_highlight == "pro"
 
-local IndentBlankline = {
+M.highlight = {
 	IndentBlanklineChar = { fg = C.editorIndentGuide.background },
 
 	IndentBlanklineContextChar = isContextPro and { fg = C.base.blue } or { fg = C.editorIndentGuide.activeBackground },
@@ -11,4 +13,4 @@ local IndentBlankline = {
 	IndentBlanklineSpaceChar = { fg = C.editor.background }, -- highlight the character Tab
 }
 
-return IndentBlankline
+return M

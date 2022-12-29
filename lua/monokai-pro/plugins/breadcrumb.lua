@@ -1,4 +1,6 @@
-local breadcrumb = {
+local M = {}
+
+M.highlight = {
 	WinBar = {
 		bg = Config.transparent_background and nil or C.editor.background,
 		fg = C.breadcrumb.foreground,
@@ -38,4 +40,4 @@ local breadcrumb = {
 	BreadcrumbIconsVariable = { fg = C.base.cyan },
 }
 
-return breadcrumb
+return M

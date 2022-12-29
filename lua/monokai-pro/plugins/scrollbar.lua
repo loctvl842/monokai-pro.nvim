@@ -1,4 +1,6 @@
-local scrollbar = {
+local M = {}
+
+M.highlight = {
 	ScrollbarHandle = { bg = C.scrollbarSlider.hoverBackground, fg = C.base.white },
 	ScrollbarCursorHandle = { bg = C.scrollbarSlider.hoverBackground },
 	ScrollbarCursor = { bg = C.list.activeSelectionBackground, fg = C.list.activeSelectionBackground },
@@ -32,4 +34,4 @@ local scrollbar = {
 	ScrollbarGitDelete = { bg = C.editor.background, fg = C.gitDecoration.deletedResourceForeground },
 }
 
-return scrollbar
+return M

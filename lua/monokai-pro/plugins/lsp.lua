@@ -1,4 +1,5 @@
-local LSP = {
+local M = {}
+M.highlight = {
 	-- Neovim 0.6+
 	DiagnosticError = { fg = C.inputValidation.errorForeground },
 	DiagnosticWarn = { fg = C.inputValidation.warningForeground },
@@ -37,4 +38,4 @@ local LSP = {
 	},
 }
 
-return LSP
+return M

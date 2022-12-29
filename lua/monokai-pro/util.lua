@@ -235,12 +235,12 @@ end
 
 -- generate list of skeletons from plugin with `attribute` is name of plugin and `value` is plugin highlight
 ---@param plugins table
-function M.load_skeletons(plugins)
+function M.load_plugins(plugins)
   local editor = require("monokai-pro.editor")
   local syntax = require("monokai-pro.syntax")
   local semantic_tokens = require("monokai-pro.semantic_tokens")
   local special = require("monokai-pro.special")
-  local skeletons = {
+  local highlightGroups = {
     ["editor"] = editor,
     ["syntax"] = syntax,
     ["special"] = special,
@@ -248,17 +248,17 @@ function M.load_skeletons(plugins)
   }
 
   for _, p in ipairs(plugins) do
-    local plugin_ok, pluginConfig = pcall(require, "monokai-pro.plugins." .. p)
+    local plugin_ok, plugin = pcall(require, "monokai-pro.plugins." .. p)
     if not plugin_ok then
       local msg = "There is no highlight config named " .. p
       local level = "warn"
       util.notify(msg, level)
       goto continue
     end
-    skeletons[p] = pluginConfig
+    highlightGroups[p] = plugin.highlight
     ::continue::
   end
-  return skeletons
+  return highlightGroups
 end
 
 return M

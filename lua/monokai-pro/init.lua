@@ -1,6 +1,6 @@
 local M = {}
 
-vim.api.nvim_command("hi clear")
+vim.cmd("hi clear")
 if vim.fn.exists("syntax_on") then
 	vim.api.nvim_command("syntax reset")
 end
@@ -43,11 +43,11 @@ local plugins = {
 -- gnerate the colorscheme
 local function generate(theme)
 	C = vim.tbl_deep_extend("force", C, theme)
-	local skeletons = util.load_skeletons(plugins)
-	for skeleton_name, skeleton_config in pairs(skeletons) do
-		local status_ok, _ = pcall(util.initialise, skeleton_config)
+	local highlightGroups = util.load_plugins(plugins)
+	for groupName, highlightGroup in pairs(highlightGroups) do
+		local status_ok, _ = pcall(util.initialise, highlightGroup)
 		if not status_ok then
-			local msg = "Highlight failed in skeleton " .. skeleton_name
+			local msg = "Failed to load highlight group: " .. groupName
 			local level = "error"
 			util.notify(msg, level)
 			goto continue

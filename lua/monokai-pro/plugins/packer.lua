@@ -1,4 +1,6 @@
-local Packer = {
+local M = {}
+
+M.highlight = {
 	packerString = { fg = C.base.blue },
 	packerHash = { fg = C.base.blue },
 	packerOutput = { fg = C.base.yellow },
@@ -9,4 +11,4 @@ local Packer = {
 	packerFail = { fg = C.base.red, bg = C.editorHoverWidget.background },
 }
 
-return Packer
+return M

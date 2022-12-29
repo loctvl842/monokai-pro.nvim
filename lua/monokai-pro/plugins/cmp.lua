@@ -1,4 +1,6 @@
-local Cmp = {
+local M = {}
+
+M.highlight = {
 	CmpItemAbbrMatch = { fg = C.editorSuggestWidget.highlightForeground, bold = true }, -- text match in order
 	CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" }, -- text match not in order
 	CmpItemMenu = { fg = C.editorSuggestWidget.foreground }, -- source of cmp. Ex: Lsp | Snippet
@@ -40,4 +42,4 @@ local Cmp = {
 	CmpItemKindVariable = { fg = C.base.cyan },
 }
 
-return Cmp
+return M

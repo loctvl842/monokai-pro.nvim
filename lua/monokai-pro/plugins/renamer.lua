@@ -1,5 +1,7 @@
+local M = {}
+
 local renamerBackgroundClear = Config.plugins.renamer.background_clear
-local Renamer = {
+M.highlight = {
 	RenamerNormal = {
 		bg = renamerBackgroundClear and C.editor.background or C.editorHoverWidget.background,
 		fg = C.editorHoverWidget.foreground,
@@ -18,4 +20,4 @@ local Renamer = {
 	},
 }
 
-return Renamer
+return M

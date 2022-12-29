@@ -1,4 +1,6 @@
-local nvim_navic = {
+local M = {}
+
+M.highlight = {
 	NavicIconsArray = { fg = C.base.red },
 	NavicIconsBoolean = { fg = C.base.red },
 	NavicIconsClass = { fg = C.base.cyan },
@@ -34,4 +36,4 @@ local nvim_navic = {
 	NavicIconsVariable = { fg = C.base.cyan },
 }
 
-return nvim_navic
+return M

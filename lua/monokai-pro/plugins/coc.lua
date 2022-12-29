@@ -1,4 +1,6 @@
-local coc = {
+local M = {}
+
+M.highlight = {
 	CocGitAddedSign = { bg = C.editor.background, fg = C.gitDecoration.addedResourceForeground },
 	CocGitChangeRemovedSign = { bg = C.editor.background, fg = C.gitDecoration.deletedResourceForeground },
 	CocGitChangedSign = { bg = C.editor.background, fg = C.gitDecoration.modifiedResourceForeground },
@@ -6,4 +8,4 @@ local coc = {
 	CocGitTopRemovedSign = { bg = C.editor.background, fg = C.gitDecoration.stageDeletedResourceForeground },
 }
 
-return coc
+return M

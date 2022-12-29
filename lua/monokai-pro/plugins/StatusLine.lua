@@ -1,4 +1,5 @@
-local StatusLine = {
+local M = {}
+M.highlight = {
 	StatusLine = { bg = C.editorSuggestWidget.background, fg = C.editorSuggestWidget.foreground },
 	StatusLineNC = { bg = C.editorSuggestWidget.foreground, fg = C.editorSuggestWidget.background },
 	StatusLineSeparator = { fg = C.base.black },
@@ -71,4 +72,4 @@ local StatusLine = {
 	},
 }
 
-return StatusLine
+return M

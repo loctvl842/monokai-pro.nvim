@@ -1,4 +1,6 @@
-local Notify = {
+local M = {}
+
+M.highlight = {
 	NotifyERRORBorder = { fg = C.inputValidation.errorBorder },
 	NotifyWARNBorder = { fg = C.inputValidation.warningBorder },
 	NotifyINFOBorder = { fg = C.inputValidation.infoBorder },
@@ -16,4 +18,4 @@ local Notify = {
 	NotifyTRACETitle = { fg = C.base.magenta },
 }
 
-return Notify
+return M

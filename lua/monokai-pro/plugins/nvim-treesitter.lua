@@ -1,4 +1,6 @@
-local Treesitter = {
+local M = {}
+
+M.highlight = {
 	["@include"] = { fg = C.base.red },
 	["@variable"] = { fg = C.base.white },
 	["@punctuation.delimiter"] = { fg = C.editorSuggestWidget.foreground },
@@ -67,4 +69,4 @@ local Treesitter = {
 	["@namespace.lua"] = { fg = C.base.red },
 }
 
-return Treesitter
+return M

@@ -1,4 +1,6 @@
-local NvimTree = {
+local M = {}
+
+M.highlight = {
 	NvimTreeFolderIcon = { fg = C.neotree_directory_icon },
 
 	NvimTreeIndentMarker = { link = "IndentBlanklineChar" },
@@ -34,4 +36,4 @@ local NvimTree = {
 	NvimTreeExecFile = { fg = C.base.green },
 }
 
-return NvimTree
+return M
