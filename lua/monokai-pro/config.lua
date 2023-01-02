@@ -1,16 +1,7 @@
-vim = vim or { g = {}, o = {} }
+local M = {}
 
-local function opt(key, default)
-	if vim.g[key] == nil then
-		return default
-	end
-	if vim.g[key] == 0 then
-		return false
-	end
-	return vim.g[key]
-end
-
-local config = {
+---@class Config
+local default = {
 	transparent_background = true,
 	italic_comments = true,
 	filter = "pro",
@@ -44,4 +35,17 @@ local config = {
 	},
 }
 
-return config
+---@type Config
+M.options = {}
+
+---@param options Config|nil
+M.setup = function(options)
+  M.options = vim.tbl_deep_extend("force", {}, default, options or {})
+end
+
+---@param options Config|nil
+M.extend = function (options)
+  M.options = vim.tbl_deep_extend("force", {}, M.options or default, options or {})
+end
+
+return M

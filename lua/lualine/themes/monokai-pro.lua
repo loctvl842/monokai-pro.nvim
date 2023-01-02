@@ -1,5 +1,7 @@
-local filter = vim.g.monokai_pro_config.filter
-local colors = require("monokai-pro.themes.monokai-" .. filter)
+local filter = require("monokai-pro.config").options.filter
+--- @module "monokai-pro.palette.pro"
+local palette = require("monokai-pro.palette." .. filter)
+local colors = palette:getColors()
 
 local monokai_pro = {}
 
