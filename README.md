@@ -124,6 +124,23 @@ require("monokai-pro").setup({
 
 - Reference my [nvim config](https://github.com/loctvl842/nvim) to see my plugins setup for `border` if you want to set `background_clear = false`
 
+## 🔥 Usage
+
+- Enable this colorscheme by using the following command after `setup`:
+
+```vim
+" Vim Script
+colorscheme monokai-pro
+```
+
+```lua
+require("monokai-pro").setup({
+  -- ... your config
+})
+-- lua
+vim.cmd([[colorscheme monokai-pro]])
+```
+
 - To enable `monokai-pro` for `Lualine`:
 
 ```lua
