@@ -33,8 +33,8 @@ end
 M.rgba = function(red, green, blue, alpha, background)
 	if background == nil then
 		local config = require("monokai-pro.config").options
-		local palette = require("monokai-pro.palette." .. config.filter)
-		local c = palette.colors
+    --- @module "monokai-pro.palette.pro"
+		local c = require("monokai-pro.palette." .. config.filter)
 		background = c.editor.background
 	end
 	local bg_rgb = hexToRgb(background)
@@ -48,8 +48,8 @@ end
 M.blend = function(hexColor, alpha, background)
 	if background == nil then
 		local config = require("monokai-pro.config").options
-		local palette = require("monokai-pro.palette." .. config.filter)
-		local c = palette.colors
+    --- @module "monokai-pro.palette.pro"
+		local c = require("monokai-pro.palette." .. config.filter)
 		background = c.editor.background
 	end
 	local rgb = hexToRgb(hexColor)

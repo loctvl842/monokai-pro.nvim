@@ -1,7 +1,7 @@
-local Palette = require("monokai-pro.palette")
 local hp = require("monokai-pro.color_helper")
 
-local spectrum_palette = Palette.new("spectrum", {
+--- @class Colorscheme
+local spectrum_palette = {
 	editor = {
 		background = "#222222",
 		foreground = "#f7f1ff",
@@ -127,6 +127,6 @@ local spectrum_palette = Palette.new("spectrum", {
 		white = "#f7f1ff",
 		lightWhite = "#f7f1ff",
 	},
-})
+}
 
 return spectrum_palette

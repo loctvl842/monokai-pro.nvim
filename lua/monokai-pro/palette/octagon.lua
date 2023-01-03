@@ -1,7 +1,7 @@
-local Palette = require("monokai-pro.palette")
 local hp = require("monokai-pro.color_helper")
 
-local octagon_palette = Palette.new("octagon", {
+--- @class Colorscheme
+local octagon_palette = {
 	editor = {
 		background = "#282a3a",
 		foreground = "#eaf2f1",
@@ -129,6 +129,6 @@ local octagon_palette = Palette.new("octagon", {
 		white = "#eaf2f1",
 		lightWhite = "#eaf2f1",
 	},
-})
+}
 
 return octagon_palette

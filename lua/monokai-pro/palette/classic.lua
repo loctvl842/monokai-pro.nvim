@@ -1,7 +1,7 @@
-local Palette = require("monokai-pro.palette")
 local hp = require("monokai-pro.color_helper")
 
-local classic_palette = Palette.new("classic", {
+--- @class Colorscheme
+local classic_palette = {
 	editor = {
 		background = "#272822",
 		foreground = "#fdfff1",
@@ -127,6 +127,6 @@ local classic_palette = Palette.new("classic", {
 		white = "#fdfff1",
 		lightWhite = "#fdfff1",
 	},
-})
+}
 
 return classic_palette

@@ -39,10 +39,10 @@ local function generateSlices()
   --  The class has a single field, `hl_groups`, which is a table containing the highlighter groups.
   --- @class Slices
   local hl_groups = {
-    ["editor"] = editor.setup(M.color_palette, M.config, helper),
-    ["syntax"] = syntax.setup(M.color_palette, M.config, helper),
-    ["semantic_tokens"] = semantic_tokens.setup(M.color_palette, M.config, helper),
-    ["extra"] = extra.setup(M.color_palette, M.config, helper),
+    ["editor"] = editor.setup(M.colorscheme, M.config, helper),
+    ["syntax"] = syntax.setup(M.colorscheme, M.config, helper),
+    ["semantic_tokens"] = semantic_tokens.setup(M.colorscheme, M.config, helper),
+    ["extra"] = extra.setup(M.colorscheme, M.config, helper),
   }
   for _, name in ipairs(plugins) do
     local config_ok, plugin = pcall(require, "monokai-pro.theme.plugins." .. name)
@@ -52,7 +52,7 @@ local function generateSlices()
       util.notify(msg, level)
       goto continue
     end
-    local hl_config = plugin.setup(M.color_palette, M.config, helper)
+    local hl_config = plugin.setup(M.colorscheme, M.config, helper)
     hl_groups[name] = hl_config
     ::continue::
   end
@@ -63,8 +63,7 @@ end
 ---@return Slices
 M.setup = function(config)
   --- @module "monokai-pro.palette.pro"
-  local palette = require("monokai-pro.palette." .. config.filter)
-  M.color_palette = palette:getColors()
+  M.colorscheme = require("monokai-pro.palette." .. config.filter)
   M.config = config
   local slices = generateSlices()
   return slices

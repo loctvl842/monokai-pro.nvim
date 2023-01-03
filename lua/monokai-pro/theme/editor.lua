@@ -1,9 +1,10 @@
 local M = {}
 
---- @param c table The color palette
+--- @param c Colorscheme The color palette
 --- @param config Config
 --- @param hp Helper
 M.setup = function(c, config, hp)
+  local cmpBackgroundClear = config.plugins.cmp.background_clear
 	return {
 		ColorColumn = {
 			bg = c.editor.background,

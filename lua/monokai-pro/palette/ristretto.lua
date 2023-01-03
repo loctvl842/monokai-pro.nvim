@@ -1,7 +1,7 @@
-local Palette = require("monokai-pro.palette")
 local hp = require("monokai-pro.color_helper")
 
-local ristretto_palette = Palette.new("ristretto", {
+--- @class Colorscheme
+local ristretto_palette = {
 	editor = {
 		background = "#2c2525",
 		foreground = "#fff1f3",
@@ -127,6 +127,6 @@ local ristretto_palette = Palette.new("ristretto", {
 		white = "#fff1f3",
 		lightWhite = "#fff1f3",
 	},
-})
+}
 
 return ristretto_palette

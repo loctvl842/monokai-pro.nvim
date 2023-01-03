@@ -10,8 +10,7 @@ local getRealColor = function(hex_color, base)
 	end
 	local config = require("monokai-pro.config").options
 	--- @module "monokai-pro.palette.pro"
-	local palette = require("monokai-pro.palette." .. config.filter)
-	local c = palette:getColors()
+	local c = require("monokai-pro.palette." .. config.filter)
 	if base == nil then
 		base = c.editor.background
 	end
