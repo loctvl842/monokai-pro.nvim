@@ -129,7 +129,7 @@ M.load = function(slices)
 	vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter" }, {
 		pattern = "*",
 		callback = function()
-			local bufferline_icon_group = require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
+			bufferline_icon_group = require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
 			M.draw(bufferline_icon_group)
 		end,
 	})
