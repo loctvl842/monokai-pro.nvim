@@ -35,6 +35,7 @@ M.rgba = function(red, green, blue, alpha, background)
 		local config = require("monokai-pro.config").options
     --- @module "monokai-pro.palette.pro"
 		local c = require("monokai-pro.palette." .. config.filter)
+		-- local c = require("monokai-pro.palette.pro")
 		background = c.editor.background
 	end
 	local bg_rgb = hexToRgb(background)

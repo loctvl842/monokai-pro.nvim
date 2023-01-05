@@ -4,7 +4,7 @@ local M = {}
 --- @param config Config
 --- @param hp Helper
 M.setup = function(c, config, hp)
-  local cmpBackgroundClear = config.plugins.cmp.background_clear
+	local cmpBackgroundClear = config.plugins.cmp.background_clear
 	return {
 		ColorColumn = {
 			bg = c.editor.background,
@@ -110,9 +110,11 @@ M.setup = function(c, config, hp)
 			fg = c.editorSuggestWidget.foreground,
 		}, -- Popup menu: normal item.
 		PmenuSel = cmpBackgroundClear and {
-			bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.7, c.editor.background),
+			bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.7),
+			bold = true,
 		} or {
 			bg = c.editorSuggestWidget.selectedBackground,
+			bold = true,
 		},
 		PmenuSbar = {
 			bg = c.editorSuggestWidget.background,
