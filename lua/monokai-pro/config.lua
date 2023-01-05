@@ -5,7 +5,7 @@ local default = {
 	transparent_background = true,
 	italic_comments = true,
 	filter = "pro",
-	inc_search = "underline", -- underline | background
+	inc_search = "background", -- underline | background
 	diagnostic = {
 		background = true,
 	},
