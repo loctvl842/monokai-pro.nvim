@@ -110,7 +110,7 @@ M.setup = function(c, config, hp)
 			fg = c.editorSuggestWidget.foreground,
 		}, -- Popup menu: normal item.
 		PmenuSel = cmpBackgroundClear and {
-			bg = hp.blend(c.editorSuggestWidget.selectedBackground, c.editor.background, 0.7),
+			bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.7, c.editor.background),
 		} or {
 			bg = c.editorSuggestWidget.selectedBackground,
 		},
