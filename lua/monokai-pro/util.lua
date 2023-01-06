@@ -86,7 +86,10 @@ M.create_menu = function(title, items, handler)
 	return menu
 end
 
-M.draw = function(groups)
+local draw = function(groups)
+  if groups == nil then
+    return
+  end
 	for group, value in pairs(groups) do
 		highlight(group, value)
 	end
@@ -120,17 +123,24 @@ M.load = function(slices)
 	vim.g.colors_name = "monokai-pro"
 
 	for sliceName, groups in pairs(slices) do
-		M.draw(groups)
+    local draw_success, _ = pcall(draw, groups)
+    if not draw_success then
+      local msg = "Failed to draw slice: " .. sliceName
+      local level = "error"
+      M.notify(msg, level)
+      goto continue
+    end
+    ::continue::
 	end
 
 	local bufferline_icon_group = require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
-	M.draw(bufferline_icon_group)
+	draw(bufferline_icon_group)
 	-- draw bufferline icons
 	vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter" }, {
 		pattern = "*",
 		callback = function()
 			bufferline_icon_group = require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
-			M.draw(bufferline_icon_group)
+			draw(bufferline_icon_group)
 		end,
 	})
 end
