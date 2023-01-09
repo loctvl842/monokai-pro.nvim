@@ -22,7 +22,7 @@ M.setup = function(c, config, hp)
 			fg = c.sideBarSectionHeader.foreground,
 			bold = true,
 		},
-		NeoTreeDirectoryIcon = { fg = c.neotree_directory_icon },
+		NeoTreeDirectoryIcon = { fg = c.sideBar.foreground },
 		NeoTreeDirectoryName = { fg = c.sideBar.foreground },
 
 		NeoTreeGitAdded = { fg = c.gitDecoration.addedResourceForeground },
