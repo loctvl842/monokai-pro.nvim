@@ -122,7 +122,7 @@ require("monokai-pro").setup({
 })
 ```
 
-- Reference my [nvim config](https://github.com/loctvl842/nvim) to see my plugins setup for `border` if you want to set `background_clear = false`
+- Reference my [nvim](https://github.com/loctvl842/nvim) to see my plugins setup for `border` if you want to set `background_clear = false`
 
 ## 🔥 Usage
 
