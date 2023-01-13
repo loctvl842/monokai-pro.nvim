@@ -12,6 +12,7 @@ local plugins = {
   "gitsign",
   "illuminate",
   "indent_blankline",
+  "lazy",
   "lsp",
   "neo-tree",
   "notify",
