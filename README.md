@@ -68,7 +68,7 @@ Plug 'loctvl842/monokai-pro.nvim'
 use {
   "loctvl842/monokai-pro.nvim",
   config = function()
-    require("monokai-pro").setup({})
+    require("monokai-pro").setup()
   end
 }
 ```
