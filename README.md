@@ -90,8 +90,9 @@ Example configuration:
 require("monokai-pro").setup({
   transparent_background = true,
   italic_comments = true,
-  filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
-  inc_search = "underline", -- underline | background
+  filter = "pro",
+  inc_search = "background", -- underline | background
+  background_clear = { "float_win", "toggleterm", "telescope", "which-key", "renamer" },
   diagnostic = {
     background = true,
   },
@@ -100,29 +101,14 @@ require("monokai-pro").setup({
       underline_selected = false,
       underline_visible = false,
     },
-    toggleterm = {
-      background_clear = true,
-    },
-    telescope = {
-      background_clear = true,
-    }
-    cmp = {
-        background_clear = true,
-    },
-    whichkey = {
-      background_clear = true,
-    },
-    renamer = {
-      background_clear = true,
-    },
     indent_blankline = {
-      context_highlight = "default" -- default | pro
+      context_highlight = "default", -- default | pro
     },
-  }
+  },
 })
 ```
 
-- Reference my [nvim](https://github.com/loctvl842/nvim) to see my plugins setup for `border` if you want to set `background_clear = false`
+- Reference my [nvim](https://github.com/loctvl842/nvim) to see my plugins setup for `border` if you want to set `background_clear`
 
 ## 🔥 Usage
 
