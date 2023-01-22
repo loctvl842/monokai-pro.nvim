@@ -132,11 +132,22 @@ vim.cmd([[colorscheme monokai-pro]])
 ```lua
 require('lualine').setup {
   options = {
-    -- ... your lualine config
+    -- ...
     theme = 'monokai-pro'
-    -- ... your lualine config
+    -- ...
   }
 }
+```
+
+- To enable `monokai-pro` for `barbecue`:
+
+```lua
+require('barbecue').setup {
+  -- ...
+  theme = 'monokai-pro'
+  -- ...
+}
+
 ```
 
 - To enable `moonokai-pro` for `lightline`:
