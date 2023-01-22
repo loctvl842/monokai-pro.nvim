@@ -53,6 +53,7 @@ Credit goes to the original creator [Monokai Pro](https://monokai.pro/)
 - [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - [wilder.nvim](https://github.com/gelguy/wilder.nvim)
 - [Lightline](https://github.com/itchyny/lightline.vim)
+- [barbecue.nvim](https://github.com/utilyre/barbecue.nvim)
 
 ## 📦 Installation
 
