@@ -3,9 +3,9 @@ if not status_ok then
 	return
 end
 
-local filter = require("monokai-pro.config").options.filter
---- @module "monokai-pro.palette.pro"
-local c = require("monokai-pro.palette." .. filter)
+local filter = require("monokai-pro.colorscheme").filter
+--- @module "monokai-pro.colorscheme.palette.pro"
+local c = require("monokai-pro.colorscheme").setup(filter)
 
 local icons = {
 	[".babelrc"] = {
