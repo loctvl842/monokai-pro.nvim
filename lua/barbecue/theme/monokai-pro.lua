@@ -1,6 +1,5 @@
 local filter = require("monokai-pro.config").options.filter
---- @module "monokai-pro.palette.pro"
-local c = require("monokai-pro.palette." .. filter)
+local c = require("monokai-pro.colorscheme").setup(filter)
 
 local M = {
 	normal = { bg = "NONE", fg = c.breadcrumb.foreground },

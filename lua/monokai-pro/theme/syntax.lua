@@ -2,7 +2,7 @@ local M = {}
 
 M.setup = function(c, config, util)
 	return {
-		Comment = { fg = c.base.lightBlack, italic = config.italic_comments }, -- Comments
+		Comment = { fg = c.base.dimmed3, italic = config.italic_comments }, -- Comments
 		Constant = { fg = c.base.magenta }, -- (preferred) any constant
 		String = { fg = c.base.yellow }, --   a string constant: "this is a string"
 		Character = { fg = c.base.magenta }, -- a character constant: 'c', '\n'
@@ -31,7 +31,7 @@ M.setup = function(c, config, util)
 		SpecialChar = { fg = c.base.blue }, -- special character in a constant
 		-- Tag = {}, -- you can use CTRL-] on this
 		Delimiter = { fg = c.base.white }, -- character that needs attention
-		SpecialComment = { fg = c.base.lightBlack }, -- special things inside a comment
+		SpecialComment = { fg = c.base.dimmed3 }, -- special things inside a comment
 		-- Debug = {}, -- debugging statements
 		Underlined = { underline = true }, -- (preferred) text that stands out, HTML links
 		Bold = { bold = true },

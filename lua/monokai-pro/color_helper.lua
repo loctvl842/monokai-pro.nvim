@@ -32,11 +32,10 @@ end
 
 M.rgba = function(red, green, blue, alpha, background)
 	if background == nil then
-		local config = require("monokai-pro.config").options
-    --- @module "monokai-pro.palette.pro"
-		local c = require("monokai-pro.palette." .. config.filter)
-		-- local c = require("monokai-pro.palette.pro")
-		background = c.editor.background
+		local filter = require("monokai-pro.colorscheme").filter
+		--- @module "monokai-pro.colorscheme.palette.pro"
+		local c = require("monokai-pro.colorscheme.palette." .. filter)
+		background = c.background
 	end
 	local bg_rgb = hexToRgb(background)
 	-- new color
@@ -48,10 +47,10 @@ end
 
 M.blend = function(hexColor, alpha, background)
 	if background == nil then
-		local config = require("monokai-pro.config").options
-    --- @module "monokai-pro.palette.pro"
-		local c = require("monokai-pro.palette." .. config.filter)
-		background = c.editor.background
+		local filter = require("monokai-pro.colorscheme").filter
+		--- @module "monokai-pro.colorscheme.palette.pro"
+		local c = require("monokai-pro.colorscheme.palette." .. filter)
+		background = c.background
 	end
 	local rgb = hexToRgb(hexColor)
 	return M.rgba(rgb.r, rgb.g, rgb.b, alpha, background)
@@ -59,10 +58,10 @@ end
 
 M.hexExtend = function(hexColor, background)
 	if background == nil then
-		local config = require("monokai-pro.config").options
-		local palette = require("monokai-pro.palette." .. config.filter)
-		local c = palette.colors
-		background = c.editor.background
+		local filter = require("monokai-pro.colorscheme").filter
+		--- @module "monokai-pro.colorscheme.palette.pro"
+		local c = require("monokai-pro.colorscheme.palette." .. filter)
+		background = c.background
 	end
 	local hex6 = string.sub(hexColor, 1, 7)
 	local alpha = tonumber(string.sub(hexColor, 8, 9), 16) / 255

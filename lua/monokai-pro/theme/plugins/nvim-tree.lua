@@ -19,7 +19,7 @@ M.setup = function(c, config, hp)
 		NvimTreeFolderName = { fg = c.sideBar.foreground },
 		NvimTreeOpenedFolderName = { fg = c.sideBar.foreground, italic = true },
 		NvimTreeEmptyFolderName = { fg = c.sideBar.foreground, italic = true },
-		NvimTreeImageFile = { fg = c.base.lightWhite },
+		NvimTreeImageFile = { fg = c.base.white },
 		NvimTreeSpecialFile = { fg = c.base.white },
 		NvimTreeCursorLine = { bg = c.list.activeSelectionBackground, bg_base = c.sideBar.background },
 

@@ -14,8 +14,10 @@ M.setup = function(c, config, hp)
 		NeoTreeCursorLine = { bg = c.list.activeSelectionBackground, bg_base = c.sideBar.background, bold = true },
 		NeoTreeCursorLineSign = { bg = c.list.activeSelectionBackground, bg_base = c.sideBar.background },
 		NeoTreeWinSeparator = {
+			-- bg = config.transparent_background and nil or c.editor.background,
+			-- fg = c.editor.background,
 			bg = config.transparent_background and nil or c.editor.background,
-			fg = c.editor.background,
+			fg = c.base.black,
 		},
 		NeoTreeRootName = {
 			-- bg = C.sideBarSectionHeader.background,
