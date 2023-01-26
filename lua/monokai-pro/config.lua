@@ -18,6 +18,10 @@ local default = {
     indent_blankline = {
       context_highlight = "default", -- default | pro
     },
+    lualine = {
+      float = false,
+      colorful = false,
+    },
   },
 }
 
