@@ -5,10 +5,12 @@ local M = {}
 local plugins = {
   "StatusLine",
   "alpha",
+  "beacon",
   "breadcrumb",
   "bufferline",
   "cmp",
   "coc",
+  "dashboard",
   "gitsign",
   "illuminate",
   "indent_blankline",
