@@ -9,6 +9,7 @@ local plugins = {
   "bufferline",
   "cmp",
   "coc",
+  "dashboard",
   "gitsign",
   "illuminate",
   "indent_blankline",
