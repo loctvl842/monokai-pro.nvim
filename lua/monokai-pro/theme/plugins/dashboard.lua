@@ -5,10 +5,10 @@ local M = {}
 --- @param hp Helper
 M.setup = function(c, config, hp)
         return {
-          DashboardHeader = { fg = c.base.yellow },
-          DashboardShortcut = { fg = c.base.cyan },
-          DashboardFooter = { fg = c.base.yellow },
-          DashboardCenter = { fg = c.base.blue },
+                DashboardHeader = { fg = c.base.dimmed1 },
+                DashboardShortcut = { fg = c.base.yellow },
+                DashboardFooter = { fg = c.base.dimmed1 },
+                DashboardCenter = { fg = c.base.magenta },
         }
 end
 
