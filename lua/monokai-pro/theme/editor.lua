@@ -92,8 +92,9 @@ M.setup = function(c, config, hp)
 					fg = c.editorSuggestWidget.foreground,
 				}
 			or {
-				bg = c.editorHoverWidget.background,
-				-- bg = C.base.black,
+				-- bg = c.editorHoverWidget.background,
+				bg = c.base.black,
+				fg = c.base.dimmed1,
 			}, -- Normal text in floating windows. example PackerNormal
 		FloatBorder = float_winBackgroundClear and {
 			bg = c.editor.background,

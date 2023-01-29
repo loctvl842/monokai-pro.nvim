@@ -7,7 +7,7 @@ local M = {}
 
 M.load = function()
 	util.load(theme.setup(config.options))
-	-- require("monokai-pro.devicons")
+	require("monokai-pro.devicons")
 end
 
 M.setup = function(options)

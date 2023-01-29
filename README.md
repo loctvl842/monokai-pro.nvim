@@ -111,6 +111,27 @@ require("monokai-pro").setup({
 
 - Reference my [nvim](https://github.com/loctvl842/nvim) to see my plugins setup for `border` if you want to set `background_clear`
 
+For example:
+
+```lua
+require("monokai-pro").setup({
+    -- ... your config
+    background_clear = { "float_win" }
+    -- ... your config
+})
+
+require("cmp").setup({
+    -- ... your config
+    window = {
+      border = "rounded",
+    }
+    completion = {
+        border = "rounded",
+    }
+    -- ... your config
+})
+```
+
 ## 🔥 Usage
 
 - Enable this colorscheme by using the following command after `setup`:

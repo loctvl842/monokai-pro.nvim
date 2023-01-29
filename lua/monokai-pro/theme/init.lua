@@ -15,6 +15,7 @@ local plugins = {
   "lazy",
   "lsp",
   "neo-tree",
+  "noice",
   "notify",
   "nvim-navic",
   "nvim-tree",
