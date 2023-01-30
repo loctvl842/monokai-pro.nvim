@@ -16,8 +16,8 @@ M.setup = function(c, config, hp)
 		NeoTreeWinSeparator = {
 			-- bg = config.transparent_background and nil or c.editor.background,
 			-- fg = c.editor.background,
-			bg = config.transparent_background and nil or c.editor.background,
-			fg = c.base.black,
+			bg = config.transparent_background and "NONE" or c.editor.background,
+			fg = c.editor.background,
 		},
 		NeoTreeRootName = {
 			-- bg = C.sideBarSectionHeader.background,
