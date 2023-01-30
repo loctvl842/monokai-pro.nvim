@@ -1,7 +1,5 @@
 local hp = require("monokai-pro.color_helper")
 local nui_ok, _ = pcall(require, "nui")
-local Menu = require("nui.menu")
-local NuiText = require("nui.text")
 
 local M = {}
 
@@ -49,6 +47,8 @@ M.create_menu = function(title, items, handler)
   if not nui_ok then
     return
   end
+  local Menu = require("nui.menu")
+  local NuiText = require("nui.text")
   local menuItems = {
     Menu.separator("", {
       char = "-",
