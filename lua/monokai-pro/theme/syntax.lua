@@ -39,7 +39,7 @@ M.setup = function(c, config, util)
 		Italic = { italic = true },
 		Error = { fg = c.inputValidation.errorForeground }, -- (preferred) any erroneous construct
 		Todo = {
-			bg = config.transparent_background and nil or c.editor.background,
+			bg = config.transparent_background and "NONE" or c.editor.background,
 			fg = c.base.magenta,
 			bold = true,
 		}, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
