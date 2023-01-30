@@ -5,8 +5,10 @@ local M = {}
 --- @param hp Helper
 M.setup = function(c, config, hp)
 	return {
-		NoiceCmdlinePopup = { bg = c.editorSuggestWidget.background },
-		NoiceCmdlinePopupBorder = { bg = c.editor.background, fg = c.editorSuggestWidget.background },
+		NoiceCmdlinePopup = { bg = c.editor.background },
+		NoiceCmdlinePopupBorder = { bg = c.editor.background, fg = c.editorSuggestWidget.foreground },
+		NoiceCmdlinePopupBorderSearch = { bg = c.editor.background, fg = c.base.blue },
+		NoiceCmdlineIconSearch = { fg = c.base.blue },
 	}
 end
 
