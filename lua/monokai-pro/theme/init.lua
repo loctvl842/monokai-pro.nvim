@@ -5,6 +5,7 @@ local M = {}
 local plugins = {
   "StatusLine",
   "alpha",
+  "beacon",
   "breadcrumb",
   "bufferline",
   "cmp",
