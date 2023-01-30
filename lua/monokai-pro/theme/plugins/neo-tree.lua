@@ -14,8 +14,8 @@ M.setup = function(c, config, hp)
 		NeoTreeCursorLine = { bg = c.list.activeSelectionBackground, bg_base = c.sideBar.background, bold = true },
 		NeoTreeCursorLineSign = { bg = c.list.activeSelectionBackground, bg_base = c.sideBar.background },
 		NeoTreeWinSeparator = {
-			bg = config.transparent_background and "NONE" or c.editor.background,
-			fg = c.editor.background,
+			bg = c.editor.background,
+			fg = c.base.black,
 		},
 		NeoTreeRootName = {
 			-- bg = C.sideBarSectionHeader.background,
@@ -39,8 +39,8 @@ M.setup = function(c, config, hp)
 
 		NeoTreeFloatNormal = { bg = c.editorHoverWidget.background, fg = c.sideBar.foreground },
 		NeoTreeFloatBorder = {
-			bg = config.transparent_background and nil or c.sideBar.background,
-			fg = c.editorHoverWidget.background,
+			bg = c.sideBar.background,
+			fg = c.sideBar.background,
 		},
 		NeoTreeFloatTitle = { bg = c.base.yellow, fg = c.sideBar.background, bold = true },
 

@@ -5,11 +5,11 @@ local M = {}
 --- @param hp Helper
 M.setup = function(c, config, hp)
 	return {
-		UfoFoldedBg = { bg = c.editor.background },
-		FoldColumn = {
+		FidgetTask = {
 			bg = c.editor.background,
-			fg = c.button.foreground,
-		}, -- 'foldcolumn'
+			fg = c.base.white,
+		},
+		FidgetTitle = { bg = c.editor.background, fg = c.base.yellow },
 	}
 end
 

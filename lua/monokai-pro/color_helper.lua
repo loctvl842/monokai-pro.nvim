@@ -46,7 +46,7 @@ M.rgba = function(red, green, blue, alpha, background)
 end
 
 M.blend = function(hexColor, alpha, background)
-	if background == nil then
+	if background == nil or background == "NONE" then
 		local filter = require("monokai-pro.colorscheme").filter
 		--- @module "monokai-pro.colorscheme.palette.pro"
 		local c = require("monokai-pro.colorscheme.palette." .. filter)

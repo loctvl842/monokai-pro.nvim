@@ -2,7 +2,7 @@ local M = {}
 
 ---@class Config
 local default = {
-  transparent_background = true,
+  transparent_background = false,
   italic_comments = true,
   filter = "pro",
   inc_search = "background", -- underline | background

@@ -1,9 +1,11 @@
 local util = require("monokai-pro.util")
+local config = require("monokai-pro.config").options
+
 local M = {}
 
 local hp = require("monokai-pro.color_helper")
 
----@param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
+--- @param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
 M.setup = function(filter)
 	local filters = { "classic", "machine", "octagon", "pro", "ristretto", "spectrum" }
 
@@ -16,14 +18,14 @@ M.setup = function(filter)
 
 	M.filter = filter
 
-  ---@module "monokai-pro.colorscheme.palette.pro"
+	---@module "monokai-pro.colorscheme.palette.pro"
 	local p = require("monokai-pro.colorscheme.palette." .. M.filter)
 
 	--- @class Colorscheme
 	local cs = {}
 
 	cs.editor = {
-		background = p.background,
+		background = config.transparent_background and "NONE" or p.background,
 		foreground = p.text,
 		lineHighlightBackground = hp.blend(p.text, 0.05, p.background), -- "#fdfff10c", -- background: background
 		selectionBackground = hp.blend(p.dimmed1, 0.15, p.background), --"#c0c1b527", -- background: background
@@ -138,7 +140,7 @@ M.setup = function(filter)
 	}
 
 	cs.tab = {
-		activeBackground = p.background, -- "#272822",
+		activeBackground = config.transparent_background and "NONE" or p.background, -- "#272822",
 		activeBorder = p.accent3, -- "#e6db74",
 		activeForeground = p.accent3, -- "#e6db74",
 		inactiveBackground = hp.lighten(p.background, 15),

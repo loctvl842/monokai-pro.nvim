@@ -6,7 +6,7 @@ local M = {}
 M.setup = function(c, config, hp)
 	return {
 		WinBar = {
-			bg = config.transparent_background and nil or c.editor.background,
+			bg = c.editor.background,
 			fg = c.breadcrumb.foreground,
 		},
 		BreadcrumbIconsArray = { fg = c.base.red },

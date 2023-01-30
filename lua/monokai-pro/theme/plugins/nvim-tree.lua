@@ -12,7 +12,7 @@ M.setup = function(c, config, hp)
 		NvimTreeNormal = { bg = c.sideBar.background, fg = c.sideBar.foreground },
 		NvimTreeEndOfBuffer = { bg = c.sideBar.background, fg = c.sideBar.background },
 		NvimTreeWinSeparator = {
-			bg = config.transparent_background and "NONE" or c.editor.background,
+			bg = c.editor.background,
 			fg = c.editor.background,
 		},
 
