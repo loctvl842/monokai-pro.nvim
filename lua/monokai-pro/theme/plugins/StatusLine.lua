@@ -18,17 +18,17 @@ M.setup = function(c, config, hp)
     SLDiffAdd = {
       bg = float and alt_float_background or c.statusBar.background,
       fg = colorful and c.gitDecoration.addedResourceForeground
-          or c.statusBar.foreground,
+        or c.statusBar.foreground,
     },
     SLDiffChange = {
       bg = float and alt_float_background or c.statusBar.background,
       fg = colorful and c.gitDecoration.modifiedResourceForeground
-          or c.statusBar.foreground,
+        or c.statusBar.foreground,
     },
     SLDiffDelete = {
       bg = float and alt_float_background or c.statusBar.background,
       fg = colorful and c.gitDecoration.deletedResourceForeground
-          or c.statusBar.foreground,
+        or c.statusBar.foreground,
     },
     SLGitIcon = {
       bg = float and float_background or c.statusBar.background,
@@ -36,22 +36,22 @@ M.setup = function(c, config, hp)
     },
     SLBranchName = {
       bg = float and float_background or c.statusBar.background,
-      fg = colorful and c.base.blue or c.statusBar.foreground,
+      fg = colorful and c.base.white or c.statusBar.foreground,
     },
     SLError = {
       bg = float and alt_float_background or c.statusBar.background,
       fg = colorful and c.inputValidation.errorForeground
-          or c.statusBar.foreground,
+        or c.statusBar.foreground,
     },
     SLWarning = {
       bg = float and alt_float_background or c.statusBar.background,
       fg = colorful and c.inputValidation.warningForeground
-          or c.statusBar.foreground,
+        or c.statusBar.foreground,
     },
     SLInfo = {
       bg = float and alt_float_background or c.statusBar.background,
       fg = colorful and c.inputValidation.infoForeground
-          or c.statusBar.foreground,
+        or c.statusBar.foreground,
     },
     SLPosition = {
       bg = float and float_background or c.statusBar.background,
