@@ -33,8 +33,7 @@ M.setup = function(c, config, hp)
     },
     SLBranchName = {
       bg = float and c.editorHoverWidget.background or c.statusBar.background,
-      fg = colorful and c.editorHoverWidget.foreground
-          or c.statusBar.foreground,
+      fg = colorful and c.base.blue or c.statusBar.foreground,
     },
     SLError = {
       bg = float and c.editor.background or c.statusBar.background,
