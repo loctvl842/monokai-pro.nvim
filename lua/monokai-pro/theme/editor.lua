@@ -101,7 +101,7 @@ M.setup = function(c, config, hp)
 			fg = c.editorSuggestWidget.foreground,
 		} or {
 			bg = c.editor.background,
-			fg = c.editorSuggestWidget.background,
+			fg = c.base.black,
 		},
 		FloatTitle = float_winBackgroundClear and {
 			bg = c.editor.background,

@@ -7,74 +7,81 @@ M.setup = function(c, config, hp)
   local float = config.plugins.lualine.float
   local colorful = config.plugins.lualine.colorful
   return {
-    StatusLine = { bg = c.editorSuggestWidget.background, fg = c.editorSuggestWidget.foreground },
-    StatusLineNC = { bg = c.editorSuggestWidget.foreground, fg = c.editorSuggestWidget.background },
-    StatusLineSeparator = { fg = c.base.black },
-    StatusLineTerm = { fg = c.base.black },
-    StatusLineTermNC = { fg = c.base.black },
+    StatusLine = { bg = c.statusBar.background, fg = c.statusBar.foreground },
+    StatusLineNC = { bg = c.statusBar.background, fg = c.statusBar.foreground },
+    StatusLineSeparator = { fg = c.statusBar.background },
+    StatusLineTerm = { fg = c.statusBar.background },
+    StatusLineTermNC = { fg = c.statusBar.background },
     SLDiffAdd = {
-      bg = float and c.editor.background or c.sideBar.background,
-      fg = colorful and c.gitDecoration.addedResourceForeground or c.base.dimmed3,
+      bg = float and c.editor.background or c.statusBar.background,
+      fg = colorful and c.gitDecoration.addedResourceForeground
+          or c.statusBar.foreground,
     },
     SLDiffChange = {
-      bg = float and c.editor.background or c.sideBar.background,
-      fg = colorful and c.gitDecoration.modifiedResourceForeground or c.base.dimmed3,
+      bg = float and c.editor.background or c.statusBar.background,
+      fg = colorful and c.gitDecoration.modifiedResourceForeground
+          or c.statusBar.foreground,
     },
     SLDiffDelete = {
-      bg = float and c.editor.background or c.sideBar.background,
-      fg = colorful and c.gitDecoration.deletedResourceForeground or c.base.dimmed3,
+      bg = float and c.editor.background or c.statusBar.background,
+      fg = colorful and c.gitDecoration.deletedResourceForeground
+          or c.statusBar.foreground,
     },
     SLGitIcon = {
-      bg = float and c.editorHoverWidget.background or c.sideBar.background,
-      fg = colorful and c.base.green or c.base.dimmed3,
+      bg = float and c.editorHoverWidget.background or c.statusBar.background,
+      fg = colorful and c.base.green or c.statusBar.foreground,
     },
     SLBranchName = {
-      bg = float and c.editorHoverWidget.background or c.sideBar.background,
-      fg = colorful and c.editorHoverWidget.foreground or c.base.dimmed3,
+      bg = float and c.editorHoverWidget.background or c.statusBar.background,
+      fg = colorful and c.editorHoverWidget.foreground
+          or c.statusBar.foreground,
     },
     SLError = {
-      bg = float and c.editor.background or c.sideBar.background,
-      fg = colorful and c.inputValidation.errorForeground or c.base.dimmed3,
+      bg = float and c.editor.background or c.statusBar.background,
+      fg = colorful and c.inputValidation.errorForeground
+          or c.statusBar.foreground,
     },
     SLWarning = {
-      bg = float and c.editor.background or c.sideBar.background,
-      fg = colorful and c.inputValidation.warningForeground or c.base.dimmed3,
+      bg = float and c.editor.background or c.statusBar.background,
+      fg = colorful and c.inputValidation.warningForeground
+          or c.statusBar.foreground,
     },
     SLInfo = {
-      bg = float and c.editor.background or c.sideBar.background,
-      fg = colorful and c.inputValidation.infoForeground or c.base.dimmed3,
+      bg = float and c.editor.background or c.statusBar.background,
+      fg = colorful and c.inputValidation.infoForeground
+          or c.statusBar.foreground,
     },
     SLPosition = {
-      bg = float and c.editorHoverWidget.background or c.sideBar.background,
-      fg = colorful and c.base.magenta or c.base.dimmed3,
+      bg = float and c.editorHoverWidget.background or c.statusBar.background,
+      fg = colorful and c.base.magenta or c.statusBar.foreground,
     },
     SLShiftWidth = {
-      bg = float and c.editorHoverWidget.background or c.sideBar.background,
-      fg = colorful and c.base.yellow or c.base.dimmed3,
+      bg = float and c.editorHoverWidget.background or c.statusBar.background,
+      fg = colorful and c.base.yellow or c.statusBar.foreground,
     },
     SLEncoding = {
-      bg = float and c.editorHoverWidget.background or c.sideBar.background,
-      fg = colorful and c.base.green or c.base.dimmed3,
+      bg = float and c.editorHoverWidget.background or c.statusBar.background,
+      fg = colorful and c.base.green or c.statusBar.foreground,
     },
     SLFiletype = {
-      bg = float and c.editorHoverWidget.background or c.sideBar.background,
-      fg = colorful and c.base.cyan or c.base.dimmed3,
+      bg = float and c.editorHoverWidget.background or c.statusBar.background,
+      fg = colorful and c.base.cyan or c.statusBar.foreground,
     },
     SLMode = {
-      bg = float and c.editorHoverWidget.background or c.sideBar.background,
-      fg = colorful and c.base.green or c.base.dimmed3,
+      bg = float and c.editorHoverWidget.background or c.statusBar.background,
+      fg = colorful and c.base.green or c.statusBar.foreground,
       bold = true,
     },
     SLSeparatorUnused = {
-      bg = float and c.editorHoverWidget.background or c.sideBar.background,
-      fg = colorful and c.editor.background or c.base.dimmed3,
+      bg = float and c.editorHoverWidget.background or c.statusBar.background,
+      fg = colorful and c.editor.background or c.statusBar.foreground,
     },
     SLSeparator = {
-      bg = float and c.editor.background or c.sideBar.background,
-      fg = float and c.editorHoverWidget.background or c.sideBar.background,
+      bg = float and c.editor.background or c.statusBar.background,
+      fg = float and c.editorHoverWidget.background or c.statusBar.background,
     },
     SLPadding = {
-      bg = float and c.editor.background or c.sideBar.background,
+      bg = float and c.editor.background or c.statusBar.background,
       fg = c.editor.background,
     },
   }

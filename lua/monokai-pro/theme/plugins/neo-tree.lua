@@ -6,16 +6,30 @@ local M = {}
 M.setup = function(c, config, hp)
   return {
     NeoTreeNormal = { bg = c.sideBar.background, fg = c.sideBar.foreground },
-    NeoTreeEndOfBuffer = { bg = c.sideBar.background, fg = c.sideBar.background },
+    NeoTreeEndOfBuffer = {
+      bg = c.sideBar.background,
+      fg = c.sideBar.background,
+    },
     NeoTreeNormalNC = { bg = c.sideBar.background, fg = c.sideBar.foreground },
     NeoTreeSignColumn = { bg = c.sideBar.background, fg = c.sideBar.foreground },
     NeoTreeStatusLine = { bg = c.sideBar.background, fg = c.sideBar.background },
-    NeoTreeCursor = { bg = c.list.activeSelectionBackground, bg_base = c.sideBar.background },
-    NeoTreeCursorLine = { bg = c.list.activeSelectionBackground, bg_base = c.sideBar.background, bold = true },
-    NeoTreeCursorLineSign = { bg = c.list.activeSelectionBackground, bg_base = c.sideBar.background },
+    NeoTreeCursor = {
+      bg = c.list.activeSelectionBackground,
+      bg_base = c.sideBar.background,
+    },
+    NeoTreeCursorLine = {
+      bg = c.list.activeSelectionBackground,
+      bg_base = c.sideBar.background,
+      bold = true,
+    },
+    NeoTreeCursorLineSign = {
+      bg = c.list.activeSelectionBackground,
+      bg_base = c.sideBar.background,
+    },
     NeoTreeWinSeparator = {
       bg = c.editor.background,
-      fg = config.transparent_background and c.base.black or c.editor.background,
+      fg = config.transparent_background and c.base.black
+        or c.editor.background,
     },
     NeoTreeRootName = {
       -- bg = C.sideBarSectionHeader.background,
@@ -37,17 +51,38 @@ M.setup = function(c, config, hp)
     NeoTreeIndentMarker = { link = "IndentBlanklineChar" },
     NeoTreeExpander = { link = "NeoTreeDirectoryIcon" },
 
-    NeoTreeFloatNormal = { bg = c.editorHoverWidget.background, fg = c.sideBar.foreground },
+    NeoTreeFloatNormal = {
+      bg = c.editorSuggestWidget.background,
+      fg = c.editorSuggestWidget.foreground,
+    },
     NeoTreeFloatBorder = {
       bg = c.sideBar.background,
-      fg = c.sideBar.background,
+      fg = c.editorSuggestWidget.background,
     },
-    NeoTreeFloatTitle = { bg = c.base.yellow, fg = c.sideBar.background, bold = true },
+    NeoTreeTitleBar = {
+      bg = c.editorSuggestWidget.background,
+      fg = c.base.yellow,
+    },
+    NeoTreeFloatTitle = {
+      bg = c.base.yellow,
+      fg = c.sideBar.background,
+      bold = true,
+    },
 
-    NeoTreeTabActive = { bg = c.button.hoverbackground, fg = c.button.foreground, bold = true },
+    NeoTreeTabActive = {
+      bg = c.button.hoverbackground,
+      fg = c.button.foreground,
+      bold = true,
+    },
     NeoTreeTabInactive = { bg = c.button.background, fg = c.button.foreground },
-    NeoTreeTabSeparatorActive = { bg = c.button.hoverbackground, fg = c.button.separator },
-    NeoTreeTabSeparatorInactive = { bg = c.button.background, fg = c.button.separator },
+    NeoTreeTabSeparatorActive = {
+      bg = c.button.hoverbackground,
+      fg = c.button.separator,
+    },
+    NeoTreeTabSeparatorInactive = {
+      bg = c.button.background,
+      fg = c.button.separator,
+    },
   }
 end
 
