@@ -7,7 +7,7 @@ local default = {
   filter = "pro",
   inc_search = "background", -- underline | background
   background_clear = {
-    "float_win",
+    -- "float_win",
     "toggleterm",
     "telescope",
     "which-key",

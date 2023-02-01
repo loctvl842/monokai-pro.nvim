@@ -93,7 +93,12 @@ require("monokai-pro").setup({
   italic_comments = true,
   filter = "pro",
   inc_search = "background", -- underline | background
-  background_clear = { "float_win", "toggleterm", "telescope", "which-key", "renamer" },
+  background_clear = {
+    -- "float_win",
+    "toggleterm",
+    "telescope",
+    "which-key",
+    "renamer" },-- "float_win", "toggleterm", "telescope", "which-key", "renamer"
   diagnostic = {
     background = true,
   },
