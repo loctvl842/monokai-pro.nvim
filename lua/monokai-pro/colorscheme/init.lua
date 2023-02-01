@@ -13,7 +13,7 @@ M.setup = function(filter)
   if not vim.tbl_contains(filters, filter) then
     local msg =
     'Invalid filter, expected "classic", "machine", "octagon", "pro", "ristretto" or "spectrum"'
-    local level = "error"
+    local level = "info"
     filter = "pro"
     util.notify(msg, level)
   end
@@ -172,6 +172,8 @@ M.setup = function(filter)
     dimmed4 = p.dimmed4, -- "#57584f",
     dimmed5 = p.dimmed5, -- "#3b3c35",
   }
+
+  M.colors = cs
   return cs
 end
 

@@ -3,6 +3,8 @@ local nui_ok, _ = pcall(require, "nui.menu")
 
 local M = {}
 
+M.is_empty = function(tbl) return next(tbl) == nil end
+
 local getRealColor = function(hex_color, base)
   if hex_color == nil or string.len(hex_color) ~= 9 then return hex_color end
 

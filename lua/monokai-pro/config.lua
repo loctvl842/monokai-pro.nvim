@@ -1,3 +1,4 @@
+local util = require("monokai-pro.util")
 local M = {}
 
 ---@class Config
@@ -33,7 +34,7 @@ local default = {
 }
 
 ---@type Config
-M.options = default
+M.options = {}
 
 ---@param options Config|nil
 M.setup = function(options)
@@ -42,8 +43,14 @@ end
 
 ---@param options Config|nil
 M.extend = function(options)
+  if util.is_empty(M.options) then
+    local msg = "You need to setup before using extend options"
+    local level = "warn"
+    util.notify(msg, level)
+    return
+  end
   M.options =
-    vim.tbl_deep_extend("force", {}, M.options or default, options or {})
+  vim.tbl_deep_extend("force", {}, M.options or default, options or {})
 end
 
 return M

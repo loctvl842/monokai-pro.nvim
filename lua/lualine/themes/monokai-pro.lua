@@ -1,5 +1,4 @@
-local filter = require("monokai-pro.config").options.filter
-local colors = require("monokai-pro.colorscheme").setup(filter)
+local colors = require("monokai-pro.colorscheme").colors
 
 local monokai_pro = {}
 
