@@ -44,7 +44,8 @@ end
 ---@param options Config|nil
 M.extend = function(options)
   if util.is_empty(M.options) then
-    local msg = "You need to setup before using extend options"
+    local msg =
+    "You need to setup monokai-pro before using extend options this colorscheme"
     local level = "warn"
     util.notify(msg, level)
     return
