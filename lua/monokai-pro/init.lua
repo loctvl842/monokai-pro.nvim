@@ -17,10 +17,7 @@ M.setup = function(options)
 end
 
 M.get_base_color = function()
-  local filter = config.options.filter or "pro"
-  --- @module "monokai-pro.palette.pro"
-  local palette = require("monokai-pro.palette." .. filter)
-  local base_color = palette.base
+  local base_color = require("monokai-pro.colorscheme").colors.base
   return base_color
 end
 
