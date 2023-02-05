@@ -54,6 +54,7 @@ Reference [Monokai Pro](https://monokai.pro/)
 - [wilder.nvim](https://github.com/gelguy/wilder.nvim)
 - [Lightline](https://github.com/itchyny/lightline.vim)
 - [barbecue.nvim](https://github.com/utilyre/barbecue.nvim)
+- [dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
 
 ## 📦 Installation
 
