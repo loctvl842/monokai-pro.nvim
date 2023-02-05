@@ -8,7 +8,7 @@
     </div>
 </div>
 
-Credit goes to the original creator [Monokai Pro](https://monokai.pro/)
+Reference [Monokai Pro](https://monokai.pro/)
 
 ## ⭐ Pro
 
@@ -114,7 +114,7 @@ require("monokai-pro").setup({
 })
 ```
 
-- Reference my [nvim](https://github.com/loctvl842/nvim) to see my plugins setup for `border` if you want to set `background_clear`
+- Check my [nvim](https://github.com/loctvl842/nvim) to see my plugins setup for `border` if you want to set `background_clear`
 
 For example:
 
