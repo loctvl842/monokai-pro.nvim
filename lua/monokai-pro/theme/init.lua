@@ -3,6 +3,7 @@ local util = require("monokai-pro.util")
 
 local M = {}
 local plugins = {
+  "Mini",
   "StatusLine",
   "alpha",
   "beacon",
