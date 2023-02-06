@@ -2,8 +2,7 @@ local M = {}
 
 --- @param c Colorscheme The color palette
 --- @param config Config
---- @param hp Helper
-M.setup = function(c, config, hp)
+M.setup = function(c, config, _)
   return {
     NeoTreeNormal = { bg = c.sideBar.background, fg = c.sideBar.foreground },
     NeoTreeEndOfBuffer = {

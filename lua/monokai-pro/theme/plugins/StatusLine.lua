@@ -2,8 +2,7 @@ local M = {}
 
 --- @param c Colorscheme The color palette
 --- @param config Config
---- @param hp Helper
-M.setup = function(c, config, hp)
+M.setup = function(c, config, _)
   local float = config.plugins.lualine.float
   local colorful = config.plugins.lualine.colorful
   local float_background = c.editorSuggestWidget.background

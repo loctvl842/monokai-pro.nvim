@@ -1,6 +1,6 @@
 local M = {}
 
-M.setup = function(c, config, util)
+M.setup = function(c, config, _)
 	return {
 		Comment = { fg = c.base.dimmed3, italic = config.italic_comments }, -- Comments
 		Constant = { fg = c.base.magenta }, -- (preferred) any constant
