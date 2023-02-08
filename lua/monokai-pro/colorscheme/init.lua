@@ -127,8 +127,7 @@ M.setup = function(filter)
 
   cs.terminal = {
     background = p.dimmed5, -- "#3b3c35",
-    foreground = p.text,
-    "#fdfff1",
+    foreground = p.text, -- "#fdfff1",
   }
 
   cs.terminalCursor = {
