@@ -26,8 +26,7 @@ M.create_filter_command = function()
   cmd("MonokaiPro", function(opts)
     local filter = opts.args
     config.extend({ filter = filter })
-    require("monokai-pro.init").load()
-    -- vim.cmd([[colorscheme monokai-pro]])
+    vim.cmd([[colorscheme monokai-pro]])
   end, {
     nargs = 1,
     complete = function()

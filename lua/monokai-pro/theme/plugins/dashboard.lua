@@ -20,6 +20,7 @@ M.setup = function(c, _, _)
     DashboardProject = { fg = c.base.blue },
     DashboardConfiguration = { fg = c.base.white },
     DashboardQuit = { fg = c.base.red },
+    DashboardSession = { fg = c.base.green },
   }
 end
 

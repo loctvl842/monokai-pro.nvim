@@ -27,6 +27,7 @@ M.setup = function(c, _, _)
     ["@number"] = { fg = c.base.magenta },
     ["@boolean"] = { fg = c.base.magenta },
     ["@type.qualifier"] = { fg = c.base.red, italic = true },
+    ["@annotation"] = { fg = c.base.cyan, italic = true },
 
     -- scss
     ["@keyword.scss"] = { fg = c.base.red },

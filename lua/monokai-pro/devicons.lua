@@ -1,8 +1,8 @@
 local status_ok, webDevicons = pcall(require, "nvim-web-devicons")
 if not status_ok then return end
 
-local filter = require("monokai-pro.colorscheme").filter
-local c = require("monokai-pro.colorscheme").setup(filter)
+-- local filter = require("monokai-pro.colorscheme").filter
+local c = require("monokai-pro.colorscheme").colors
 
 local icons = {
   [".babelrc"] = {
@@ -551,7 +551,7 @@ local icons = {
     name = "Gif",
   },
   ["git"] = {
-    icon = "",
+    icon = "",
     color = "#F14C28",
     cterm_color = "202",
     name = "GitLogo",
@@ -683,7 +683,7 @@ local icons = {
     name = "Ini",
   },
   ["java"] = {
-    icon = "",
+    icon = " ",
     color = c.base.cyan,
     cterm_color = "167",
     name = "Java",
@@ -713,8 +713,8 @@ local icons = {
     name = "Js",
   },
   ["json"] = {
-    icon = "",
-    color = "#cbcb41",
+    icon = "",
+    color = c.base.magenta,
     cterm_color = "185",
     name = "Json",
   },
@@ -803,8 +803,8 @@ local icons = {
     name = "Material",
   },
   ["md"] = {
-    icon = "",
-    color = "#ffffff",
+    icon = "",
+    color = c.base.green,
     cterm_color = "white",
     name = "Md",
   },
@@ -1089,7 +1089,7 @@ local icons = {
   },
   ["sh"] = {
     icon = "",
-    color = "#4d5a5e",
+    color = c.base.green,
     cterm_color = "59",
     name = "Sh",
   },
@@ -1226,8 +1226,8 @@ local icons = {
     name = "TFVars",
   },
   ["toml"] = {
-    icon = "",
-    color = "#6d8086",
+    icon = "",
+    color = c.base.yellow,
     cterm_color = "66",
     name = "Toml",
   },
@@ -1335,7 +1335,7 @@ local icons = {
   },
   ["xml"] = {
     icon = "謹",
-    color = "#e37933",
+    color = c.base.blue,
     cterm_color = "173",
     name = "Xml",
   },
