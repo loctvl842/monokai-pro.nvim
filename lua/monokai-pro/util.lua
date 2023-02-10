@@ -140,6 +140,9 @@ M.load = function(slices)
   vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter" }, {
     pattern = "*",
     callback = function()
+      if vim.g.colors_name ~= "monokai-pro" then
+        return true
+      end
       bufferline_icon_group =
       require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
       draw(bufferline_icon_group)
