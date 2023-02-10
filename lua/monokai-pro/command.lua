@@ -20,6 +20,7 @@ M.create_filter_command = function()
       require("monokai-pro.init").load()
       vim.cmd([[colorscheme monokai-pro]])
     end)
+    assert(menu, "Error: Fail to create menu")
     menu:mount()
   end, { nargs = 0 })
 
