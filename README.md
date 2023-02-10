@@ -18,7 +18,7 @@ Reference [Monokai Pro](https://monokai.pro/)
 
 ![octagon](https://user-images.githubusercontent.com/80513079/209659175-97db9a95-edd0-4b6e-8087-7fb1aee45c52.png)
 
-## 🎰 Machine
+## 🤖 Machine
 
 ![machine](https://user-images.githubusercontent.com/80513079/209659194-d9fe09f5-ea35-4130-b2e8-d854b7b6fb72.png)
 
@@ -26,7 +26,7 @@ Reference [Monokai Pro](https://monokai.pro/)
 
 ![ristretto](https://user-images.githubusercontent.com/80513079/209659205-90200c24-d302-4b70-811a-36e6e7845f6b.png)
 
-## 🎨 Spectrum
+## 🌈 Spectrum
 
 ![spectrum](https://user-images.githubusercontent.com/80513079/209659126-9df0d401-020f-4b0c-963d-5a930d0a6974.png)
 
@@ -34,7 +34,7 @@ Reference [Monokai Pro](https://monokai.pro/)
 
 ![classic](https://user-images.githubusercontent.com/80513079/209659153-9362a05f-2b7f-4b36-acf1-d13bef6a9118.png)
 
-### ⚓ Plugin support
+### 🔌 Plugin support
 
 - [alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [bufferLine.nvim](https://github.com/akinsho/bufferline.nvim)
@@ -75,7 +75,7 @@ use {
 }
 ```
 
-## ⚙ Configuration
+##   Configuration
 
 There are several themes included in this plugin.
 
@@ -138,7 +138,7 @@ require("cmp").setup({
 })
 ```
 
-## 🔥 Usage
+## 📚 Usage
 
 - Enable this colorscheme by using the following command after `setup`:
 
@@ -185,7 +185,7 @@ require('barbecue').setup {
 let g:lightline = {'colorscheme': 'monokaipro'}
 ```
 
-## ✍ Command
+##   Command
 
 - run command `MonokaiProSelect` to launch a menu to choose theme filter (required: [nui.nvim](https://github.com/MunifTanjim/nui.nvim))
 - or we can run command `MonokaiPro` with parameter to change theme filter: For example:
