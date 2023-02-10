@@ -75,7 +75,7 @@ use {
 }
 ```
 
-##     🔨 Configuration
+## 🔨 Configuration
 
 There are several themes included in this plugin.
 
