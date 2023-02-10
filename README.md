@@ -75,7 +75,7 @@ use {
 }
 ```
 
-##   Configuration
+##   Configuration
 
 There are several themes included in this plugin.
 
@@ -185,7 +185,7 @@ require('barbecue').setup {
 let g:lightline = {'colorscheme': 'monokaipro'}
 ```
 
-##   Command
+## 🔧 Command
 
 - run command `MonokaiProSelect` to launch a menu to choose theme filter (required: [nui.nvim](https://github.com/MunifTanjim/nui.nvim))
 - or we can run command `MonokaiPro` with parameter to change theme filter: For example:
