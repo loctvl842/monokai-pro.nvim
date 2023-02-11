@@ -9,11 +9,6 @@ M.setup = function(c, config, _)
   -- local float_background = c.statusBar.background
   local alt_float_background = c.editor.background
   return {
-    StatusLine = { bg = c.statusBar.background, fg = c.statusBar.foreground },
-    StatusLineNC = { bg = c.statusBar.background, fg = c.statusBar.foreground },
-    StatusLineSeparator = { fg = c.statusBar.background },
-    StatusLineTerm = { fg = c.statusBar.background },
-    StatusLineTermNC = { fg = c.statusBar.background },
     SLDiffAdd = {
       bg = float and alt_float_background or c.statusBar.background,
       fg = colorful and c.gitDecoration.addedResourceForeground

@@ -154,6 +154,7 @@ M.setup = function(filter)
   cs.statusBar = {
     background = p.dark1,
     foreground = p.dimmed3,
+    activeForeground = p.dimmed1
   }
 
   cs.base = {

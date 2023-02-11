@@ -5,7 +5,7 @@ local M = {}
 --- @param hp Helper
 M.setup = function(c, config, hp)
   local float_winBackgroundClear =
-    vim.tbl_contains(config.background_clear, "float_win")
+  vim.tbl_contains(config.background_clear, "float_win")
   return {
     ColorColumn = {
       bg = c.editor.background,
@@ -96,16 +96,14 @@ M.setup = function(c, config, hp)
       bg = c.editor.background,
       fg = c.editor.foreground,
     },
-    NormalFloat = float_winBackgroundClear
-        and {
-          bg = c.editor.background,
-          fg = c.editorSuggestWidget.foreground,
-        }
-      or {
-        -- bg = c.editorHoverWidget.background,
-        bg = c.base.black,
-        fg = c.base.dimmed1,
-      }, -- Normal text in floating windows. example PackerNormal
+    NormalFloat = float_winBackgroundClear and {
+      bg = c.editor.background,
+      fg = c.editorSuggestWidget.foreground,
+    } or {
+      -- bg = c.editorHoverWidget.background,
+      bg = c.base.black,
+      fg = c.base.dimmed1,
+    }, -- Normal text in floating windows. example PackerNormal
     FloatBorder = float_winBackgroundClear and {
       bg = c.editor.background,
       fg = c.editorSuggestWidget.foreground,
@@ -161,17 +159,20 @@ M.setup = function(c, config, hp)
       underline = false,
       bold = true,
     }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-    -- StatusLine = { bg = config.options.transparency and nil or theme.palette.bg, fg = theme.palette.fg, style = "bold" }, -- status line of current window
-    -- StatusLineNC = {
-    --     bg = config.options.transparency andnil
-    --         or config.options.window_unfocused_color and theme.generated.color_column
-    --         or theme.palette.bg,
-    --     fg = theme.palette.fg,
-    -- }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-    -- TabLine = { bg = config.options.transparency and nil or theme.palette.bg }, -- tab pages line, not active tab page label
-    -- TabLineFill = { bg = config.options.transparency and nil or theme.palette.bg, fg = theme.palette.fg }, -- tab pages line, where there are no labels
-    -- TabLineSel = { bg = theme.palette.purple, fg = theme.palette.bg }, -- tab pages line, active tab page label
-    -- TermCursorNC = { bg = C.gray }, -- cursor in an unfocused terminal
+    StatusLine = {
+      bg = c.statusBar.background,
+      fg = c.statusBar.activeForeground,
+    }, -- status line of current window
+    StatusLineNC = {
+      bg = c.statusBar.background,
+      fg = c.statusBar.foreground,
+    }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    StatusLineSeparator = { fg = c.statusBar.background },
+    StatusLineTerm = { fg = c.statusBar.background },
+    StatusLineTermNC = { fg = c.statusBar.background },
+    Tabline = { link = "BufferLineBackground" }, -- tab pages line, not active tab page label
+    TablineFill = { link = "BufferLineFill" }, -- tab pages line, where there are no labels
+    TablineSel = { link = "BufferLineBufferSelected" }, -- tab pages line, active tab page label
     Title = {
       fg = c.base.yellow,
     }, -- titles for output from ":set all", ":autocmd"
@@ -185,11 +186,11 @@ M.setup = function(c, config, hp)
       fg = c.inputValidation.warningForeground,
     }, -- warning messages
     WinSeparator = {
-      bg = c.editor.background,
+      -- bg = c.editor.background,
       fg = c.base.black,
     }, -- the column separating windows
     Whitespace = {
-      fg = c.editor.background,
+      fg = c.base.dimmed4,
     }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     -- WildMenu = { bg = C.blue, fg = C.black }, -- current match in 'wildmenu' completion
 
