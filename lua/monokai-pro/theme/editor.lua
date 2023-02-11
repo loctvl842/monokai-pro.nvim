@@ -184,7 +184,7 @@ M.setup = function(c, config, hp)
       fg = c.base.black,
     }, -- the column separating windows
     Whitespace = {
-      fg = c.editor.background,
+      fg = c.base.dimmed4,
     }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     -- WildMenu = { bg = C.blue, fg = C.black }, -- current match in 'wildmenu' completion
 
