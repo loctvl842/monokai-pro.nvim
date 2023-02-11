@@ -161,16 +161,11 @@ M.setup = function(c, config, hp)
       underline = false,
       bold = true,
     }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-    -- StatusLine = { bg = config.options.transparency and nil or theme.palette.bg, fg = theme.palette.fg, style = "bold" }, -- status line of current window
-    -- StatusLineNC = {
-    --     bg = config.options.transparency andnil
-    --         or config.options.window_unfocused_color and theme.generated.color_column
-    --         or theme.palette.bg,
-    --     fg = theme.palette.fg,
-    -- }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-    -- TabLine = { bg = config.options.transparency and nil or theme.palette.bg }, -- tab pages line, not active tab page label
-    -- TabLineFill = { bg = config.options.transparency and nil or theme.palette.bg, fg = theme.palette.fg }, -- tab pages line, where there are no labels
-    -- TabLineSel = { bg = theme.palette.purple, fg = theme.palette.bg }, -- tab pages line, active tab page label
+    StatusLine = { bg = c.statusBar.background, fg = c.editor.foreground, },
+    StatusLineNC = { bg = c.statusBar.background, fg = c.statusBar.foreground, },
+    TabLine = { link = "StatuslineNC", },
+    TabLineFill = { link = "StatusLineNC", },
+    TabLineSel = { bg = c.editor.background, fg = c.editor.foreground, },
     -- TermCursorNC = { bg = C.gray }, -- cursor in an unfocused terminal
     Title = {
       fg = c.base.yellow,
