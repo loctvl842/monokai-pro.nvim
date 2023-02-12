@@ -110,7 +110,7 @@ M.setup = function(filter)
     modifiedResourceForeground = p.accent3, -- "#e6db74",
     stageDeletedResourceForeground = p.accent1, -- "#f92672",
     stageModifiedResourceForeground = p.accent3, -- "#e6db74",
-    untrackedResourceForeground = p.dimmed1, -- "#c0c1b5",
+    untrackedResourceForeground = p.dimmed2, -- "#c0c1b5",
   }
 
   cs.inputValidation = {
@@ -154,7 +154,6 @@ M.setup = function(filter)
   cs.statusBar = {
     background = p.dark1,
     foreground = p.dimmed3,
-    activeForeground = p.dimmed1
   }
 
   cs.base = {
