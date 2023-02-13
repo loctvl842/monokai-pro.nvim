@@ -8,8 +8,9 @@
     </div>
 </div>
 
-Reference [Monokai Pro](https://monokai.pro/)
+Find out more here [monokai.pro](https://monokai.pro/)
 
+![monokai-pro-macbook](https://user-images.githubusercontent.com/80513079/218453999-87c957f1-658d-49a6-bf67-291d3e46fa9a.png)
 ## ⭐ Pro
 
 ![pro](https://user-images.githubusercontent.com/80513079/209659184-ed5a28c3-cb7f-4de7-8f7c-5d206dc11540.png)
@@ -190,3 +191,4 @@ let g:lightline = {'colorscheme': 'monokaipro'}
 - run command `MonokaiProSelect` to launch a menu to choose theme filter (required: [nui.nvim](https://github.com/MunifTanjim/nui.nvim))
 - or we can run command `MonokaiPro` with parameter to change theme filter: For example:
   > `MonokaiPro classic`
+
