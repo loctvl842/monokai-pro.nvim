@@ -725,8 +725,8 @@ local icons = {
     name = "Json5",
   },
   ["jsx"] = {
-    icon = "",
-    color = "#519aba",
+    icon = "󰜈",
+    color = c.base.cyan,
     cterm_color = "67",
     name = "Jsx",
   },

@@ -32,7 +32,7 @@ M.setup = function(c, config, hp)
     -- Directory = { fg = C.blue }, -- directory names (and other special names in listings)
     CursorLineFold = {
       bg = c.editor.background,
-      fg = c.editorLineNumber.activeForeground
+      fg = c.base.white,
     },
     DiffAdd = {
       bg = c.editor.background,
@@ -63,7 +63,7 @@ M.setup = function(c, config, hp)
     }, -- line used for closed folds
     FoldColumn = {
       bg = c.editor.background,
-      fg = c.button.foreground,
+      fg = c.editorLineNumber.activeForeground,
     }, -- 'foldcolumn'
     SignColumn = {
       bg = c.editor.background,
