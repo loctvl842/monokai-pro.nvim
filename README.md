@@ -11,6 +11,7 @@
 Find out more here [monokai.pro](https://monokai.pro/)
 
 ![monokai-pro-macbook](https://user-images.githubusercontent.com/80513079/218453999-87c957f1-658d-49a6-bf67-291d3e46fa9a.png)
+
 ## ⭐ Pro
 
 ![pro](https://user-images.githubusercontent.com/80513079/209659184-ed5a28c3-cb7f-4de7-8f7c-5d206dc11540.png)
@@ -100,7 +101,8 @@ require("monokai-pro").setup({
     "toggleterm",
     "telescope",
     "which-key",
-    "renamer" },-- "float_win", "toggleterm", "telescope", "which-key", "renamer"
+    "renamer"
+  },-- "float_win", "toggleterm", "telescope", "which-key", "renamer"
   diagnostic = {
     background = true,
   },
@@ -113,12 +115,17 @@ require("monokai-pro").setup({
       context_highlight = "default", -- default | pro
     },
   },
+  ---@param c Colorscheme
+  override = function(c) end,
 })
 ```
 
 - Check my [nvim](https://github.com/loctvl842/nvim) to see my plugins setup for `border` if you want to set `background_clear`
 
 For example:
+
+<details>
+  <summary>float_win</summary>
 
 ```lua
 require("monokai-pro").setup({
@@ -138,6 +145,29 @@ require("cmp").setup({
     -- ... your config
 })
 ```
+
+</details>
+
+<details>
+  <summary>Telescope</summary>
+
+```lua
+require("monokai-pro").setup({
+    -- ... your config
+    background_clear = {}
+    -- ... your config
+})
+
+require("telescope").setup({
+    -- ... your config
+    defaults = {
+      borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
+    }
+    -- ... your config
+})
+```
+
+</details>
 
 ## 📚 Usage
 
@@ -186,9 +216,22 @@ require('barbecue').setup {
 let g:lightline = {'colorscheme': 'monokaipro'}
 ```
 
+- Override function:
+
+```lua
+require("monokai-pro").setup({
+    -- ...
+    override = function
+      return {
+          Normal = { bg = "#000000" }
+        }
+    end
+    -- ...
+  })
+```
+
 ## 🔧 Command
 
 - run command `MonokaiProSelect` to launch a menu to choose theme filter (required: [nui.nvim](https://github.com/MunifTanjim/nui.nvim))
 - or we can run command `MonokaiPro` with parameter to change theme filter: For example:
   > `MonokaiPro classic`
-
