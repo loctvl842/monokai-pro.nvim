@@ -42,8 +42,8 @@ local icons = {
     name = "GitConfig",
   },
   [".gitignore"] = {
-    icon = "",
-    color = "#41535b",
+    icon = "󰊢",
+    color = c.base.blue,
     cterm_color = "59",
     name = "GitIgnore",
   },
@@ -707,8 +707,8 @@ local icons = {
     name = "Jpg",
   },
   ["js"] = {
-    icon = "",
-    color = "#cbcb41",
+    icon = "",
+    color = c.base.yellow,
     cterm_color = "185",
     name = "Js",
   },
@@ -1376,8 +1376,8 @@ local icons = {
     name = "Solidity",
   },
   [".env"] = {
-    icon = "",
-    color = "#faf743",
+    icon = "󰌾",
+    color = c.base.yellow,
     cterm_color = "226",
     name = "Env",
   },
