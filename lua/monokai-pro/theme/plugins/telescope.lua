@@ -8,7 +8,7 @@ M.setup = function(c, config, _)
 
   local transparent_bg = c.editor.background
   local transparent_bg_border = c.base.dimmed2
-  local preview_bg = c.base.dark
+  local preview_bg = c.base.dimmed5
   local prompt_bg = c.base.dimmed5
   local result_bg = c.base.dimmed5
   return {

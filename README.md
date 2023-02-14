@@ -146,9 +146,15 @@ require("cmp").setup({
 })
 ```
 
+- With the above config:
+![bg_clear_cmp](https://user-images.githubusercontent.com/80513079/218801625-a2b43cb0-175c-4463-9290-a361deb41f6a.png)
 </details>
 
+- With the default config:
+  ![default_cmp](https://user-images.githubusercontent.com/80513079/218804686-834c624d-d9bf-45a1-a1bd-a6d05e70e1b8.png)
+
 <details>
+
   <summary>Telescope</summary>
 
 ```lua
@@ -166,6 +172,13 @@ require("telescope").setup({
     -- ... your config
 })
 ```
+
+- With the above config:
+
+![removed_border_telescope](https://user-images.githubusercontent.com/80513079/218804055-a5cbf9d4-5c0f-4c0f-9cfe-5362af3714e8.png)
+
+- With the default config:
+  ![default_telescope](https://user-images.githubusercontent.com/80513079/218803566-56852087-8d3c-410c-854a-89bb49f8d981.png)
 
 </details>
 
