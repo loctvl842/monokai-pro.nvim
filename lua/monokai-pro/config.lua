@@ -4,6 +4,7 @@ local M = {}
 ---@class Config
 local default = {
   transparent_background = false,
+  terminal_colors = true,
   italic_comments = true,
   filter = "pro",
   inc_search = "background", -- underline | background

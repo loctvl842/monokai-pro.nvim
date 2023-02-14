@@ -93,6 +93,7 @@ Example configuration:
 ```lua
 require("monokai-pro").setup({
   transparent_background = false,
+  terminal_colors = true,
   italic_comments = true,
   filter = "pro",
   inc_search = "background", -- underline | background

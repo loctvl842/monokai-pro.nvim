@@ -114,15 +114,15 @@ M.notify = function(msg, level, opts)
   vim.schedule(function() vim.notify(msg, level, nopts) end)
 end
 
----@param slices Slices
-M.load = function(slices)
+---@param hl_groups HlGroups
+M.load = function(hl_groups)
   if vim.g.colors_name then vim.cmd([[hi clear]]) end
 
   vim.o.background = "dark"
   vim.o.termguicolors = true
   vim.g.colors_name = "monokai-pro"
 
-  draw(slices)
+  draw(hl_groups)
 
   local bufferline_icon_group =
   require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
