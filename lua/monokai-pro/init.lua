@@ -6,8 +6,7 @@ local command = require("monokai-pro.command")
 local M = {}
 
 M.load = function()
-  if util.is_empty(config.options) then M.setup() end
-  util.load(theme.setup(config.options))
+  util.load(theme.setup())
   require("monokai-pro.devicons")
 end
 

@@ -122,16 +122,7 @@ M.load = function(slices)
   vim.o.termguicolors = true
   vim.g.colors_name = "monokai-pro"
 
-  for sliceName, groups in pairs(slices) do
-    local draw_success, _ = pcall(draw, groups)
-    if not draw_success then
-      local msg = "Failed to draw slice: " .. sliceName
-      local level = "error"
-      M.notify(msg, level)
-      goto continue
-    end
-    ::continue::
-  end
+  draw(slices)
 
   local bufferline_icon_group =
   require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()

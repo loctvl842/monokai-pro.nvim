@@ -31,6 +31,8 @@ local default = {
       colorful = false,
     },
   },
+  ---@param c Colorscheme
+  override = function(c) end,
 }
 
 ---@type Config
@@ -43,15 +45,10 @@ end
 
 ---@param options Config|nil
 M.extend = function(options)
-  if util.is_empty(M.options) then
-    local msg =
-    "You need to setup monokai-pro before using extend options this colorscheme"
-    local level = "warn"
-    util.notify(msg, level)
-    return
-  end
   M.options =
   vim.tbl_deep_extend("force", {}, M.options or default, options or {})
 end
+
+M.setup()
 
 return M
