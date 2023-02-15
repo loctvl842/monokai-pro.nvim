@@ -166,6 +166,7 @@ M.setup = function(c, config, hp)
     StatusLine = {
       bg = c.statusBar.background,
       fg = c.statusBar.activeForeground,
+      reverse = false,
     }, -- status line of current window
     StatusLineNC = {
       bg = c.statusBar.background,
