@@ -1,10 +1,11 @@
-local util = require("monokai-pro.util")
 local M = {}
 
 ---@class Config
+---@field override fun(colors: Colorscheme)
 local default = {
   transparent_background = false,
   terminal_colors = true,
+  devicons = false,
   italic_comments = true,
   filter = "pro",
   inc_search = "background", -- underline | background
@@ -28,8 +29,8 @@ local default = {
       context_highlight = "default", -- default | pro
     },
   },
-  ---@param c Colorscheme
-  override = function(c) end,
+  ---@param colors Colorscheme
+  override = function(colors) end,
 }
 
 ---@type Config

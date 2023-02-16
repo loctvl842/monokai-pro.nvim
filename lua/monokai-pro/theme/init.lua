@@ -61,44 +61,19 @@ local function generateHlGroups(colorscheme, config)
   return hl_groups
 end
 
----@param colors Colorscheme
-M.terminal = function(colors)
-  -- dark
-  vim.g.terminal_color_0 = colors.base.black
-  vim.g.terminal_color_8 = colors.base.dimmed3
-
-  -- light
-  vim.g.terminal_color_7 = colors.base.white
-  vim.g.terminal_color_15 = colors.base.white
-
-  -- colors
-  vim.g.terminal_color_1 = colors.base.red
-  vim.g.terminal_color_9 = colors.base.red
-
-  vim.g.terminal_color_2 = colors.base.green
-  vim.g.terminal_color_10 = colors.base.green
-
-  vim.g.terminal_color_3 = colors.base.yellow
-  vim.g.terminal_color_11 = colors.base.yellow
-
-  vim.g.terminal_color_4 = colors.base.blue
-  vim.g.terminal_color_12 = colors.base.blue
-
-  vim.g.terminal_color_5 = colors.base.magenta
-  vim.g.terminal_color_13 = colors.base.magenta
-
-  vim.g.terminal_color_6 = colors.base.cyan
-  vim.g.terminal_color_14 = colors.base.cyan
-end
-
 ---@return HlGroups
 M.setup = function()
   local config = require("monokai-pro.config").options
+  local devicons = require("monokai-pro.devicons")
   local colorscheme = require("monokai-pro.colorscheme").setup(config.filter)
   local hl_groups = generateHlGroups(colorscheme, config)
 
   if config.terminal_colors then
-    M.terminal(colorscheme)
+    util.terminal(colorscheme)
+  end
+
+  if config.devicons then
+    devicons.setup(colorscheme)
   end
 
   return hl_groups
