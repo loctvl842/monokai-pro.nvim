@@ -35,7 +35,7 @@ local plugins = {
 ---@param colorscheme Colorscheme
 ---@param config Config
 ---@return HlGroups
-local function generateHlGroups(colorscheme, config)
+local function generate_hl_groups(colorscheme, config)
   local editor = require("monokai-pro.theme.editor").setup(colorscheme, config, helper)
   local syntax = require("monokai-pro.theme.syntax").setup(colorscheme, config, helper)
   local semantic_tokens = require("monokai-pro.theme.semantic_tokens").setup(colorscheme, config, helper)
@@ -66,7 +66,14 @@ M.setup = function()
   local config = require("monokai-pro.config").options
   local devicons = require("monokai-pro.devicons")
   local colorscheme = require("monokai-pro.colorscheme").setup(config.filter)
-  local hl_groups = generateHlGroups(colorscheme, config)
+
+  -- generate highlight groups
+  -- Example:
+  -- local hl_groups = {
+  --   Normal = { bg = c.editor.background, fg = c.editor.foreground, }, -- normal text
+  --   ["@modifier"] = { fg = c.base.red, italic = true },
+  -- }
+  local hl_groups = generate_hl_groups(colorscheme, config)
 
   if config.terminal_colors then
     util.terminal(colorscheme)

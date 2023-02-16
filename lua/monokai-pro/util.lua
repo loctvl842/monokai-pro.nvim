@@ -144,11 +144,17 @@ M.terminal = function(colors)
   vim.g.terminal_color_14 = colors.base.cyan
 end
 
+M.is_daytime = function()
+  local current_time = os.time()
+  local current_hour = tonumber(os.date("%H", current_time))
+  return current_hour >= 6 and current_hour < 18
+end
+
 ---@param hl_groups HlGroups
 M.load = function(hl_groups)
   if vim.g.colors_name then vim.cmd([[hi clear]]) end
 
-  vim.o.background = "dark"
+  vim.o.background = "light"
   vim.o.termguicolors = true
   vim.g.colors_name = "monokai-pro"
 
@@ -161,9 +167,7 @@ M.load = function(hl_groups)
   vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter" }, {
     pattern = "*",
     callback = function()
-      if vim.g.colors_name ~= "monokai-pro" then
-        return true
-      end
+      if vim.g.colors_name ~= "monokai-pro" then return true end
       bufferline_icon_group =
       require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
       draw(bufferline_icon_group)

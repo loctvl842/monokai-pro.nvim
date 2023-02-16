@@ -17,7 +17,6 @@ M.create_filter_command = function()
     }, function(item)
       local filter = item.value
       config.extend({ filter = filter })
-      require("monokai-pro.init").load()
       vim.cmd([[colorscheme monokai-pro]])
     end)
     assert(menu, "Error: Fail to create menu")

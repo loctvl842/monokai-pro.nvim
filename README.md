@@ -96,7 +96,13 @@ require("monokai-pro").setup({
   terminal_colors = true,
   devicons = true, -- highlight the icons of `nvim-web-devicons`
   italic_comments = true,
-  filter = "pro",
+  filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+  -- Enable this will disable filter option
+  day_night = {
+    enable = false, -- turn off by default
+    day_filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+    night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
+  }
   inc_search = "background", -- underline | background
   background_clear = {
     -- "float_win",
@@ -149,7 +155,7 @@ require("cmp").setup({
 ```
 
 - With the above config:
-![bg_clear_cmp](https://user-images.githubusercontent.com/80513079/218801625-a2b43cb0-175c-4463-9290-a361deb41f6a.png)
+  ![bg_clear_cmp](https://user-images.githubusercontent.com/80513079/218801625-a2b43cb0-175c-4463-9290-a361deb41f6a.png)
 
 - With the default config:
   ![default_cmp](https://user-images.githubusercontent.com/80513079/218804686-834c624d-d9bf-45a1-a1bd-a6d05e70e1b8.png)
