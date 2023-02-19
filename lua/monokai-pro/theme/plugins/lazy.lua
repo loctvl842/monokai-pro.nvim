@@ -18,6 +18,13 @@ M.setup = function(c, _, _)
       bg = c.sideBar.background,
       fg = c.tab.unfocusedActiveBorder,
     },
+    LazyProp = {
+      bg = c.sideBar.background,
+      fg = c.base.green,
+    },
+    LazyUrl = { fg = c.base.cyan },
+    LazyDir = { link = "LazyUrl" },
+    LazySpecial = { fg = c.base.yellow, bold = true },
   }
 end
 
