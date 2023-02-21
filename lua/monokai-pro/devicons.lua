@@ -1120,19 +1120,19 @@ M.setup = function(c)
     },
     ["sql"] = {
       icon = "",
-      color = "#dad8d8",
+      color = c.base.magenta,
       cterm_color = "188",
       name = "Sql",
     },
     ["sqlite"] = {
       icon = "",
-      color = "#dad8d8",
+      color = c.base.magenta,
       cterm_color = "188",
       name = "Sql",
     },
     ["sqlite3"] = {
       icon = "",
-      color = "#dad8d8",
+      color = c.base.magenta,
       cterm_color = "188",
       name = "Sql",
     },

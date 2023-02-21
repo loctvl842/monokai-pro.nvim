@@ -22,9 +22,6 @@ local default = {
     "which-key",
     "renamer",
   },
-  diagnostic = {
-    background = true,
-  },
   plugins = {
     bufferline = {
       underline_selected = false,

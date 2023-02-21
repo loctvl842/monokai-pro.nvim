@@ -125,6 +125,17 @@ M.setup = function(filter)
     warningForeground = p.accent2, --"#fc9867",
   }
 
+  cs.errorLens = {
+    errorBackground = hp.blend(p.accent1, 0.1),
+    errorForeground = p.accent1,
+    warningBackground = hp.blend(p.accent2, 0.1),
+    warningForeground = p.accent2,
+    infoBackground = hp.blend(p.accent5, 0.1),
+    infoForeground = p.accent5,
+    hintBackground = hp.blend(p.accent5, 0.1),
+    hintForeground = p.accent5,
+  }
+
   cs.terminal = {
     background = p.dimmed5, -- "#403e41",
     foreground = p.text, -- "#fcfcfa",

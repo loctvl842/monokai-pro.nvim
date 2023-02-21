@@ -1,6 +1,15 @@
 --- @class Helper
 local M = {}
 
+local function getBlendBackground(background)
+  if background ~= nil then return background end
+
+  local filter = require("monokai-pro.colorscheme").filter
+  --- @module "monokai-pro.colorscheme.palette.pro"
+  local c = require("monokai-pro.colorscheme.palette." .. filter)
+  return c.background
+end
+
 local function hexToRgb(hex)
   hex = string.lower(hex)
   return {
@@ -35,12 +44,7 @@ M.lighten = function(hex, amt)
 end
 
 M.rgba = function(red, green, blue, alpha, background)
-  if background == nil then
-    local filter = require("monokai-pro.colorscheme").filter
-    --- @module "monokai-pro.colorscheme.palette.pro"
-    local c = require("monokai-pro.colorscheme.palette." .. filter)
-    background = c.background
-  end
+  background = getBlendBackground(background)
   local bg_rgb = hexToRgb(background)
   -- new color
   red = (1 - alpha) * bg_rgb.r + alpha * red
@@ -50,12 +54,7 @@ M.rgba = function(red, green, blue, alpha, background)
 end
 
 M.blend = function(hexColor, alpha, background)
-  if background == nil or background == "NONE" then
-    local filter = require("monokai-pro.colorscheme").filter
-    --- @module "monokai-pro.colorscheme.palette.pro"
-    local c = require("monokai-pro.colorscheme.palette." .. filter)
-    background = c.background
-  end
+  background = getBlendBackground(background)
   local rgb = hexToRgb(hexColor)
   return M.rgba(rgb.r, rgb.g, rgb.b, alpha, background)
 end

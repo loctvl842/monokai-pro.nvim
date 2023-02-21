@@ -111,9 +111,6 @@ require("monokai-pro").setup({
     "which-key",
     "renamer"
   },-- "float_win", "toggleterm", "telescope", "which-key", "renamer"
-  diagnostic = {
-    background = true,
-  },
   plugins = {
     bufferline = {
       underline_selected = false,
