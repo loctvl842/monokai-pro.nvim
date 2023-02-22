@@ -3,17 +3,15 @@ local nui_ok, _ = pcall(require, "nui.menu")
 
 local M = {}
 
-M.is_empty = function(tbl) return next(tbl) == nil end
-
-local getRealColor = function(hex_color, base)
+local function getRealColor(hex_color, base)
   if hex_color == nil or string.len(hex_color) ~= 9 then return hex_color end
 
   local filter = require("monokai-pro.colorscheme").filter
   ---@module "monokai-pro.colorscheme.palette.pro"
   local c = require("monokai-pro.colorscheme.palette." .. filter)
   if base == nil then base = c.background end
-  if string.len(base) == 9 then base = hp.hexExtend(base, c.background) end
-  return hp.hexExtend(hex_color, base)
+  if string.len(base) == 9 then base = hp.extend_hex(base, c.background) end
+  return hp.extend_hex(hex_color, base)
 end
 
 local genHlValue = function(value)
@@ -161,7 +159,7 @@ M.load = function(hl_groups)
   draw(hl_groups)
 
   local bufferline_icon_group =
-  require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
+      require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
   draw(bufferline_icon_group)
   -- draw bufferline icons
   vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter" }, {
@@ -169,7 +167,7 @@ M.load = function(hl_groups)
     callback = function()
       if vim.g.colors_name ~= "monokai-pro" then return true end
       bufferline_icon_group =
-      require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
+          require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
       draw(bufferline_icon_group)
     end,
   })

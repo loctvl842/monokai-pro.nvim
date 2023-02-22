@@ -1,8 +1,7 @@
 local M = {}
 
 --- @param c Colorscheme The color palette
---- @param config Config
-M.setup = function(c, config, _)
+M.setup = function(c, _, _)
   return {
     -- Neovim 0.6+
     DiagnosticError = { fg = c.inputValidation.errorForeground },
@@ -30,26 +29,18 @@ M.setup = function(c, config, _)
       fg = c.errorLens.hintForeground,
     },
     DiagnosticUnderlineError = {
-      bg = config.diagnostic.background and c.inputValidation.errorBackground
-      or nil,
       sp = c.inputValidation.errorBorder,
       undercurl = true,
     },
     DiagnosticUnderlineWarn = {
-      bg = config.diagnostic.background and c.inputValidation.warningBackground
-      or nil,
       sp = c.inputValidation.warningBorder,
       undercurl = true,
     },
     DiagnosticUnderlineInfo = {
-      bg = config.diagnostic.background and c.inputValidation.infoBackground
-      or nil,
       sp = c.inputValidation.infoBorder,
       undercurl = true,
     },
     DiagnosticUnderlineHint = {
-      bg = config.diagnostic.background and c.inputValidation.infoBackground
-      or nil,
       sp = c.inputValidation.infoBorder,
       undercurl = true,
     },

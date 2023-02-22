@@ -10,6 +10,7 @@ M.setup = function(c, _, _)
     ["@modifier"] = { fg = c.base.red, italic = true },
     ["@namespace"] = { fg = c.base.red, italic = true },
     ["@interface"] = { fg = c.base.cyan, italic = true },
+    ["@global"] = { fg = c.base.blue },
   }
 end
 
