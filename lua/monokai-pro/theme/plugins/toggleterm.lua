@@ -4,7 +4,7 @@ local M = {}
 --- @param config Config
 M.setup = function(c, config, _)
   local isBackgroundClear =
-    vim.tbl_contains(config.background_clear, "toggleterm")
+      vim.tbl_contains(config.background_clear, "toggleterm")
   return {
     TermCursor = {
       bg = c.terminalCursor.foreground,
@@ -16,8 +16,7 @@ M.setup = function(c, config, _)
     },
     ToggleTermBorder = {
       bg = c.editor.background,
-      fg = isBackgroundClear and c.tab.unfocusedActiveBorder
-        or c.terminal.background,
+      fg = isBackgroundClear and c.base.dimmed2 or c.terminal.background,
     },
   }
 end
