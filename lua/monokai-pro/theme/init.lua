@@ -16,6 +16,7 @@ local plugins = {
   "indent_blankline",
   "lazy",
   "lsp",
+  "mason",
   "neo-tree",
   "noice",
   "notify",
