@@ -8,7 +8,7 @@ local default = {
   terminal_colors = true,
   devicons = false,
   italic_comments = true,
-  filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
+  filter = vim.o.background == "light" and "classic" or "pro", -- classic | octagon | pro | machine | ristretto | spectrum
   day_night = {
     enable = false,
     day_filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum

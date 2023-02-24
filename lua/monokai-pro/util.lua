@@ -152,7 +152,6 @@ end
 M.load = function(hl_groups)
   if vim.g.colors_name then vim.cmd([[hi clear]]) end
 
-  vim.o.background = "light"
   vim.o.termguicolors = true
   vim.g.colors_name = "monokai-pro"
 

@@ -1,7 +1,10 @@
 local util = require("monokai-pro.util")
 local config = require("monokai-pro.config").options
 
-local M = {}
+local M = {
+  filter = config.filter,
+  colors = {},
+}
 
 local hp = require("monokai-pro.color_helper")
 

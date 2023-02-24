@@ -18,7 +18,7 @@ M.setup = function(c, _, _)
     ["@constant.builtin"] = { fg = c.base.magenta },
     ["@tag"] = { fg = c.base.red },
     ["@tag.delimiter"] = { fg = c.sideBar.foreground },
-    ["@tag.attribute"] = { fg = c.base.cyan },
+    ["@tag.attribute"] = { fg = c.base.cyan, italic = true },
     ["@attribute"] = { fg = c.base.cyan },
     ["@conditional"] = { fg = c.base.red },
     ["@repeat"] = { fg = c.base.red },
@@ -28,7 +28,6 @@ M.setup = function(c, _, _)
     ["@boolean"] = { fg = c.base.magenta },
     ["@type.qualifier"] = { fg = c.base.red, italic = true },
     ["@annotation"] = { fg = c.base.cyan, italic = true },
-
     -- scss
     ["@keyword.scss"] = { fg = c.base.red },
     ["@function.scss"] = { fg = c.base.cyan },
@@ -36,7 +35,6 @@ M.setup = function(c, _, _)
     ["@string.scss"] = { fg = c.base.blue, italic = true },
     ["@number.scss"] = { fg = c.base.magenta },
     ["@type.scss"] = { fg = c.base.cyan },
-
     -- cpp
     ["@keyword.cpp"] = { fg = c.base.cyan, italic = true },
     ["@namespace.cpp"] = { fg = c.base.white },
@@ -46,7 +44,6 @@ M.setup = function(c, _, _)
     ["@constant.cpp"] = { fg = c.base.cyan },
     ["@constant.macro.cpp"] = { fg = c.base.red },
     ["@punctuation.delimiter.cpp"] = { fg = c.sideBar.foreground },
-
     -- python
     ["@type.python"] = { fg = c.base.cyan },
     ["@keyword.python"] = { fg = c.base.cyan, italic = true },
@@ -64,7 +61,6 @@ M.setup = function(c, _, _)
     ["@keyword.function.python"] = { fg = c.base.cyan, italic = true },
     ["@operator.python"] = { fg = c.base.red },
     ["@varibale.builtin.python"] = { fg = c.base.blue, italic = true },
-
     -- lua
     ["@variable.lua"] = { fg = c.base.white },
     ["@function.builtin.lua"] = { fg = c.base.green },
