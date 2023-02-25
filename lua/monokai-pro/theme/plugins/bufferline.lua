@@ -19,13 +19,11 @@ M.setup = function(c, config, hp)
       bg = c.sideBar.background,
       fg = c.sideBarTitle.foreground,
     }, -- Explorer appear in tree setup by bufferline
-
     BufferLineFill = {
       bg = c.editorGroupHeader.tabsBackground,
       sp = c.editorGroupHeader.tabsBorder,
       -- underline = isSelectedUnderlined,
     },
-
     BufferLineBufferSelected = {
       bg = c.tab.activeBackground,
       fg = c.tab.activeForeground,
@@ -42,7 +40,6 @@ M.setup = function(c, config, hp)
       sp = c.tab.unfocusedActiveBorder,
       underline = isVisibleUnderlined,
     },
-
     -- Duplicate
     BufferLineDuplicateSelected = {
       bg = c.tab.activeBackground,
@@ -72,7 +69,6 @@ M.setup = function(c, config, hp)
       sp = c.tab.unfocusedActiveBorder,
       underline = isVisibleUnderlined,
     },
-
     -- CloseButton
     BufferLineCloseButtonSelected = {
       bg = c.tab.activeBackground,
@@ -90,7 +86,6 @@ M.setup = function(c, config, hp)
       sp = c.tab.unfocusedActiveBorder,
       underline = isVisibleUnderlined,
     },
-
     -- separator
     BufferLineSeparatorSelected = {
       bg = c.tab.activeBackground,
@@ -108,7 +103,6 @@ M.setup = function(c, config, hp)
       sp = c.tab.unfocusedActiveBorder,
       underline = isVisibleUnderlined,
     },
-
     -- Modified
     BufferLineModifiedSelected = {
       bg = c.tab.activeBackground,
@@ -126,7 +120,6 @@ M.setup = function(c, config, hp)
       sp = c.tab.unfocusedActiveBorder,
       underline = isVisibleUnderlined,
     },
-
     -- Warning
     BufferLineWarningSelected = {
       bg = c.tab.activeBackground,
@@ -181,7 +174,6 @@ M.setup = function(c, config, hp)
       sp = c.tab.unfocusedActiveBorder,
       underline = isVisibleUnderlined,
     },
-
     -- Error
     BufferLineErrorSelected = {
       bg = c.tab.activeBackground,
@@ -239,7 +231,6 @@ M.setup = function(c, config, hp)
       underline = isVisibleUnderlined,
       bold = true,
     },
-
     -- Info
     BufferLineInfoSelected = {
       bg = c.tab.activeBackground,
@@ -297,7 +288,6 @@ M.setup = function(c, config, hp)
       underline = isVisibleUnderlined,
       bold = true,
     },
-
     -- Hint
     BufferLineHintSelected = { link = "BufferLineInfoSelected" },
     BufferLineHint = { link = "BufferLineInfo" },
@@ -310,7 +300,6 @@ M.setup = function(c, config, hp)
     BufferLineHintDiagnosticVisible = {
       link = "BufferLineInfoDiagnosticVisible",
     },
-
     -- Pick
     BufferLinePickSelected = {
       bg = c.tab.activeBackground,
@@ -328,12 +317,10 @@ M.setup = function(c, config, hp)
       sp = c.tab.unfocusedActiveBorder,
       underline = isVisibleUnderlined,
     },
-
     BufferLineTabClose = {
       bg = c.editorGroupHeader.tabsBackground,
       fg = c.editorGroupHeader.tabsBackground,
     },
-
     -- indicator
     BufferLineIndicatorSelected = {
       bg = c.tab.activeBackground,
@@ -363,10 +350,11 @@ end
 M.setup_bufferline_icon = function()
   local icon_ok, webDevicons = pcall(require, "nvim-web-devicons")
   if not icon_ok then return end
-  local ft = vim.bo.filetype
-  local _, icon_name = webDevicons.get_icon_by_filetype(ft, { default = true })
+  local filename = vim.fn.expand("%:t")
+  local ext = vim.fn.expand("%:e")
+  local _, icon_name = webDevicons.get_icon(filename, ext, { default = true })
   local _, icon_color =
-    webDevicons.get_icon_color_by_filetype(ft, { default = true })
+      webDevicons.get_icon_color(filename, ext, { default = true })
   if not icon_name then return end
   local iconSkeleton = {
     ["BufferLine" .. icon_name .. "Selected"] = {

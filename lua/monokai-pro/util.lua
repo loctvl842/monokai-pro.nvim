@@ -161,7 +161,7 @@ M.load = function(hl_groups)
       require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
   draw(bufferline_icon_group)
   -- draw bufferline icons
-  vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter" }, {
+  vim.api.nvim_create_autocmd({ "BufEnter", "BufReadPost", "BufWinEnter", "BufRead" }, {
     pattern = "*",
     callback = function()
       if vim.g.colors_name ~= "monokai-pro" then return true end
