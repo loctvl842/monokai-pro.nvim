@@ -1,9 +1,13 @@
 local M = {}
 
 --- @param c Colorscheme The color palette
-M.setup = function(c, _, _)
+--- @param hp Helper
+M.setup = function(c, _, hp)
   return {
-    LazyButton = { bg = c.button.background, fg = c.button.foreground },
+    LazyButton = {
+      bg = hp.lighten(c.button.background, 20),
+      fg = hp.lighten(c.button.foreground, 20),
+    },
     LazyComment = { fg = c.base.yellow },
     LazyH1 = { bg = c.base.yellow, fg = c.base.black, bold = true },
     LazyH2 = { fg = c.base.green, bold = true },
@@ -12,7 +16,10 @@ M.setup = function(c, _, _)
       fg = c.button.foreground,
       bold = true,
     },
-    LazyNormal = { bg = c.sideBar.background, fg = c.sideBar.foreground },
+    LazyNormal = {
+      bg = c.editorSuggestWidget.background,
+      fg = c.editorSuggestWidget.foreground,
+    },
     LazyProgressDone = { bg = c.sideBar.background, fg = c.tab.activeBorder },
     LazyProgressTodo = {
       bg = c.sideBar.background,
