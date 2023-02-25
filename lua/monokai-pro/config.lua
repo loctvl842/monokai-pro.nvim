@@ -30,10 +30,12 @@ local default = {
     },
     indent_blankline = {
       context_highlight = "default", -- default | pro
+      context_start_underline = false,
     },
   },
   ---@param colors Colorscheme
-  override = function(colors) end,
+  override = function(colors)
+  end,
 }
 
 ---@type Config
@@ -52,7 +54,7 @@ end
 ---@param options Config|nil
 M.extend = function(options)
   M.options =
-  vim.tbl_deep_extend("force", {}, M.options or default, options or {})
+      vim.tbl_deep_extend("force", {}, M.options or default, options or {})
 end
 
 M.setup()

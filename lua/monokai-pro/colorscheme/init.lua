@@ -63,7 +63,7 @@ M.setup = function(filter)
 
   cs.editorIndentGuide = {
     background = p.dimmed5, -- "#403e41",
-    activeBackground = p.dimmed4, -- "#5b595c",
+    activeBackground = p.dimmed3, -- "#5b595c",
   }
 
   cs.editorGutter = {
