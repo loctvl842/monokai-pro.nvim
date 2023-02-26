@@ -119,6 +119,7 @@ require("monokai-pro").setup({
     },
     indent_blankline = {
       context_highlight = "default", -- default | pro
+      context_start_underline = false,
     },
   },
   ---@param c Colorscheme
