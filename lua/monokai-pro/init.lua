@@ -6,12 +6,17 @@ local command = require("monokai-pro.command")
 local M = {}
 
 M.load = function()
-	util.load(theme.setup(config.options))
+  util.load(theme.setup())
 end
 
 M.setup = function(options)
-	config.setup(options)
+  config.setup(options)
   command.create_filter_command()
+end
+
+M.get_base_color = function()
+  local base_color = require("monokai-pro.colorscheme").colors.base
+  return base_color
 end
 
 return M

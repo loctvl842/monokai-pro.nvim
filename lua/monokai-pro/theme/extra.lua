@@ -1,9 +1,7 @@
 local M = {}
 
 --- @param c table The color palette
---- @param config Config
---- @param hp Helper
-M.setup = function(c, config, hp)
+M.setup = function(c, _, _)
 	return {
 		SPNormalFloat = { bg = c.editorSuggestWidget.background, fg = c.editorSuggestWidget.foreground },
 		SPFloatBorder = { bg = c.editor.background, fg = c.editorSuggestWidget.background },

@@ -1,0 +1,196 @@
+local util = require("monokai-pro.util")
+local config = require("monokai-pro.config").options
+
+local M = {
+  filter = config.filter,
+  colors = {},
+}
+
+local hp = require("monokai-pro.color_helper")
+
+--- @param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
+M.setup = function(filter)
+  local filters =
+  { "classic", "machine", "octagon", "pro", "ristretto", "spectrum" }
+
+  if not vim.tbl_contains(filters, filter) then
+    local msg =
+    'Invalid filter, expected "classic", "machine", "octagon", "pro", "ristretto" or "spectrum"'
+    local level = "info"
+    filter = "pro"
+    util.notify(msg, level)
+  end
+
+  M.filter = filter
+
+  ---@module "monokai-pro.colorscheme.palette.pro"
+  local p = require("monokai-pro.colorscheme.palette." .. M.filter)
+
+  --- @class Colorscheme
+  local cs = {}
+
+  cs.editor = {
+    background = config.transparent_background and "NONE" or p.background,
+    foreground = p.text,
+    lineHighlightBackground = hp.blend(p.text, 0.05, p.background), -- "#fcfcfa0c", -- background: background
+    selectionBackground = hp.blend(p.dimmed1, 0.15, p.background), --"#c1c0c027", -- background: background
+    findMatchBackground = hp.blend(p.text, 0.15, p.background), -- "#fcfcfa26", -- background: background
+    findMatchBorder = p.accent3,
+    findMatchHighlightBackground = hp.blend(p.text, 0.15, p.background), -- "#fcfcfa26", -- background: background
+    foldBackground = hp.blend(p.text, 0.05, p.background), -- "#fcfcfa0c", -- background: background
+    wordHighlightBackground = hp.blend(p.text, 0.15, p.background), -- "#fcfcfa26", -- illuminateRead
+    selectionHighlightBackground = hp.blend(p.text, 0.15, p.background), -- "#fcfcfa26", -- illuminateText
+    wordHighlightStrongBackground = hp.blend(p.text, 0.15, p.background), -- "#fcfcfa26", -- illuminateWrite
+  }
+
+  cs.editorLineNumber = {
+    foreground = p.dimmed4,
+    activeForeground = p.dimmed1,
+  }
+
+  cs.editorHoverWidget = {
+    background = p.dimmed5,
+    border = p.background,
+  }
+
+  cs.editorSuggestWidget = {
+    background = p.dimmed5, -- "#403e41",
+    border = p.dimmed5, -- "#403e41",
+    foreground = p.dimmed1, -- "#c1c0c0",
+    highlightForeground = p.text, -- "#fcfcfa",
+    selectedBackground = p.dimmed3, -- "#727072",
+  }
+
+  cs.editorIndentGuide = {
+    background = p.dimmed5, -- "#403e41",
+    activeBackground = p.dimmed3, -- "#5b595c",
+  }
+
+  cs.editorGutter = {
+    addedBackground = p.accent4, -- "#a9dc76",
+    deletedBackground = p.accent1, -- "#ff6188",
+    modifiedBackground = p.accent2, -- "#fc9867",
+  }
+
+  cs.sideBar = {
+    background = p.dark1, -- "#221f22",
+    foreground = p.dimmed2, -- "#939293",
+  }
+
+  cs.sideBarTitle = {
+    foreground = p.dimmed4, -- "#5b595c",
+  }
+
+  cs.list = {
+    activeSelectionBackground = hp.blend(p.text, 0.11, cs.sideBar.background), -- "#fcfcfa1c", -- background: sideBarBackground,
+  }
+
+  cs.sideBarSectionHeader = {
+    background = p.dark1, -- "#221f22",
+    foreground = p.dimmed3, -- "#727072",
+  }
+
+  cs.breadcrumb = {
+    foreground = p.dimmed2, -- "#939293",
+  }
+
+  cs.button = {
+    background = p.dimmed5, -- "#403e41",
+    foreground = p.dimmed1, -- "#c1c0c0",
+    hoverBackground = p.dimmed4, -- "#5b595c",
+    separator = p.background, -- "#272822",
+  }
+
+  cs.scrollbarSlider = {
+    hoverBackground = hp.blend(p.dimmed1, 0.15, p.background), -- "#c1c0c026", -- background: background
+  }
+
+  cs.gitDecoration = {
+    addedResourceForeground = p.accent4, -- "#a9dc76",
+    conflictingResourceForeground = p.accent2, -- "#fc9867",
+    deletedResourceForeground = p.accent1, -- "#ff6188",
+    ignoredResourceForeground = p.dimmed4, -- "#5b595c",
+    modifiedResourceForeground = p.accent3, -- "#ffd866",
+    stageDeletedResourceForeground = p.accent1, -- "#ff6188",
+    stageModifiedResourceForeground = p.accent3, -- "#ffd866",
+    untrackedResourceForeground = p.dimmed2, -- "#c1c0c0",
+  }
+
+  cs.inputValidation = {
+    errorBackground = p.dimmed5, -- "#403e41",
+    errorBorder = p.accent1, -- "#ff6188",
+    errorForeground = p.accent1, --"#ff6188",
+    infoBackground = p.dimmed5, -- "#403e41",
+    infoBorder = p.accent5, --"#78dce8",
+    infoForeground = p.accent5, --"#78dce8",
+    warningBackground = p.dimmed5, --"#403e41",
+    warningBorder = p.accent2, --"#fc9867",
+    warningForeground = p.accent2, --"#fc9867",
+  }
+
+  cs.errorLens = {
+    errorBackground = hp.blend(p.accent1, 0.1),
+    errorForeground = p.accent1,
+    warningBackground = hp.blend(p.accent2, 0.1),
+    warningForeground = p.accent2,
+    infoBackground = hp.blend(p.accent5, 0.1),
+    infoForeground = p.accent5,
+    hintBackground = hp.blend(p.accent5, 0.1),
+    hintForeground = p.accent5,
+  }
+
+  cs.terminal = {
+    background = p.dimmed5, -- "#403e41",
+    foreground = p.text, -- "#fcfcfa",
+  }
+
+  cs.terminalCursor = {
+    background = "#ffffff", -- "#00000000",
+    foreground = p.text, -- "#fcfcfa",
+  }
+
+  cs.editorGroupHeader = {
+    tabsBackground = p.dark1, -- "#221f22",
+    tabsBorder = p.dark1, -- "#221f22",
+  }
+
+  cs.tab = {
+    activeBackground = config.transparent_background and "NONE" or p.background, -- "#272822",
+    activeBorder = p.accent3, -- "#ffd866",
+    activeForeground = p.accent3, -- "#ffd866",
+    inactiveBackground = hp.lighten(p.background, 15),
+    inactiveForeground = p.dimmed2, -- "#939293",
+    unfocusedActiveBackground = p.background, -- "#272822",
+    unfocusedActiveBorder = p.dimmed2, -- "#939293",
+    unfocusedActiveForeground = p.dimmed1, -- "#c1c0c0",
+  }
+
+  cs.statusBar = {
+    -- background = p.dark1,
+    background = p.dark2,
+    foreground = p.dimmed3,
+    activeForeground = p.dimmed1,
+  }
+
+  cs.base = {
+    dark = p.dark2, -- "#19181a"
+    black = p.dark1, --"#221f22",
+    red = p.accent1, -- "#ff6188",
+    green = p.accent4, -- "#a9dc76",
+    yellow = p.accent3, -- "#ffd866",
+    blue = p.accent2, -- "#fc9867",
+    magenta = p.accent6, -- "#ab9df2",
+    cyan = p.accent5, -- "#78dce8",
+    white = p.text, -- "#fcfcfa",
+    dimmed1 = p.dimmed1, -- "#c1c0c0",
+    dimmed2 = p.dimmed2, -- "#939293",
+    dimmed3 = p.dimmed3, -- "#727072",
+    dimmed4 = p.dimmed4, -- "#5b595c",
+    dimmed5 = p.dimmed5, -- "#403e41",
+  }
+
+  M.colors = cs
+  return cs
+end
+
+return M

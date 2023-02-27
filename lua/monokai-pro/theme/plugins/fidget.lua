@@ -3,11 +3,11 @@ local M = {}
 --- @param c Colorscheme The color palette
 M.setup = function(c, _, _)
   return {
-    UfoFoldedBg = { bg = c.editor.background },
-    FoldColumn = {
+    FidgetTask = {
       bg = c.editor.background,
-      fg = c.button.foreground,
-    }, -- 'foldcolumn'
+      fg = c.base.white,
+    },
+    FidgetTitle = { bg = c.editor.background, fg = c.base.yellow },
   }
 end
 
