@@ -21,6 +21,7 @@ local default = {
     "telescope",
     "which-key",
     "renamer",
+    -- "neo-tree",
   },
   plugins = {
     bufferline = {
