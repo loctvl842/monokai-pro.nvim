@@ -3,32 +3,34 @@ local M = {}
 --- @param c Colorscheme The color palette
 --- @param config Config
 M.setup = function(c, config, _)
+  local sidebar_bg = c.sideBar.background
+  -- local sidebar_bg = c.editor.background
   return {
-    NeoTreeNormal = { bg = c.sideBar.background, fg = c.sideBar.foreground },
+    NeoTreeNormal = { bg = sidebar_bg, fg = c.sideBar.foreground },
     NeoTreeEndOfBuffer = {
-      bg = c.sideBar.background,
-      fg = c.sideBar.background,
+      bg = sidebar_bg,
+      fg = sidebar_bg,
     },
-    NeoTreeNormalNC = { bg = c.sideBar.background, fg = c.sideBar.foreground },
-    NeoTreeSignColumn = { bg = c.sideBar.background, fg = c.sideBar.foreground },
-    NeoTreeStatusLine = { bg = c.sideBar.background, fg = c.sideBar.background },
+    NeoTreeNormalNC = { bg = sidebar_bg, fg = c.sideBar.foreground },
+    NeoTreeSignColumn = { bg = sidebar_bg, fg = c.sideBar.foreground },
+    NeoTreeStatusLine = { bg = sidebar_bg, fg = sidebar_bg },
     NeoTreeCursor = {
       bg = c.list.activeSelectionBackground,
-      bg_base = c.sideBar.background,
+      bg_base = sidebar_bg,
     },
     NeoTreeCursorLine = {
       bg = c.list.activeSelectionBackground,
-      bg_base = c.sideBar.background,
+      bg_base = sidebar_bg,
       bold = true,
     },
     NeoTreeCursorLineSign = {
       bg = c.list.activeSelectionBackground,
-      bg_base = c.sideBar.background,
+      bg_base = sidebar_bg,
     },
     NeoTreeWinSeparator = {
       bg = c.editor.background,
       fg = config.transparent_background and c.base.black
-        or c.editor.background,
+      or c.editor.background,
     },
     NeoTreeRootName = {
       -- bg = C.sideBarSectionHeader.background,
@@ -37,7 +39,6 @@ M.setup = function(c, config, _)
     },
     NeoTreeDirectoryIcon = { fg = c.sideBar.foreground },
     NeoTreeDirectoryName = { fg = c.sideBar.foreground },
-
     NeoTreeGitAdded = { fg = c.gitDecoration.addedResourceForeground },
     NeoTreeGitConflict = { fg = c.gitDecoration.conflictingResourceForeground },
     NeoTreeGitDeleted = { fg = c.gitDecoration.deletedResourceForeground },
@@ -46,16 +47,14 @@ M.setup = function(c, config, _)
     NeoTreeGitStaged = { fg = c.gitDecoration.stageModifiedResourceForeground },
     NeoTreeGitRenamed = { fg = c.gitDecoration.untrackedResourceForeground },
     NeoTreeGitUntracked = { fg = c.gitDecoration.untrackedResourceForeground },
-
     NeoTreeIndentMarker = { link = "IndentBlanklineChar" },
     NeoTreeExpander = { link = "NeoTreeDirectoryIcon" },
-
     NeoTreeFloatNormal = {
       bg = c.editorSuggestWidget.background,
       fg = c.editorSuggestWidget.foreground,
     },
     NeoTreeFloatBorder = {
-      bg = c.sideBar.background,
+      bg = sidebar_bg,
       fg = c.editorSuggestWidget.background,
     },
     NeoTreeTitleBar = {
@@ -64,10 +63,9 @@ M.setup = function(c, config, _)
     },
     NeoTreeFloatTitle = {
       bg = c.base.yellow,
-      fg = c.sideBar.background,
+      fg = sidebar_bg,
       bold = true,
     },
-
     NeoTreeTabActive = {
       bg = c.button.hoverbackground,
       fg = c.button.foreground,
