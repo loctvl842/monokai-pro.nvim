@@ -55,7 +55,6 @@ end
 
 M.blend = function(hexColor, alpha, background)
   background = getBlendBackground(background)
-  print(background)
   local rgb = hexToRgb(hexColor)
   return M.rgba(rgb.r, rgb.g, rgb.b, alpha, background)
 end
