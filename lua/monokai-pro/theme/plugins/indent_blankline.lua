@@ -17,6 +17,12 @@ M.setup = function(c, config, _)
       underline = isContextStartUnderline,
     },
     IndentBlanklineSpaceChar = { fg = c.editor.background }, -- highlight the character Tab
+    IndentBlankLineIndent1 = { fg = c.base.red },
+    IndentBlankLineIndent2 = { fg = c.base.blue },
+    IndentBlankLineIndent3 = { fg = c.base.yellow },
+    IndentBlankLineIndent4 = { fg = c.base.green },
+    IndentBlankLineIndent5 = { fg = c.base.cyan },
+    IndentBlankLineIndent6 = { fg = c.base.magenta },
   }
 end
 
