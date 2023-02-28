@@ -5,7 +5,7 @@ local M = {}
 --- @param hp Helper
 M.setup = function(c, config, hp)
   local float_winBackgroundClear =
-  vim.tbl_contains(config.background_clear, "float_win")
+      vim.tbl_contains(config.background_clear, "float_win")
   return {
     ColorColumn = {
       bg = c.editor.background,
@@ -35,16 +35,16 @@ M.setup = function(c, config, hp)
       fg = c.base.white,
     },
     DiffAdd = {
-      bg = c.editor.background,
-      fg = c.gitDecoration.addedResourceForeground,
+      bg = c.diffEditor.insertedLineBackground,
+      fg = c.diffEditorOverview.insertedForeground,
     }, -- diff mode: Added line |diff.txt|
     DiffChange = {
-      bg = c.editor.background,
-      fg = c.gitDecoration.modifiedResourceForeground,
+      bg = c.diffEditor.modifiedLineBackground,
+      fg = c.diffEditorOverview.modifiedForeground,
     }, -- diff mode: Changed line |diff.txt|
     DiffDelete = {
-      bg = c.editor.background,
-      fg = c.gitDecoration.deletedResourceForeground,
+      bg = c.diffEditor.removedLineBackground,
+      fg = c.diffEditorOverview.removedForeground,
     },
     DiffText = { bg = c.editor.background, fg = c.editor.foreground }, -- diff mode: Changed text within a changed line |diff.txt|
     EndOfBuffer = {
@@ -137,7 +137,7 @@ M.setup = function(c, config, hp)
       bold = true,
     },
     PmenuSbar = {
-      bg = c.editorSuggestWidget.background,
+      bg = hp.lighten(c.editorSuggestWidget.background, -10),
     }, -- Popup menu: scrollbar.
     PmenuThumb = {
       bg = c.scrollbarSlider.hoverBackground,
@@ -180,6 +180,7 @@ M.setup = function(c, config, hp)
     TablineSel = { link = "BufferLineBufferSelected" }, -- tab pages line, active tab page label
     Title = {
       fg = c.base.yellow,
+      bold = true,
     }, -- titles for output from ":set all", ":autocmd"
     Visual = {
       bg = c.editor.selectionBackground,
@@ -206,13 +207,11 @@ M.setup = function(c, config, hp)
     diffFile = { fg = c.base.yellow },
     diffNewFile = { fg = c.base.yellow },
     diffLine = { fg = c.base.cyan },
-
     -- Spelling
     SpellBad = { fg = c.base.red, sp = c.base.red, undercurl = true },
     SpellCap = { fg = c.base.red, sp = c.base.red, undercurl = true },
     SpellLocal = { fg = c.base.red, sp = c.base.red, undercurl = true },
     SpellRare = { fg = c.base.red, sp = c.base.red, undercurl = true },
-
     -- Neovim
     healthError = { fg = c.base.red },
     healthSuccess = { fg = c.base.green },

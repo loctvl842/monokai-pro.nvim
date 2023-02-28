@@ -172,6 +172,30 @@ M.setup = function(filter)
     activeForeground = p.dimmed1,
   }
 
+  cs.diffEditor = {
+    insertedLineBackground = hp.blend(p.accent4, 0.1, p.dark1), -- #a9dc7619
+    removedLineBackground = hp.blend(p.accent1, 0.1, p.dark1), -- #ff618819
+    modifiedLineBackground = hp.blend(p.accent2, 0.1, p.dark1), -- #fc986719
+  }
+
+  cs.diffEditorOverview = {
+    insertedForeground = hp.blend(
+      p.accent4,
+      0.65,
+      cs.diffEditor.insertedLineBackground
+    ), -- #a9dc76a5
+    removedForeground = hp.blend(
+      p.accent1,
+      0.65,
+      cs.diffEditor.removedLineBackground
+    ), -- #ff6188a5
+    modifiedForeground = hp.blend(
+      p.accent2,
+      0.65,
+      cs.diffEditor.modifiedLineBackground
+    ), -- #fc9867a5
+  }
+
   cs.base = {
     dark = p.dark2, -- "#19181a"
     black = p.dark1, --"#221f22",

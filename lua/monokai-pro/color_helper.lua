@@ -63,6 +63,7 @@ M.extend_hex = function(hexColor, background)
   background = getBlendBackground(background)
   local hex6 = string.sub(hexColor, 1, 7)
   local alpha = tonumber(string.sub(hexColor, 8, 9), 16) / 255
+  print(alpha)
   return M.blend(hex6, alpha, background)
 end
 
