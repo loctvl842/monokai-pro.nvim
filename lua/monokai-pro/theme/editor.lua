@@ -74,8 +74,9 @@ M.setup = function(c, config, hp)
       fg = c.editorLineNumber.foreground,
     }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     MatchParen = {
-      bg = hp.blend(c.base.blue, 0.7),
-      fg = c.base.black,
+      fg = c.base.yellow,
+      bold = true,
+      underline = true,
     }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg = {
       link = "Normal",
