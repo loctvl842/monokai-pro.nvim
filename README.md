@@ -103,7 +103,7 @@ require("monokai-pro").setup({
     enable = false, -- turn off by default
     day_filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
     night_filter = "spectrum", -- classic | octagon | pro | machine | ristretto | spectrum
-  }
+  },
   inc_search = "background", -- underline | background
   background_clear = {
     -- "float_win",
