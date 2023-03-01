@@ -29,7 +29,10 @@ M.setup = function(c, config, hp)
       bold = true,
     }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     -- CursorLineNrNC = { bg = C.bg, fg = C.lightGray }, -- CursorLineNr for inactive windows
-    -- Directory = { fg = C.blue }, -- directory names (and other special names in listings)
+    Directory = {
+      bg = c.editorGroupHeader.tabsBackground,
+      fg = c.statusBar.foreground,
+    }, -- directory names (and other special names in listings)
     CursorLineFold = {
       bg = c.editor.background,
       fg = c.base.white,
