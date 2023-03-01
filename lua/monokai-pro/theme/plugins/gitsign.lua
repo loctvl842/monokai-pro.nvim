@@ -10,6 +10,9 @@ M.setup = function(c, _, _)
     GitSignsChange = { link = "SignChange" },
     GitSignsDelete = { link = "SignDelete" },
     GitSignsCurrentLineBlame = { fg = c.base.dimmed4 },
+    GitSignsAddInline = { link = "DiffAdd" },
+    GitSignsChangeInline = { link = "DiffChange" },
+    GitSignsDeleteInline = { link = "DiffDelete" },
   }
 end
 
