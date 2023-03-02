@@ -14,6 +14,10 @@ M.setup = function(c, config, _)
       bg = isBackgroundClear and c.editor.background or c.terminal.background,
       fg = c.terminal.foreground,
     },
+    ToggleTermNormal = {
+      bg = isBackgroundClear and c.editor.background or c.terminal.background,
+      fg = c.terminal.foreground,
+    },
     ToggleTermBorder = {
       bg = c.editor.background,
       fg = isBackgroundClear and c.base.dimmed2 or c.terminal.background,
