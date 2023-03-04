@@ -5,7 +5,7 @@ local M = {}
 --- @param hp Helper
 M.setup = function(c, config, hp)
   local float_winBackgroundClear =
-      vim.tbl_contains(config.background_clear, "float_win")
+    vim.tbl_contains(config.background_clear, "float_win")
   return {
     ColorColumn = {
       bg = c.editor.background,
@@ -122,6 +122,7 @@ M.setup = function(c, config, hp)
     FloatTitle = float_winBackgroundClear and {
       bg = c.editor.background,
       fg = c.base.yellow,
+      bold = true,
     } or {
       bg = c.base.yellow,
       fg = c.base.black,
