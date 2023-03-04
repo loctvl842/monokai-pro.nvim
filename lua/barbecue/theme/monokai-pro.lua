@@ -3,15 +3,12 @@ if c == nil then c = require("monokai-pro.colorscheme").setup("pro") end
 
 local M = {
   normal = { bg = c.editor.background, fg = c.breadcrumb.foreground },
-
   ellipsis = { fg = c.breadcrumb.foreground },
   separator = { fg = c.breadcrumb.foreground },
-  modified = { fg = c.breadcrumb.foreground },
-
+  modified = { fg = c.base.yellow },
   dirname = { fg = c.breadcrumb.foreground },
   basename = { fg = c.breadcrumb.foreground, bold = true },
   context = { fg = c.breadcrumb.foreground },
-
   context_array = { fg = c.base.red },
   context_boolean = { fg = c.base.red },
   context_class = { fg = c.base.cyan },
