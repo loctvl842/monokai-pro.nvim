@@ -29,6 +29,8 @@ M.setup = function(c, _, hp)
     LazyUrl = { fg = c.base.cyan },
     LazyDir = { link = "LazyUrl" },
     LazySpecial = { fg = c.base.yellow, bold = true },
+    LazyReasonStart = { fg = c.base.green },
+    LazyReasonCmd = { fg = c.base.cyan },
   }
 end
 
