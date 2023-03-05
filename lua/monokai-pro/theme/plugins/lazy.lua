@@ -3,6 +3,7 @@ local M = {}
 --- @param c Colorscheme The color palette
 --- @param hp Helper
 M.setup = function(c, _, hp)
+  local lazy_bg = hp.lighten(c.sideBar.background, 5)
   return {
     LazyButton = { bg = c.button.background, fg = c.button.foreground },
     LazyComment = { fg = c.base.yellow },
@@ -14,16 +15,16 @@ M.setup = function(c, _, hp)
       bold = true,
     },
     LazyNormal = {
-      bg = hp.lighten(c.sideBar.background, 5),
+      bg = lazy_bg,
       fg = hp.lighten(c.sideBar.foreground, 5),
     },
-    LazyProgressDone = { bg = c.sideBar.background, fg = c.tab.activeBorder },
+    LazyProgressDone = { bg = lazy_bg, fg = c.tab.activeBorder },
     LazyProgressTodo = {
-      bg = c.sideBar.background,
+      bg = lazy_bg,
       fg = c.tab.unfocusedActiveBorder,
     },
     LazyProp = {
-      bg = c.sideBar.background,
+      bg = lazy_bg,
       fg = c.base.green,
     },
     LazyUrl = { fg = c.base.cyan },
