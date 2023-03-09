@@ -4,13 +4,19 @@ local nui_ok, _ = pcall(require, "nui.menu")
 local M = {}
 
 local function getRealColor(hex_color, base)
-  if hex_color == nil or string.len(hex_color) ~= 9 then return hex_color end
+  if hex_color == nil or string.len(hex_color) ~= 9 then
+    return hex_color
+  end
 
   local filter = require("monokai-pro.colorscheme").filter
   ---@module "monokai-pro.colorscheme.palette.pro"
   local c = require("monokai-pro.colorscheme.palette." .. filter)
-  if base == nil then base = c.background end
-  if string.len(base) == 9 then base = hp.extend_hex(base, c.background) end
+  if base == nil then
+    base = c.background
+  end
+  if string.len(base) == 9 then
+    base = hp.extend_hex(base, c.background)
+  end
   return hp.extend_hex(hex_color, base)
 end
 
@@ -39,7 +45,9 @@ local highlight = function(group, value)
 end
 
 M.create_menu = function(title, items, handler)
-  if not nui_ok then return end
+  if not nui_ok then
+    return
+  end
 
   local Menu = require("nui.menu")
   local NuiText = require("nui.text")
@@ -95,7 +103,9 @@ M.create_menu = function(title, items, handler)
 end
 
 local draw = function(groups)
-  if groups == nil then return end
+  if groups == nil then
+    return
+  end
   for group, value in pairs(groups) do
     highlight(group, value)
   end
@@ -104,12 +114,18 @@ end
 M.notify = function(msg, level, opts)
   opts = opts or {}
   level = vim.log.levels[level:upper()]
-  if type(msg) == "table" then msg = table.concat(msg, "\n") end
+  if type(msg) == "table" then
+    msg = table.concat(msg, "\n")
+  end
   local nopts = { title = "Monokai-pro" }
   if opts.once then
-    return vim.schedule(function() vim.notify_once(msg, level, nopts) end)
+    return vim.schedule(function()
+      vim.notify_once(msg, level, nopts)
+    end)
   end
-  vim.schedule(function() vim.notify(msg, level, nopts) end)
+  vim.schedule(function()
+    vim.notify(msg, level, nopts)
+  end)
 end
 
 ---@param colors Colorscheme
@@ -150,23 +166,25 @@ end
 
 ---@param hl_groups HlGroups
 M.load = function(hl_groups)
-  if vim.g.colors_name then vim.cmd([[hi clear]]) end
+  if vim.g.colors_name then
+    vim.cmd([[hi clear]])
+  end
 
   vim.o.termguicolors = true
   vim.g.colors_name = "monokai-pro"
 
   draw(hl_groups)
 
-  local bufferline_icon_group =
-      require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
+  local bufferline_icon_group = require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
   draw(bufferline_icon_group)
   -- draw bufferline icons
   vim.api.nvim_create_autocmd({ "BufEnter", "BufReadPost", "BufWinEnter", "BufRead" }, {
     pattern = "*",
     callback = function()
-      if vim.g.colors_name ~= "monokai-pro" then return true end
-      bufferline_icon_group =
-          require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
+      if vim.g.colors_name ~= "monokai-pro" then
+        return true
+      end
+      bufferline_icon_group = require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
       draw(bufferline_icon_group)
     end,
   })

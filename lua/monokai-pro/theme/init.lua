@@ -53,10 +53,9 @@ local function generate_hl_groups(colorscheme, config)
       local msg = "Failed to load highlight group: " .. name
       local level = "error"
       util.notify(msg, level)
-      goto continue
+    else
+      hl_groups = vim.tbl_deep_extend("force", hl_groups, plugin.setup(colorscheme, config, helper))
     end
-    hl_groups = vim.tbl_deep_extend("force", hl_groups, plugin.setup(colorscheme, config, helper))
-    ::continue::
   end
   hl_groups = vim.tbl_deep_extend("force", hl_groups, config.override(colorscheme) or {})
   return hl_groups

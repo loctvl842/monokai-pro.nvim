@@ -10,12 +10,10 @@ local hp = require("monokai-pro.color_helper")
 
 --- @param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
 M.setup = function(filter)
-  local filters =
-  { "classic", "machine", "octagon", "pro", "ristretto", "spectrum" }
+  local filters = { "classic", "machine", "octagon", "pro", "ristretto", "spectrum" }
 
   if not vim.tbl_contains(filters, filter) then
-    local msg =
-    'Invalid filter, expected "classic", "machine", "octagon", "pro", "ristretto" or "spectrum"'
+    local msg = 'Invalid filter, expected "classic", "machine", "octagon", "pro", "ristretto" or "spectrum"'
     local level = "info"
     filter = "pro"
     util.notify(msg, level)
@@ -179,21 +177,9 @@ M.setup = function(filter)
   }
 
   cs.diffEditorOverview = {
-    insertedForeground = hp.blend(
-      p.accent4,
-      0.65,
-      cs.diffEditor.insertedLineBackground
-    ), -- #a9dc76a5
-    removedForeground = hp.blend(
-      p.accent1,
-      0.65,
-      cs.diffEditor.removedLineBackground
-    ), -- #ff6188a5
-    modifiedForeground = hp.blend(
-      p.accent2,
-      0.65,
-      cs.diffEditor.modifiedLineBackground
-    ), -- #fc9867a5
+    insertedForeground = hp.blend(p.accent4, 0.65, cs.diffEditor.insertedLineBackground), -- #a9dc76a5
+    removedForeground = hp.blend(p.accent1, 0.65, cs.diffEditor.removedLineBackground), -- #ff6188a5
+    modifiedForeground = hp.blend(p.accent2, 0.65, cs.diffEditor.modifiedLineBackground), -- #fc9867a5
   }
 
   cs.base = {

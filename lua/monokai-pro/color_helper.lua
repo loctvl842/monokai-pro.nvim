@@ -2,7 +2,9 @@
 local M = {}
 
 local function getBlendBackground(background)
-  if background ~= nil and background ~= "NONE" then return background end
+  if background ~= nil and background ~= "NONE" then
+    return background
+  end
 
   local filter = require("monokai-pro.colorscheme").filter
   --- @module "monokai-pro.colorscheme.palette.pro"

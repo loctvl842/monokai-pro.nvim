@@ -3,8 +3,7 @@ local M = {}
 --- @param c Colorscheme The color palette
 --- @param config Config
 M.setup = function(c, config, _)
-  local isBackgroundClear =
-      vim.tbl_contains(config.background_clear, "which-key")
+  local isBackgroundClear = vim.tbl_contains(config.background_clear, "which-key")
   local whichkey_bg = c.editorSuggestWidget.background
   local transparent_bg = c.editor.background
   local transparent_bg_border = c.base.dimmed2

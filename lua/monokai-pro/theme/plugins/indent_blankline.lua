@@ -4,14 +4,13 @@ local M = {}
 --- @param config Config
 M.setup = function(c, config, _)
   -- pro | default
-  local isContextPro = config.plugins.indent_blankline.context_highlight
-      == "pro"
-  local isContextStartUnderline =
-      config.plugins.indent_blankline.context_start_underline
+  local isContextPro = config.plugins.indent_blankline.context_highlight == "pro"
+  local isContextStartUnderline = config.plugins.indent_blankline.context_start_underline
   return {
     IndentBlanklineChar = { fg = c.editorIndentGuide.background },
-    IndentBlanklineContextChar = isContextPro and { fg = c.base.blue }
-    or { fg = c.editorIndentGuide.activeBackground },
+    IndentBlanklineContextChar = isContextPro and { fg = c.base.blue } or {
+      fg = c.editorIndentGuide.activeBackground,
+    },
     IndentBlanklineContextStart = {
       sp = isContextPro and c.base.blue or c.editorIndentGuide.activeBackground,
       underline = isContextStartUnderline,

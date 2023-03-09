@@ -3,10 +3,8 @@ local M = {}
 --- @param c Colorscheme The color palette
 --- @param config Config
 M.setup = function(c, config, _)
-  local isBackgroundClear =
-      vim.tbl_contains(config.background_clear, "neo-tree")
-  local sidebar_bg = isBackgroundClear and c.editor.background
-      or c.sideBar.background
+  local isBackgroundClear = vim.tbl_contains(config.background_clear, "neo-tree")
+  local sidebar_bg = isBackgroundClear and c.editor.background or c.sideBar.background
   return {
     NeoTreeNormal = { bg = sidebar_bg, fg = c.sideBar.foreground },
     NeoTreeEndOfBuffer = {
@@ -32,10 +30,7 @@ M.setup = function(c, config, _)
     NeoTreeWinSeparator = {
       bg = c.editor.background,
       fg = isBackgroundClear and c.base.black
-      or (
-      config.transparent_background and c.base.black
-      or c.editor.background
-      ),
+        or (config.transparent_background and c.base.black or c.editor.background),
     },
     NeoTreeRootName = {
       -- bg = C.sideBarSectionHeader.background,

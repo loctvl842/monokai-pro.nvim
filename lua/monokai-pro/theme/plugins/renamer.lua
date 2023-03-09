@@ -6,14 +6,12 @@ M.setup = function(c, config, _)
   local isBackgroundClear = vim.tbl_contains(config.background_clear, "renamer")
   return {
     RenamerNormal = {
-      bg = isBackgroundClear and c.editor.background
-        or c.editorHoverWidget.background,
+      bg = isBackgroundClear and c.editor.background or c.editorHoverWidget.background,
       fg = c.editorHoverWidget.foreground,
     },
     RenamerBorder = {
       bg = c.editor.background,
-      fg = isBackgroundClear and c.editorSuggestWidget.foreground
-        or c.editorSuggestWidget.background,
+      fg = isBackgroundClear and c.editorSuggestWidget.foreground or c.editorSuggestWidget.background,
     },
     RenamerTitle = isBackgroundClear and {
       fg = c.base.yellow,

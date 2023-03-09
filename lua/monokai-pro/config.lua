@@ -35,8 +35,7 @@ local default = {
     },
   },
   ---@param colors Colorscheme
-  override = function(colors)
-  end,
+  override = function(colors) end,
 }
 
 ---@type Config
@@ -47,15 +46,13 @@ M.setup = function(options)
   M.options = vim.tbl_deep_extend("force", {}, default, options or {})
   local day_night = M.options.day_night
   if day_night.enable then
-    M.options.filter = util.is_daytime() and day_night.day_filter
-        or day_night.night_filter
+    M.options.filter = util.is_daytime() and day_night.day_filter or day_night.night_filter
   end
 end
 
 ---@param options Config|nil
 M.extend = function(options)
-  M.options =
-      vim.tbl_deep_extend("force", {}, M.options or default, options or {})
+  M.options = vim.tbl_deep_extend("force", {}, M.options or default, options or {})
 end
 
 M.setup()

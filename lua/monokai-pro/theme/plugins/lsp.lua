@@ -51,7 +51,12 @@ M.setup = function(c, _, _)
     ["@lsp.type.parameter"] = { link = "@parameter" },
     ["@lsp.type.property"] = { link = "@property" },
     ["@lsp.type.variable"] = { link = "@variable" },
-    ["@lsp.typemod.function.defaultLibrary"] = { link = "Special" },
+    ["@lsp.type.function"] = { fg = c.base.blue },
+    ["@lsp.type.method"] = { fg = c.base.green },
+    ["@lsp.typemod.variable.global"] = { fg = c.base.blue },
+    ["@lsp.typemod.variable.defaultLibrary"] = { fg = c.base.blue },
+    ["@lsp.mod.readonly"] = { fg = c.base.magenta },
+    ["@lsp.typemod.function.declaration"] = { fg = c.base.green },
   }
 end
 

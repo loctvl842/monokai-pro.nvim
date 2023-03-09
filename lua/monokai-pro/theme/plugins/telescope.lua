@@ -3,8 +3,7 @@ local M = {}
 --- @param c Colorscheme The color palette
 --- @param config Config
 M.setup = function(c, config, _)
-  local isTelescopeBackgroundClear =
-  vim.tbl_contains(config.background_clear, "telescope")
+  local isTelescopeBackgroundClear = vim.tbl_contains(config.background_clear, "telescope")
 
   local transparent_bg = c.editor.background
   local transparent_bg_border = c.base.dimmed2
@@ -19,13 +18,11 @@ M.setup = function(c, config, _)
     },
 
     TelescopeNormal = {
-      bg = isTelescopeBackgroundClear and c.editor.background
-          or c.editorHoverWidget.background,
+      bg = isTelescopeBackgroundClear and c.editor.background or c.editorHoverWidget.background,
     },
     TelescopePromptCounter = { fg = c.base.red },
     TelescopeBorder = {
-      fg = isTelescopeBackgroundClear and c.tab.unfocusedActiveBorder
-          or c.editorHoverWidget.background,
+      fg = isTelescopeBackgroundClear and c.tab.unfocusedActiveBorder or c.editorHoverWidget.background,
       bg = c.editor.background,
     },
     TelescopeMatching = { fg = c.base.blue, bold = true },

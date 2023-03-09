@@ -3,7 +3,9 @@ local M = {}
 ---@param c Colorscheme
 M.setup = function(c)
   local status_ok, webDevicons = pcall(require, "nvim-web-devicons")
-  if not status_ok then return end
+  if not status_ok then
+    return
+  end
 
   local icons = {
     [".babelrc"] = {

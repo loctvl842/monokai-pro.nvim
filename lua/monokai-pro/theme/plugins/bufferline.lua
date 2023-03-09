@@ -43,29 +43,17 @@ M.setup = function(c, config, hp)
     -- Duplicate
     BufferLineDuplicateSelected = {
       bg = c.tab.activeBackground,
-      fg = hp.blend(
-        c.tab.activeForeground,
-        duplicateAlpha,
-        c.tab.activeBackground
-      ),
+      fg = hp.blend(c.tab.activeForeground, duplicateAlpha, c.tab.activeBackground),
       sp = c.tab.activeBorder,
       underline = isSelectedUnderlined,
     },
     BufferLineDuplicate = {
       bg = c.tab.inactiveBackground,
-      fg = hp.blend(
-        c.base.white,
-        normalAlpha * duplicateAlpha,
-        c.tab.inactiveBackground
-      ),
+      fg = hp.blend(c.base.white, normalAlpha * duplicateAlpha, c.tab.inactiveBackground),
     },
     BufferLineDuplicateVisible = {
       bg = c.tab.unfocusedActiveBackground,
-      fg = hp.blend(
-        c.base.white,
-        visibleAlpha * duplicateAlpha,
-        c.tab.unfocusedActiveBackground
-      ),
+      fg = hp.blend(c.base.white, visibleAlpha * duplicateAlpha, c.tab.unfocusedActiveBackground),
       sp = c.tab.unfocusedActiveBorder,
       underline = isVisibleUnderlined,
     },
@@ -129,48 +117,28 @@ M.setup = function(c, config, hp)
     },
     BufferLineWarning = {
       bg = c.tab.inactiveBackground,
-      fg = hp.blend(
-        c.inputValidation.warningForeground,
-        normalAlpha,
-        c.tab.inactiveBackground
-      ),
+      fg = hp.blend(c.inputValidation.warningForeground, normalAlpha, c.tab.inactiveBackground),
     },
     BufferLineWarningVisible = {
       bg = c.tab.unfocusedActiveBackground,
-      fg = hp.blend(
-        c.inputValidation.warningForeground,
-        visibleAlpha,
-        c.tab.unfocusedActiveBackground
-      ),
+      fg = hp.blend(c.inputValidation.warningForeground, visibleAlpha, c.tab.unfocusedActiveBackground),
       sp = c.tab.unfocusedActiveBorder,
       underline = isVisibleUnderlined,
     },
     -- Warning count
     BufferLineWarningDiagnosticSelected = {
       bg = c.tab.activeBackground,
-      fg = hp.blend(
-        c.inputValidation.warningForeground,
-        countAlpha,
-        c.editor.background
-      ),
+      fg = hp.blend(c.inputValidation.warningForeground, countAlpha, c.editor.background),
       sp = c.tab.activeBorder,
       underline = isSelectedUnderlined,
     },
     BufferLineWarningDiagnostic = {
       bg = c.tab.inactiveBackground,
-      fg = hp.blend(
-        c.inputValidation.warningForeground,
-        normalAlpha * countAlpha,
-        c.tab.inactiveBackground
-      ),
+      fg = hp.blend(c.inputValidation.warningForeground, normalAlpha * countAlpha, c.tab.inactiveBackground),
     },
     BufferLineWarningDiagnosticVisible = {
       bg = c.tab.unfocusedActiveBackground,
-      fg = hp.blend(
-        c.inputValidation.warningForeground,
-        visibleAlpha * countAlpha,
-        c.tab.unfocusedActiveBackground
-      ),
+      fg = hp.blend(c.inputValidation.warningForeground, visibleAlpha * countAlpha, c.tab.unfocusedActiveBackground),
       sp = c.tab.unfocusedActiveBorder,
       underline = isVisibleUnderlined,
     },
@@ -183,50 +151,30 @@ M.setup = function(c, config, hp)
     },
     BufferLineError = {
       bg = c.tab.inactiveBackground,
-      fg = hp.blend(
-        c.inputValidation.errorForeground,
-        normalAlpha,
-        c.tab.inactiveBackground
-      ),
+      fg = hp.blend(c.inputValidation.errorForeground, normalAlpha, c.tab.inactiveBackground),
     },
     BufferLineErrorVisible = {
       bg = c.tab.unfocusedActiveBackground,
-      fg = hp.blend(
-        c.inputValidation.errorForeground,
-        visibleAlpha,
-        c.tab.unfocusedActiveBackground
-      ),
+      fg = hp.blend(c.inputValidation.errorForeground, visibleAlpha, c.tab.unfocusedActiveBackground),
       sp = c.tab.unfocusedActiveBorder,
       underline = isVisibleUnderlined,
     },
     -- Error count
     BufferLineErrorDiagnosticSelected = {
       bg = c.tab.activeBackground,
-      fg = hp.blend(
-        c.inputValidation.errorForeground,
-        countAlpha,
-        c.editor.background
-      ),
+      fg = hp.blend(c.inputValidation.errorForeground, countAlpha, c.editor.background),
       sp = c.tab.activeBorder,
       underline = isSelectedUnderlined,
       bold = true,
     },
     BufferLineErrorDiagnostic = {
       bg = c.tab.inactiveBackground,
-      fg = hp.blend(
-        c.inputValidation.errorForeground,
-        normalAlpha * countAlpha,
-        c.tab.inactiveBackground
-      ),
+      fg = hp.blend(c.inputValidation.errorForeground, normalAlpha * countAlpha, c.tab.inactiveBackground),
       bold = true,
     },
     BufferLineErrorDiagnosticVisible = {
       bg = c.tab.unfocusedActiveBackground,
-      fg = hp.blend(
-        c.inputValidation.errorForeground,
-        visibleAlpha * countAlpha,
-        c.tab.unfocusedActiveBackground
-      ),
+      fg = hp.blend(c.inputValidation.errorForeground, visibleAlpha * countAlpha, c.tab.unfocusedActiveBackground),
       sp = c.tab.unfocusedActiveBorder,
       underline = isVisibleUnderlined,
       bold = true,
@@ -240,50 +188,30 @@ M.setup = function(c, config, hp)
     },
     BufferLineInfo = {
       bg = c.tab.inactiveBackground,
-      fg = hp.blend(
-        c.inputValidation.infoForeground,
-        normalAlpha,
-        c.tab.inactiveBackground
-      ),
+      fg = hp.blend(c.inputValidation.infoForeground, normalAlpha, c.tab.inactiveBackground),
     },
     BufferLineInfoVisible = {
       bg = c.tab.unfocusedActiveBackground,
-      fg = hp.blend(
-        c.inputValidation.infoForeground,
-        visibleAlpha,
-        c.tab.unfocusedActiveBackground
-      ),
+      fg = hp.blend(c.inputValidation.infoForeground, visibleAlpha, c.tab.unfocusedActiveBackground),
       sp = c.tab.unfocusedActiveBorder,
       underline = isVisibleUnderlined,
     },
     -- Info count
     BufferLineInfoDiagnosticSelected = {
       bg = c.tab.activeBackground,
-      fg = hp.blend(
-        c.inputValidation.infoForeground,
-        countAlpha,
-        c.editor.background
-      ),
+      fg = hp.blend(c.inputValidation.infoForeground, countAlpha, c.editor.background),
       sp = c.tab.activeBorder,
       underline = isSelectedUnderlined,
       bold = true,
     },
     BufferLineInfoDiagnostic = {
       bg = c.tab.inactiveBackground,
-      fg = hp.blend(
-        c.inputValidation.infoForeground,
-        normalAlpha * countAlpha,
-        c.tab.inactiveBackground
-      ),
+      fg = hp.blend(c.inputValidation.infoForeground, normalAlpha * countAlpha, c.tab.inactiveBackground),
       bold = true,
     },
     BufferLineInfoDiagnosticVisible = {
       bg = c.tab.unfocusedActiveBackground,
-      fg = hp.blend(
-        c.inputValidation.infoForeground,
-        visibleAlpha * countAlpha,
-        c.tab.unfocusedActiveBackground
-      ),
+      fg = hp.blend(c.inputValidation.infoForeground, visibleAlpha * countAlpha, c.tab.unfocusedActiveBackground),
       sp = c.tab.unfocusedActiveBorder,
       underline = isVisibleUnderlined,
       bold = true,
@@ -349,13 +277,16 @@ end
 
 M.setup_bufferline_icon = function()
   local icon_ok, webDevicons = pcall(require, "nvim-web-devicons")
-  if not icon_ok then return end
+  if not icon_ok then
+    return
+  end
   local filename = vim.fn.expand("%:t")
   local ext = vim.fn.expand("%:e")
   local _, icon_name = webDevicons.get_icon(filename, ext, { default = true })
-  local _, icon_color =
-      webDevicons.get_icon_color(filename, ext, { default = true })
-  if not icon_name then return end
+  local _, icon_color = webDevicons.get_icon_color(filename, ext, { default = true })
+  if not icon_name then
+    return
+  end
   local iconSkeleton = {
     ["BufferLine" .. icon_name .. "Selected"] = {
       bg = M.tab_highlight.activeBackground,
