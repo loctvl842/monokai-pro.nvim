@@ -3,8 +3,9 @@ local M = {}
 --- @param c Colorscheme The color palette
 --- @param config Config
 M.setup = function(c, config, _)
+  local styles = config.styles
   return {
-    Comment = { fg = c.base.dimmed3, italic = config.italic_comments }, -- Comments
+    Comment = { fg = c.base.dimmed3, italic = styles.comment.italic }, -- Comments
     Constant = { fg = c.base.magenta }, -- (preferred) any constant
     String = { fg = c.base.yellow }, --   a string constant: "this is a string"
     Character = { fg = c.base.magenta }, -- a character constant: 'c', '\n'
@@ -18,16 +19,16 @@ M.setup = function(c, config, _)
     Repeat = { fg = c.base.red }, -- for, do, while, etc
     Label = { fg = c.base.red }, -- case, default, etc
     Operator = { fg = c.base.red }, -- "sizeof", "+", "*", etc
-    Keyword = { fg = c.base.red, italic = true }, -- any other keyword
+    Keyword = { fg = c.base.red, italic = styles.keyword.italic }, -- any other keyword
     Exception = { fg = c.base.red }, -- try, catch, throw
     PreProc = { fg = c.base.yellow }, -- (preferred) generic Preprocessor
     Include = { fg = c.base.red }, -- preprocessor #include
     Define = { fg = c.base.red }, -- preprocessor #define
     Macro = { fg = c.base.red }, -- same as Define
     PreCondit = { fg = c.base.red }, -- preprocessor #if, #else, #endif, etc
-    Type = { fg = c.base.cyan, italic = true }, -- (preferred) int, long, char, etc
-    StorageClass = { fg = c.base.red, italic = true }, -- static, register, volatile, etc
-    Structure = { fg = c.base.cyan, italic = true }, -- struct, union, enum, etc
+    Type = { fg = c.base.cyan, italic = styles.type.italic }, -- (preferred) int, long, char, etc
+    StorageClass = { fg = c.base.red, italic = styles.type.italic }, -- static, register, volatile, etc
+    Structure = { fg = c.base.cyan, italic = styles.type.italic }, -- struct, union, enum, etc
     Typedef = { fg = c.base.red }, -- A typedef
     Special = { fg = c.base.blue }, -- (preferred) any special symbol
     SpecialChar = { fg = c.base.blue }, -- special character in a constant
