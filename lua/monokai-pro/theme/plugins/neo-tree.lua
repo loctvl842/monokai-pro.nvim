@@ -57,8 +57,9 @@ M.setup = function(c, config, _)
       fg = c.editorSuggestWidget.background,
     },
     NeoTreeTitleBar = {
-      bg = c.editorSuggestWidget.background,
+      bg = sidebar_bg,
       fg = c.base.yellow,
+      bold = true,
     },
     NeoTreeFloatTitle = {
       bg = c.base.yellow,
