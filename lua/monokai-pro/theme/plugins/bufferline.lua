@@ -19,6 +19,7 @@ M.setup = function(c, config, hp)
       bg = c.sideBar.background,
       fg = c.sideBarTitle.foreground,
     }, -- Explorer appear in tree setup by bufferline
+    BufferLineOffsetSeparator = { link = "NeoTreeWinSeparator" },
     BufferLineFill = {
       bg = c.editorGroupHeader.tabsBackground,
       sp = c.editorGroupHeader.tabsBorder,
