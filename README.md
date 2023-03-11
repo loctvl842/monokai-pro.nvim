@@ -264,3 +264,4 @@ require("monokai-pro").setup({
 - run command `MonokaiProSelect` to launch a menu to choose theme filter (required: [nui.nvim](https://github.com/MunifTanjim/nui.nvim))
 - or we can run command `MonokaiPro` with parameter to change theme filter: For example:
   > `MonokaiPro classic`
+- run `MonokaiProHelp` to open help pages in a browser window if possible 
