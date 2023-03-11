@@ -40,6 +40,9 @@ M.create_filter_command = function()
       }
     end,
   })
+  cmd("MonokaiProHelp", function()
+    vim.cmd([[silent exec "!open https://github.com/loctvl842/monokai-pro.nvim#-configuration"]])
+  end)
 end
 
 return M
