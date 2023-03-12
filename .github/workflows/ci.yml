@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: panvimdoc
-        uses: kdheepak/panvimdoc@main
+        uses: kdheepak/panvimdoc@v3.0.1
         with:
           vimdoc: monokai-pro # Output vimdoc project name (required)
           # The following are all optional
