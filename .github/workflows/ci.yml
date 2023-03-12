@@ -12,6 +12,7 @@ jobs:
         uses: kdheepak/panvimdoc@main
         with:
           vimdoc: monokai-pro # Output vimdoc project name (required)
+          pandoc: README.md
           # The following are all optional
           version: "NVIM >= v0.8.0" # Vim version number
           description: "Monokai pro colorscheme for neovim" # Project Description
