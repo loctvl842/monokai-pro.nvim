@@ -16,7 +16,7 @@ jobs:
           pandoc: "README.md" # Input pandoc file
           version: "NVIM >= v0.8.0" # Vim version number
           toc: true # Table of contents
-          description: "" # Project Description
+          description: "Monokai pro colorscheme for neovim" # Project Description
           demojify: false # Strip emojis from the vimdoc
           dedupsubheadings: true # Add heading to subheading anchor links to ensure that subheadings are unique
           treesitter: true # Use treesitter for highlighting codeblocks
