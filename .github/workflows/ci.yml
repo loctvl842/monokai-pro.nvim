@@ -7,12 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     name: pandoc to vimdoc
     steps:
-      - run: echo $github.ref
       - uses: actions/checkout@v3
       - name: panvimdoc
         uses: kdheepak/panvimdoc@main
         with:
-          branch: master
           vimdoc: monokai-pro # Output vimdoc project name (required)
           # The following are all optional
           pandoc: "README.md" # Input pandoc file
