@@ -11,7 +11,7 @@ jobs:
       - name: panvimdoc
         uses: kdheepak/panvimdoc@main
         with:
-          vimdoc: monokai-pro.nvim # Output vimdoc project name (required)
+          vimdoc: monokai-pro # Output vimdoc project name (required)
           # The following are all optional
           pandoc: "README.md" # Input pandoc file
           version: "NVIM v0.8.0" # Vim version number
