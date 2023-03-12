@@ -1,20 +1,46 @@
 name: CI
 
-on: [push]
+on:
+  push:
+  pull_request:
 
 jobs:
+  tests:
+    strategy:
+      matrix:
+        # os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Neovim
+        shell: bash
+        run: |
+            wget -q https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb -O /tmp/nvim.deb
+            sudo dpkg -i /tmp/nvim.deb
+      - name: Run Tests
+        run: |
+          nvim --version
+          [ ! -d tests ] && exit 0
+          nvim --headless -u tests/init.lua -c "PlenaryBustedDirectory tests/ {minimal_init = 'tests/init.lua', sequential = true}"
   docs:
     runs-on: ubuntu-latest
-    name: pandoc to vimdoc
+    needs: tests
+    if: ${{ github.ref == 'refs/heads/master' }}
     steps:
       - uses: actions/checkout@v3
       - name: panvimdoc
         uses: kdheepak/panvimdoc@main
         with:
-          vimdoc: monokai-pro # Output vimdoc project name (required)
-          pandoc: README.md
-          # The following are all optional
-          version: "NVIM >= v0.8.0" # Vim version number
-          description: "Monokai pro colorscheme for neovim" # Project Description
-          demojify: true # Strip emojis from the vimdoc
+          vimdoc: monokai-pro.nvim
+          version: "Neovim >= 0.8.0"
+          demojify: true
           treesitter: true
+      - name: Push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore(build): auto-generate vimdoc"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+
