@@ -6,8 +6,8 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     name: pandoc to vimdoc
-    if: ${{ github.ref == 'refs/heads/main' }}
     steps:
+      - run: echo $github.ref
       - uses: actions/checkout@v3
       - name: panvimdoc
         uses: kdheepak/panvimdoc@main
