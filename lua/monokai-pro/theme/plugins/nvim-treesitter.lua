@@ -5,26 +5,27 @@ local M = {}
 M.setup = function(c, config, _)
   local styles = config.styles
   return {
-    ["@include"] = { fg = c.base.red },
+    ["@include"] = { fg = c.base.red }, -- `import`
     ["@variable"] = { fg = c.base.white },
-    ["@punctuation.delimiter"] = { fg = c.editorSuggestWidget.foreground },
-    ["@punctuation.bracket"] = { fg = c.base.blue },
-    ["@constructor"] = { fg = c.base.green },
-    ["@keyword"] = { fg = c.base.cyan, italic = styles.keyword.italic },
+    ["@punctuation.delimiter"] = { fg = c.base.dimmed2 }, -- `;`
+    ["@punctuation.bracket"] = { fg = c.base.dimmed2 }, -- `(`
+    ["@constructor"] = { fg = c.base.red }, -- `StrictMode` in `<React.StrictMode>`
+    ["@tag.delimiter"] = { fg = c.base.dimmed2 }, -- `<`, `>` in `<div>`
+    ["@operator"] = { fg = c.base.red }, -- `=`, `=>`
+    ["@keyword"] = { fg = c.base.cyan, italic = styles.keyword.italic }, -- `const`, `export`, `default`
+    ["@parameter"] = { fg = c.base.white,  },
+
     ["@keyword.return"] = { fg = c.base.red },
     ["@keyword.operator"] = { fg = c.base.red },
     ["@method.call"] = { fg = c.base.green },
     ["@property"] = { fg = c.base.white },
     ["@function"] = { fg = c.base.green },
-    ["@operator"] = { fg = c.base.red, bold = true },
     ["@constant.builtin"] = { fg = c.base.magenta },
     ["@tag"] = { fg = c.base.red },
-    ["@tag.delimiter"] = { fg = c.sideBar.foreground },
     ["@tag.attribute"] = { fg = c.base.cyan, italic = styles.tag_attribute.italic },
     ["@attribute"] = { fg = c.base.cyan },
     ["@conditional"] = { fg = c.base.red },
     ["@repeat"] = { fg = c.base.red },
-    ["@parameter"] = { fg = c.base.blue, italic = styles.parameter.italic },
     ["@keyword.function"] = { fg = c.base.cyan, bold = true, italic = styles.keyword.italic },
     ["@number"] = { fg = c.base.magenta },
     ["@boolean"] = { fg = c.base.magenta },
@@ -72,20 +73,6 @@ M.setup = function(c, config, _)
     ["@keyword.function.lua"] = { fg = c.base.red },
     ["@conditional.lua"] = { fg = c.base.red },
     ["@namespace.lua"] = { fg = c.base.red },
-    TSRainbowRed = { fg = c.base.red },
-    TSRainbowOrange = { fg = c.base.orange },
-    TSRainbowYellow = { fg = c.base.yellow },
-    TSRainbowGreen = { fg = c.base.green },
-    TSRainbowBlue = { fg = c.base.blue },
-    TSRainbowViolet = { fg = c.base.purple },
-    TSRainbowCyan = { fg = c.base.cyan },
-    rainbowcol1 = { fg = c.base.red },
-    rainbowcol2 = { fg = c.base.yellow },
-    rainbowcol3 = { fg = c.base.green },
-    rainbowcol4 = { fg = c.base.teal },
-    rainbowcol5 = { fg = c.base.blue },
-    rainbowcol6 = { fg = c.base.magenta },
-    rainbowcol7 = { fg = c.base.purple },
   }
 end
 

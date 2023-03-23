@@ -44,19 +44,6 @@ M.setup = function(c, _, _)
       sp = c.inputValidation.infoBorder,
       undercurl = true,
     },
-    ["@lsp.type.enum"] = { link = "@type" },
-    ["@lsp.type.keyword"] = { link = "@keyword" },
-    ["@lsp.type.interface"] = { link = "Identifier" },
-    ["@lsp.type.namespace"] = { link = "@namespace" },
-    ["@lsp.type.parameter"] = { link = "@parameter" },
-    ["@lsp.type.property"] = { link = "@property" },
-    ["@lsp.type.variable"] = { link = "@variable" },
-    ["@lsp.type.function"] = { fg = c.base.blue },
-    ["@lsp.type.method"] = { fg = c.base.green },
-    ["@lsp.typemod.variable.global"] = { fg = c.base.blue },
-    ["@lsp.typemod.variable.defaultLibrary"] = { fg = c.base.blue },
-    ["@lsp.mod.readonly"] = { fg = c.base.magenta },
-    ["@lsp.typemod.function.declaration"] = { fg = c.base.green },
   }
 end
 

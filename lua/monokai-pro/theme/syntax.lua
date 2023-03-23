@@ -13,7 +13,7 @@ M.setup = function(c, config, _)
     Boolean = { fg = c.base.magenta }, -- a boolean constant: TRUE, false
     Float = { fg = c.base.magenta }, -- a floating point constant: 2.3e10
     Identifier = { fg = c.base.white }, -- (preferred) any variable name
-    Function = { fg = c.base.blue }, -- function name (also: methods for classes)
+    Function = { fg = c.base.green }, -- function name (also: methods for classes)
     Statement = { fg = c.base.magenta }, -- (preferred) any statement
     Conditional = { fg = c.base.red }, --  if, then, else, endif, switch, etc
     Repeat = { fg = c.base.red }, -- for, do, while, etc
@@ -26,7 +26,7 @@ M.setup = function(c, config, _)
     Define = { fg = c.base.red }, -- preprocessor #define
     Macro = { fg = c.base.red }, -- same as Define
     PreCondit = { fg = c.base.red }, -- preprocessor #if, #else, #endif, etc
-    Type = { fg = c.base.cyan, italic = styles.type.italic }, -- (preferred) int, long, char, etc
+    Type = { fg = c.base.white }, -- React, ReactDOM (import React from 'react';)
     StorageClass = { fg = c.base.red, italic = styles.type.italic }, -- static, register, volatile, etc
     Structure = { fg = c.base.cyan, italic = styles.type.italic }, -- struct, union, enum, etc
     Typedef = { fg = c.base.red }, -- A typedef
