@@ -45,7 +45,7 @@ M.setup = function(c, _, _)
       undercurl = true,
     },
     DiagnosticUnnecessary = {
-      sp = c.inputValidation.warningBorder,
+      sp = c.inputValidation.infoBorder,
       undercurl = true,
     },
   }
