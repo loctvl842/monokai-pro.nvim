@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.3.0...v1.3.1) (2023-05-03)
+
+
+### Bug Fixes
+
+* better undercurl ([ca8f485](https://github.com/loctvl842/monokai-pro.nvim/commit/ca8f4851564f8bf5d90a69f6837eda50c2291046))
+
 ## [1.3.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.2.0...v1.3.0) (2023-05-03)
 
 
