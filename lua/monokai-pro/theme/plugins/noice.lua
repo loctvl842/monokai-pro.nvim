@@ -13,6 +13,10 @@ M.setup = function(c, _, _)
       fg = c.base.blue,
     },
     NoiceCmdlineIconSearch = { fg = c.base.blue },
+    NoiceFormatProgressDone = { bg = c.base.yellow, fg = c.base.black, bold = true },
+    NoiceFormatProgressTodo = { bg = c.base.dimmed4, fg = c.base.dimmed5 },
+    NoiceLspProgressTitle = { fg = c.base.dimmed2 },
+    NoiceLspProgressClient = { fg = c.base.cyan },
   }
 end
 
