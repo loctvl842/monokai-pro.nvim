@@ -1,4 +1,4 @@
-*monokai-pro.txt*         For Neovim >= 0.8.0         Last change: 2023 May 03
+*monokai-pro.txt*         For Neovim >= 0.8.0         Last change: 2023 May 13
 
 ==============================================================================
 Table of Contents                              *monokai-pro-table-of-contents*
@@ -36,7 +36,6 @@ CLASSIC                                                  *monokai-pro-classic*
 
 
 PLUGIN SUPPORT ~
-
 
 - alpha-nvim <https://github.com/goolord/alpha-nvim>
 - bufferLine.nvim <https://github.com/akinsho/bufferline.nvim>
@@ -83,7 +82,6 @@ packer <https://github.com/wbthomason/packer.nvim>
 CONFIGURATION                                      *monokai-pro-configuration*
 
 There are several themes included in this plugin.
-
 
 - |monokai-pro-pro| – Monokai Pro _(default)_
 - |monokai-pro-octagon| – Monokai Pro (Filter Octagon)
@@ -139,7 +137,6 @@ Example configuration:
     })
 <
 
-
 - Check my nvim <https://github.com/loctvl842/nvim> to see my plugins setup for `border` if you want to set `background_clear`
 
 For example:
@@ -165,7 +162,6 @@ float_win ~
     })
 <
 
-
 - With the above config:
 - With the default config:
 
@@ -187,15 +183,12 @@ Telescope ~
     })
 <
 
-
 - With the above config:
-
 
 - With the default config:
 
 
 USAGE                                                      *monokai-pro-usage*
-
 
 - Enable this colorscheme by using the following command after `setup`
 
@@ -212,7 +205,6 @@ USAGE                                                      *monokai-pro-usage*
     vim.cmd([[colorscheme monokai-pro]])
 <
 
-
 - Toenable `monokai-pro` for `Lualine`
 
 >lua
@@ -225,7 +217,6 @@ USAGE                                                      *monokai-pro-usage*
     }
 <
 
-
 - Toenable `monokai-pro` for `barbecue`
 
 >lua
@@ -236,14 +227,12 @@ USAGE                                                      *monokai-pro-usage*
     }
 <
 
-
 - Toenable `moonokai-pro` for `lightline`
 
 >vim
     " Vim Script
     let g:lightline = {'colorscheme': 'monokaipro'}
 <
-
 
 - Overridefunction:
 
@@ -261,7 +250,6 @@ USAGE                                                      *monokai-pro-usage*
 
 
 COMMAND                                                  *monokai-pro-command*
-
 
 - run command `MonokaiProSelect` to launch a menu to choose theme filter (required: nui.nvim <https://github.com/MunifTanjim/nui.nvim>)
 - or we can run command `MonokaiPro` with parameter to change theme filter: For example:
