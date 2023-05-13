@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.4.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.3.0...v1.4.0) (2023-05-13)
+
+
+### Features
+
+* **noice:** add more highlight for `noice` ([4b3d5f4](https://github.com/loctvl842/monokai-pro.nvim/commit/4b3d5f4c22185f635810d1707113b716b08ac0f1))
+
+
+### Bug Fixes
+
+* better undercurl ([ca8f485](https://github.com/loctvl842/monokai-pro.nvim/commit/ca8f4851564f8bf5d90a69f6837eda50c2291046))
+
 ## [1.3.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.2.0...v1.3.0) (2023-05-03)
 
 
