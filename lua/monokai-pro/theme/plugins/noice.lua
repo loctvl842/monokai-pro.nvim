@@ -17,6 +17,10 @@ M.setup = function(c, _, _)
     NoiceFormatProgressTodo = { bg = c.base.dimmed4, fg = c.base.dimmed5 },
     NoiceLspProgressTitle = { fg = c.base.dimmed2 },
     NoiceLspProgressClient = { fg = c.base.cyan },
+    NoiceConfirm = { bg = c.notifications.background, fg = c.notifications.foreground },
+    NoiceConfirmBorder = { bg = c.notifications.background, fg = c.notifications.border },
+    NoiceFormatConfirm = { bg = c.button.background, fg = c.button.foreground },
+    NoiceFormatConfirmDefault = { bg = c.button.hoverBackground, fg = c.button.foreground },
   }
 end
 

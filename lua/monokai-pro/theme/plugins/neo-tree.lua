@@ -67,13 +67,13 @@ M.setup = function(c, config, _)
       bold = true,
     },
     NeoTreeTabActive = {
-      bg = c.button.hoverbackground,
+      bg = c.button.hoverBackground,
       fg = c.button.foreground,
       bold = true,
     },
     NeoTreeTabInactive = { bg = c.button.background, fg = c.button.foreground },
     NeoTreeTabSeparatorActive = {
-      bg = c.button.hoverbackground,
+      bg = c.button.hoverBackground,
       fg = c.button.separator,
     },
     NeoTreeTabSeparatorInactive = {
