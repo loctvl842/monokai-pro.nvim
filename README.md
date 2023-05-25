@@ -238,7 +238,7 @@ require('barbecue').setup {
 
 ```
 
-- To enable `moonokai-pro` for `lightline`:
+- To enable `monokai-pro` for `lightline`:
 
 ```vim
 " Vim Script
