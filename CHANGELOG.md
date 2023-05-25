@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.4.0...v1.5.0) (2023-05-25)
+
+
+### Features
+
+* **noice:** remove border of confirm panel ([0fa4844](https://github.com/loctvl842/monokai-pro.nvim/commit/0fa4844cdabf92ff5719994e0410178ffc0be077))
+* **nvim-notify:** change some color: ([cca6d4e](https://github.com/loctvl842/monokai-pro.nvim/commit/cca6d4e478c6fbc86e24221d03e0c5528664851b))
+
 ## [1.4.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.3.0...v1.4.0) (2023-05-13)
 
 
