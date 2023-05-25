@@ -182,6 +182,21 @@ M.setup = function(filter)
     modifiedForeground = hp.blend(p.accent2, 0.65, cs.diffEditor.modifiedLineBackground), -- #fc9867a5
   }
 
+  cs.notifications = {
+    background = p.dimmed5,
+    border = p.dimmed5,
+    foreground = p.dimmed1,
+  }
+  cs.notificationsErrorIcon = {
+    foreground = p.accent1,
+  }
+  cs.notificationsInfoIcon = {
+    foreground = p.accent5,
+  }
+  cs.notificationsWarningIcon = {
+    foreground = p.accent2,
+  }
+
   cs.base = {
     dark = p.dark2, -- "#19181a"
     black = p.dark1, --"#221f22",

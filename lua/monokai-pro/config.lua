@@ -30,6 +30,7 @@ local default = {
     "telescope",
     "which-key",
     "renamer",
+    "notify",
     -- "neo-tree",
   },
   plugins = {

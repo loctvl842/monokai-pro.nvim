@@ -269,8 +269,8 @@ M.setup = function(c, config, hp)
     },
   }
   if isBold then
-    for _, group in pairs(bufferline_groups) do
-      group["bold"] = true
+    for _, hlValue in pairs(bufferline_groups) do
+      hlValue["bold"] = true
     end
   end
   return bufferline_groups

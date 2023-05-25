@@ -20,27 +20,27 @@ local function getRealColor(hex_color, base)
   return hp.extend_hex(hex_color, base)
 end
 
-local genHlValue = function(value)
-  local bg_value = getRealColor(value.bg, value.bg_base)
-  local fg_value = getRealColor(value.fg, value.fg_base)
-  local sp_value = getRealColor(value.sp, bg_value)
-  value.bg = bg_value
-  value.fg = fg_value
-  value.sp = sp_value
-  value.bg_base = nil
-  value.fg_base = nil
-  value.style = nil
-  return value
+local genHlValue = function(hlValue)
+  local bg_value = getRealColor(hlValue.bg, hlValue.bg_base)
+  local fg_value = getRealColor(hlValue.fg, hlValue.fg_base)
+  local sp_value = getRealColor(hlValue.sp, bg_value)
+  hlValue.bg = bg_value
+  hlValue.fg = fg_value
+  hlValue.sp = sp_value
+  hlValue.bg_base = nil
+  hlValue.fg_base = nil
+  hlValue.style = nil
+  return hlValue
 end
 
-local highlight = function(group, value)
-  local link = value.link
+local highlight = function(group, hlValue)
+  local link = hlValue.link
   if link ~= nil then
     local cmd = "hi! link " .. group .. " " .. link
     vim.api.nvim_command(cmd)
     return
   end
-  local generatedHlValue = genHlValue(value)
+  local generatedHlValue = genHlValue(hlValue)
   vim.api.nvim_set_hl(0, group, generatedHlValue)
 end
 
