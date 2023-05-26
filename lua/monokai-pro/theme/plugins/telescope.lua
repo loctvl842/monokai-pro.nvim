@@ -2,13 +2,14 @@ local M = {}
 
 --- @param c Colorscheme The color palette
 --- @param config Config
-M.setup = function(c, config, _)
+--- @param hp Helper
+M.setup = function(c, config, hp)
   local isTelescopeBackgroundClear = vim.tbl_contains(config.background_clear, "telescope")
 
   local transparent_bg = c.editor.background
   local transparent_bg_border = c.base.dimmed2
   local preview_bg = c.base.dimmed5
-  local prompt_bg = c.base.dimmed5
+  local prompt_bg = hp.lighten(c.base.dimmed5, 15)
   local result_bg = c.base.dimmed5
   return {
     TelescopeSelection = {
