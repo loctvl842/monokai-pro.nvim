@@ -13,7 +13,10 @@ M.setup = function(c, config, _)
     ["@tag.delimiter"] = { fg = c.base.dimmed2 }, -- `<`, `>` in `<div>`
     ["@operator"] = { fg = c.base.red }, -- `=`, `=>`
     ["@keyword"] = { fg = c.base.cyan, italic = styles.keyword.italic }, -- `const`, `export`, `default`
-    ["@parameter"] = { fg = c.base.white,  },
+    ["@parameter"] = { fg = c.base.white },
+    ["@string.documentation"] = { fg = c.base.dimmed3 },
+    ["@type.builtin"] = { fg = c.base.cyan },
+    ["@_isinstance"] = { fg = c.base.green },
 
     ["@keyword.return"] = { fg = c.base.red },
     ["@keyword.operator"] = { fg = c.base.red },
@@ -49,7 +52,7 @@ M.setup = function(c, config, _)
     ["@constant.macro.cpp"] = { fg = c.base.red },
     ["@punctuation.delimiter.cpp"] = { fg = c.sideBar.foreground },
     -- python
-    ["@type.python"] = { fg = c.base.cyan },
+    ["@type.python"] = { fg = c.base.white },
     ["@keyword.python"] = { fg = c.base.cyan, italic = styles.keyword.italic },
     ["@variable.builtin.python"] = {
       fg = c.editorSuggestWidget.foreground,
@@ -65,6 +68,7 @@ M.setup = function(c, config, _)
     ["@keyword.function.python"] = { fg = c.base.cyan, italic = styles.keyword.italic },
     ["@operator.python"] = { fg = c.base.red },
     ["@varibale.builtin.python"] = { fg = c.base.blue, italic = true },
+    ["@parameter.python"] = { fg = c.base.blue, italic = true },
     -- lua
     ["@variable.lua"] = { fg = c.base.white },
     ["@function.builtin.lua"] = { fg = c.base.green },
@@ -73,6 +77,8 @@ M.setup = function(c, config, _)
     ["@keyword.function.lua"] = { fg = c.base.red },
     ["@conditional.lua"] = { fg = c.base.red },
     ["@namespace.lua"] = { fg = c.base.red },
+    ["@comment.documentation.lua"] = { fg = c.base.cyan },
+    ["@parameter.lua"] = { fg = c.base.blue, italic = true },
   }
 end
 
