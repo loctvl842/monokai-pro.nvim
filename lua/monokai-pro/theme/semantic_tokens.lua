@@ -15,10 +15,10 @@ M.setup = function(c, config, _)
     ["@lsp.type.macro"] = { link = "Macro" },
     ["@lsp.type.method"] = { link = "Function" },
     ["@lsp.type.namespace"] = { link = "Identifier" },
-    ["@lsp.type.parameter"] = { link = "Identifier" },
+    ["@lsp.type.parameter"] = { fg = c.base.blue, italic = styles.parameter.italic },
     ["@lsp.type.property"] = { link = "Identifier" },
     ["@lsp.type.struct"] = { link = "Structure" },
-    ["@lsp.type.type"] = { link = "Type" },
+    ["@lsp.type.type"] = { fg = c.base.cyan },
     ["@lsp.type.typeParameter"] = { link = "TypeDef" },
     ["@lsp.type.variable"] = { link = "Identifier" },
 
@@ -50,6 +50,9 @@ M.setup = function(c, config, _)
     -- ["@lsp.typemod.type"] = {},
     -- ["@lsp.typemod.typeParameter"] = {},
     ["@lsp.typemod.variable.readonly"] = { fg = c.base.magenta },
+    ["@lsp.typemod.variable.defaultLibrary"] = { fg = c.base.blue },
+    ["@lsp.typemod.variable.global.lua"] = { fg = c.base.blue },
+    ["@lsp.typemod.keyword.documentation"] = { fg = c.base.cyan, italic = true },
   }
 end
 
