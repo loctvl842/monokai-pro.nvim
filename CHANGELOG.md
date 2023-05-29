@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.6.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.5.0...v1.6.0) (2023-05-27)
+
+
+### Features
+
+* add `semantic_tokens` ([6e4455d](https://github.com/loctvl842/monokai-pro.nvim/commit/6e4455db8098e16f1df45b3e96e290e2345ed7c7))
+* add highlight `[@field](https://github.com/field)` ([236a6f5](https://github.com/loctvl842/monokai-pro.nvim/commit/236a6f567dda739b59c8cfbb0ad82e4740e7077c))
+* add highlight for `ts-rainbow` ([5fa68af](https://github.com/loctvl842/monokai-pro.nvim/commit/5fa68afaab0f89cfbd2b690c1a7c8d55e81c8193))
+* add highlight for `ts-rainbow` ([e19c5bc](https://github.com/loctvl842/monokai-pro.nvim/commit/e19c5bc3a742fd6c5c66d8efed6a3b363af7dc62))
+* new highligt group ([6cca47b](https://github.com/loctvl842/monokai-pro.nvim/commit/6cca47b5ce1196a015eb5fd8b65c53bd8fa36386))
+* **noice:** add more highlight for `noice` ([4b3d5f4](https://github.com/loctvl842/monokai-pro.nvim/commit/4b3d5f4c22185f635810d1707113b716b08ac0f1))
+* option to remove neotree's background ([3b3f1fa](https://github.com/loctvl842/monokai-pro.nvim/commit/3b3f1fa4439937fdc510ff7ca95cf28b35965ff4))
+* option to remove neotree's background ([dfd2e61](https://github.com/loctvl842/monokai-pro.nvim/commit/dfd2e61db71fbf02fcd5f6b95a043f5b24e54783))
+* option to remove neotree's background ([7a89558](https://github.com/loctvl842/monokai-pro.nvim/commit/7a895587b530fbf8794103ec2fa613a3d4a382c7))
+* option to turn off `italic` ([cb8bc50](https://github.com/loctvl842/monokai-pro.nvim/commit/cb8bc504f2dd059de45779b90388abf2f9757d69))
+
+
+### Bug Fixes
+
+* `LazyProp`'s background is not fixed' ([61fd22e](https://github.com/loctvl842/monokai-pro.nvim/commit/61fd22e30a4ef9438e521c30b1787183b2d794a1))
+* better undercurl ([ca8f485](https://github.com/loctvl842/monokai-pro.nvim/commit/ca8f4851564f8bf5d90a69f6837eda50c2291046))
+* inappropriate separtor's color `neo-tre` ([5a27e7f](https://github.com/loctvl842/monokai-pro.nvim/commit/5a27e7f035fd3cd88bf831660a10b4aa6fdf86f7))
+* wrong color `neo-tree` float title bar ([026e3a2](https://github.com/loctvl842/monokai-pro.nvim/commit/026e3a2534cf7e97f24f8639806251e165f15eec))
+* wrong color in separator of `bufferline` and `neo-tree` ([34ed28a](https://github.com/loctvl842/monokai-pro.nvim/commit/34ed28ac6b8f51c21a603d013ca44969b2d187e3))
+
 ## [1.5.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.4.0...v1.5.0) (2023-05-27)
 
 
