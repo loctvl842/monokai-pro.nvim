@@ -9,6 +9,11 @@ M.load = function()
   util.load(theme.setup())
 end
 
+M._load = function(filter)
+  config.extend({ filter = filter })
+  M.load()
+end
+
 M.setup = function(options)
   config.setup(options)
   command.create_filter_command()
