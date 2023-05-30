@@ -26,14 +26,20 @@ M.setup = function(c)
       cterm_color = "113",
       name = "Bashrc",
     },
+    ["git"] = {
+      icon = "󰊢",
+      color = c.base.red,
+      cterm_color = "196",
+      name = "GitLogo",
+    },
     [".gitattributes"] = {
-      icon = "",
+      icon = "󰊢",
       color = c.base.blue,
       cterm_color = "59",
       name = "GitAttributes",
     },
     [".gitconfig"] = {
-      icon = "",
+      icon = "󰊢",
       color = c.base.blue,
       cterm_color = "59",
       name = "GitConfig",
@@ -45,7 +51,7 @@ M.setup = function(c)
       name = "GitIgnore",
     },
     [".gitmodules"] = {
-      icon = "",
+      icon = "󰊢",
       color = c.base.blue,
       cterm_color = "59",
       name = "GitModules",
