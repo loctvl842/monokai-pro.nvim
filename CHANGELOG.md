@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.5.0...v1.5.1) (2023-05-30)
+
+
+### Bug Fixes
+
+* **devicons:** some git icons is small ([8fc0ce7](https://github.com/loctvl842/monokai-pro.nvim/commit/8fc0ce72f4aeaf9a8cd406e736417e251d0db2b5))
+* **devicons:** update nerd fonts v3 ([cabffc1](https://github.com/loctvl842/monokai-pro.nvim/commit/cabffc1569fc0c123919e7ba544c69df4e1dc23f))
+
 ## [1.5.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.4.0...v1.5.0) (2023-05-30)
 
 
