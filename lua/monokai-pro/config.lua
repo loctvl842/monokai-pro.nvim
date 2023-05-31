@@ -31,6 +31,7 @@ local default = {
     "which-key",
     "renamer",
     "notify",
+    -- "nvim-tree",
     -- "neo-tree",
   },
   plugins = {

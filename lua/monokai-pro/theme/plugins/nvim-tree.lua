@@ -1,20 +1,23 @@
 local M = {}
 
 --- @param c Colorscheme The color palette
-M.setup = function(c, _, _)
+--- @param config Config
+M.setup = function(c, config, _)
+  local isBackgroundClear = vim.tbl_contains(config.background_clear, "nvim-tree")
+  local sidebar_bg = isBackgroundClear and c.editor.background or c.sideBar.background
   return {
     NvimTreeFolderIcon = { fg = c.sideBar.foreground },
 
     NvimTreeIndentMarker = { link = "IndentBlanklineChar" },
 
-    NvimTreeNormal = { bg = c.sideBar.background, fg = c.sideBar.foreground },
+    NvimTreeNormal = { bg = sidebar_bg, fg = c.sideBar.foreground },
     NvimTreeEndOfBuffer = {
-      bg = c.sideBar.background,
-      fg = c.sideBar.background,
+      bg = sidebar_bg,
+      fg = sidebar_bg,
     },
     NvimTreeWinSeparator = {
-      bg = c.editor.background,
-      fg = c.editor.background,
+      bg = sidebar_bg,
+      fg = isBackgroundClear and c.base.black or c.editor.background,
     },
 
     NvimTreeFolderName = { fg = c.sideBar.foreground },
@@ -24,7 +27,7 @@ M.setup = function(c, _, _)
     NvimTreeSpecialFile = { fg = c.base.white },
     NvimTreeCursorLine = {
       bg = c.list.activeSelectionBackground,
-      bg_base = c.sideBar.background,
+      bg_base = sidebar_bg,
     },
 
     NvimTreeGitIgnored = { fg = c.gitDecoration.ignoredResourceForeground },
