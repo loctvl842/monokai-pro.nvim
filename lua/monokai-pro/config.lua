@@ -28,7 +28,7 @@ local default = {
     -- "float_win",
     "toggleterm",
     "telescope",
-    "which-key",
+    -- "which-key",
     "renamer",
     "notify",
     -- "nvim-tree",
