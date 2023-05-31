@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.5.1...v1.6.0) (2023-05-31)
+
+
+### Features
+
+* **nvim-tree:** add ([d076dfc](https://github.com/loctvl842/monokai-pro.nvim/commit/d076dfcfa6ccfac781d6047bd145b5aa896c664f))
+
 ## [1.5.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.5.0...v1.5.1) (2023-05-30)
 
 
