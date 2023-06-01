@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.2](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.6.1...v1.6.2) (2023-06-01)
+
+
+### Bug Fixes
+
+* typo in README.md ([12fdd6d](https://github.com/loctvl842/monokai-pro.nvim/commit/12fdd6d9baf117257492c79c16351b1100fa4074))
+
 ## [1.6.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.6.0...v1.6.1) (2023-06-01)
 
 
