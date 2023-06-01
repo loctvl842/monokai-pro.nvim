@@ -230,7 +230,7 @@ USAGE                                                      *monokai-pro-usage*
     }
 <
 
-- Toenable `moonokai-pro` for `lightline`
+- Toenable `monokai-pro` for `lightline`
 
 >vim
     " Vim Script
