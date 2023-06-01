@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.6.0...v1.6.1) (2023-06-01)
+
+
+### Bug Fixes
+
+* **nvim-tree:** background is not the same with editor ([6e6ed8a](https://github.com/loctvl842/monokai-pro.nvim/commit/6e6ed8aa931f6aa949e3f31bd4bfbee9cf1e49b5))
+
 ## [1.6.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.5.1...v1.6.0) (2023-05-31)
 
 
