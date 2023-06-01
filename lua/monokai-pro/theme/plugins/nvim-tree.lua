@@ -16,7 +16,7 @@ M.setup = function(c, config, _)
       fg = sidebar_bg,
     },
     NvimTreeWinSeparator = {
-      bg = sidebar_bg,
+      bg = c.editor.background,
       fg = isBackgroundClear and c.base.black or c.editor.background,
     },
 
