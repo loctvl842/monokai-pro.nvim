@@ -1,4 +1,4 @@
-*monokai-pro.txt*         For Neovim >= 0.8.0        Last change: 2023 June 01
+*monokai-pro.txt*         For Neovim >= 0.8.0        Last change: 2023 June 04
 
 ==============================================================================
 Table of Contents                              *monokai-pro-table-of-contents*
@@ -124,7 +124,8 @@ Example configuration:
         "notify",
         -- "nvim-tree",
         -- "neo-tree",
-      },-- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree"
+        -- "bufferline", -- better used if background of `neo-tree` or `nvim-tree` is cleared
+      },-- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree", "bufferline"
       plugins = {
         bufferline = {
           underline_selected = false,
