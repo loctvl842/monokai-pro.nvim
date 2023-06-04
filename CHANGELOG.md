@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.7.0...v1.8.0) (2023-06-04)
+
+
+### Features
+
+* **bufferline:** add full bar border ([2fa1dfa](https://github.com/loctvl842/monokai-pro.nvim/commit/2fa1dfa0404fbb0ef0eb1b3f6b12d25bdcbe8caa))
+
 ## [1.7.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.6.2...v1.7.0) (2023-06-04)
 
 
