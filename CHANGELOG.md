@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.6.2...v1.7.0) (2023-06-04)
+
+
+### Features
+
+* **bufferline:** add to background_clear ([51a6411](https://github.com/loctvl842/monokai-pro.nvim/commit/51a64114adf3d5e83ba44c434f818143bd2cd00f))
+
 ## [1.6.2](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.6.1...v1.6.2) (2023-06-01)
 
 
