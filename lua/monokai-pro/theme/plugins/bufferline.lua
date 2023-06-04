@@ -1,18 +1,50 @@
 local M = {}
 
+M.addBold = function(bufferline_groups)
+  for _, hlValue in pairs(bufferline_groups) do
+    hlValue["bold"] = true
+  end
+end
+
+M.addUnderline = function(bufferline_groups)
+  for key, hlValue in pairs(bufferline_groups) do
+    if string.find(key, "Selected") then
+      hlValue["underline"] = M.isUnderlined.selected
+      hlValue["sp"] = M.fallback_sp("selected")
+    elseif string.find(key, "Visible") or string.find(key, "Inactive") then
+      hlValue["underline"] = M.isUnderlined.visible
+      hlValue["sp"] = M.fallback_sp("visible")
+    else
+      hlValue["underline"] = M.isUnderlined.fill
+      hlValue["sp"] = M.fallback_sp("fill")
+    end
+  end
+end
+
 --- @param c Colorscheme The color palette
 --- @param config Config
 --- @param hp Helper
 M.setup = function(c, config, hp)
-  M.underline_selected = config.plugins.bufferline.underline_selected
-  M.underline_visible = config.plugins.bufferline.underline_visible
+  local bufferline_config = config.plugins.bufferline
+
+  M.underline_selected = bufferline_config.underline_selected
+  M.underline_visible = bufferline_config.underline_visible
+  -- lighten alpha
   local normalAlpha = 0.6
   local visibleAlpha = 0.8
   local duplicateAlpha = 0.6
   local countAlpha = 0.75
-  local isSelectedUnderlined = config.plugins.bufferline.underline_selected
-  local isVisibleUnderlined = config.plugins.bufferline.underline_visible
-  local isBold = config.plugins.bufferline.bold
+
+  -- underline config
+  M.isUnderlined = {
+    selected = bufferline_config.underline_selected
+      or bufferline_config.underline_visible
+      or bufferline_config.underline_fill,
+    visible = bufferline_config.underline_visible or bufferline_config.underline_fill,
+    fill = bufferline_config.underline_fill,
+  }
+
+  local isBold = bufferline_config.bold
   local isBackgroundClear = vim.tbl_contains(config.background_clear, "bufferline")
 
   local tabsBackground = isBackgroundClear and c.editor.background or c.editorGroupHeader.tabsBackground
@@ -22,6 +54,17 @@ M.setup = function(c, config, hp)
     unfocusedActiveBackground = hp.lighten(c.tab.unfocusedActiveBackground, 10),
   } or {})
 
+  ---@param underline_type "fill" | "visible" | "selected"
+  M.fallback_sp = function(underline_type)
+    if underline_type == "selected" then
+      return bufferline_config.underline_selected and M.tab.activeBorder or M.fallback_sp("visible")
+    elseif underline_type == "visible" then
+      return bufferline_config.underline_visible and M.tab.unfocusedActiveBorder or M.fallback_sp("fill")
+    elseif underline_type == "fill" then
+      return bufferline_config.underline_fill and c.editorGroupHeader.tabsBorder or c.editor.background
+    end
+  end
+
   local bufferline_groups = {
     Offset = {
       bg = c.sideBar.background,
@@ -30,14 +73,10 @@ M.setup = function(c, config, hp)
     BufferLineOffsetSeparator = { link = "NeoTreeWinSeparator" },
     BufferLineFill = {
       bg = tabsBackground,
-      sp = c.editorGroupHeader.tabsBorder,
-      -- underline = isSelectedUnderlined,
     },
     BufferLineBufferSelected = {
       bg = M.tab.activeBackground,
       fg = M.tab.activeForeground,
-      sp = c.tab.activeBorder,
-      underline = isSelectedUnderlined,
     },
     BufferLineBackground = {
       bg = M.tab.inactiveBackground,
@@ -46,15 +85,11 @@ M.setup = function(c, config, hp)
     BufferLineBufferVisible = {
       bg = M.tab.unfocusedActiveBackground,
       fg = hp.blend(c.base.white, visibleAlpha, c.editor.background),
-      sp = c.tab.unfocusedActiveBorder,
-      underline = isVisibleUnderlined,
     },
     -- Duplicate
     BufferLineDuplicateSelected = {
       bg = M.tab.activeBackground,
       fg = hp.blend(M.tab.activeForeground, duplicateAlpha, M.tab.activeBackground),
-      sp = c.tab.activeBorder,
-      underline = isSelectedUnderlined,
     },
     BufferLineDuplicate = {
       bg = M.tab.inactiveBackground,
@@ -63,15 +98,11 @@ M.setup = function(c, config, hp)
     BufferLineDuplicateVisible = {
       bg = M.tab.unfocusedActiveBackground,
       fg = hp.blend(c.base.white, visibleAlpha * duplicateAlpha, M.tab.unfocusedActiveBackground),
-      sp = c.tab.unfocusedActiveBorder,
-      underline = isVisibleUnderlined,
     },
     -- CloseButton
     BufferLineCloseButtonSelected = {
       bg = M.tab.activeBackground,
       fg = M.tab.activeForeground,
-      sp = c.tab.activeBorder,
-      underline = isSelectedUnderlined,
     },
     BufferLineCloseButton = {
       bg = M.tab.inactiveBackground,
@@ -80,15 +111,11 @@ M.setup = function(c, config, hp)
     BufferLineCloseButtonVisible = {
       bg = M.tab.unfocusedActiveBackground,
       fg = c.base.white,
-      sp = c.tab.unfocusedActiveBorder,
-      underline = isVisibleUnderlined,
     },
     -- separator
     BufferLineSeparatorSelected = {
       bg = M.tab.activeBackground,
       fg = tabsBackground,
-      sp = c.tab.activeBorder,
-      underline = isSelectedUnderlined,
     },
     BufferLineSeparator = {
       bg = M.tab.inactiveBackground,
@@ -97,15 +124,11 @@ M.setup = function(c, config, hp)
     BufferLineSeparatorVisible = {
       bg = M.tab.unfocusedActiveBackground,
       fg = tabsBackground,
-      sp = c.tab.unfocusedActiveBorder,
-      underline = isVisibleUnderlined,
     },
     -- Modified
     BufferLineModifiedSelected = {
       bg = M.tab.activeBackground,
       fg = M.tab.activeForeground,
-      sp = c.tab.activeBorder,
-      underline = isSelectedUnderlined,
     },
     BufferLineModified = {
       bg = M.tab.inactiveBackground,
@@ -114,15 +137,11 @@ M.setup = function(c, config, hp)
     BufferLineModifiedVisible = {
       bg = M.tab.unfocusedActiveBackground,
       fg = c.base.white,
-      sp = c.tab.unfocusedActiveBorder,
-      underline = isVisibleUnderlined,
     },
     -- Warning
     BufferLineWarningSelected = {
       bg = M.tab.activeBackground,
       fg = c.inputValidation.warningForeground,
-      sp = c.tab.activeBorder,
-      underline = isSelectedUnderlined,
     },
     BufferLineWarning = {
       bg = M.tab.inactiveBackground,
@@ -131,15 +150,11 @@ M.setup = function(c, config, hp)
     BufferLineWarningVisible = {
       bg = M.tab.unfocusedActiveBackground,
       fg = hp.blend(c.inputValidation.warningForeground, visibleAlpha, M.tab.unfocusedActiveBackground),
-      sp = c.tab.unfocusedActiveBorder,
-      underline = isVisibleUnderlined,
     },
     -- Warning count
     BufferLineWarningDiagnosticSelected = {
       bg = M.tab.activeBackground,
       fg = hp.blend(c.inputValidation.warningForeground, countAlpha, c.editor.background),
-      sp = c.tab.activeBorder,
-      underline = isSelectedUnderlined,
     },
     BufferLineWarningDiagnostic = {
       bg = M.tab.inactiveBackground,
@@ -148,15 +163,11 @@ M.setup = function(c, config, hp)
     BufferLineWarningDiagnosticVisible = {
       bg = M.tab.unfocusedActiveBackground,
       fg = hp.blend(c.inputValidation.warningForeground, visibleAlpha * countAlpha, M.tab.unfocusedActiveBackground),
-      sp = c.tab.unfocusedActiveBorder,
-      underline = isVisibleUnderlined,
     },
     -- Error
     BufferLineErrorSelected = {
       bg = M.tab.activeBackground,
       fg = c.inputValidation.errorForeground,
-      sp = c.tab.activeBorder,
-      underline = isSelectedUnderlined,
     },
     BufferLineError = {
       bg = M.tab.inactiveBackground,
@@ -165,15 +176,11 @@ M.setup = function(c, config, hp)
     BufferLineErrorVisible = {
       bg = M.tab.unfocusedActiveBackground,
       fg = hp.blend(c.inputValidation.errorForeground, visibleAlpha, M.tab.unfocusedActiveBackground),
-      sp = c.tab.unfocusedActiveBorder,
-      underline = isVisibleUnderlined,
     },
     -- Error count
     BufferLineErrorDiagnosticSelected = {
       bg = M.tab.activeBackground,
       fg = hp.blend(c.inputValidation.errorForeground, countAlpha, c.editor.background),
-      sp = c.tab.activeBorder,
-      underline = isSelectedUnderlined,
       bold = true,
     },
     BufferLineErrorDiagnostic = {
@@ -184,16 +191,12 @@ M.setup = function(c, config, hp)
     BufferLineErrorDiagnosticVisible = {
       bg = M.tab.unfocusedActiveBackground,
       fg = hp.blend(c.inputValidation.errorForeground, visibleAlpha * countAlpha, M.tab.unfocusedActiveBackground),
-      sp = c.tab.unfocusedActiveBorder,
-      underline = isVisibleUnderlined,
       bold = true,
     },
     -- Info
     BufferLineInfoSelected = {
       bg = M.tab.activeBackground,
       fg = c.inputValidation.infoForeground,
-      sp = c.tab.activeBorder,
-      underline = isSelectedUnderlined,
     },
     BufferLineInfo = {
       bg = M.tab.inactiveBackground,
@@ -202,15 +205,11 @@ M.setup = function(c, config, hp)
     BufferLineInfoVisible = {
       bg = M.tab.unfocusedActiveBackground,
       fg = hp.blend(c.inputValidation.infoForeground, visibleAlpha, M.tab.unfocusedActiveBackground),
-      sp = c.tab.unfocusedActiveBorder,
-      underline = isVisibleUnderlined,
     },
     -- Info count
     BufferLineInfoDiagnosticSelected = {
       bg = M.tab.activeBackground,
       fg = hp.blend(c.inputValidation.infoForeground, countAlpha, c.editor.background),
-      sp = c.tab.activeBorder,
-      underline = isSelectedUnderlined,
       bold = true,
     },
     BufferLineInfoDiagnostic = {
@@ -221,8 +220,6 @@ M.setup = function(c, config, hp)
     BufferLineInfoDiagnosticVisible = {
       bg = M.tab.unfocusedActiveBackground,
       fg = hp.blend(c.inputValidation.infoForeground, visibleAlpha * countAlpha, M.tab.unfocusedActiveBackground),
-      sp = c.tab.unfocusedActiveBorder,
-      underline = isVisibleUnderlined,
       bold = true,
     },
     -- Hint
@@ -241,8 +238,6 @@ M.setup = function(c, config, hp)
     BufferLinePickSelected = {
       bg = M.tab.activeBackground,
       fg = c.base.red,
-      sp = c.tab.activeBorder,
-      underline = isSelectedUnderlined,
     },
     BufferLinePick = {
       bg = M.tab.inactiveBackground,
@@ -251,8 +246,6 @@ M.setup = function(c, config, hp)
     BufferLinePickVisible = {
       bg = M.tab.unfocusedActiveBackground,
       fg = c.base.red,
-      sp = c.tab.unfocusedActiveBorder,
-      underline = isVisibleUnderlined,
     },
     BufferLineTabClose = {
       bg = tabsBackground,
@@ -262,8 +255,6 @@ M.setup = function(c, config, hp)
     BufferLineIndicatorSelected = {
       bg = M.tab.activeBackground,
       fg = c.tab.activeBorder,
-      sp = c.tab.activeBorder,
-      underline = isSelectedUnderlined,
     },
     BufferLineIndicator = {
       bg = M.tab.inactiveBackground,
@@ -272,15 +263,14 @@ M.setup = function(c, config, hp)
     BufferLineIndicatorVisible = {
       bg = M.tab.unfocusedActiveBackground,
       fg = M.tab.unfocusedActiveBackground,
-      sp = c.tab.unfocusedActiveBorder,
-      underline = isVisibleUnderlined,
     },
   }
   if isBold then
-    for _, hlValue in pairs(bufferline_groups) do
-      hlValue["bold"] = true
-    end
+    M.addBold(bufferline_groups)
   end
+
+  M.addUnderline(bufferline_groups)
+
   return bufferline_groups
 end
 
@@ -300,8 +290,6 @@ M.setup_bufferline_icon = function()
     ["BufferLine" .. icon_name .. "Selected"] = {
       bg = M.tab.activeBackground,
       fg = icon_color,
-      sp = M.tab.activeBorder,
-      underline = M.underline_selected,
     },
     ["BufferLine" .. icon_name] = {
       bg = M.tab.inactiveBackground,
@@ -310,10 +298,10 @@ M.setup_bufferline_icon = function()
     ["BufferLine" .. icon_name .. "Inactive"] = {
       bg = M.tab.unfocusedActiveBackground,
       fg = icon_color,
-      sp = M.tab.unfocusedActiveBorder,
-      underline = M.underline_visible,
     },
   }
+
+  M.addUnderline(iconSkeleton)
   return iconSkeleton
 end
 

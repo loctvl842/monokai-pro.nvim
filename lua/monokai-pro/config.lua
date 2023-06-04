@@ -39,6 +39,7 @@ local default = {
     bufferline = {
       underline_selected = false,
       underline_visible = false,
+      underline_fill = false,
       bold = true,
     },
     indent_blankline = {
