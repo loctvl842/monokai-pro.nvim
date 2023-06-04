@@ -123,7 +123,8 @@ require("monokai-pro").setup({
     "notify",
     -- "nvim-tree",
     -- "neo-tree",
-  },-- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree"
+    -- "bufferline", -- better used if background of `neo-tree` or `nvim-tree` is cleared
+  },-- "float_win", "toggleterm", "telescope", "which-key", "renamer", "neo-tree", "nvim-tree", "bufferline"
   plugins = {
     bufferline = {
       underline_selected = false,

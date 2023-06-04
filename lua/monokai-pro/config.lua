@@ -33,6 +33,7 @@ local default = {
     "notify",
     -- "nvim-tree",
     -- "neo-tree",
+    -- "bufferline",
   },
   plugins = {
     bufferline = {
