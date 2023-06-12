@@ -7,7 +7,7 @@ M.setup = function(c, config, hp)
   local float_winBackgroundClear = vim.tbl_contains(config.background_clear, "float_win")
   return {
     ColorColumn = {
-      bg = c.editor.background,
+      bg = c.base.dimmed5
     }, -- used for the columns set with 'colorcolumn'
     Conceal = { bg = c.editor.background, fg = c.base.dimmed3 }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor = {
