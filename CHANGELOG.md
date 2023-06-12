@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.8.0...v1.8.1) (2023-06-12)
+
+
+### Bug Fixes
+
+* ColorColumn should be different than Normal background (https://github.com/loctvl842/monokai-pro.nvim/issues/61) ([2c3244d](https://github.com/loctvl842/monokai-pro.nvim/commit/2c3244df2ad94227279fd10cc3a3dbe628eb21ef))
+
 ## [1.8.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.7.0...v1.8.0) (2023-06-04)
 
 
