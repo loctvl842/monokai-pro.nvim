@@ -1,4 +1,4 @@
-*monokai-pro.txt*         For Neovim >= 0.8.0        Last change: 2023 June 12
+*monokai-pro.txt*         For Neovim >= 0.8.0        Last change: 2023 June 14
 
 ==============================================================================
 Table of Contents                              *monokai-pro-table-of-contents*
@@ -57,6 +57,7 @@ PLUGIN SUPPORT ~
 - barbecue.nvim <https://github.com/utilyre/barbecue.nvim>
 - dashboard-nvim <https://github.com/glepnir/dashboard-nvim>
 - mason.nvim <https://github.com/williamboman/mason.nvim>
+- nvim-ts-rainbow2 <https://github.com/HiPhish/nvim-ts-rainbow2>
 
 
 INSTALLATION                                        *monokai-pro-installation*
