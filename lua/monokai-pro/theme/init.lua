@@ -23,6 +23,7 @@ local plugins = {
   "nvim-navic",
   "nvim-tree",
   "nvim-treesitter",
+  "nvim-ts-rainbow2",
   "packer",
   "renamer",
   "scrollbar",

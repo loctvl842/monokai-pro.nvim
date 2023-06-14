@@ -58,6 +58,7 @@ Find out more here [monokai.pro](https://monokai.pro/)
 - [barbecue.nvim](https://github.com/utilyre/barbecue.nvim)
 - [dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
 - [mason.nvim](https://github.com/williamboman/mason.nvim)
+- [nvim-ts-rainbow2](https://github.com/HiPhish/nvim-ts-rainbow2)
 
 ## 📦 Installation
 
