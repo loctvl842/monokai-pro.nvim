@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.8.1...v1.9.0) (2023-06-14)
+
+
+### Features
+
+* **ts-rainbow2:** add support ([3596125](https://github.com/loctvl842/monokai-pro.nvim/commit/3596125f06f9c165b3846134ff8e9d7586e9bc81))
+
 ## [1.8.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.8.0...v1.8.1) (2023-06-12)
 
 
