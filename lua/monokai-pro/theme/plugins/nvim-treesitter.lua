@@ -79,6 +79,15 @@ M.setup = function(c, config, _)
     ["@namespace.lua"] = { fg = c.base.red },
     ["@comment.documentation.lua"] = { fg = c.base.cyan },
     ["@parameter.lua"] = { fg = c.base.blue, italic = true },
+    -- latex
+    ["@text.environment.latex"] = { fg = c.base.green },
+    ["@text.environment.name.latex"] = { fg = c.base.blue, italic = true },
+    ["@punctuation.special.latex"] = { fg = c.base.red },
+    ["@text.math.latex"] = { fg = c.base.magenta },
+    ["@text.strong.latex"] = { bold = true },
+    ["@text.emphasis.latex"] = { italic = true },
+    ["@string.latex"] = { fg = c.base.cyan },
+    ["@function.macro.latex"] = { fg = c.base.green },
   }
 end
 
