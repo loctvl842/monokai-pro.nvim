@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.9.0...v1.10.0) (2023-06-25)
+
+
+### Features
+
+* **nvim-treesitter:** support latex (https://github.com/loctvl842/monokai-pro.nvim/issues/65) ([376a024](https://github.com/loctvl842/monokai-pro.nvim/commit/376a02487d6aa60826beb7e36c036faae4da27f8))
+
 ## [1.9.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.8.1...v1.9.0) (2023-06-14)
 
 
