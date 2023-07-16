@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.10.0...v1.11.0) (2023-07-16)
+
+
+### Features
+
+* **nvim-treesitter:** support `dockerfile` ([04d5f44](https://github.com/loctvl842/monokai-pro.nvim/commit/04d5f442b72639ca1588189c2beaee58d745ae72))
+
 ## [1.10.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.9.0...v1.10.0) (2023-06-25)
 
 
