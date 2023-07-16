@@ -53,6 +53,8 @@ M.setup = function(c, config, _)
     ["@lsp.typemod.variable.defaultLibrary"] = { fg = c.base.blue },
     ["@lsp.typemod.variable.global.lua"] = { fg = c.base.blue },
     ["@lsp.typemod.keyword.documentation"] = { fg = c.base.cyan, italic = true },
+    -- Dockerfile
+    ["@lsp.type.parameter.dockerfile"] = {}, -- using treesitter instead
   }
 end
 

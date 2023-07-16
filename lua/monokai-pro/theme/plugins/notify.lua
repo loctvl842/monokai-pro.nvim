@@ -26,6 +26,7 @@ M.setup = function(c, config, hp)
     NotifyINFOBody = { link = "Normal" },
     NotifyDEBUGBody = { link = "Normal" },
     NotifyTRACEBody = { link = "Normal" },
+    NotifyBackground = { link = "Normal" },
   }
   if not isBackgroundClear then
     local BORDER = "Border"
@@ -44,7 +45,7 @@ M.setup = function(c, config, hp)
           bg = c.notifications.background,
         })
       end
-      if string.match(group, BODY) then
+      if string.match(group, BODY) or group == "NotifyBackground" then
         notify_groups[group] = {
           bg = c.notifications.background,
           fg = c.notifications.foreground,

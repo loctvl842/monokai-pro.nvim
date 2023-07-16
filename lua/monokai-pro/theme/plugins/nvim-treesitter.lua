@@ -88,6 +88,11 @@ M.setup = function(c, config, _)
     ["@text.emphasis.latex"] = { italic = true },
     ["@string.latex"] = { fg = c.base.cyan },
     ["@function.macro.latex"] = { fg = c.base.green },
+    -- Dockerfile
+    ["@keyword.dockerfile"] = { fg = c.base.red },
+    ["@lsp.type.class.dockerfile"] = { fg = c.base.cyan },
+    ["@function.call.bash"] = { fg = c.base.green },
+    ["@parameter.bash"] = { fg = c.base.white },
   }
 end
 
