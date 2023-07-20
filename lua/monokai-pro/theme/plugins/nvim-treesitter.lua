@@ -5,13 +5,13 @@ local M = {}
 M.setup = function(c, config, _)
   local styles = config.styles
   return {
-    ["@include"] = { fg = c.base.red }, -- `import`
+    ["@include"] = { fg = c.base.red },                                  -- `import`
     ["@variable"] = { fg = c.base.white },
-    ["@punctuation.delimiter"] = { fg = c.base.dimmed2 }, -- `;`
-    ["@punctuation.bracket"] = { fg = c.base.dimmed2 }, -- `(`
-    ["@constructor"] = { fg = c.base.red }, -- `StrictMode` in `<React.StrictMode>`
-    ["@tag.delimiter"] = { fg = c.base.dimmed2 }, -- `<`, `>` in `<div>`
-    ["@operator"] = { fg = c.base.red }, -- `=`, `=>`
+    ["@punctuation.delimiter"] = { fg = c.base.dimmed2 },                -- `;`
+    ["@punctuation.bracket"] = { fg = c.base.dimmed2 },                  -- `(`
+    ["@constructor"] = { fg = c.base.red },                              -- `StrictMode` in `<React.StrictMode>`
+    ["@tag.delimiter"] = { fg = c.base.dimmed2 },                        -- `<`, `>` in `<div>`
+    ["@operator"] = { fg = c.base.red },                                 -- `=`, `=>`
     ["@keyword"] = { fg = c.base.cyan, italic = styles.keyword.italic }, -- `const`, `export`, `default`
     ["@parameter"] = { fg = c.base.white },
     ["@string.documentation"] = { fg = c.base.dimmed3 },
@@ -69,6 +69,23 @@ M.setup = function(c, config, _)
     ["@operator.python"] = { fg = c.base.red },
     ["@varibale.builtin.python"] = { fg = c.base.blue, italic = true },
     ["@parameter.python"] = { fg = c.base.blue, italic = true },
+    -- ruby
+    ["@variable.ruby"] = { fg = c.base.white },
+    ["@symbol.ruby"] = { fg = c.base.magenta },
+    ["@property.ruby"] = { fg = c.base.magenta },
+    ["@error.ruby"] = { fg = c.base.magenta },
+    ["@constant.ruby"] = { fg = c.base.magenta },
+    ["@label.ruby"] = { fg = c.base.magenta },
+    ["@text.danger.ruby"] = { fg = c.base.magenta },
+    ["@function.builtin.ruby"] = { fg = c.base.red },
+    ["@type.ruby"] = { fg = c.base.cyan },
+    ["@field.ruby"] = { fg = c.base.white },
+    ["@keyword.ruby"] = { fg = c.base.red, italic = styles.keyword.italic },
+    ["@exception.ruby"] = { fg = c.base.red, italic = true },
+    ["@keyword.function.ruby"] = { fg = c.base.red },
+    ["@conditional.ruby"] = { fg = c.base.red },
+    ["@namespace.ruby"] = { fg = c.base.magenta },
+    ["@parameter.ruby"] = { fg = c.base.blue, italic = true },
     -- lua
     ["@variable.lua"] = { fg = c.base.white },
     ["@function.builtin.lua"] = { fg = c.base.green },
