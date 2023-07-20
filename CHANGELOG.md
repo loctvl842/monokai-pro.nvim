@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.11.0...v1.12.0) (2023-07-20)
+
+
+### Features
+
+* Merge pull request [#72](https://github.com/loctvl842/monokai-pro.nvim/issues/72) from loctvl842/revert-71-update-treesitter-highlight-for-ruby ([cfb31b0](https://github.com/loctvl842/monokai-pro.nvim/commit/cfb31b08dc32fae7afdb61f36ba18ab4b2c66678))
+
 ## [1.11.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.10.0...v1.11.0) (2023-07-16)
 
 
