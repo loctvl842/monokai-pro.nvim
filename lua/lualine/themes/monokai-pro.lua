@@ -20,6 +20,11 @@ monokai_pro.insert = {
   b = { bg = colors.base.dimmed5, fg = colors.base.green },
 }
 
+monokai_pro.terminal = {
+  a = { bg = colors.base.cyan, fg = colors.base.black },
+  b = { bg = colors.base.dimmed5, fg = colors.base.cyan },
+}
+
 monokai_pro.command = {
   a = { bg = colors.base.yellow, fg = colors.base.black },
   b = { bg = colors.base.dimmed5, fg = colors.base.yellow },
