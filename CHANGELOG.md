@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.13.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.12.0...v1.13.0) (2023-09-05)
+
+
+### Features
+
+* support rainbow delimiters ([#75](https://github.com/loctvl842/monokai-pro.nvim/issues/75)) ([7bd4404](https://github.com/loctvl842/monokai-pro.nvim/commit/7bd4404a0c02c44a4a51d858ac42b1d65b359db9))
+
 ## [1.12.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.11.0...v1.12.0) (2023-07-20)
 
 
