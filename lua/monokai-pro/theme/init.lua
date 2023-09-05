@@ -25,6 +25,7 @@ local plugins = {
   "nvim-treesitter",
   "nvim-ts-rainbow2",
   "packer",
+  "rainbow-delimiters",
   "renamer",
   "scrollbar",
   "telescope",

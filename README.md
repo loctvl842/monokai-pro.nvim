@@ -59,6 +59,7 @@ Find out more here [monokai.pro](https://monokai.pro/)
 - [dashboard-nvim](https://github.com/glepnir/dashboard-nvim)
 - [mason.nvim](https://github.com/williamboman/mason.nvim)
 - [nvim-ts-rainbow2](https://github.com/HiPhish/nvim-ts-rainbow2)
+- [rainbow-delimeters.nvim](https://gitlab.com/HiPhish/rainbow-delimiters.nvim)
 
 ## 📦 Installation
 
