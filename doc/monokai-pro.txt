@@ -1,4 +1,4 @@
-*monokai-pro.txt*      For Neovim >= 0.8.0      Last change: 2023 September 05
+*monokai-pro.txt*      For Neovim >= 0.8.0      Last change: 2023 September 29
 
 ==============================================================================
 Table of Contents                              *monokai-pro-table-of-contents*
@@ -183,7 +183,7 @@ Telescope ~
     require("telescope").setup({
         -- ... your config
         defaults = {
-          borderchars = { "", " ", "", "", "", " ", " ", "" },
+          borderchars = { "█", " ", "▀", "█", "█", " ", " ", "▀" },
         }
         -- ... your config
     })
@@ -247,7 +247,7 @@ USAGE                                                      *monokai-pro-usage*
         -- ...
         override = function
           return {
-              Normal = { bg = "000000" }
+              Normal = { bg = "#000000" }
             }
         end
         -- ...
