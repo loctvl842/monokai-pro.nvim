@@ -272,6 +272,12 @@ M.setup = function(c)
       cterm_color = "226",
       name = "Env",
     },
+    ["ts"] = {
+      icon = "󰛦",
+      color = c.base.cyan,
+      cterm_color = "74",
+      name = "Ts",
+    },
   }
   webDevicons.set_icon(icons)
 end
