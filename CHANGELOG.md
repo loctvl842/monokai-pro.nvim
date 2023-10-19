@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.14.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.13.0...v1.14.0) (2023-10-19)
+
+
+### Features
+
+* Add support for Tree-sitter highlighting in Markdown files ([36819e0](https://github.com/loctvl842/monokai-pro.nvim/commit/36819e0c6adb080dcc3405d91b7e84a8ef645561))
+* highlight [@conceal](https://github.com/conceal).markdown ([49691c4](https://github.com/loctvl842/monokai-pro.nvim/commit/49691c4e30ac880ffb73c454feff2e2ff03901f4))
+* **icons:** Update TypeScript icon color and symbol ([954116e](https://github.com/loctvl842/monokai-pro.nvim/commit/954116ecbc03d3601bef0da8a7a33f3c02400663))
+
 ## [1.13.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.12.0...v1.13.0) (2023-09-05)
 
 
