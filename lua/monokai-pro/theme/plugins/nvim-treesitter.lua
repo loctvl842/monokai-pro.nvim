@@ -93,6 +93,15 @@ M.setup = function(c, config, _)
     ["@lsp.type.class.dockerfile"] = { fg = c.base.cyan },
     ["@function.call.bash"] = { fg = c.base.green },
     ["@parameter.bash"] = { fg = c.base.white },
+    -- Markdown
+    ["@text.strong.markdown_inline"] = { fg = c.base.white, bold = true },
+    ["@text.emphasis.markdown_inline"] = { fg = c.base.white, italic = true },
+    ["@text.literal.markdown_inline"] = { bg = c.base.dimmed4, fg = c.base.white },
+    ["@text.quote.markdown"] = { bg = c.base.dimmed5, fg = c.base.white },
+    ["@none.markdown"] = { bg = c.base.dark },
+    ["@text.uri.markdown_inline"] = { fg = c.base.green, sp = c.base.green, underline = true },
+    ["@text.reference.markdown_inline"] = { fg = c.base.red },
+    ["@punctuation.special.markdown"] = { fg = c.base.dimmed2 },
   }
 end
 
