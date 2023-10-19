@@ -102,6 +102,7 @@ M.setup = function(c, config, _)
     ["@text.uri.markdown_inline"] = { fg = c.base.green, sp = c.base.green, underline = true },
     ["@text.reference.markdown_inline"] = { fg = c.base.red },
     ["@punctuation.special.markdown"] = { fg = c.base.dimmed2 },
+    ["@conceal.markdown"] = { bg = c.base.dark },
   }
 end
 
