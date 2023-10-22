@@ -94,6 +94,7 @@ M.setup = function(c, config, _)
     ["@function.call.bash"] = { fg = c.base.green },
     ["@parameter.bash"] = { fg = c.base.white },
     -- Markdown
+    ["@text.literal.block.markdown"] = { bg = c.editor.background },
     ["@text.strong.markdown_inline"] = { fg = c.base.white, bold = true },
     ["@text.emphasis.markdown_inline"] = { fg = c.base.white, italic = true },
     ["@text.literal.markdown_inline"] = { bg = c.base.dimmed4, fg = c.base.white },
