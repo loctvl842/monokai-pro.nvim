@@ -99,11 +99,11 @@ M.setup = function(c, config, _)
     ["@text.emphasis.markdown_inline"] = { fg = c.base.white, italic = true },
     ["@text.literal.markdown_inline"] = { bg = c.base.dimmed4, fg = c.base.white },
     ["@text.quote.markdown"] = { bg = c.base.dimmed5, fg = c.base.white },
-    ["@none.markdown"] = { bg = c.base.dark },
+    ["@none.markdown"] = { bg = c.base.black },
     ["@text.uri.markdown_inline"] = { fg = c.base.green, sp = c.base.green, underline = true },
     ["@text.reference.markdown_inline"] = { fg = c.base.red },
     ["@punctuation.special.markdown"] = { fg = c.base.dimmed2 },
-    ["@conceal.markdown"] = { bg = c.base.dark },
+    ["@conceal.markdown"] = { bg = c.base.black },
   }
 end
 
