@@ -64,6 +64,12 @@ M.setup = function(filter)
     activeBackground = p.dimmed3, -- "#5b595c",
   }
 
+  cs.editorInlayHint = {
+    background = p.background,
+    -- foreground = hp.blend(p.text, 0.3, p.background),
+    foreground = p.dimmed3,
+  }
+
   cs.editorGutter = {
     addedBackground = p.accent4, -- "#a9dc76",
     deletedBackground = p.accent1, -- "#ff6188",

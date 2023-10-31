@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.16.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.15.0...v1.16.0) (2023-10-30)
+
+
+### Features
+
+* lighten menu item of cmp ([5e932cc](https://github.com/loctvl842/monokai-pro.nvim/commit/5e932ccaf282b2734ce0feb9d80d5726364582a5))
+* update noice split background ([cf0e44a](https://github.com/loctvl842/monokai-pro.nvim/commit/cf0e44a2de2b08bfe5917e30bdabf808100df862))
+
+## [1.15.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.14.0...v1.15.0) (2023-10-30)
+
+
+### Features
+
+* add background for markdown code block ([dae92b4](https://github.com/loctvl842/monokai-pro.nvim/commit/dae92b47c7ae8d84cc2f2c39188e932e4f65f542))
+* Support `LspInlayHint` ([8823d93](https://github.com/loctvl842/monokai-pro.nvim/commit/8823d93a6fa26e11b13034c892168a8a8a3a2a78))
+
+## [1.14.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.13.0...v1.14.0) (2023-10-19)
+
+
+### Features
+
+* Add support for Tree-sitter highlighting in Markdown files ([36819e0](https://github.com/loctvl842/monokai-pro.nvim/commit/36819e0c6adb080dcc3405d91b7e84a8ef645561))
+* highlight [@conceal](https://github.com/conceal).markdown ([49691c4](https://github.com/loctvl842/monokai-pro.nvim/commit/49691c4e30ac880ffb73c454feff2e2ff03901f4))
+* **icons:** Update TypeScript icon color and symbol ([954116e](https://github.com/loctvl842/monokai-pro.nvim/commit/954116ecbc03d3601bef0da8a7a33f3c02400663))
+
 ## [1.13.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.12.0...v1.13.0) (2023-09-05)
 
 
