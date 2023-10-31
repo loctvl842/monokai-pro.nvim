@@ -21,6 +21,7 @@ M.setup = function(c, _, _)
     NoiceConfirmBorder = { bg = c.notifications.background, fg = c.notifications.border },
     NoiceFormatConfirm = { bg = c.button.background, fg = c.button.foreground },
     NoiceFormatConfirmDefault = { bg = c.button.hoverBackground, fg = c.button.foreground },
+    NoiceSplit = { bg = c.editor.background },
   }
 end
 
