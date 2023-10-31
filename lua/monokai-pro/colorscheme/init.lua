@@ -65,8 +65,9 @@ M.setup = function(filter)
   }
 
   cs.editorInlayHint = {
-    background = hp.blend(p.accent3, 0.1, p.background),
-    foreground = hp.lighten(p.dimmed2, 3),
+    background = p.background,
+    -- foreground = hp.blend(p.text, 0.3, p.background),
+    foreground = p.dimmed3,
   }
 
   cs.editorGutter = {
