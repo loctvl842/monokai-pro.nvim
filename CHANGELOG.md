@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.17.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.16.0...v1.17.0) (2023-12-05)
+
+
+### Features
+
+* Improve syntax highlighting for treesitter parameters ([78376ed](https://github.com/loctvl842/monokai-pro.nvim/commit/78376ed8493fe149f872a6a34fc5c6c48375f008))
+
 ## [1.16.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.15.0...v1.16.0) (2023-10-30)
 
 
