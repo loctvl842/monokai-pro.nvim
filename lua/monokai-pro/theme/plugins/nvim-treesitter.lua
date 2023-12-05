@@ -13,9 +13,9 @@ M.setup = function(c, config, _)
     ["@tag.delimiter"] = { fg = c.base.dimmed2 }, -- `<`, `>` in `<div>`
     ["@operator"] = { fg = c.base.red }, -- `=`, `=>`
     ["@keyword"] = { fg = c.base.cyan, italic = styles.keyword.italic }, -- `const`, `export`, `default`
-    ["@parameter"] = { fg = c.base.white },
+    ["@parameter"] = { fg = c.base.blue, italic = styles.parameter.italic },
     ["@string.documentation"] = { fg = c.base.dimmed3 },
-    ["@type.builtin"] = { fg = c.base.cyan },
+    ["@type.builtin"] = { fg = c.base.cyan, italic = styles.type.italic },
     ["@_isinstance"] = { fg = c.base.green },
 
     ["@keyword.return"] = { fg = c.base.red },
@@ -44,7 +44,7 @@ M.setup = function(c, config, _)
     ["@type.scss"] = { fg = c.base.cyan },
     -- cpp
     ["@keyword.cpp"] = { fg = c.base.cyan, italic = styles.keyword.italic },
-    ["@namespace.cpp"] = { fg = c.base.white },
+    ["@namespace.cpp"] = { fg = c.base.green },
     ["@operator.cpp"] = { fg = c.base.red },
     ["@type.cpp"] = { fg = c.base.blue, italic = styles.type.italic },
     ["@variable.cpp"] = { fg = c.base.white },

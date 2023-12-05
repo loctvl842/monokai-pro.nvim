@@ -55,6 +55,9 @@ M.setup = function(c, config, _)
     ["@lsp.typemod.keyword.documentation"] = { fg = c.base.cyan, italic = true },
     -- Dockerfile
     ["@lsp.type.parameter.dockerfile"] = {}, -- using treesitter instead
+
+    -- Cpp
+    ["@lsp.type.namespace.cpp"] = { fg = c.base.green },
   }
 end
 
