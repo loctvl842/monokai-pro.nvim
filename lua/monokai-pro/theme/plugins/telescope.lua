@@ -15,14 +15,20 @@ M.setup = function(c, config, hp)
   -- foreground
   local common_fg = hp.lighten(c.sideBar.foreground, 30)
   return {
-    TelescopeSelection = isBackgroundClear and {} or {
+    TelescopeSelection = isBackgroundClear and {
+      bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.3, transparent_bg),
+      bold = true,
+    } or {
       bg = hp.blend(c.base.green, 0.2, result_bg),
       bold = true,
     },
 
-    TelescopeSelectionCaret = {
+    TelescopeSelectionCaret = isBackgroundClear and {
+      bg = hp.blend(c.editorSuggestWidget.selectedBackground, 0.3, transparent_bg),
+      bold = true,
+    } or {
       bg = hp.blend(c.base.green, 0.2, result_bg),
-      fg = c.base.green
+      fg = c.base.green,
     },
 
     TelescopeNormal = isBackgroundClear and {
