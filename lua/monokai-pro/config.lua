@@ -49,6 +49,8 @@ local default = {
   },
   ---@param colors Colorscheme
   override = function(colors) end,
+--- @param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
+  overridePalette = function(filter) end,
 }
 
 ---@type Config

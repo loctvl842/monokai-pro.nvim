@@ -22,7 +22,8 @@ M.setup = function(filter)
   M.filter = filter
 
   ---@module "monokai-pro.colorscheme.palette.pro"
-  local p = require("monokai-pro.colorscheme.palette." .. M.filter)
+  local monokai_palette = require("monokai-pro.colorscheme.palette." .. M.filter)
+  local p = vim.tbl_deep_extend("force", monokai_palette, config.overridePalette(filter) or {})
 
   --- @class Colorscheme
   local cs = {}
@@ -90,7 +91,7 @@ M.setup = function(filter)
 
   cs.sideBarSectionHeader = {
     background = p.dark1, -- "#221f22",
-    foreground = p.dimmed3, -- "#727072",
+    foreground = p.dimmed1, -- "#c1c0c0",
   }
 
   cs.breadcrumb = {

@@ -265,6 +265,36 @@ require("monokai-pro").setup({
   })
 ```
 
+- Custom your own palette:
+
+This is a sample config to customize `Tokyonight` palette:
+```lua
+require("monokai-pro").setup({
+    -- ...
+    --- @param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
+    override = function
+      return {
+        dark2 = "#101014",
+        dark1 = "#16161E",
+        background = "#1A1B26",
+        text = "#C0CAF5",
+        accent1 = "#f7768e",
+        accent2 = "#ff9e64",
+        accent3 = "#e0af68",
+        accent4 = "#0DB9D7",
+        accent5 = "#3d59a1",
+        accent6 = "#9d7cd8",
+        dimmed1 = "#737aa2",
+        dimmed2 = "#787c99",
+        dimmed3 = "#363b54",
+        dimmed4 = "#363b54",
+        dimmed5 = "#16161e",
+        }
+    end
+    -- ...
+  })
+```
+
 ## 🔧 Command
 
 - run command `MonokaiProSelect` to launch a menu to choose theme filter (required: [nui.nvim](https://github.com/MunifTanjim/nui.nvim))
