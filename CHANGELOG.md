@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.18.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.17.0...v1.18.0) (2023-12-08)
+
+
+### Features
+
+* customize color palette (https://github.com/loctvl842/monokai-pro.nvim/issues/94) ([6b1f544](https://github.com/loctvl842/monokai-pro.nvim/commit/6b1f544361833a548702e9d548ad994ab0db88fb))
+
 ## [1.17.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.16.0...v1.17.0) (2023-12-05)
 
 
