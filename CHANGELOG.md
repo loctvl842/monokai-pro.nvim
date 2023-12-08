@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.18.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.18.0...v1.18.1) (2023-12-08)
+
+
+### Bug Fixes
+
+* Missing background in TelescopeSelection ([7a82aa3](https://github.com/loctvl842/monokai-pro.nvim/commit/7a82aa3a97a2ef3e9c3db3fa8a83e1183562157d))
+* Missing background in TelescopeSelection ([149297e](https://github.com/loctvl842/monokai-pro.nvim/commit/149297e3a07c9dd2565ca5f1f16ffe34633ac8d4))
+
 ## [1.18.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.17.0...v1.18.0) (2023-12-08)
 
 
