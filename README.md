@@ -256,7 +256,7 @@ let g:lightline = {'colorscheme': 'monokaipro'}
 ```lua
 require("monokai-pro").setup({
     -- ...
-    override = function
+    override = function()
       return {
           Normal = { bg = "#000000" }
         }
