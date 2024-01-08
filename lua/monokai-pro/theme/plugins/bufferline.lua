@@ -274,6 +274,7 @@ M.setup = function(c, config, hp)
   return bufferline_groups
 end
 
+---@return HighlightGroupTbl?
 M.setup_bufferline_icon = function()
   local icon_ok, webDevicons = pcall(require, "nvim-web-devicons")
   if not icon_ok then

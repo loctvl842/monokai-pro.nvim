@@ -1,18 +1,21 @@
---- @class Helper
+---@class Helper
 local M = {}
 
-local function getBlendBackground(background)
+---@param background HexColor
+local function get_blend_background(background)
   if background ~= nil and background ~= "NONE" then
     return background
   end
 
   local filter = require("monokai-pro.colorscheme").filter
-  --- @module "monokai-pro.colorscheme.palette.pro"
+  ---@type Palette
   local c = require("monokai-pro.colorscheme.palette." .. filter)
   return c.background
 end
 
-local function hexToRgb(hex)
+---@param hex HexColor
+---@return RGB
+local function hex_to_rgb(hex)
   hex = string.lower(hex)
   return {
     r = tonumber(hex:sub(2, 3), 16),
@@ -21,52 +24,62 @@ local function hexToRgb(hex)
   }
 end
 
-local function rgbToHex(rgb)
+---@param rgb RGB
+---@return HexColor
+local function rgb_to_hex(rgb)
   local red = string.format("%02x", rgb.r)
   local green = string.format("%02x", rgb.g)
   local blue = string.format("%02x", rgb.b)
   return "#" .. red .. green .. blue
 end
 
+---@param hex HexColor
+---@param amt number
 M.lighten = function(hex, amt)
-  hex = hexToRgb(hex)
+  local rgb = hex_to_rgb(hex)
   -- over upper
-  hex.r = (hex.r + amt > 255) and 255 or (hex.r + amt)
-  hex.g = (hex.g + amt > 255) and 255 or (hex.g + amt)
-  hex.b = (hex.b + amt > 255) and 255 or (hex.b + amt)
+  rgb.r = (rgb.r + amt > 255) and 255 or (rgb.r + amt)
+  rgb.g = (rgb.g + amt > 255) and 255 or (rgb.g + amt)
+  rgb.b = (rgb.b + amt > 255) and 255 or (rgb.b + amt)
   -- below bound
-  hex.r = (hex.r < 0) and 0 or hex.r
-  hex.g = (hex.g < 0) and 0 or hex.g
-  hex.b = (hex.b < 0) and 0 or hex.b
+  rgb.r = (rgb.r < 0) and 0 or rgb.r
+  rgb.g = (rgb.g < 0) and 0 or rgb.g
+  rgb.b = (rgb.b < 0) and 0 or rgb.b
   -- rgb to hex
-  local red = string.format("%02x", hex.r)
-  local green = string.format("%02x", hex.g)
-  local blue = string.format("%02x", hex.b)
+  local red = string.format("%02x", rgb.r)
+  local green = string.format("%02x", rgb.g)
+  local blue = string.format("%02x", rgb.b)
   return "#" .. red .. green .. blue
 end
 
+---@param alpha HexColorAlpha
+---@param background HexColor
 M.rgba = function(red, green, blue, alpha, background)
-  background = getBlendBackground(background)
-  local bg_rgb = hexToRgb(background)
+  background = get_blend_background(background)
+  local bg_rgb = hex_to_rgb(background)
   -- new color
   red = (1 - alpha) * bg_rgb.r + alpha * red
   green = (1 - alpha) * bg_rgb.g + alpha * green
   blue = (1 - alpha) * bg_rgb.b + alpha * blue
-  return rgbToHex({ r = red, g = green, b = blue })
+  return rgb_to_hex({ r = red, g = green, b = blue })
 end
 
-M.blend = function(hexColor, alpha, background)
-  background = getBlendBackground(background)
-  local rgb = hexToRgb(hexColor)
-  return M.rgba(rgb.r, rgb.g, rgb.b, alpha, background)
+---@param hexColor HexColor
+---@param alpha HexColorAlpha
+---@param base HexColor
+M.blend = function(hexColor, alpha, base)
+  base = get_blend_background(base)
+  local rgb = hex_to_rgb(hexColor)
+  return M.rgba(rgb.r, rgb.g, rgb.b, alpha, base)
 end
 
-M.extend_hex = function(hexColor, background)
-  background = getBlendBackground(background)
+---@param hexColor HexColor
+---@param base HexColor
+M.extend_hex = function(hexColor, base)
+  base = get_blend_background(base)
   local hex6 = string.sub(hexColor, 1, 7)
   local alpha = tonumber(string.sub(hexColor, 8, 9), 16) / 255
-  print(alpha)
-  return M.blend(hex6, alpha, background)
+  return M.blend(hex6, alpha, base)
 end
 
 return M

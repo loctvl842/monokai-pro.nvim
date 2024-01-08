@@ -1,9 +1,13 @@
 local hp = require("monokai-pro.color_helper")
 local nui_ok, _ = pcall(require, "nui.menu")
 
+---@class Util
 local M = {}
 
-local function getRealColor(hex_color, base)
+---@param hex_color HexColor
+---@param base? HexColor
+---@return HexColor?
+local function get_real_color(hex_color, base)
   if hex_color == nil or string.len(hex_color) ~= 9 then
     return hex_color
   end
@@ -20,28 +24,30 @@ local function getRealColor(hex_color, base)
   return hp.extend_hex(hex_color, base)
 end
 
-local genHlValue = function(hlValue)
-  local bg_value = getRealColor(hlValue.bg, hlValue.bg_base)
-  local fg_value = getRealColor(hlValue.fg, hlValue.fg_base)
-  local sp_value = getRealColor(hlValue.sp, bg_value)
-  hlValue.bg = bg_value
-  hlValue.fg = fg_value
-  hlValue.sp = sp_value
-  hlValue.bg_base = nil
-  hlValue.fg_base = nil
-  hlValue.style = nil
-  return hlValue
+---@param hl_group_opt HighlightGroupOpt
+local get_highlight_value = function(hl_group_opt)
+  local bg_value = get_real_color(hl_group_opt.bg, hl_group_opt.bg_base)
+  local fg_value = get_real_color(hl_group_opt.fg, hl_group_opt.fg_base)
+  local sp_value = get_real_color(hl_group_opt.sp, bg_value)
+  hl_group_opt.bg = bg_value
+  hl_group_opt.fg = fg_value
+  hl_group_opt.sp = sp_value
+  hl_group_opt.bg_base = nil
+  hl_group_opt.fg_base = nil
+  return hl_group_opt
 end
 
-local highlight = function(group, hlValue)
-  local link = hlValue.link
+---@param group HighlightGroup
+---@param hl_group_opt HighlightGroupOpt
+local highlight = function(group, hl_group_opt)
+  local link = hl_group_opt.link
   if link ~= nil then
     local cmd = "hi! link " .. group .. " " .. link
     vim.api.nvim_command(cmd)
     return
   end
-  local generatedHlValue = genHlValue(hlValue)
-  vim.api.nvim_set_hl(0, group, generatedHlValue)
+  local hl_value = get_highlight_value(hl_group_opt)
+  vim.api.nvim_set_hl(0, group, hl_value)
 end
 
 M.create_menu = function(title, items, handler)
@@ -102,16 +108,21 @@ M.create_menu = function(title, items, handler)
   return menu
 end
 
-local draw = function(groups)
-  if groups == nil then
+---@param hl_group_tbl? HighlightGroupTbl
+M.draw = function(hl_group_tbl)
+  if hl_group_tbl == nil then
     return
   end
-  for group, value in pairs(groups) do
-    highlight(group, value)
+  for hl_group, value in pairs(hl_group_tbl) do
+    highlight(hl_group, value)
   end
 end
 
-M.notify = function(msg, level, opts)
+--- A logging function
+--- @param msg string
+--- @param level "debug"|"info"|"warn"|"error"
+--- @param opts table|nil
+M.log = function(msg, level, opts)
   opts = opts or {}
   level = vim.log.levels[level:upper()]
   if type(msg) == "table" then
@@ -158,14 +169,39 @@ M.terminal = function(colors)
   vim.g.terminal_color_14 = colors.base.cyan
 end
 
+local function load_autocmds()
+  local ok, _ = pcall(require, "monokai-pro.autocmds")
+  if not ok then
+    M.log("Failed to load monokai-pro.autocmds", "error")
+  end
+end
+
 M.is_daytime = function()
   local current_time = os.time()
   local current_hour = tonumber(os.date("%H", current_time))
   return current_hour >= 6 and current_hour < 18
 end
 
----@param hl_groups HlGroups
-M.load = function(hl_groups)
+--- Get the web-devicon
+---@param filename string example: "file.txt"
+---@return MonokaiProIcon|nil
+M.get_devicon = function(filename)
+  local icon_ok, webDevicons = pcall(require, "nvim-web-devicons")
+  if not icon_ok then
+    M.log("It is recommended to install 'nvim-web-devicons' for better experience.", "info")
+    return
+  end
+  local ext = vim.fn.expand("%:e")
+  local _, icon_name = webDevicons.get_icon(filename, ext, { default = true })
+  local _, icon_color = webDevicons.get_icon_color(filename, ext, { default = true })
+  return {
+    name = icon_name,
+    color = icon_color,
+  }
+end
+
+---@param hl_group_tbl HighlightGroupTbl
+M.load = function(hl_group_tbl)
   if vim.g.colors_name then
     vim.cmd([[hi clear]])
   end
@@ -173,21 +209,11 @@ M.load = function(hl_groups)
   vim.o.termguicolors = true
   vim.g.colors_name = "monokai-pro"
 
-  draw(hl_groups)
+  M.draw(hl_group_tbl)
 
-  local bufferline_icon_group = require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
-  draw(bufferline_icon_group)
-  -- draw bufferline icons
-  vim.api.nvim_create_autocmd({ "BufEnter", "BufReadPost", "BufWinEnter", "BufRead" }, {
-    pattern = "*",
-    callback = function()
-      if vim.g.colors_name ~= "monokai-pro" then
-        return true
-      end
-      bufferline_icon_group = require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
-      draw(bufferline_icon_group)
-    end,
-  })
+  local bufferline_icon_hl_group_tbl = require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
+  M.draw(bufferline_icon_hl_group_tbl)
+  load_autocmds()
 end
 
 return M

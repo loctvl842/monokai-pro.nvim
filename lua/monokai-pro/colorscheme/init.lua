@@ -8,7 +8,8 @@ local M = {
 
 local hp = require("monokai-pro.color_helper")
 
---- @param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
+---@param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
+---@return Colorscheme
 M.setup = function(filter)
   local filters = { "classic", "machine", "octagon", "pro", "ristretto", "spectrum" }
 
@@ -16,14 +17,14 @@ M.setup = function(filter)
     local msg = 'Invalid filter, expected "classic", "machine", "octagon", "pro", "ristretto" or "spectrum"'
     local level = "info"
     filter = "pro"
-    util.notify(msg, level)
+    util.log(msg, level)
   end
 
   M.filter = filter
 
   ---@module "monokai-pro.colorscheme.palette.pro"
   local monokai_palette = require("monokai-pro.colorscheme.palette." .. M.filter)
-  local p = vim.tbl_deep_extend("force", monokai_palette, config.overridePalette(filter) or {})
+  local p = vim.tbl_deep_extend("force", monokai_palette, config.overridePalette and config.overridePalette(filter) or {})
 
   --- @class Colorscheme
   local cs = {}

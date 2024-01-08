@@ -1,8 +1,7 @@
 local util = require("monokai-pro.util")
 local M = {}
 
----@class Config
----@field override fun(colors: Colorscheme)
+---@type Config
 local default = {
   transparent_background = false,
   terminal_colors = true,
@@ -25,15 +24,10 @@ local default = {
   },
   inc_search = "background", -- underline | background
   background_clear = {
-    -- "float_win",
     "toggleterm",
     "telescope",
-    -- "which-key",
     "renamer",
     "notify",
-    -- "nvim-tree",
-    -- "neo-tree",
-    -- "bufferline",
   },
   plugins = {
     bufferline = {
@@ -47,25 +41,21 @@ local default = {
       context_start_underline = false,
     },
   },
-  ---@param colors Colorscheme
-  override = function(colors) end,
---- @param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
-  overridePalette = function(filter) end,
 }
 
 ---@type Config
 M.options = {}
 
----@param options Config|nil
+---@param options? Config
 M.setup = function(options)
   M.options = vim.tbl_deep_extend("force", {}, default, options or {})
   local day_night = M.options.day_night
-  if day_night.enable then
+  if day_night and day_night.enable then
     M.options.filter = util.is_daytime() and day_night.day_filter or day_night.night_filter
   end
 end
 
----@param options Config|nil
+---@param options? Config
 M.extend = function(options)
   M.options = vim.tbl_deep_extend("force", {}, M.options or default, options or {})
 end

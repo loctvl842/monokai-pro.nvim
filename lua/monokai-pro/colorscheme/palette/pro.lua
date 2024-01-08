@@ -1,3 +1,4 @@
+---@type Palette
 return {
   dark2 = "#19181a",
   dark1 = "#221f22",
