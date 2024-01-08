@@ -1,5 +1,5 @@
 ---@class MonokaiProIcon
----@field name string
+---@field hl_name string
 ---@field color string
 
 ---@class Style

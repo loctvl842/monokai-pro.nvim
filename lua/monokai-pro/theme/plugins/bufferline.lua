@@ -275,28 +275,20 @@ M.setup = function(c, config, hp)
 end
 
 ---@return HighlightGroupTbl?
-M.setup_bufferline_icon = function()
-  local icon_ok, webDevicons = pcall(require, "nvim-web-devicons")
-  if not icon_ok then
-    return
-  end
-  local filename = vim.fn.expand("%:t")
-  local ext = vim.fn.expand("%:e")
-  local _, icon_name = webDevicons.get_icon(filename, ext, { default = true })
-  local _, icon_color = webDevicons.get_icon_color(filename, ext, { default = true })
-  if not icon_name then
+M.setup_bufferline_icon = function(icon_hl_name, icon_color)
+  if icon_hl_name == nil then
     return
   end
   local iconSkeleton = {
-    ["BufferLine" .. icon_name .. "Selected"] = {
+    ["BufferLine" .. icon_hl_name .. "Selected"] = {
       bg = M.tab.activeBackground,
       fg = icon_color,
     },
-    ["BufferLine" .. icon_name] = {
+    ["BufferLine" .. icon_hl_name] = {
       bg = M.tab.inactiveBackground,
       fg = icon_color,
     },
-    ["BufferLine" .. icon_name .. "Inactive"] = {
+    ["BufferLine" .. icon_hl_name .. "Inactive"] = {
       bg = M.tab.unfocusedActiveBackground,
       fg = icon_color,
     },

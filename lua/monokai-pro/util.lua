@@ -183,19 +183,19 @@ M.is_daytime = function()
 end
 
 --- Get the web-devicon
----@param filename string example: "file.txt"
----@return MonokaiProIcon|nil
-M.get_devicon = function(filename)
+---@param extension string example: "txt", "lua", "python"
+---@return MonokaiProIcon?
+M.get_devicon = function(filename, extension)
   local icon_ok, webDevicons = pcall(require, "nvim-web-devicons")
   if not icon_ok then
     M.log("It is recommended to install 'nvim-web-devicons' for better experience.", "info")
     return
   end
-  local ext = vim.fn.expand("%:e")
-  local _, icon_name = webDevicons.get_icon(filename, ext, { default = true })
-  local _, icon_color = webDevicons.get_icon_color(filename, ext, { default = true })
+  local _, icon_hl_name = webDevicons.get_icon(filename, extension, { default = true })
+  local _, icon_color = webDevicons.get_icon_color(filename, extension, { default = true })
+
   return {
-    name = icon_name,
+    hl_name = icon_hl_name,
     color = icon_color,
   }
 end
