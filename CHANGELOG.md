@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.19.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.18.1...v1.19.0) (2024-01-08)
+
+
+### Features
+
+* Specify lua type for better development ([c58cc1c](https://github.com/loctvl842/monokai-pro.nvim/commit/c58cc1ca21df53c8b1d4d10cdb7e9a3f71de8aaf))
+
+
+### Bug Fixes
+
+* No longer not-loaded background of bufferline icon ([fd0b9b8](https://github.com/loctvl842/monokai-pro.nvim/commit/fd0b9b8ba25d7d04c2c565fbc29375541aae6137))
+
 ## [1.18.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.18.0...v1.18.1) (2023-12-08)
 
 
