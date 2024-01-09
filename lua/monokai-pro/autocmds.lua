@@ -6,7 +6,7 @@ end
 
 local bufferline_icon_group = require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon()
 -- draw bufferline icons
-vim.api.nvim_create_autocmd({ "VimEnter", "BufEnter" }, {
+vim.api.nvim_create_autocmd({ "ColorScheme", "BufEnter" }, {
   group = augroup("bufferline"),
   pattern = "*",
   callback = function()
