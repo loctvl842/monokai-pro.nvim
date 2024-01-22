@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.2](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.19.1...v1.19.2) (2024-01-22)
+
+
+### Bug Fixes
+
+* **lualine:** Loading wrong colors ([379d676](https://github.com/loctvl842/monokai-pro.nvim/commit/379d676850ad695837809a4adef1671a69779d60))
+
 ## [1.19.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.19.0...v1.19.1) (2024-01-22)
 
 
