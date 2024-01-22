@@ -62,19 +62,6 @@
 ---@field bufferline BufferlinePluginConfig
 ---@field indent_blankline IndentBlanklineConfig
 
----@class Config
----@field transparent_background? boolean
----@field terminal_colors? boolean
----@field devicons? boolean
----@field override? fun(colors: Colorscheme) A function to override highlight groups
----@field styles? StyleTblConfig
----@field filter? Filter
----@field day_night? DayNightConfig
----@field inc_search? IncSearchConfig
----@field background_clear? BackgroundClearConfig[]
----@field plugins? PluginConfig
----@field overridePalette? fun(filter: Filter) A function to override palette
-
 ---@alias HexColor string A hex color in the format "#RRGGBB" or "#RRGGBBAA"
 ---@alias HexColorAlpha integer A number between 0 and 1
 

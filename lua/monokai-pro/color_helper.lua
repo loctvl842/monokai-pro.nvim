@@ -1,7 +1,7 @@
 ---@class Helper
 local M = {}
 
----@param background HexColor
+---@param background? HexColor
 local function get_blend_background(background)
   if background ~= nil and background ~= "NONE" then
     return background
@@ -66,7 +66,7 @@ end
 
 ---@param hexColor HexColor
 ---@param alpha HexColorAlpha
----@param base HexColor
+---@param base? HexColor
 M.blend = function(hexColor, alpha, base)
   base = get_blend_background(base)
   local rgb = hex_to_rgb(hexColor)

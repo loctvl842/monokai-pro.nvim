@@ -37,14 +37,14 @@ local PLUGINS = {
 }
 
 -- Get highlight group dictionary
----@param colorscheme Colorscheme
----@param config Config
----@return HighlightGroupTbl
 -- Example:
 -- local hl_groups = {
 --   Normal = { bg = c.editor.background, fg = c.editor.foreground, }, -- normal text
 --   ["@modifier"] = { fg = c.base.red, italic = true },
 -- }
+---@param colorscheme Colorscheme
+---@param config Config
+---@return HighlightGroupTbl
 local function get_hl_group_dict(colorscheme, config)
   local editor = require("monokai-pro.theme.editor").setup(colorscheme, config, helper)
   local syntax = require("monokai-pro.theme.syntax").setup(colorscheme, config, helper)
@@ -72,7 +72,7 @@ end
 
 ---@return HighlightGroupTbl
 M.setup = function()
-  local config = require("monokai-pro.config").options
+  local config = require("monokai-pro.config")
   local devicons = require("monokai-pro.devicons")
   local colorscheme = require("monokai-pro.colorscheme").setup(config.filter)
 

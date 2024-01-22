@@ -50,7 +50,7 @@ local highlight = function(group, hl_group_opt)
   vim.api.nvim_set_hl(0, group, hl_value)
 end
 
-M.create_menu = function(title, items, handler)
+function M.create_menu(title, items, handler)
   if not nui_ok then
     return
   end
@@ -109,7 +109,7 @@ M.create_menu = function(title, items, handler)
 end
 
 ---@param hl_group_tbl? HighlightGroupTbl
-M.draw = function(hl_group_tbl)
+function M.draw(hl_group_tbl)
   if hl_group_tbl == nil then
     return
   end
@@ -122,7 +122,7 @@ end
 --- @param msg string
 --- @param level "debug"|"info"|"warn"|"error"
 --- @param opts table|nil
-M.log = function(msg, level, opts)
+function M.log(msg, level, opts)
   opts = opts or {}
   level = vim.log.levels[level:upper()]
   if type(msg) == "table" then
@@ -140,7 +140,7 @@ M.log = function(msg, level, opts)
 end
 
 ---@param colors Colorscheme
-M.terminal = function(colors)
+function M.terminal(colors)
   -- dark
   vim.g.terminal_color_0 = colors.base.black
   vim.g.terminal_color_8 = colors.base.dimmed3
@@ -176,7 +176,7 @@ local function load_autocmds()
   end
 end
 
-M.is_daytime = function()
+function M.is_daytime()
   local current_time = os.time()
   local current_hour = tonumber(os.date("%H", current_time))
   return current_hour >= 6 and current_hour < 18
@@ -185,7 +185,7 @@ end
 --- Get the web-devicon
 ---@param extension string example: "txt", "lua", "python"
 ---@return MonokaiProIcon?
-M.get_devicon = function(filename, extension)
+function M.get_devicon(filename, extension)
   local icon_ok, webDevicons = pcall(require, "nvim-web-devicons")
   if not icon_ok then
     M.log("It is recommended to install 'nvim-web-devicons' for better experience.", "info")
@@ -201,7 +201,7 @@ M.get_devicon = function(filename, extension)
 end
 
 ---@param hl_group_tbl HighlightGroupTbl
-M.load = function(hl_group_tbl)
+function M.load(hl_group_tbl)
   if vim.g.colors_name then
     vim.cmd([[hi clear]])
   end

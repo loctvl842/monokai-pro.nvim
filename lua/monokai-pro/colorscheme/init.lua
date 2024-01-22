@@ -1,5 +1,5 @@
 local util = require("monokai-pro.util")
-local config = require("monokai-pro.config").options
+local config = require("monokai-pro.config")
 
 local M = {
   filter = config.filter,
