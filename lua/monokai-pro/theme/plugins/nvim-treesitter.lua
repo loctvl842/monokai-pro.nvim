@@ -4,7 +4,7 @@ local M = {}
 --- @param config Config
 M.setup = function(c, config, _)
   local styles = config.styles
-  return {
+  local spec = {
     ["@include"] = { fg = c.base.red }, -- `import`
     ["@variable"] = { fg = c.base.white },
     ["@punctuation.delimiter"] = { fg = c.base.dimmed2 }, -- `;`
@@ -105,7 +105,19 @@ M.setup = function(c, config, _)
     ["@text.reference.markdown_inline"] = { fg = c.base.red },
     ["@punctuation.special.markdown"] = { fg = c.base.dimmed2 },
     ["@conceal.markdown"] = { bg = c.base.black },
+    ["@markup.raw.delimiter.markdown"] = { bg = c.base.black, fg = c.base.dimmed2 },
+    ["@markup.raw.block.markdown"] = { bg = c.base.black },
+    ["@markup.link.label.markdown_inline"] = { fg = c.base.red },
+    ["@markup.link.url.markdown_inline"] = { fg = c.base.green, underline = true },
+    ["@markup.strong.markdown_inline"] = { bold = true },
+    ["@markup.italic.markdown_inline"] = { italic = true },
+    ["@markup.raw.markdown_inline"] = { bg = c.base.dimmed4, fg = c.base.white },
   }
+  for i = 1, 9 do
+    spec["@markup.heading." .. i .. ".markdown"] = { fg = c.base.yellow }
+    spec["@markup.heading." .. i .. ".marker.markdown"] = { fg = c.base.dimmed2 }
+  end
+  return spec
 end
 
 return M
