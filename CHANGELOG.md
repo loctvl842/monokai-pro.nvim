@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.3](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.19.2...v1.19.3) (2024-01-22)
+
+
+### Bug Fixes
+
+* **treesitter:** new update breaks python ([2c5fe64](https://github.com/loctvl842/monokai-pro.nvim/commit/2c5fe64ea44a05401b08be3eaaef8e69f20afbbc))
+
 ## [1.19.2](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.19.1...v1.19.2) (2024-01-22)
 
 
