@@ -1,7 +1,5 @@
-local c = require("monokai-pro.colorscheme").colors
-if c == nil then
-  c = require("monokai-pro.colorscheme").setup("pro")
-end
+local c = require("monokai-pro.colorscheme")
+c = c or c()
 
 local M = {
   normal = { bg = c.editor.background, fg = c.breadcrumb.foreground },

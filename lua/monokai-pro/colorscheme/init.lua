@@ -1,36 +1,48 @@
-local util = require("monokai-pro.util")
-local config = require("monokai-pro.config")
+local Util = require("monokai-pro.util")
+local Config = require("monokai-pro.config")
 
-local M = {
-  filter = config.filter,
-  colors = {},
-}
+---@class ColorschemeOptions
+local cs = {}
+
+---@class Colorscheme: ColorschemeOptions
+local M = setmetatable({
+  filter = Config.filter,
+}, {
+  __index = function(m, k)
+    local color = rawget(cs or {}, k)
+    if color == nil then
+      cs = m()
+    end
+    return rawget(cs or {}, k)
+  end,
+  __call = function(t, ...)
+    return t.get(...)
+  end,
+})
 
 local hp = require("monokai-pro.color_helper")
 
----@param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
----@return Colorscheme
-M.setup = function(filter)
+---@param filter Filter
+---@return ColorschemeOptions
+M.get = function(filter)
   local filters = { "classic", "machine", "octagon", "pro", "ristretto", "spectrum" }
 
   if not vim.tbl_contains(filters, filter) then
     local msg = 'Invalid filter, expected "classic", "machine", "octagon", "pro", "ristretto" or "spectrum"'
     local level = "info"
     filter = "pro"
-    util.log(msg, level)
+    Util.log(msg, level)
   end
 
   M.filter = filter
 
   ---@module "monokai-pro.colorscheme.palette.pro"
   local monokai_palette = require("monokai-pro.colorscheme.palette." .. M.filter)
-  local p = vim.tbl_deep_extend("force", monokai_palette, config.overridePalette and config.overridePalette(filter) or {})
-
-  --- @class Colorscheme
-  local cs = {}
+  local p =
+    vim.tbl_deep_extend("force", monokai_palette, Config.overridePalette and Config.overridePalette(filter) or {})
 
   cs.editor = {
-    background = config.transparent_background and "NONE" or p.background,
+    background = Config.transparent_background and "NONE" or p.background,
     foreground = p.text,
     lineHighlightBackground = hp.blend(p.text, 0.05, p.background), -- "#fcfcfa0c", -- background: background
     selectionBackground = hp.blend(p.dimmed1, 0.15, p.background), --"#c1c0c027", -- background: background
@@ -160,7 +172,7 @@ M.setup = function(filter)
   }
 
   cs.tab = {
-    activeBackground = config.transparent_background and "NONE" or p.background, -- "#272822",
+    activeBackground = Config.transparent_background and "NONE" or p.background, -- "#272822",
     activeBorder = p.accent3, -- "#ffd866",
     activeForeground = p.accent3, -- "#ffd866",
     inactiveBackground = hp.lighten(p.background, 15),
@@ -221,7 +233,6 @@ M.setup = function(filter)
     dimmed5 = p.dimmed5, -- "#403e41",
   }
 
-  M.colors = cs
   return cs
 end
 
