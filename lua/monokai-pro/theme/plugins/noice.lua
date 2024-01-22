@@ -14,7 +14,7 @@ M.setup = function(c, _, _)
     },
     NoiceCmdlineIconSearch = { fg = c.base.blue },
     NoiceFormatProgressDone = { bg = c.base.yellow, fg = c.base.black, bold = true },
-    NoiceFormatProgressTodo = { bg = c.base.dimmed4, fg = c.base.dimmed5 },
+    NoiceFormatProgressTodo = { bg = c.base.dimmed3, fg = c.base.dimmed5 },
     NoiceLspProgressTitle = { fg = c.base.dimmed2 },
     NoiceLspProgressClient = { fg = c.base.cyan },
     NoiceConfirm = { bg = c.notifications.background, fg = c.notifications.foreground },
@@ -22,6 +22,7 @@ M.setup = function(c, _, _)
     NoiceFormatConfirm = { bg = c.button.background, fg = c.button.foreground },
     NoiceFormatConfirmDefault = { bg = c.button.hoverBackground, fg = c.button.foreground },
     NoiceSplit = { bg = c.editor.background },
+    NoiceMini = { fg = c.base.dimmed4 },
   }
 end
 

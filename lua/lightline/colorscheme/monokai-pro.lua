@@ -1,8 +1,8 @@
-local colors = require("monokai-pro.colorscheme").colors
+local colors = require("monokai-pro.colorscheme")
 
-local monokai_pro = {}
+local M = {}
 
-monokai_pro.normal = {
+M.normal = {
   left = {
     { colors.base.black, colors.base.yellow },
     { colors.base.yellow, colors.editorSuggestWidget.background },
@@ -16,28 +16,28 @@ monokai_pro.normal = {
   warning = { { colors.base.black, colors.base.blue } },
 }
 
-monokai_pro.insert = {
+M.insert = {
   left = {
     { colors.base.black, colors.base.green },
     { colors.base.green, colors.editorSuggestWidget.background },
   },
 }
 
-monokai_pro.visual = {
+M.visual = {
   left = {
     { colors.base.black, colors.base.magenta },
     { colors.base.magenta, colors.editorSuggestWidget.background },
   },
 }
 
-monokai_pro.replace = {
+M.replace = {
   left = {
     { colors.base.black, colors.base.red },
     { colors.base.red, colors.editorSuggestWidget.background },
   },
 }
 
-monokai_pro.inactive = {
+M.inactive = {
   left = {
     { colors.base.yellow, colors.base.black },
     { colors.base.black, colors.base.black },
@@ -49,4 +49,4 @@ monokai_pro.inactive = {
 
 package.loaded["colors"] = nil
 
-return monokai_pro
+return M
