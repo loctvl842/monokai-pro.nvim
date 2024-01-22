@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.19.0...v1.19.1) (2024-01-22)
+
+
+### Bug Fixes
+
+* Update the bufferline icon background when changing the ColorsScheme. ([d14bccf](https://github.com/loctvl842/monokai-pro.nvim/commit/d14bccfddc065c72b12bcfb5e3ccdf7f7ebb3742))
+
 ## [1.19.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.18.1...v1.19.0) (2024-01-08)
 
 
