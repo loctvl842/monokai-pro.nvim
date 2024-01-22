@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.4](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.19.3...v1.19.4) (2024-01-22)
+
+
+### Bug Fixes
+
+* **treesitter:** The markdown file lost its colors due to an update in `treesitter`. ([d512a58](https://github.com/loctvl842/monokai-pro.nvim/commit/d512a5814c626d0052a669b52ee8627f626154a9))
+
 ## [1.19.3](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.19.2...v1.19.3) (2024-01-22)
 
 
