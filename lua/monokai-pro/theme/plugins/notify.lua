@@ -1,6 +1,42 @@
 local M = {}
 
 --- @param c Colorscheme The color palette
+local function hl_noice(c)
+  local ok, noice_hl = pcall(require, "noice.text.highlight")
+  if not ok then
+    return
+  end
+
+  function noice_hl._create_hl(attr_id)
+    if attr_id == 0 then
+      return
+    end
+    if not noice_hl.hl_attrs[attr_id] then
+      local attrs = noice_hl.attr2entry(attr_id)
+      noice_hl.hl_attrs[attr_id] = {
+        fg = attrs.rgb_fg_color,
+        bg = c.notifications.background,
+        sp = attrs.rgb_sp_color,
+        ---@diagnostic disable-next-line: undefined-global
+        bold = bit.band(attrs.rgb_ae_attr, 0x02),
+        standout = bit.band(attrs.rgb_ae_attr, 0x0100),
+        italic = bit.band(attrs.rgb_ae_attr, 0x04),
+        underline = bit.band(attrs.rgb_ae_attr, 0x08),
+        undercurl = bit.band(attrs.rgb_ae_attr, 0x10),
+        nocombine = bit.band(attrs.rgb_ae_attr, 0x0200),
+        reverse = bit.band(attrs.rgb_ae_attr, 0x01),
+        blend = attrs.hl_blend ~= -1 and attrs.hl_blend or nil,
+      }
+    end
+    if not noice_hl.hl[attr_id] then
+      local hl_group = noice_hl.get_hl_group(attr_id)
+      vim.api.nvim_set_hl(0, hl_group, noice_hl.hl_attrs[attr_id])
+      noice_hl.hl[attr_id] = attr_id
+    end
+  end
+end
+
+--- @param c Colorscheme The color palette
 --- @param config Config
 --- @param hp Helper
 M.setup = function(c, config, hp)
@@ -52,6 +88,7 @@ M.setup = function(c, config, hp)
         }
       end
     end
+    hl_noice(c)
   end
   return notify_groups
 end

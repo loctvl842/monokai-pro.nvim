@@ -52,7 +52,7 @@ M.setup = function(c, config, _)
     ["@constant.macro.cpp"] = { fg = c.base.red },
     ["@punctuation.delimiter.cpp"] = { fg = c.sideBar.foreground },
     -- python
-    ["@type.python"] = { fg = c.base.white },
+    ["@type.python"] = { fg = c.base.cyan }, -- Class name, bool, str, ...
     ["@keyword.python"] = { fg = c.base.cyan, italic = styles.keyword.italic },
     ["@keyword.function.python"] = { fg = c.base.cyan, italic = styles.keyword.italic },
     ["@keyword.import.python"] = { fg = c.base.red },
@@ -60,6 +60,7 @@ M.setup = function(c, config, _)
     ["@variable.builtin.python"] = { fg = c.editorSuggestWidget.foreground, italic = true },
     ["@variable.python"] = { fg = c.base.white },
     ["@variable.parameter.python"] = { fg = c.base.blue, italic = true },
+    ["@variable.member.python"] = { fg = c.base.cyan }, -- Python attributes, self.__class__.__name__
     ["@field.python"] = { fg = c.base.white },
     ["@varibale.builtin.python"] = { fg = c.base.blue, italic = true },
     ["@constructor.python"] = { fg = c.base.green },
