@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.5](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.19.4...v1.19.5) (2024-01-23)
+
+
+### Bug Fixes
+
+* notify background wrong for noice ([05f6c9e](https://github.com/loctvl842/monokai-pro.nvim/commit/05f6c9e302612e7732f02cec0ecea708ad4be878))
+
 ## [1.19.4](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.19.3...v1.19.4) (2024-01-22)
 
 
