@@ -62,7 +62,7 @@ M.setup = function(c, config, _)
     ["@variable.parameter.python"] = { fg = c.base.blue, italic = true },
     ["@variable.member.python"] = { fg = c.base.cyan }, -- Python attributes, self.__class__.__name__
     ["@field.python"] = { fg = c.base.white },
-    ["@varibale.builtin.python"] = { fg = c.base.blue, italic = true },
+    ["@variable.builtin.python"] = { fg = c.base.blue, italic = true },
     ["@constructor.python"] = { fg = c.base.green },
     ["@method.python"] = { fg = c.base.green },
     ["@function.builtin.python"] = { fg = c.base.cyan, italic = true },
