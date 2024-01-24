@@ -58,12 +58,8 @@ local function get_hl_group_tbl(colorscheme)
   local hl_group_tbl = {}
   hl_group_tbl = vim.tbl_deep_extend("force", hl_group_tbl, editor, syntax, semantic_tokens, extra)
   for _, name in ipairs(PLUGINS) do
-    local config_ok, plugin = pcall(require, "monokai-pro.theme.plugins." .. name)
-    if not config_ok then
-      local msg = "Failed to load highlight group: " .. name
-      local level = "error"
-      Util.log(msg, level)
-    else
+    local config_ok, plugin = xpcall(require, function(...) Util.log("Failed to load highlight group: " .. name .. "\n" .. debug.traceback(...), "error")return ... end, "monokai-pro.theme.plugins." .. name)
+    if config_ok then
       hl_group_tbl = vim.tbl_deep_extend("force", hl_group_tbl, plugin.setup(colorscheme, Config, Helper))
     end
   end
