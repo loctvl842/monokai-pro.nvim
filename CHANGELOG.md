@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.20.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.19.5...v1.20.0) (2024-01-26)
+
+
+### Features
+
+* add traceback when plugins fail to load ([4bc34f7](https://github.com/loctvl842/monokai-pro.nvim/commit/4bc34f700563f5c550efdcda9959904d97e9298d))
+* Merge pull request [#108](https://github.com/loctvl842/monokai-pro.nvim/issues/108) from Red-M/feature_plugin_traceback ([5062259](https://github.com/loctvl842/monokai-pro.nvim/commit/506225983f9128be003e207961ad611ce8b7beb5))
+
 ## [1.19.5](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.19.4...v1.19.5) (2024-01-23)
 
 
