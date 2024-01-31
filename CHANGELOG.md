@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.20.0...v1.20.1) (2024-01-31)
+
+
+### Bug Fixes
+
+* **treesitter:** update default color as typescript color ([e730188](https://github.com/loctvl842/monokai-pro.nvim/commit/e73018823322ee422445e8352df03162df35d041))
+
 ## [1.20.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.19.5...v1.20.0) (2024-01-26)
 
 
