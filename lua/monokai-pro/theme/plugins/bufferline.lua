@@ -48,10 +48,11 @@ M.setup = function(c, config, hp)
   local isBackgroundClear = vim.tbl_contains(config.background_clear, "bufferline")
 
   local tabsBackground = isBackgroundClear and c.editor.background or c.editorGroupHeader.tabsBackground
+  local amt = 10
   M.tab = vim.tbl_deep_extend("force", c.tab, isBackgroundClear and {
-    activeBackground = hp.lighten(c.tab.activeBackground, 10),
-    inactiveBackground = hp.lighten(c.tab.inactiveBackground, 10),
-    unfocusedActiveBackground = hp.lighten(c.tab.unfocusedActiveBackground, 10),
+    activeBackground = hp.lighten(c.tab.activeBackground, amt),
+    inactiveBackground = hp.lighten(c.tab.inactiveBackground, amt),
+    unfocusedActiveBackground = hp.lighten(c.tab.unfocusedActiveBackground, amt),
   } or {})
 
   ---@param underline_type "fill" | "visible" | "selected"

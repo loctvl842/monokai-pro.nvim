@@ -5,36 +5,43 @@ local M = {}
 M.setup = function(c, config, _)
   local styles = config.styles
   local spec = {
-    ["@include"] = { fg = c.base.red }, -- `import`
-    ["@variable"] = { fg = c.base.white },
-    ["@punctuation.delimiter"] = { fg = c.base.dimmed2 }, -- `;`
-    ["@punctuation.bracket"] = { fg = c.base.dimmed2 }, -- `(`
-    ["@constructor"] = { fg = c.base.red }, -- `StrictMode` in `<React.StrictMode>`
-    ["@tag.delimiter"] = { fg = c.base.dimmed2 }, -- `<`, `>` in `<div>`
-    ["@operator"] = { fg = c.base.red }, -- `=`, `=>`
-    ["@keyword"] = { fg = c.base.cyan, italic = styles.keyword.italic }, -- `const`, `export`, `default`
-    ["@parameter"] = { fg = c.base.blue, italic = styles.parameter.italic },
-    ["@string.documentation"] = { fg = c.base.dimmed3 },
-    ["@type.builtin"] = { fg = c.base.cyan, italic = styles.type.italic },
-    ["@_isinstance"] = { fg = c.base.green },
-
-    ["@keyword.return"] = { fg = c.base.red },
-    ["@keyword.operator"] = { fg = c.base.red },
-    ["@method.call"] = { fg = c.base.green },
-    ["@property"] = { fg = c.base.white },
-    ["@function"] = { fg = c.base.green },
+    ---typescript
+    ["@annotation"] = { fg = c.base.cyan, italic = styles.annotation.italic },
+    -- ["@attribute"] = { fg = c.base.cyan },
+    ["@boolean"] = { fg = c.base.magenta },
     ["@constant.builtin"] = { fg = c.base.magenta },
+    ["@constructor"] = { fg = c.base.red },
+    ["@conditional"] = { fg = c.base.red },
+    ["@field"] = { fg = c.base.red },
+    ["@function"] = { fg = c.base.green },
+    ["@function.method.call"] = { fg = c.base.green }, -- Can be `green` or `white`. `green` is better.
+    ["@include"] = { fg = c.base.red },
+    ["@keyword"] = { fg = c.base.red, italic = styles.keyword.italic }, -- `export`, `class`, `implements`, `const`
+    ["@keyword.function"] = { fg = c.base.cyan, bold = true, italic = styles.keyword.italic },
+    ["@keyword.import"] = { fg = c.base.red }, -- `import`
+    ["@keyword.operator"] = { fg = c.base.red },
+    ["@keyword.return"] = { fg = c.base.red },
+    ["@method.call"] = { fg = c.base.green },
+    ["@number"] = { fg = c.base.magenta },
+    ["@operator"] = { fg = c.base.red }, -- `=`, `=>`
+    ["@parameter"] = { fg = c.base.blue, italic = styles.parameter.italic },
+    ["@property"] = { fg = c.base.white },
+    ["@punctuation.bracket"] = { fg = c.base.blue }, -- `(`
+    ["@punctuation.delimiter"] = { fg = c.base.dimmed2 }, -- `;`
+    ["@punctuation.special"] = { fg = c.base.red }, -- `?` (e.g. {name?: string})
+    ["@repeat"] = { fg = c.base.red },
+    ["@string.documentation"] = { fg = c.base.dimmed3 },
     ["@tag"] = { fg = c.base.red },
     ["@tag.attribute"] = { fg = c.base.cyan, italic = styles.tag_attribute.italic },
-    ["@attribute"] = { fg = c.base.cyan },
-    ["@conditional"] = { fg = c.base.red },
-    ["@repeat"] = { fg = c.base.red },
-    ["@keyword.function"] = { fg = c.base.cyan, bold = true, italic = styles.keyword.italic },
-    ["@number"] = { fg = c.base.magenta },
-    ["@boolean"] = { fg = c.base.magenta },
+    ["@tag.delimiter"] = { fg = c.base.dimmed2 }, -- `<`, `>` in `<div>`
+    ["@type"] = { fg = c.base.cyan }, -- All types, interfaces, class names
+    ["@type.builtin"] = { fg = c.base.cyan, italic = styles.type.italic },
     ["@type.qualifier"] = { fg = c.base.red, italic = styles.type.italic },
-    ["@annotation"] = { fg = c.base.cyan, italic = styles.annotation.italic },
-    ["@field"] = { fg = c.base.red },
+    ["@variable"] = { fg = c.base.white },
+    ["@variable.builtin"] = { fg = c.base.dimmed1, italic = true },
+    ["@variable.member"] = { fg = c.base.magenta }, -- class members
+    ["@variable.parameter"] = { fg = c.base.blue, italic = true },
+    ["@_isinstance"] = { fg = c.base.green },
     -- scss
     ["@keyword.scss"] = { fg = c.base.red },
     ["@function.scss"] = { fg = c.base.cyan },
