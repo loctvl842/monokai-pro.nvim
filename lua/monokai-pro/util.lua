@@ -188,7 +188,6 @@ end
 function M.get_devicon(filename, extension)
   local icon_ok, webDevicons = pcall(require, "nvim-web-devicons")
   if not icon_ok then
-    M.log("It is recommended to install 'nvim-web-devicons' for better experience.", "info")
     return
   end
   local _, icon_hl_name = webDevicons.get_icon(filename, extension, { default = true })
