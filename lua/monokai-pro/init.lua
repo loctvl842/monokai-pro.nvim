@@ -7,7 +7,7 @@ local command = require("monokai-pro.command")
 local M = {}
 
 M.load = function()
-  util.load(theme.setup())
+  util.theme.load(theme.setup())
 end
 
 --- @param filter "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"

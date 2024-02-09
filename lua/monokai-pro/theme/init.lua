@@ -3,10 +3,20 @@ local Util = require("monokai-pro.util")
 local Config = require("monokai-pro.config")
 local Colorscheme = require("monokai-pro.colorscheme")
 
+---@class MonokaiProTheme
+---@field mini monokai-pro.theme.plugins.mini
 local M = {}
+
+setmetatable(M, {
+  __index = function(_, k)
+    local plugin = require("monokai-pro.theme.plugins" .. k)
+    return plugin
+  end,
+})
+
 ---@enum SupportedPlugins
 local PLUGINS = {
-  "Mini",
+  "mini",
   "alpha",
   "beacon",
   "breadcrumb",
@@ -63,7 +73,7 @@ local function get_hl_group_tbl(colorscheme)
       return ...
     end, "monokai-pro.theme.plugins." .. name)
     if config_ok then
-      hl_group_tbl = vim.tbl_deep_extend("force", hl_group_tbl, plugin.setup(colorscheme, Config, Helper))
+      hl_group_tbl = vim.tbl_deep_extend("force", hl_group_tbl, plugin.get(colorscheme, Config, Helper))
     end
   end
   hl_group_tbl = vim.tbl_deep_extend("force", hl_group_tbl, Config.override and Config.override(colorscheme) or {})
@@ -77,7 +87,7 @@ M.setup = function()
   local hl_group_tbl = get_hl_group_tbl(Colorscheme(Config.filter))
 
   if Config.terminal_colors then
-    Util.terminal(Colorscheme)
+    Util.extra.terminal(Colorscheme)
   end
 
   if Config.devicons then

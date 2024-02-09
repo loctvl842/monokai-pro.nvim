@@ -2,7 +2,7 @@ local M = {}
 
 --- @param c Colorscheme The color palette
 --- @param hp Helper
-M.setup = function(c, _, hp)
+function M.get(c, _, hp)
   local lazy_bg = hp.lighten(c.sideBar.background, 5)
   return {
     LazyButton = { bg = c.button.background, fg = c.button.foreground },

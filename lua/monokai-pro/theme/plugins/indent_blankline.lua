@@ -2,7 +2,7 @@ local M = {}
 
 --- @param c Colorscheme The color palette
 --- @param config Config
-M.setup = function(c, config, _)
+function M.get(c, config, _)
   -- pro | default
   local isContextPro = config.plugins.indent_blankline.context_highlight == "pro"
   local isContextStartUnderline = config.plugins.indent_blankline.context_start_underline

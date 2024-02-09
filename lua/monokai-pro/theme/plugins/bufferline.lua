@@ -1,12 +1,21 @@
 local M = {}
 
-M.addBold = function(bufferline_groups)
+---@class monokai-pro.theme.plugins.bufferline
+local options = {
+  underline_selected = false,
+  underline_visible = false,
+  underline_fill = false,
+  bold = true,
+  background_clear = true,
+}
+
+M.add_bold = function(bufferline_groups)
   for _, hlValue in pairs(bufferline_groups) do
     hlValue["bold"] = true
   end
 end
 
-M.addUnderline = function(bufferline_groups)
+M.add_underline = function(bufferline_groups)
   for key, hlValue in pairs(bufferline_groups) do
     if string.find(key, "Selected") then
       hlValue["underline"] = M.isUnderlined.selected
@@ -24,7 +33,7 @@ end
 --- @param c Colorscheme The color palette
 --- @param config Config
 --- @param hp Helper
-M.setup = function(c, config, hp)
+function M.get(c, config, hp)
   local bufferline_config = config.plugins.bufferline
 
   M.underline_selected = bufferline_config.underline_selected
@@ -267,10 +276,10 @@ M.setup = function(c, config, hp)
     },
   }
   if isBold then
-    M.addBold(bufferline_groups)
+    M.add_bold(bufferline_groups)
   end
 
-  M.addUnderline(bufferline_groups)
+  M.add_underline(bufferline_groups)
 
   return bufferline_groups
 end
@@ -280,7 +289,7 @@ M.setup_bufferline_icon = function(icon_hl_name, icon_color)
   if icon_hl_name == nil then
     return
   end
-  local iconSkeleton = {
+  local skeleton = {
     ["BufferLine" .. icon_hl_name .. "Selected"] = {
       bg = M.tab.activeBackground,
       fg = icon_color,
@@ -295,8 +304,8 @@ M.setup_bufferline_icon = function(icon_hl_name, icon_color)
     },
   }
 
-  M.addUnderline(iconSkeleton)
-  return iconSkeleton
+  M.add_underline(skeleton)
+  return skeleton
 end
 
 return M

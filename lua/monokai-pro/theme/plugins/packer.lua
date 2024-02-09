@@ -1,7 +1,7 @@
 local M = {}
 
 --- @param c Colorscheme The color palette
-M.setup = function(c, _, _)
+function M.get(c, _, _)
   return {
     packerString = { fg = c.base.blue },
     packerHash = { fg = c.base.blue },

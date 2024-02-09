@@ -66,7 +66,7 @@ M.setup = function(options)
   config = vim.tbl_deep_extend("force", config, options or {})
   local day_night = config.day_night
   if day_night and day_night.enable then
-    config.filter = util.is_daytime() and day_night.day_filter or day_night.night_filter
+    config.filter = util.extra.is_daytime() and day_night.day_filter or day_night.night_filter
   end
 end
 

@@ -1,7 +1,8 @@
+---@class monokai-pro.theme.plugins.mini
 local M = {}
 
 --- @param c Colorscheme The color palette
-M.setup = function(c, _, _)
+function M.get(c, _, _)
   return {
     MiniIndentscopeSymbol = { fg = c.base.blue },
   }

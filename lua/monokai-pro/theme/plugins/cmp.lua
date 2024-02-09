@@ -2,7 +2,7 @@ local M = {}
 
 --- @param c Colorscheme The color palette
 --- @param hp Helper
-M.setup = function(c, _, hp)
+function M.get(c, _, hp)
   return {
     CmpItemAbbrMatch = { fg = c.editorSuggestWidget.highlightForeground, bold = true }, -- text match in order
     CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" }, -- text match not in order

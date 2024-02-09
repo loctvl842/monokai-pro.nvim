@@ -16,12 +16,12 @@ vim.api.nvim_create_autocmd({ "ColorScheme", "BufEnter" }, {
       -- Get extension
       local filename = vim.fn.fnamemodify(buf_name, ":t")
       local extension = vim.fn.fnamemodify(buf_name, ":e")
-      local icon = util.get_devicon(filename, extension)
+      local icon = util.devicons.get(filename, extension)
       if icon == nil then
         return
       end
       bufferline_icon_group = require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon(icon.hl_name, icon.color)
-      util.draw(bufferline_icon_group)
+      util.theme.draw(bufferline_icon_group)
     end
   end,
 })

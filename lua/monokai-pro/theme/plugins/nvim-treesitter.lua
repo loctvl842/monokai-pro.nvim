@@ -2,7 +2,7 @@ local M = {}
 
 --- @param c Colorscheme The color palette
 --- @param config Config
-M.setup = function(c, config, _)
+function M.get(c, config, _)
   local styles = config.styles
   local spec = {
     ---typescript
@@ -26,7 +26,7 @@ M.setup = function(c, config, _)
     ["@operator"] = { fg = c.base.red }, -- `=`, `=>`
     ["@parameter"] = { fg = c.base.blue, italic = styles.parameter.italic },
     ["@property"] = { fg = c.base.white },
-    ["@punctuation.bracket"] = { fg = c.base.blue }, -- `(`
+    ["@punctuation.bracket"] = { fg = c.base.red }, -- `(`
     ["@punctuation.delimiter"] = { fg = c.base.dimmed2 }, -- `;`
     ["@punctuation.special"] = { fg = c.base.red }, -- `?` (e.g. {name?: string})
     ["@repeat"] = { fg = c.base.red },

@@ -3,7 +3,7 @@ local M = {}
 --- @param c Colorscheme The color palette
 --- @param config Config
 --- @param hp Helper
-M.setup = function(c, config, hp)
+function M.get(c, config, hp)
   local isBackgroundClear = vim.tbl_contains(config.background_clear, "telescope")
 
   local transparent_bg = c.editor.background
