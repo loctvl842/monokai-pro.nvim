@@ -139,6 +139,11 @@ require("monokai-pro").setup({
   },
   ---@param c Colorscheme
   override = function(c) end,
+  ---@param cs Colorscheme
+  ---@param p ColorschemeOptions
+  ---@param Config MonokaiProOptions
+  ---@param hp Helper
+  override = function(cs: Colorscheme, p: ColorschemeOptions, Config: MonokaiProOptions, hp: Helper) end,
 })
 ```
 
@@ -251,7 +256,7 @@ require('barbecue').setup {
 let g:lightline = {'colorscheme': 'monokaipro'}
 ```
 
-- Override function:
+- Override function for customizing the final color scheme:
 
 ```lua
 require("monokai-pro").setup({
@@ -265,9 +270,9 @@ require("monokai-pro").setup({
   })
 ```
 
-- Custom your own palette:
+- Customize your own palette:
 
-This is a sample config to customize `Tokyonight` palette:
+This is a sample config to use `Tokyonight` as the palette:
 
 ```lua
 require("monokai-pro").setup({
@@ -296,6 +301,26 @@ require("monokai-pro").setup({
         dimmed4 = "#363b54",
         dimmed5 = "#16161e",
       }
+    end
+    -- ...
+  })
+```
+
+- Customize the scheme:
+
+This is a sample config to use a darker background for almost all supported plugins:
+
+```lua
+require("monokai-pro").setup({
+    -- ...
+    overrideScheme = function(cs, p, config, hp)
+      local cs_override = {}
+      local calc_bg = hp.blend(p.background, 0.75, '#000000')
+
+      cs_override.editor = {
+        background = calc_bg,
+      }
+      return cs_override
     end
     -- ...
   })
