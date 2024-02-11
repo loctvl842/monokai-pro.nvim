@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.2](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.20.1...v1.20.2) (2024-02-09)
+
+
+### Bug Fixes
+
+* Merge pull request [#97](https://github.com/loctvl842/monokai-pro.nvim/issues/97) from sartak/master ([711c10c](https://github.com/loctvl842/monokai-pro.nvim/commit/711c10cbbe57c90cb3e1c437da46f100022b5a95))
+
 ## [1.20.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.20.0...v1.20.1) (2024-01-31)
 
 
