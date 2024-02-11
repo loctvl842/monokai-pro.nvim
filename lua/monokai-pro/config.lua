@@ -3,6 +3,7 @@ local util = require("monokai-pro.util")
 ---@field plugins? PluginConfig
 ---@field override? fun(c: Colorscheme)
 ---@field overridePalette? fun(filter: Filter) A function to override palette
+---@field overrideScheme? fun(cs: Colorscheme, p: ColorschemeOptions, Config: MonokaiProOptions, hp: Helper) A function to override scheme
 local config = {
   transparent_background = false,
   terminal_colors = true,
