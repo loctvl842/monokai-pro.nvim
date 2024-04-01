@@ -58,6 +58,7 @@ function M.get(c, config, hp)
 
   local tabsBackground = isBackgroundClear and c.editor.background or c.editorGroupHeader.tabsBackground
   local amt = 10
+
   M.tab = vim.tbl_deep_extend("force", c.tab, isBackgroundClear and {
     activeBackground = hp.lighten(c.tab.activeBackground, amt),
     inactiveBackground = hp.lighten(c.tab.inactiveBackground, amt),
@@ -257,10 +258,29 @@ function M.get(c, config, hp)
       bg = M.tab.unfocusedActiveBackground,
       fg = c.base.red,
     },
+    BufferLineTab = {
+      bg = M.tab.inactiveBackground,
+      fg = hp.blend(c.base.white, normalAlpha, M.tab.inactiveBackground),
+    },
     BufferLineTabClose = {
       bg = tabsBackground,
       fg = tabsBackground,
     },
+    BufferLineTabSelected = {
+      bg = M.tab.activeBackground,
+      fg = M.tab.activeForeground,
+    },
+    BufferLineTabSeparator = {
+      bg = M.tab.inactiveBackground,
+      fg = M.tab.inactiveBackground,
+      -- fg = tabsBackground,
+    },
+    BufferLineTabSeparatorSelected = {
+      bg = M.tab.activeBackground,
+      fg = M.tab.activeBackground,
+      -- fg = tabsBackground,
+    },
+
     -- indicator
     BufferLineIndicatorSelected = {
       bg = M.tab.activeBackground,

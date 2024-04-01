@@ -1,7 +1,7 @@
 ---@class Helper
 local M = {}
 
----@param background? HexColor
+---@param background? HexColor | "NONE"
 local function get_blend_background(background)
   if background ~= nil and background ~= "NONE" then
     return background
@@ -33,9 +33,12 @@ local function rgb_to_hex(rgb)
   return "#" .. red .. green .. blue
 end
 
----@param hex HexColor
+---@param hex HexColor | "NONE"
 ---@param amt number
 M.lighten = function(hex, amt)
+  -- stylua: ignore
+  if hex == "NONE" then return hex end
+
   local rgb = hex_to_rgb(hex)
   -- over upper
   rgb.r = (rgb.r + amt > 255) and 255 or (rgb.r + amt)
@@ -64,12 +67,15 @@ M.rgba = function(red, green, blue, alpha, background)
   return rgb_to_hex({ r = red, g = green, b = blue })
 end
 
----@param hexColor HexColor
+---@param hex HexColor | "NONE"
 ---@param alpha HexColorAlpha
 ---@param base? HexColor
-M.blend = function(hexColor, alpha, base)
+M.blend = function(hex, alpha, base)
+  -- stylua: ignore
+  if hex == "NONE" then return "NONE" end
+
   base = get_blend_background(base)
-  local rgb = hex_to_rgb(hexColor)
+  local rgb = hex_to_rgb(hex)
   return M.rgba(rgb.r, rgb.g, rgb.b, alpha, base)
 end
 
