@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.21.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.21.0...v1.21.1) (2024-04-01)
+
+
+### Bug Fixes
+
+* **bufferline:** Add configuration for bufferline tab (https://github.com/loctvl842/monokai-pro.nvim/issues/117) ([5e3da37](https://github.com/loctvl842/monokai-pro.nvim/commit/5e3da3748ee4c47574a13b8d82540161979fc3dd))
+
 ## [1.21.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.20.2...v1.21.0) (2024-02-11)
 
 
