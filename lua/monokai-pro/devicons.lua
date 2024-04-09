@@ -278,6 +278,24 @@ M.setup = function(c)
       cterm_color = "74",
       name = "Ts",
     },
+    ["go"] = {
+      icon = "",
+      color = c.base.cyan,
+      cterm_color = "74",
+      name = "Go",
+    },
+    ["go.mod"] = {
+      icon = "",
+      color = c.base.blue,
+      cterm_color = "197",
+      name = "GoMod",
+    },
+    ["go.sum"] = {
+      icon = "",
+      color = c.base.yellow,
+      cterm_color = "197",
+      name = "GoSum",
+    },
   }
   webDevicons.set_icon(icons)
 end
