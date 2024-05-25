@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.21.2](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.21.1...v1.21.2) (2024-05-25)
+
+
+### Bug Fixes
+
+* broken noice.nvim, and fix color treesitter ([25e149c](https://github.com/loctvl842/monokai-pro.nvim/commit/25e149ca0102ea182bafa43a4c7b30d397f12f16))
+
 ## [1.21.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.21.0...v1.21.1) (2024-04-01)
 
 
