@@ -20,7 +20,8 @@ vim.api.nvim_create_autocmd({ "ColorScheme", "BufEnter" }, {
       if icon == nil then
         return
       end
-      bufferline_icon_group = require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon(icon.hl_name, icon.color)
+      bufferline_icon_group =
+        require("monokai-pro.theme.plugins.bufferline").setup_bufferline_icon(icon.hl_name, icon.color)
       util.theme.draw(bufferline_icon_group)
     end
   end,

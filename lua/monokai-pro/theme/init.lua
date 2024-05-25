@@ -84,7 +84,17 @@ end
 M.setup = function()
   local devicons = require("monokai-pro.devicons")
 
-  local hl_group_tbl = get_hl_group_tbl(Colorscheme(Config.filter))
+  local colorscheme = Colorscheme(Config.filter)
+  -- print(colorscheme.editor.background)
+  -- print(colorscheme.tab.activeBackground)
+  local hl_group_tbl = get_hl_group_tbl(colorscheme)
+  -- print(Helper.lighten(colorscheme.tab.activeBackground, 10))
+  -- M.temp = vim.tbl_deep_extend("force", colorscheme.tab or {}, true and {
+  --   activeBackground = Helper.lighten(colorscheme.tab.activeBackground, 10),
+  --   inactiveBackground = Helper.lighten(colorscheme.tab.inactiveBackground, 10),
+  --   unfocusedActiveBackground = Helper.lighten(colorscheme.tab.unfocusedActiveBackground, 10),
+  -- } or {})
+  -- print(vim.inspect(M.temp))
 
   if Config.terminal_colors then
     Util.extra.terminal(Colorscheme)

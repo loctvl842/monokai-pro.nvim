@@ -58,6 +58,9 @@ M.setup = function(c, config, _)
 
     -- Cpp
     ["@lsp.type.namespace.cpp"] = { fg = c.base.green },
+
+    -- Go
+    ["@lsp.type.namespace.go"] = { fg = c.base.cyan },
   }
 end
 

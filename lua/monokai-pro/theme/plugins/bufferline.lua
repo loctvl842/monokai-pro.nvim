@@ -59,18 +59,21 @@ function M.get(c, config, hp)
   local tabsBackground = isBackgroundClear and c.editor.background or c.editorGroupHeader.tabsBackground
   local amt = 10
 
-  M.tab = vim.tbl_deep_extend("force", c.tab, isBackgroundClear and {
+  local tab = vim.tbl_deep_extend("force", c.tab or {}, isBackgroundClear and {
     activeBackground = hp.lighten(c.tab.activeBackground, amt),
     inactiveBackground = hp.lighten(c.tab.inactiveBackground, amt),
     unfocusedActiveBackground = hp.lighten(c.tab.unfocusedActiveBackground, amt),
   } or {})
+  M.get_tab = function()
+    return tab
+  end
 
   ---@param underline_type "fill" | "visible" | "selected"
   M.fallback_sp = function(underline_type)
     if underline_type == "selected" then
-      return bufferline_config.underline_selected and M.tab.activeBorder or M.fallback_sp("visible")
+      return bufferline_config.underline_selected and tab.activeBorder or M.fallback_sp("visible")
     elseif underline_type == "visible" then
-      return bufferline_config.underline_visible and M.tab.unfocusedActiveBorder or M.fallback_sp("fill")
+      return bufferline_config.underline_visible and tab.unfocusedActiveBorder or M.fallback_sp("fill")
     elseif underline_type == "fill" then
       return bufferline_config.underline_fill and c.editorGroupHeader.tabsBorder or c.editor.background
     end
@@ -86,151 +89,151 @@ function M.get(c, config, hp)
       bg = tabsBackground,
     },
     BufferLineBufferSelected = {
-      bg = M.tab.activeBackground,
-      fg = M.tab.activeForeground,
+      bg = tab.activeBackground,
+      fg = tab.activeForeground,
     },
     BufferLineBackground = {
-      bg = M.tab.inactiveBackground,
-      fg = hp.blend(c.base.white, normalAlpha, M.tab.inactiveBackground),
+      bg = tab.inactiveBackground,
+      fg = hp.blend(c.base.white, normalAlpha, tab.inactiveBackground),
     },
     BufferLineBufferVisible = {
-      bg = M.tab.unfocusedActiveBackground,
+      bg = tab.unfocusedActiveBackground,
       fg = hp.blend(c.base.white, visibleAlpha, c.editor.background),
     },
     -- Duplicate
     BufferLineDuplicateSelected = {
-      bg = M.tab.activeBackground,
-      fg = hp.blend(M.tab.activeForeground, duplicateAlpha, M.tab.activeBackground),
+      bg = tab.activeBackground,
+      fg = hp.blend(tab.activeForeground, duplicateAlpha, tab.activeBackground),
     },
     BufferLineDuplicate = {
-      bg = M.tab.inactiveBackground,
-      fg = hp.blend(c.base.white, normalAlpha * duplicateAlpha, M.tab.inactiveBackground),
+      bg = tab.inactiveBackground,
+      fg = hp.blend(c.base.white, normalAlpha * duplicateAlpha, tab.inactiveBackground),
     },
     BufferLineDuplicateVisible = {
-      bg = M.tab.unfocusedActiveBackground,
-      fg = hp.blend(c.base.white, visibleAlpha * duplicateAlpha, M.tab.unfocusedActiveBackground),
+      bg = tab.unfocusedActiveBackground,
+      fg = hp.blend(c.base.white, visibleAlpha * duplicateAlpha, tab.unfocusedActiveBackground),
     },
     -- CloseButton
     BufferLineCloseButtonSelected = {
-      bg = M.tab.activeBackground,
-      fg = M.tab.activeForeground,
+      bg = tab.activeBackground,
+      fg = tab.activeForeground,
     },
     BufferLineCloseButton = {
-      bg = M.tab.inactiveBackground,
+      bg = tab.inactiveBackground,
       fg = c.base.white,
     },
     BufferLineCloseButtonVisible = {
-      bg = M.tab.unfocusedActiveBackground,
+      bg = tab.unfocusedActiveBackground,
       fg = c.base.white,
     },
     -- separator
     BufferLineSeparatorSelected = {
-      bg = M.tab.activeBackground,
+      bg = tab.activeBackground,
       fg = tabsBackground,
     },
     BufferLineSeparator = {
-      bg = M.tab.inactiveBackground,
+      bg = tab.inactiveBackground,
       fg = tabsBackground,
     },
     BufferLineSeparatorVisible = {
-      bg = M.tab.unfocusedActiveBackground,
+      bg = tab.unfocusedActiveBackground,
       fg = tabsBackground,
     },
     -- Modified
     BufferLineModifiedSelected = {
-      bg = M.tab.activeBackground,
-      fg = M.tab.activeForeground,
+      bg = tab.activeBackground,
+      fg = tab.activeForeground,
     },
     BufferLineModified = {
-      bg = M.tab.inactiveBackground,
+      bg = tab.inactiveBackground,
       fg = c.base.white,
     },
     BufferLineModifiedVisible = {
-      bg = M.tab.unfocusedActiveBackground,
+      bg = tab.unfocusedActiveBackground,
       fg = c.base.white,
     },
     -- Warning
     BufferLineWarningSelected = {
-      bg = M.tab.activeBackground,
+      bg = tab.activeBackground,
       fg = c.inputValidation.warningForeground,
     },
     BufferLineWarning = {
-      bg = M.tab.inactiveBackground,
-      fg = hp.blend(c.inputValidation.warningForeground, normalAlpha, M.tab.inactiveBackground),
+      bg = tab.inactiveBackground,
+      fg = hp.blend(c.inputValidation.warningForeground, normalAlpha, tab.inactiveBackground),
     },
     BufferLineWarningVisible = {
-      bg = M.tab.unfocusedActiveBackground,
-      fg = hp.blend(c.inputValidation.warningForeground, visibleAlpha, M.tab.unfocusedActiveBackground),
+      bg = tab.unfocusedActiveBackground,
+      fg = hp.blend(c.inputValidation.warningForeground, visibleAlpha, tab.unfocusedActiveBackground),
     },
     -- Warning count
     BufferLineWarningDiagnosticSelected = {
-      bg = M.tab.activeBackground,
+      bg = tab.activeBackground,
       fg = hp.blend(c.inputValidation.warningForeground, countAlpha, c.editor.background),
     },
     BufferLineWarningDiagnostic = {
-      bg = M.tab.inactiveBackground,
-      fg = hp.blend(c.inputValidation.warningForeground, normalAlpha * countAlpha, M.tab.inactiveBackground),
+      bg = tab.inactiveBackground,
+      fg = hp.blend(c.inputValidation.warningForeground, normalAlpha * countAlpha, tab.inactiveBackground),
     },
     BufferLineWarningDiagnosticVisible = {
-      bg = M.tab.unfocusedActiveBackground,
-      fg = hp.blend(c.inputValidation.warningForeground, visibleAlpha * countAlpha, M.tab.unfocusedActiveBackground),
+      bg = tab.unfocusedActiveBackground,
+      fg = hp.blend(c.inputValidation.warningForeground, visibleAlpha * countAlpha, tab.unfocusedActiveBackground),
     },
     -- Error
     BufferLineErrorSelected = {
-      bg = M.tab.activeBackground,
+      bg = tab.activeBackground,
       fg = c.inputValidation.errorForeground,
     },
     BufferLineError = {
-      bg = M.tab.inactiveBackground,
-      fg = hp.blend(c.inputValidation.errorForeground, normalAlpha, M.tab.inactiveBackground),
+      bg = tab.inactiveBackground,
+      fg = hp.blend(c.inputValidation.errorForeground, normalAlpha, tab.inactiveBackground),
     },
     BufferLineErrorVisible = {
-      bg = M.tab.unfocusedActiveBackground,
-      fg = hp.blend(c.inputValidation.errorForeground, visibleAlpha, M.tab.unfocusedActiveBackground),
+      bg = tab.unfocusedActiveBackground,
+      fg = hp.blend(c.inputValidation.errorForeground, visibleAlpha, tab.unfocusedActiveBackground),
     },
     -- Error count
     BufferLineErrorDiagnosticSelected = {
-      bg = M.tab.activeBackground,
+      bg = tab.activeBackground,
       fg = hp.blend(c.inputValidation.errorForeground, countAlpha, c.editor.background),
       bold = true,
     },
     BufferLineErrorDiagnostic = {
-      bg = M.tab.inactiveBackground,
-      fg = hp.blend(c.inputValidation.errorForeground, normalAlpha * countAlpha, M.tab.inactiveBackground),
+      bg = tab.inactiveBackground,
+      fg = hp.blend(c.inputValidation.errorForeground, normalAlpha * countAlpha, tab.inactiveBackground),
       bold = true,
     },
     BufferLineErrorDiagnosticVisible = {
-      bg = M.tab.unfocusedActiveBackground,
-      fg = hp.blend(c.inputValidation.errorForeground, visibleAlpha * countAlpha, M.tab.unfocusedActiveBackground),
+      bg = tab.unfocusedActiveBackground,
+      fg = hp.blend(c.inputValidation.errorForeground, visibleAlpha * countAlpha, tab.unfocusedActiveBackground),
       bold = true,
     },
     -- Info
     BufferLineInfoSelected = {
-      bg = M.tab.activeBackground,
+      bg = tab.activeBackground,
       fg = c.inputValidation.infoForeground,
     },
     BufferLineInfo = {
-      bg = M.tab.inactiveBackground,
-      fg = hp.blend(c.inputValidation.infoForeground, normalAlpha, M.tab.inactiveBackground),
+      bg = tab.inactiveBackground,
+      fg = hp.blend(c.inputValidation.infoForeground, normalAlpha, tab.inactiveBackground),
     },
     BufferLineInfoVisible = {
-      bg = M.tab.unfocusedActiveBackground,
-      fg = hp.blend(c.inputValidation.infoForeground, visibleAlpha, M.tab.unfocusedActiveBackground),
+      bg = tab.unfocusedActiveBackground,
+      fg = hp.blend(c.inputValidation.infoForeground, visibleAlpha, tab.unfocusedActiveBackground),
     },
     -- Info count
     BufferLineInfoDiagnosticSelected = {
-      bg = M.tab.activeBackground,
+      bg = tab.activeBackground,
       fg = hp.blend(c.inputValidation.infoForeground, countAlpha, c.editor.background),
       bold = true,
     },
     BufferLineInfoDiagnostic = {
-      bg = M.tab.inactiveBackground,
-      fg = hp.blend(c.inputValidation.infoForeground, normalAlpha * countAlpha, M.tab.inactiveBackground),
+      bg = tab.inactiveBackground,
+      fg = hp.blend(c.inputValidation.infoForeground, normalAlpha * countAlpha, tab.inactiveBackground),
       bold = true,
     },
     BufferLineInfoDiagnosticVisible = {
-      bg = M.tab.unfocusedActiveBackground,
-      fg = hp.blend(c.inputValidation.infoForeground, visibleAlpha * countAlpha, M.tab.unfocusedActiveBackground),
+      bg = tab.unfocusedActiveBackground,
+      fg = hp.blend(c.inputValidation.infoForeground, visibleAlpha * countAlpha, tab.unfocusedActiveBackground),
       bold = true,
     },
     -- Hint
@@ -247,52 +250,52 @@ function M.get(c, config, hp)
     },
     -- Pick
     BufferLinePickSelected = {
-      bg = M.tab.activeBackground,
+      bg = tab.activeBackground,
       fg = c.base.red,
     },
     BufferLinePick = {
-      bg = M.tab.inactiveBackground,
+      bg = tab.inactiveBackground,
       fg = c.base.red,
     },
     BufferLinePickVisible = {
-      bg = M.tab.unfocusedActiveBackground,
+      bg = tab.unfocusedActiveBackground,
       fg = c.base.red,
     },
     BufferLineTab = {
-      bg = M.tab.inactiveBackground,
-      fg = hp.blend(c.base.white, normalAlpha, M.tab.inactiveBackground),
+      bg = tab.inactiveBackground,
+      fg = hp.blend(c.base.white, normalAlpha, tab.inactiveBackground),
     },
     BufferLineTabClose = {
       bg = tabsBackground,
       fg = tabsBackground,
     },
     BufferLineTabSelected = {
-      bg = M.tab.activeBackground,
-      fg = M.tab.activeForeground,
+      bg = tab.activeBackground,
+      fg = tab.activeForeground,
     },
     BufferLineTabSeparator = {
-      bg = M.tab.inactiveBackground,
-      fg = M.tab.inactiveBackground,
+      bg = tab.inactiveBackground,
+      fg = tab.inactiveBackground,
       -- fg = tabsBackground,
     },
     BufferLineTabSeparatorSelected = {
-      bg = M.tab.activeBackground,
-      fg = M.tab.activeBackground,
+      bg = tab.activeBackground,
+      fg = tab.activeBackground,
       -- fg = tabsBackground,
     },
 
     -- indicator
     BufferLineIndicatorSelected = {
-      bg = M.tab.activeBackground,
+      bg = tab.activeBackground,
       fg = c.tab.activeBorder,
     },
     BufferLineIndicator = {
-      bg = M.tab.inactiveBackground,
-      fg = M.tab.inactiveBackground,
+      bg = tab.inactiveBackground,
+      fg = tab.inactiveBackground,
     },
     BufferLineIndicatorVisible = {
-      bg = M.tab.unfocusedActiveBackground,
-      fg = M.tab.unfocusedActiveBackground,
+      bg = tab.unfocusedActiveBackground,
+      fg = tab.unfocusedActiveBackground,
     },
   }
   if isBold then
@@ -309,17 +312,21 @@ M.setup_bufferline_icon = function(icon_hl_name, icon_color)
   if icon_hl_name == nil then
     return
   end
+  if M == nil or M.get_tab == nil then
+    return {}
+  end
+  local tab = M.get_tab()
   local skeleton = {
     ["BufferLine" .. icon_hl_name .. "Selected"] = {
-      bg = M.tab.activeBackground,
+      bg = tab.activeBackground,
       fg = icon_color,
     },
     ["BufferLine" .. icon_hl_name] = {
-      bg = M.tab.inactiveBackground,
+      bg = tab.inactiveBackground,
       fg = icon_color,
     },
     ["BufferLine" .. icon_hl_name .. "Inactive"] = {
-      bg = M.tab.unfocusedActiveBackground,
+      bg = tab.unfocusedActiveBackground,
       fg = icon_color,
     },
   }

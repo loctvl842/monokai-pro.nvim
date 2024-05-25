@@ -31,6 +31,7 @@ function M.get(c, config, _)
     ["@punctuation.special"] = { fg = c.base.red }, -- `?` (e.g. {name?: string})
     ["@repeat"] = { fg = c.base.red },
     ["@string.documentation"] = { fg = c.base.dimmed3 },
+    ["@string.escape"] = { fg = c.base.magenta },
     ["@tag"] = { fg = c.base.red },
     ["@tag.attribute"] = { fg = c.base.cyan, italic = styles.tag_attribute.italic },
     ["@tag.delimiter"] = { fg = c.base.dimmed2 }, -- `<`, `>` in `<div>`
@@ -120,6 +121,10 @@ function M.get(c, config, _)
     ["@markup.strong.markdown_inline"] = { bold = true },
     ["@markup.italic.markdown_inline"] = { italic = true },
     ["@markup.raw.markdown_inline"] = { bg = c.base.dimmed4, fg = c.base.white },
+    -- Golang
+    ["@keyword.function.go"] = { fg = c.base.red },
+    ["@module.go"] = { fg = c.base.white },
+    ["@string.escape.go"] = { fg = c.base.magenta },
   }
   for i = 1, 9 do
     spec["@markup.heading." .. i .. ".markdown"] = { fg = c.base.yellow }

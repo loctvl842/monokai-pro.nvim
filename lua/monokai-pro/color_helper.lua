@@ -16,6 +16,9 @@ end
 ---@param hex HexColor
 ---@return RGB
 local function hex_to_rgb(hex)
+  if hex == nil then
+    return { r = 0, g = 0, b = 0 }
+  end
   hex = string.lower(hex)
   return {
     r = tonumber(hex:sub(2, 3), 16),
@@ -35,7 +38,7 @@ end
 
 ---@param hex HexColor | "NONE"
 ---@param amt number
-M.lighten = function(hex, amt)
+function M.lighten(hex, amt)
   -- stylua: ignore
   if hex == "NONE" then return hex end
 
@@ -57,7 +60,7 @@ end
 
 ---@param alpha HexColorAlpha
 ---@param background HexColor
-M.rgba = function(red, green, blue, alpha, background)
+function M.rgba(red, green, blue, alpha, background)
   background = get_blend_background(background)
   local bg_rgb = hex_to_rgb(background)
   -- new color
@@ -70,7 +73,7 @@ end
 ---@param hex HexColor | "NONE"
 ---@param alpha HexColorAlpha
 ---@param base? HexColor
-M.blend = function(hex, alpha, base)
+function M.blend(hex, alpha, base)
   -- stylua: ignore
   if hex == "NONE" then return "NONE" end
 
@@ -81,7 +84,7 @@ end
 
 ---@param hexColor HexColor
 ---@param base HexColor
-M.extend_hex = function(hexColor, base)
+function M.extend_hex(hexColor, base)
   base = get_blend_background(base)
   local hex6 = string.sub(hexColor, 1, 7)
   local alpha = tonumber(string.sub(hexColor, 8, 9), 16) / 255
