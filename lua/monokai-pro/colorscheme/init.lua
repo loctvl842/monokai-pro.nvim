@@ -79,8 +79,8 @@ M.get = function(filter)
   }
 
   cs.editorInlayHint = {
-    background = hp.blend(p.accent3, 0.1, p.background),
-    foreground = hp.lighten(p.dimmed2, 3),
+    background = p.background,
+    foreground = p.dimmed3,
   }
 
   cs.editorGutter = {
