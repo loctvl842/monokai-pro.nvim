@@ -17,6 +17,7 @@ setmetatable(M, {
 ---@enum SupportedPlugins
 local PLUGINS = {
   "mini",
+  "aerial",
   "alpha",
   "beacon",
   "breadcrumb",
