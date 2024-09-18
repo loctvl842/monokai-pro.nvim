@@ -25,6 +25,8 @@ local PLUGINS = {
   "cmp",
   "coc",
   "dashboard",
+  "fidget",
+  "fzf-lua",
   "gitsign",
   "illuminate",
   "indent_blankline",

@@ -12,7 +12,7 @@ function M.get(c, config, _)
     WhichKeySeperator = { fg = c.base.red },
     WhichKeyGroup = { fg = c.base.magenta },
     WhichKeyDesc = { fg = c.base.yellow },
-    WhichKeyFloat = { bg = isBackgroundClear and transparent_bg or whichkey_bg },
+    WhichKeyNormal = { bg = isBackgroundClear and transparent_bg or whichkey_bg },
     WhichKeyBorder = isBackgroundClear and {
       bg = transparent_bg,
       fg = transparent_bg_border,
