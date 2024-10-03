@@ -125,6 +125,11 @@ function M.get(c, config, _)
     ["@keyword.function.go"] = { fg = c.base.red },
     ["@module.go"] = { fg = c.base.white },
     ["@string.escape.go"] = { fg = c.base.magenta },
+    -- Yaml
+    ["@property.yaml"] = { fg = c.base.red },
+    ["@string.yaml"] = { fg = c.base.yellow },
+    ["@number.yaml"] = { fg = c.base.magenta },
+    ["@punctuation.special.yaml"] = { fg = c.base.white },
   }
   for i = 1, 9 do
     spec["@markup.heading." .. i .. ".markdown"] = { fg = c.base.yellow }
