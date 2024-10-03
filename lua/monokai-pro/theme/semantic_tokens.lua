@@ -61,6 +61,17 @@ M.setup = function(c, config, _)
 
     -- Go
     ["@lsp.type.namespace.go"] = { fg = c.base.cyan },
+
+    -- Python
+    ["@lsp.type.decorator.python"] = { fg = c.base.dimmed2 },
+    ["@lsp.type.parameter.python"] = {},
+    ["@lsp.type.function.python"] = { fg = c.base.green },
+    ["@lsp.type.class.python"] = {},
+    ["@lsp.mod.definition.python"] = {},
+    ["@lsp.typemod.function.definition.python"] = { fg = c.base.green, italic = false },
+    ["@lsp.typemod.parameter.definition.python"] = { fg = c.base.blue, italic = true },
+    ["@lsp.type.typeParameter.python"] = { fg = c.base.white },
+    ["@lsp.typemod.class.defaultLibrary.python"] = { fg = c.base.cyan },
   }
 end
 

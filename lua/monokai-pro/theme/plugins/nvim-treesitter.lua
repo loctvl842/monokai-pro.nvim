@@ -60,10 +60,13 @@ function M.get(c, config, _)
     ["@constant.macro.cpp"] = { fg = c.base.red },
     ["@punctuation.delimiter.cpp"] = { fg = c.sideBar.foreground },
     -- python
-    ["@type.python"] = { fg = c.base.cyan }, -- Class name, bool, str, ...
-    ["@keyword.python"] = { fg = c.base.cyan, italic = styles.keyword.italic },
+    ["@type.python"] = { fg = c.base.white }, -- Class name, bool, str, ...
+    ["@keyword.coroutine.python"] = { fg = c.base.cyan },
+    ["@keyword.exception.python"] = { fg = c.base.red, italic = false },
+    ["@keyword.python"] = { fg = c.base.red, italic = styles.keyword.italic },
     ["@keyword.function.python"] = { fg = c.base.cyan, italic = styles.keyword.italic },
     ["@keyword.import.python"] = { fg = c.base.red },
+    ["@keyword.type.python"] = { fg = c.base.cyan, italic = true },
     ["@attribute.python"] = { fg = c.base.green },
     ["@variable.builtin.python"] = { fg = c.editorSuggestWidget.foreground, italic = true },
     ["@variable.python"] = { fg = c.base.white },
