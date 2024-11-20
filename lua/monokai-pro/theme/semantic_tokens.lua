@@ -2,76 +2,54 @@ local M = {}
 
 --- @param c Colorscheme The color palette
 --- @param config Config
-M.setup = function(c, config, _)
-  local styles = config.styles
+--- @param hp Helper
+M.setup = function(c, config, hp)
+  -- stylua: ignore
   return {
-    -- type
-    ["@lsp.type.class"] = { link = "Structure" },
-    ["@lsp.type.decorator"] = { link = "Function" },
-    ["@lsp.type.enum"] = { link = "Structure" },
-    ["@lsp.type.enumNumber"] = { link = "Constant" },
-    ["@lsp.type.function"] = { link = "Function" },
-    ["@lsp.type.interface"] = { link = "Structure" },
-    ["@lsp.type.macro"] = { link = "Macro" },
-    ["@lsp.type.method"] = { link = "Function" },
-    ["@lsp.type.namespace"] = { link = "Identifier" },
-    ["@lsp.type.parameter"] = { fg = c.base.blue, italic = styles.parameter.italic },
-    ["@lsp.type.property"] = { link = "Identifier" },
-    ["@lsp.type.struct"] = { link = "Structure" },
-    ["@lsp.type.type"] = { fg = c.base.cyan },
-    ["@lsp.type.typeParameter"] = { link = "TypeDef" },
-    ["@lsp.type.variable"] = { link = "Identifier" },
-
-    -- mod
-    -- ["@lsp.mod.declaration"] = { fg = c.base.cyan },
-    -- ["@lsp.mod.definition"] = { fg = c.base.cyan },
-    -- ["@lsp.mod.readonly"] = { fg = c.base.magenta },
-    -- ["@lsp.mod.static"] = {},
-    ["@lsp.mod.deprecated"] = { strikethrough = true },
-    -- ["@lsp.mod.abstract"] = {},
-    -- ["@lsp.mod.async"] = {},
-    -- ["@lsp.mod.modification"] = {},
-    -- ["@lsp.mod.documentation"] = {},
-    -- ["@lsp.mod.defaultLibrary"] = {},
-
-    ["@lsp.typemod.class.defaultLibrary"] = { fg = c.base.white },
-    -- ["@lsp.typemod.decorator"] = {},
-    -- ["@lsp.typemod.enum"] = {},
-    -- ["@lsp.typemod.enumNumber"] = {},
-    ["@lsp.typemod.function.declaration"] = { fg = c.base.green },
-    ["@lsp.typemod.function.defaultLibrary"] = { fg = c.base.blue },
-    -- ["@lsp.typemod.interface"] = {},
-    -- ["@lsp.typemod.macro"] = {},
-    -- ["@lsp.typemod.method"] = {},
-    -- ["@lsp.typemod.namespace"] = {},
-    ["@lsp.typemod.parameter.declaration"] = { fg = c.base.blue, italic = styles.parameter.italic },
-    -- ["@lsp.typemod.property"] = {},
-    -- ["@lsp.typemod.struct"] = {},
-    -- ["@lsp.typemod.type"] = {},
-    -- ["@lsp.typemod.typeParameter"] = {},
-    ["@lsp.typemod.variable.readonly"] = { fg = c.base.magenta },
-    ["@lsp.typemod.variable.defaultLibrary"] = { fg = c.base.blue },
-    ["@lsp.typemod.variable.global.lua"] = { fg = c.base.blue },
-    ["@lsp.typemod.keyword.documentation"] = { fg = c.base.cyan, italic = true },
-    -- Dockerfile
-    ["@lsp.type.parameter.dockerfile"] = {}, -- using treesitter instead
-
-    -- Cpp
-    ["@lsp.type.namespace.cpp"] = { fg = c.base.green },
-
-    -- Go
-    ["@lsp.type.namespace.go"] = { fg = c.base.cyan },
-
-    -- Python
-    ["@lsp.type.decorator.python"] = { fg = c.base.dimmed2 },
-    ["@lsp.type.parameter.python"] = {},
-    ["@lsp.type.function.python"] = { fg = c.base.green },
-    ["@lsp.type.class.python"] = {},
-    ["@lsp.mod.definition.python"] = {},
-    ["@lsp.typemod.function.definition.python"] = { fg = c.base.green, italic = false },
-    ["@lsp.typemod.parameter.definition.python"] = { fg = c.base.blue, italic = true },
-    ["@lsp.type.typeParameter.python"] = { fg = c.base.white },
-    ["@lsp.typemod.class.defaultLibrary.python"] = { fg = c.base.cyan },
+    ["@lsp.type.boolean"]                       = { link = "@boolean" },
+    ["@lsp.type.builtinType"]                   = { link = "@type.builtin" },
+    ["@lsp.type.class"]                         = {}, -- use treesitter styles
+    ["@lsp.type.comment"]                       = { link = "@comment" },
+    ["@lsp.type.decorator"]                     = { link = "@attribute" },
+    ["@lsp.type.deriveHelper"]                  = { link = "@attribute" },
+    ["@lsp.type.enum"]                          = { link = "@type" },
+    ["@lsp.type.enumMember"]                    = { link = "@constant" },
+    ["@lsp.type.escapeSequence"]                = { link = "@string.escape" },
+    ["@lsp.type.formatSpecifier"]               = { link = "@markup.list" },
+    ["@lsp.type.generic"]                       = { link = "@variable" },
+    ["@lsp.type.interface"]                     = { fg = hp.lighten(c.base.cyan, 10) },
+    ["@lsp.type.keyword"]                       = { link = "@keyword" },
+    ["@lsp.type.lifetime"]                      = { link = "@keyword.storage" },
+    ["@lsp.type.namespace"]                     = { link = "@module" },
+    ["@lsp.type.namespace.python"]              = { link = "@variable" },
+    ["@lsp.type.number"]                        = { link = "@number" },
+    ["@lsp.type.operator"]                      = { link = "@operator" },
+    ["@lsp.type.parameter"]                     = {}, -- use treesitter
+    ["@lsp.type.property"]                      = { link = "@property" },
+    ["@lsp.type.selfKeyword"]                   = { link = "@variable.builtin" },
+    ["@lsp.type.selfTypeKeyword"]               = { link = "@variable.builtin" },
+    ["@lsp.type.string"]                        = { link = "@string" },
+    ["@lsp.type.type"]                          = {}, -- use treesitter styles
+    ["@lsp.type.typeAlias"]                     = { link = "@type.definition" },
+    ["@lsp.type.unresolvedReference"]           = { undercurl = true, sp = c.base.red },
+    ["@lsp.type.variable"]                      = {}, -- use treesitter styles for regular variables
+    ["@lsp.typemod.class.defaultLibrary"]       = { link = "@type.builtin" },
+    ["@lsp.typemod.enum.defaultLibrary"]        = { link = "@type.builtin" },
+    ["@lsp.typemod.enumMember.defaultLibrary"]  = { link = "@constant.builtin" },
+    ["@lsp.typemod.function.defaultLibrary"]    = { link = "@function.builtin" },
+    ["@lsp.typemod.keyword.async"]              = { link = "@keyword.coroutine" },
+    ["@lsp.typemod.keyword.injected"]           = { link = "@keyword" },
+    ["@lsp.typemod.macro.defaultLibrary"]       = { link = "@function.builtin" },
+    ["@lsp.typemod.method.defaultLibrary"]      = { link = "@function.builtin" },
+    ["@lsp.typemod.operator.injected"]          = { link = "@operator" },
+    ["@lsp.typemod.string.injected"]            = { link = "@string" },
+    ["@lsp.typemod.struct.defaultLibrary"]      = { link = "@type.builtin" },
+    ["@lsp.typemod.type.defaultLibrary"]        = { fg = hp.lighten(c.base.cyan, 15) },
+    ["@lsp.typemod.typeAlias.defaultLibrary"]   = { fg = hp.lighten(c.base.cyan, 15) },
+    ["@lsp.typemod.variable.callable"]          = { link = "@function" },
+    ["@lsp.typemod.variable.defaultLibrary"]    = { link = "@variable.builtin" },
+    ["@lsp.typemod.variable.injected"]          = { link = "@variable" },
+    ["@lsp.typemod.variable.static"]            = { link = "@constant" },
   }
 end
 

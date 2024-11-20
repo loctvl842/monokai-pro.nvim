@@ -61,6 +61,32 @@ Find out more here [monokai.pro](https://monokai.pro/)
 - [nvim-ts-rainbow2](https://github.com/HiPhish/nvim-ts-rainbow2)
 - [rainbow-delimeters.nvim](https://gitlab.com/HiPhish/rainbow-delimiters.nvim)
 
+## Palette
+
+```lua
+cs.base = {
+  dark = p.dark2,        -- "#19181a"
+  black = p.dark1,       -- "#221f22"
+  red = p.accent1,       -- "#ff6188"
+  green = p.accent4,     -- "#a9dc76"
+  yellow = p.accent3,    -- "#ffd866"
+  blue = p.accent2,      -- "#fc9867"
+  magenta = p.accent6,   -- "#ab9df2"
+  cyan = p.accent5,      -- "#78dce8"
+  white = p.text,        -- "#fcfcfa"
+  dimmed1 = p.dimmed1,   -- "#c1c0c0"
+  dimmed2 = p.dimmed2,   -- "#939293"
+  dimmed3 = p.dimmed3,   -- "#727072"
+  dimmed4 = p.dimmed4,   -- "#5b595c"
+  dimmed5 = p.dimmed5,   -- "#403e41"
+}
+```
+
+- **Primary Colors:** `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white` are your vibrant accent colors.
+- **Dimmed Colors:** `dimmed1` to `dimmed5` are muted shades for less prominent elements.
+- **Background Colors:** `dark` and `black` serve as your primary and secondary background colors.
+
+
 ## 📦 Installation
 
 [vim-plug](https://github.com/junegunn/vim-plug)
