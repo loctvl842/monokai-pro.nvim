@@ -8,7 +8,7 @@ function M.get(c, config, _)
   local spec = {
     -- Annotations & Attributes
     ["@annotation"]                       = { fg = c.base.cyan, italic = styles.annotation.italic },
-    ["@attribute"]                        = { fg = c.base.dimmed2 }, -- Uncommented in case needed
+    ["@attribute"]                        = { fg = c.base.green }, -- `@` in decorator. E.g. `@checked`
 
     -- Booleans & Constants
     ["@boolean"]                          = { fg = c.base.magenta },
