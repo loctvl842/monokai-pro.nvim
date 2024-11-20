@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.24.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.23.0...v1.24.0) (2024-11-20)
+
+
+### Features
+
+* re-organize treesitter highlight and semantic token ([5f28c9e](https://github.com/loctvl842/monokai-pro.nvim/commit/5f28c9eb15ef5aafafbe17780407ad9600b18a01))
+
 ## [1.23.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.22.0...v1.23.0) (2024-10-03)
 
 
