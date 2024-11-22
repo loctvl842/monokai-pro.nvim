@@ -113,8 +113,8 @@ There are several themes included in this plugin.
 - [Pro](#-pro) – Monokai Pro _(default)_
 - [Octagon](#-octagon) – Monokai Pro (Filter Octagon)
 - [Machine](#-machine) – Monokai Pro (Filter Machine)
-- [Ristretto](#-ristretto) – Monokai Pro (Filter Machine)
-- [Spectrum](#-spectrum) – Monokai Pro (Filter Machine)
+- [Ristretto](#-ristretto) – Monokai Pro (Filter Ristretto)
+- [Spectrum](#-spectrum) – Monokai Pro (Filter Spectrum)
 - [Classic](#-classic) – Monokai Classic
 
 Example configuration:
