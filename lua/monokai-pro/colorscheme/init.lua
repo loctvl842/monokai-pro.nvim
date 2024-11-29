@@ -25,10 +25,10 @@ local hp = require("monokai-pro.color_helper")
 ---@param filter Filter
 ---@return ColorschemeOptions
 M.get = function(filter)
-  local filters = { "classic", "machine", "octagon", "pro", "ristretto", "spectrum" }
+  local filters = { "light", "classic", "machine", "octagon", "pro", "ristretto", "spectrum" }
 
   if not vim.tbl_contains(filters, filter) then
-    local msg = 'Invalid filter, expected "classic", "machine", "octagon", "pro", "ristretto" or "spectrum"'
+    local msg = 'Invalid filter, expected  "light", "classic", "machine", "octagon", "pro", "ristretto" or "spectrum"'
     local level = "info"
     filter = "pro"
     Util.log(msg, level)
