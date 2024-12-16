@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.25.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.24.0...v1.25.0) (2024-12-16)
+
+
+### Features
+
+* release light theme ([8a202aa](https://github.com/loctvl842/monokai-pro.nvim/commit/8a202aae4e3b8c26a31be91c14c52ff4a5a03f91))
+
 ## [1.24.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.23.0...v1.24.0) (2024-11-20)
 
 
