@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.26.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.25.0...v1.26.0) (2025-02-24)
+
+
+### Features
+
+* add support for blink and snacks plugins ([0f392de](https://github.com/loctvl842/monokai-pro.nvim/commit/0f392dec3c43562ffe27ccbcfaaaa71cd92e5c59))
+* **theme:** add support for blink and snacks plugins ([f8ea198](https://github.com/loctvl842/monokai-pro.nvim/commit/f8ea1989a387b00535363f41f77b2724f945719c))
+* **theme:** add support for blink and snacks plugins ([2f239fd](https://github.com/loctvl842/monokai-pro.nvim/commit/2f239fd9ee935b41ac6c1d3ac533879e9f9d1ec9))
+
 ## [1.25.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.24.0...v1.25.0) (2024-12-16)
 
 
