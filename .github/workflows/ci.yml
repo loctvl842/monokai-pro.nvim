@@ -5,6 +5,13 @@ on:
   pull_request:
 
 jobs:
+  tests:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
   docs:
     runs-on: ubuntu-latest
     needs: tests
