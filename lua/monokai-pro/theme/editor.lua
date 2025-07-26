@@ -17,7 +17,7 @@ M.setup = function(c, config, hp)
     -- lCursor      = {}, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM     = {bg = theme.palette.red}, -- like Cursor, but used when in IME mode |CursorIM|
     CursorColumn = {
-      bg = c.editor.background,
+      bg = c.editor.lineHighlightBackground,
     }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine = {
       bg = c.editor.lineHighlightBackground,
