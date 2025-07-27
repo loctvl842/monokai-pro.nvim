@@ -14,6 +14,6 @@ return {
   dimmed2 = "#948a8b",
   dimmed3 = "#72696a",
   dimmed4 = "#5b5353",
-  --dimmed5 = "#403838",
-  dimmed5 = "#e6d9db",
+  dimmed5 = "#403838",
+  --dimmed5 = "#e6d9db",
 }
