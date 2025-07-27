@@ -109,7 +109,7 @@ M.get = function(filter)
   }
 
   cs.breadcrumb = {
-    foreground = p.dimmed2, -- "#939293",
+    foreground = p.accent2, -- "#939293",
   }
 
   cs.button = {
