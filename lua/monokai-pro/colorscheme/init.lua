@@ -237,5 +237,5 @@ M.get = function(filter)
 
   return cs
 end
-
+vim.api.nvim_set_hl(0, "NonText", { fg = "#ff69b4" })
 return M
