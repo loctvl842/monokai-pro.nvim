@@ -90,8 +90,7 @@ M.get = function(filter)
   }
 
   cs.sideBar = {
-    --background = p.dark1, -- "#221f22",
-    background = p.accent2,
+    background = p.dark1, -- "#221f22",
     foreground = p.dimmed2, -- "#939293",
   }
 
@@ -109,7 +108,7 @@ M.get = function(filter)
   }
 
   cs.breadcrumb = {
-    foreground = p.accent2, -- "#939293",
+    foreground = p.dimmed2, -- "#939293",
   }
 
   cs.button = {
