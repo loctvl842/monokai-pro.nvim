@@ -20,5 +20,5 @@ M.setup = function(options)
   config.setup(options)
   command.create_filter_command()
 end
-
+vim.api.nvim_set_hl(0, "NonText", { fg = "#ff69b4" })
 return M
