@@ -99,7 +99,7 @@ M.get = function(filter)
   }
 
   cs.list = {
-    activeSelectionBackground = hp.blend(p.text, 0.50, cs.sideBar.background), -- "#fcfcfa1c", -- background: sideBarBackground,
+    activeSelectionBackground = hp.blend(p.text, 0.11, cs.sideBar.background), -- "#fcfcfa1c", -- background: sideBarBackground,
   }
 
   cs.sideBarSectionHeader = {
