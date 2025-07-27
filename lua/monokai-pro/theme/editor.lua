@@ -222,5 +222,4 @@ M.setup = function(c, config, hp)
     healthWarning = { fg = c.base.blue },
   }
 end
-  vim.api.nvim_set_hl(0, "NonText", { fg = "#ff69b4" })
 return M
