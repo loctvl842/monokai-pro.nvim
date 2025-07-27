@@ -90,7 +90,8 @@ M.get = function(filter)
   }
 
   cs.sideBar = {
-    background = p.dark1, -- "#221f22",
+    --background = p.dark1, -- "#221f22",
+    background = p.accent2,
     foreground = p.dimmed2, -- "#939293",
   }
 
