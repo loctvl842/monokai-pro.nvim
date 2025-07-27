@@ -12,8 +12,7 @@ return {
   accent6 = "#a8a9eb",
   dimmed1 = "#c3b7b8",
   dimmed2 = "#948a8b",
-  --dimmed3 = "#72696a",
+  dimmed3 = "#72696a",
   dimmed4 = "#5b5353",
   dimmed5 = "#403838",
-  dimmed3 = "#e6d9db",
 }
