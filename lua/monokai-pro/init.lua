@@ -8,6 +8,10 @@ local M = {}
 
 M.load = function()
   util.theme.load(theme.setup())
+  local highlights = require("monokai-pro.highlights")
+  for group, opts in pairs(highlights) do
+    vim.api.nvim_set_hl(0, group, opts)
+  end
 end
 
 --- @param filter "light" | "classic" | "machine" | "octagon" | "pro" | "ristretto" | "spectrum"
