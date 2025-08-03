@@ -34,4 +34,20 @@ function M.log(msg, level, opts)
   end)
 end
 
+function M.error(msg)
+  M.log(msg, "error")
+end
+
+---@param fn fun() The function to try
+---@param opts {msg?: string, on_error?: fun(err: string)}
+function M.try(fn, opts)
+  local ok, result = xpcall(fn, function(error)
+    local msg = (opts and opts.msg or "") .. (opts and opts.msg and "\n\n" or "") .. error
+    local handler = opts and opts.on_error or M.error
+    handler(msg)
+    return error
+  end)
+  return ok and result or nil
+end
+
 return M
