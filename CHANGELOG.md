@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.26.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.26.0...v1.26.1) (2025-08-03)
+
+
+### Bug Fixes
+
+* **bufferline:** cannot load icons after lazy install a plugin ([fafe038](https://github.com/loctvl842/monokai-pro.nvim/commit/fafe038058b8411ec77e296c63f7e62e73466c5f))
+* Merge pull request [#150](https://github.com/loctvl842/monokai-pro.nvim/issues/150) from elliotf/make-cursorcolumn-function ([#14](https://github.com/loctvl842/monokai-pro.nvim/issues/14), [#16](https://github.com/loctvl842/monokai-pro.nvim/issues/16), [#23](https://github.com/loctvl842/monokai-pro.nvim/issues/23) and [#61](https://github.com/loctvl842/monokai-pro.nvim/issues/61)) ([7053178](https://github.com/loctvl842/monokai-pro.nvim/commit/70531782b4b6c11129718d70fda7404696319102))
+
 ## [1.26.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.25.0...v1.26.0) (2025-02-24)
 
 
