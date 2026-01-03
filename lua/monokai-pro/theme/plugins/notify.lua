@@ -36,8 +36,8 @@ function M.get(c, config, hp)
     for group, hlValue in pairs(notify_groups) do
       if string.match(group, BORDER) then
         notify_groups[group] = {
-          bg = c.notifications.background,
-          fg = c.notifications.border,
+          bg = c.editor.background,
+          fg = c.notifications.background,
         }
       end
       if string.match(group, ICON) or string.match(group, TITLE) then
