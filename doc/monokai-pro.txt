@@ -1,4 +1,4 @@
-*monokai-pro.txt*        For Neovim >= 0.8.0       Last change: 2025 August 03
+*monokai-pro.txt*       For Neovim >= 0.8.0       Last change: 2026 January 03
 
 ==============================================================================
 Table of Contents                              *monokai-pro-table-of-contents*
@@ -229,7 +229,7 @@ Telescope ~
 
 USAGE                                                      *monokai-pro-usage*
 
-- Enable this colorscheme by using the following command after `setup`
+- Enable this colorscheme by using the following command after `setup`:
 
 >vim
     " Vim Script
@@ -244,7 +244,7 @@ USAGE                                                      *monokai-pro-usage*
     vim.cmd([[colorscheme monokai-pro]])
 <
 
-- Toenable `monokai-pro` for `Lualine`
+- To enable `monokai-pro` for `Lualine`:
 
 >lua
     require('lualine').setup {
@@ -256,7 +256,7 @@ USAGE                                                      *monokai-pro-usage*
     }
 <
 
-- Toenable `monokai-pro` for `barbecue`
+- To enable `monokai-pro` for `barbecue`:
 
 >lua
     require('barbecue').setup {
@@ -266,14 +266,14 @@ USAGE                                                      *monokai-pro-usage*
     }
 <
 
-- Toenable `monokai-pro` for `lightline`
+- To enable `monokai-pro` for `lightline`:
 
 >vim
     " Vim Script
     let g:lightline = {'colorscheme': 'monokaipro'}
 <
 
-- Overridefunction for customizing the final color scheme:
+- Override function for customizing the final color scheme:
 
 >lua
     require("monokai-pro").setup({
