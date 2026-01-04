@@ -57,13 +57,13 @@ function M.get(c, config, _)
       fg = c.editorSuggestWidget.background,
     },
     NeoTreeTitleBar = {
-      bg = sidebar_bg,
+      bg = c.editorSuggestWidget.background,
       fg = c.base.yellow,
       bold = true,
     },
     NeoTreeFloatTitle = {
-      bg = c.base.yellow,
-      fg = sidebar_bg,
+      fg = c.base.yellow,
+      bg = sidebar_bg,
       bold = true,
     },
     NeoTreeTabActive = {
