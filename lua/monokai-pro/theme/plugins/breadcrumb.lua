@@ -7,6 +7,10 @@ function M.get(c, _, _)
       bg = c.editor.background,
       fg = c.breadcrumb.foreground,
     },
+    WinBarNC = {
+      bg = c.editor.background,
+      fg = c.breadcrumb.foreground,
+    },
     BreadcrumbIconsArray = { fg = c.base.red },
     BreadcrumbIconsBoolean = { fg = c.base.red },
     BreadcrumbIconsClass = { fg = c.base.cyan },
