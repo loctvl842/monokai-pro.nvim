@@ -141,9 +141,9 @@ return {
       StatusLineTermNC = { fg = scheme.statusBar.background },
 
       -- Tab line
-      Tabline = { link = "BufferLineBackground" },
-      TablineFill = { link = "BufferLineFill" },
-      TablineSel = { link = "BufferLineBufferSelected" },
+      Tabline = { bg = scheme.tab.inactiveBackground, fg = colors.blend(scheme.base.white, 0.6, scheme.tab.inactiveBackground) },
+      TablineFill = { bg = scheme.editorGroupHeader.tabsBackground },
+      TablineSel = { bg = scheme.tab.activeBackground, fg = scheme.tab.activeForeground },
 
       -- Title
       Title = { fg = scheme.base.yellow, bold = true },
