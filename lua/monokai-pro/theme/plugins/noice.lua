@@ -1,29 +1,25 @@
-local M = {}
+---@type MonokaiPro.PluginSpec
+return {
+  name = "folke/noice.nvim",
+  lazy = { module = "noice" },
 
---- @param c Colorscheme The color palette
-function M.get(c, _, _)
-  return {
-    NoiceCmdlinePopup = { bg = c.editor.background },
-    NoiceCmdlinePopupBorder = {
-      bg = c.editor.background,
-      fg = c.editorSuggestWidget.foreground,
-    },
-    NoiceCmdlinePopupBorderSearch = {
-      bg = c.editor.background,
-      fg = c.base.blue,
-    },
-    NoiceCmdlineIconSearch = { fg = c.base.blue },
-    NoiceFormatProgressDone = { bg = c.base.yellow, fg = c.base.black, bold = true },
-    NoiceFormatProgressTodo = { bg = c.base.dimmed3, fg = c.base.dimmed5 },
-    NoiceLspProgressTitle = { fg = c.base.dimmed2 },
-    NoiceLspProgressClient = { fg = c.base.cyan },
-    NoiceConfirm = { bg = c.notifications.background, fg = c.notifications.foreground },
-    NoiceConfirmBorder = { bg = c.notifications.background, fg = c.notifications.border },
-    NoiceFormatConfirm = { bg = c.button.background, fg = c.button.foreground },
-    NoiceFormatConfirmDefault = { bg = c.button.hoverBackground, fg = c.button.foreground },
-    NoiceSplit = { bg = c.editor.background },
-    NoiceMini = { fg = c.base.dimmed4 },
-  }
-end
-
-return M
+  highlights = function(c)
+    -- stylua: ignore
+    return {
+      NoiceCmdlinePopup             = { bg = c.editor.background },
+      NoiceCmdlinePopupBorder       = { fg = c.editorSuggestWidget.foreground, bg = c.editor.background },
+      NoiceCmdlinePopupBorderSearch = { fg = c.base.blue, bg = c.editor.background },
+      NoiceCmdlineIconSearch        = { fg = c.base.blue },
+      NoiceFormatProgressDone       = { fg = c.base.black, bg = c.base.yellow, bold = true },
+      NoiceFormatProgressTodo       = { fg = c.base.dimmed5, bg = c.base.dimmed3 },
+      NoiceLspProgressTitle         = { fg = c.base.dimmed2 },
+      NoiceLspProgressClient        = { fg = c.base.cyan },
+      NoiceConfirm                  = { fg = c.notifications.foreground, bg = c.notifications.background },
+      NoiceConfirmBorder            = { fg = c.notifications.border, bg = c.notifications.background },
+      NoiceFormatConfirm            = { fg = c.button.foreground, bg = c.button.background },
+      NoiceFormatConfirmDefault     = { fg = c.button.foreground, bg = c.button.hoverBackground },
+      NoiceSplit                    = { bg = c.editor.background },
+      NoiceMini                     = { fg = c.base.dimmed4 },
+    }
+  end,
+}

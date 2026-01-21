@@ -1,115 +1,163 @@
-local Helper = require("monokai-pro.color_helper")
-local Util = require("monokai-pro.util")
-local Config = require("monokai-pro.config")
-local Colorscheme = require("monokai-pro.colorscheme")
+local config_module = require("monokai-pro.config")
+local palette_module = require("monokai-pro.palette")
+local scheme_module = require("monokai-pro.theme.scheme")
+local colors = require("monokai-pro.colors")
 
----@class MonokaiProTheme
----@field mini monokai-pro.theme.plugins.mini
+---@class MonokaiPro.ThemeModule
 local M = {}
 
-setmetatable(M, {
-  __index = function(_, k)
-    local plugin = require("monokai-pro.theme.plugins" .. k)
-    return plugin
-  end,
-})
+-- Cache for highlight groups
+---@type table<string, vim.api.keyset.highlight>|nil
+local highlight_cache = nil
 
----@enum SupportedPlugins
-local PLUGINS = {
-  "mini",
-  "aerial",
-  "alpha",
-  "beacon",
-  "blink",
-  "breadcrumb",
-  "bufferline",
-  "cmp",
-  "coc",
-  "dashboard",
-  "fidget",
-  "fzf-lua",
-  "gitsign",
-  "illuminate",
-  "indent_blankline",
-  "lazy",
-  "lsp",
-  "mason",
-  "neo-tree",
-  "noice",
-  "notify",
-  "nvim-navic",
-  "nvim-tree",
-  "nvim-treesitter",
-  "nvim-ts-rainbow2",
-  "packer",
-  "rainbow-delimiters",
-  "renamer",
-  "scrollbar",
-  "snacks",
-  "telescope",
-  "toggleterm",
-  "ufo",
-  "which-key",
-  "wilder",
-}
+---@type MonokaiPro.Filter|nil
+local cached_filter = nil
 
--- Get highlight group dictionary
--- Example:
--- local hl_groups = {
---   Normal = { bg = c.editor.background, fg = c.editor.foreground, }, -- normal text
---   ["@modifier"] = { fg = c.base.red, italic = true },
--- }
----@param colorscheme Colorscheme
----@return HighlightGroupTbl
-local function get_hl_group_tbl(colorscheme)
-  local editor = require("monokai-pro.theme.editor").setup(colorscheme, Config, Helper)
-  local syntax = require("monokai-pro.theme.syntax").setup(colorscheme, Config, Helper)
-  local semantic_tokens = require("monokai-pro.theme.semantic_tokens").setup(colorscheme, Config, Helper)
-  local extra = require("monokai-pro.theme.extra").setup(colorscheme, Config, Helper)
-  --  The HlGroups class represents a collection of highlighter groups.
-  --  Each group is identified by a string key (e.g. "editor") and holds the result of calling the `setup` function of a corresponding highlighter module (e.g. `editor.setup`).
-  --  The class has a single field, `hl_groups`, which is a table containing the highlighter groups.
-  --- @type HighlightGroupTbl
-  local hl_group_tbl = {}
-  hl_group_tbl = vim.tbl_deep_extend("force", hl_group_tbl, editor, syntax, semantic_tokens, extra)
-  for _, name in ipairs(PLUGINS) do
-    local config_ok, plugin = xpcall(require, function(...)
-      Util.log("Failed to load highlight group: " .. name .. "\n" .. debug.traceback(...), "error")
-      return ...
-    end, "monokai-pro.theme.plugins." .. name)
-    if config_ok then
-      hl_group_tbl = vim.tbl_deep_extend("force", hl_group_tbl, plugin.get(colorscheme, Config, Helper))
-    end
-  end
-  hl_group_tbl = vim.tbl_deep_extend("force", hl_group_tbl, Config.override and Config.override(colorscheme) or {})
-  return hl_group_tbl
+--- Set terminal colors
+---@param scheme MonokaiPro.Scheme
+local function set_terminal_colors(scheme)
+  vim.g.terminal_color_0 = scheme.base.black
+  vim.g.terminal_color_8 = scheme.base.dimmed3
+
+  vim.g.terminal_color_7 = scheme.base.white
+  vim.g.terminal_color_15 = scheme.base.white
+
+  vim.g.terminal_color_1 = scheme.base.red
+  vim.g.terminal_color_9 = scheme.base.red
+
+  vim.g.terminal_color_2 = scheme.base.green
+  vim.g.terminal_color_10 = scheme.base.green
+
+  vim.g.terminal_color_3 = scheme.base.yellow
+  vim.g.terminal_color_11 = scheme.base.yellow
+
+  vim.g.terminal_color_4 = scheme.base.blue
+  vim.g.terminal_color_12 = scheme.base.blue
+
+  vim.g.terminal_color_5 = scheme.base.magenta
+  vim.g.terminal_color_13 = scheme.base.magenta
+
+  vim.g.terminal_color_6 = scheme.base.cyan
+  vim.g.terminal_color_14 = scheme.base.cyan
 end
 
----@return HighlightGroupTbl
-M.setup = function()
-  local devicons = require("monokai-pro.devicons")
+--- Build the complete highlight table
+---@param scheme MonokaiPro.Scheme
+---@param config MonokaiPro.Config
+---@return table<string, vim.api.keyset.highlight>
+local function build_highlights(scheme, config)
+  local highlights = {}
 
-  local colorscheme = Colorscheme(Config.filter)
-  -- print(colorscheme.editor.background)
-  -- print(colorscheme.tab.activeBackground)
-  local hl_group_tbl = get_hl_group_tbl(colorscheme)
-  -- print(Helper.lighten(colorscheme.tab.activeBackground, 10))
-  -- M.temp = vim.tbl_deep_extend("force", colorscheme.tab or {}, true and {
-  --   activeBackground = Helper.lighten(colorscheme.tab.activeBackground, 10),
-  --   inactiveBackground = Helper.lighten(colorscheme.tab.inactiveBackground, 10),
-  --   unfocusedActiveBackground = Helper.lighten(colorscheme.tab.unfocusedActiveBackground, 10),
-  -- } or {})
-  -- print(vim.inspect(M.temp))
+  -- Load core highlight groups via registry (auto-discovery)
+  local groups = require("monokai-pro.theme.groups")
+  highlights = vim.tbl_deep_extend("force", highlights, groups.generate(scheme, config))
 
-  if Config.terminal_colors then
-    Util.extra.terminal(Colorscheme)
+  -- Load plugin highlights via registry (auto-discovery)
+  local plugins = require("monokai-pro.theme.plugins")
+  highlights = vim.tbl_deep_extend("force", highlights, plugins.generate(scheme, config))
+
+  -- Apply user overrides
+  if config.override then
+    local user_overrides = config.override(scheme)
+    if user_overrides then
+      highlights = vim.tbl_deep_extend("force", highlights, user_overrides)
+    end
   end
 
-  if Config.devicons then
-    devicons.setup(Colorscheme)
+  return highlights
+end
+
+--- Build the theme
+---@return table<string, vim.api.keyset.highlight>
+function M.build()
+  local config = config_module.get()
+  local filter = config.filter or "pro"
+
+  -- Return cached highlights if filter hasn't changed
+  if highlight_cache and cached_filter == filter then
+    return highlight_cache
   end
 
-  return hl_group_tbl
+  -- Load palette (with potential user overrides)
+  local palette = palette_module.load(filter)
+  if config.override_palette then
+    local palette_overrides = config.override_palette(filter)
+    if palette_overrides then
+      palette = vim.tbl_deep_extend("force", palette, palette_overrides)
+    end
+  end
+
+  -- Build scheme
+  local scheme = scheme_module.build(palette, config)
+
+  -- Apply user scheme overrides
+  if config.override_scheme then
+    local scheme_overrides = config.override_scheme(scheme, palette, colors)
+    if scheme_overrides then
+      scheme = vim.tbl_deep_extend("force", scheme, scheme_overrides)
+    end
+  end
+
+  -- Build highlights
+  highlight_cache = build_highlights(scheme, config)
+  cached_filter = filter
+
+  return highlight_cache
+end
+
+--- Load the theme
+function M.load()
+  -- Clear existing highlights
+  if vim.g.colors_name then
+    vim.cmd([[hi clear]])
+  end
+
+  vim.o.termguicolors = true
+  vim.g.colors_name = "monokai-pro"
+
+  local config = config_module.get()
+  local filter = config.filter or "pro"
+
+  -- Build and apply highlights
+  local highlights = M.build()
+  colors.apply_highlights(highlights)
+
+  -- Set terminal colors
+  if config.terminal_colors then
+    local palette = palette_module.load(filter)
+    local scheme = scheme_module.build(palette, config)
+    set_terminal_colors(scheme)
+  end
+
+  -- Apply devicons if enabled
+  if config.devicons then
+    local ok, devicons = pcall(require, "monokai-pro.integrations.devicons")
+    if ok then
+      devicons.setup()
+    end
+  end
+end
+
+--- Clear the highlight cache
+function M.clear_cache()
+  highlight_cache = nil
+  cached_filter = nil
+  palette_module.clear_cache()
+
+  -- Clear registry caches
+  local groups = require("monokai-pro.theme.groups")
+  local plugins = require("monokai-pro.theme.plugins")
+  groups.clear_cache()
+  plugins.clear_cache()
+end
+
+--- Get the current scheme for the active filter
+---@return MonokaiPro.Scheme
+function M.get_scheme()
+  local config = config_module.get()
+  local filter = config.filter or "pro"
+  local palette = palette_module.load(filter)
+  return scheme_module.build(palette, config)
 end
 
 return M

@@ -1,14 +1,13 @@
-local M = {}
+---@type MonokaiPro.PluginSpec
+return {
+  name = "j-hui/fidget.nvim",
+  lazy = { module = "fidget" },
 
---- @param c Colorscheme The color palette
-function M.get(c, _, _)
-  return {
-    FidgetTask = {
-      bg = c.editor.background,
-      fg = c.base.white,
-    },
-    FidgetTitle = { bg = c.editor.background, fg = c.base.yellow },
-  }
-end
-
-return M
+  highlights = function(c)
+    -- stylua: ignore
+    return {
+      FidgetTask  = { bg = c.editor.background, fg = c.base.white },
+      FidgetTitle = { bg = c.editor.background, fg = c.base.yellow },
+    }
+  end,
+}

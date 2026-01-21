@@ -1,52 +1,54 @@
-local colors = require("monokai-pro.colorscheme")
+-- Lightline theme for Monokai Pro
+-- This file is auto-discovered by lightline
+
+local monokai = require("monokai-pro")
+local scheme = monokai.get_scheme()
 
 local M = {}
 
 M.normal = {
   left = {
-    { colors.base.black, colors.base.yellow },
-    { colors.base.yellow, colors.editorSuggestWidget.background },
+    { scheme.base.black, scheme.base.yellow },
+    { scheme.base.yellow, scheme.editorSuggestWidget.background },
   },
-  middle = { { colors.base.black, colors.base.black } },
+  middle = { { scheme.base.black, scheme.base.black } },
   right = {
-    { colors.base.black, colors.base.yellow },
-    { colors.base.yellow, colors.editorSuggestWidget.background },
+    { scheme.base.black, scheme.base.yellow },
+    { scheme.base.yellow, scheme.editorSuggestWidget.background },
   },
-  error = { { colors.base.black, colors.base.red } },
-  warning = { { colors.base.black, colors.base.blue } },
+  error = { { scheme.base.black, scheme.base.red } },
+  warning = { { scheme.base.black, scheme.base.blue } },
 }
 
 M.insert = {
   left = {
-    { colors.base.black, colors.base.green },
-    { colors.base.green, colors.editorSuggestWidget.background },
+    { scheme.base.black, scheme.base.green },
+    { scheme.base.green, scheme.editorSuggestWidget.background },
   },
 }
 
 M.visual = {
   left = {
-    { colors.base.black, colors.base.magenta },
-    { colors.base.magenta, colors.editorSuggestWidget.background },
+    { scheme.base.black, scheme.base.magenta },
+    { scheme.base.magenta, scheme.editorSuggestWidget.background },
   },
 }
 
 M.replace = {
   left = {
-    { colors.base.black, colors.base.red },
-    { colors.base.red, colors.editorSuggestWidget.background },
+    { scheme.base.black, scheme.base.red },
+    { scheme.base.red, scheme.editorSuggestWidget.background },
   },
 }
 
 M.inactive = {
   left = {
-    { colors.base.yellow, colors.base.black },
-    { colors.base.black, colors.base.black },
+    { scheme.base.yellow, scheme.base.black },
+    { scheme.base.black, scheme.base.black },
   },
   middle = {
-    { colors.base.black, colors.base.black },
+    { scheme.base.black, scheme.base.black },
   },
 }
-
-package.loaded["colors"] = nil
 
 return M

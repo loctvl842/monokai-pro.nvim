@@ -1,44 +1,41 @@
-local colors = require("monokai-pro.colorscheme")
+-- Lualine theme for Monokai Pro
+-- This file is auto-discovered by lualine at lua/lualine/themes/
+
+local monokai = require("monokai-pro")
+local scheme = monokai.get_scheme()
 
 local M = {}
 
 M.normal = {
-  a = { bg = colors.base.yellow, fg = colors.base.black, gui = "bold" },
-  b = { bg = colors.base.dimmed5, fg = colors.base.yellow },
-  c = {
-    bg = colors.statusBar.background,
-    fg = colors.statusBar.activeForeground,
-  },
-  x = {
-    bg = colors.statusBar.background,
-    fg = colors.statusBar.activeForeground,
-  },
+  a = { bg = scheme.base.yellow, fg = scheme.base.black, gui = "bold" },
+  b = { bg = scheme.base.dimmed5, fg = scheme.base.yellow },
+  c = { bg = scheme.statusBar.background, fg = scheme.statusBar.activeForeground },
+  x = { bg = scheme.statusBar.background, fg = scheme.statusBar.activeForeground },
 }
 
 M.insert = {
-  a = { bg = colors.base.green, fg = colors.base.black },
-  b = { bg = colors.base.dimmed5, fg = colors.base.green },
+  a = { bg = scheme.base.green, fg = scheme.base.black },
+  b = { bg = scheme.base.dimmed5, fg = scheme.base.green },
 }
 
 M.command = {
-  a = { bg = colors.base.yellow, fg = colors.base.black },
-  b = { bg = colors.base.dimmed5, fg = colors.base.yellow },
+  a = { bg = scheme.base.yellow, fg = scheme.base.black },
+  b = { bg = scheme.base.dimmed5, fg = scheme.base.yellow },
 }
 
 M.visual = {
-  a = { bg = colors.base.magenta, fg = colors.base.black },
-  b = { bg = colors.base.dimmed5, fg = colors.base.magenta },
+  a = { bg = scheme.base.magenta, fg = scheme.base.black },
+  b = { bg = scheme.base.dimmed5, fg = scheme.base.magenta },
 }
 
 M.replace = {
-  a = { bg = colors.base.red, fg = colors.base.black },
-  b = { bg = colors.base.dimmed5, fg = colors.base.red },
+  a = { bg = scheme.base.red, fg = scheme.base.black },
+  b = { bg = scheme.base.dimmed5, fg = scheme.base.red },
 }
 
 M.inactive = {
-  a = { bg = colors.base.black, fg = colors.base.yellow },
-  b = { bg = colors.base.black, fg = colors.base.black },
-  -- c = { bg = colors.base.black, fg = colors.base.black },
+  a = { bg = scheme.base.black, fg = scheme.base.yellow },
+  b = { bg = scheme.base.black, fg = scheme.base.black },
 }
 
 return M

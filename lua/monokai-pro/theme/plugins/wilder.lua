@@ -1,15 +1,16 @@
-local M = {}
+---@type MonokaiPro.PluginSpec
+return {
+  name = "gelguy/wilder.nvim",
+  lazy = { module = "wilder" },
 
---- @param c Colorscheme The color palette
-function M.get(c, _, _)
-  return {
-    WildMenu = {
-      bg = c.base.yellow,
-      fg = c.base.black,
-      bold = true,
-      underline = false,
-    },
-  }
-end
-
-return M
+  highlights = function(c)
+    return {
+      WildMenu = {
+        bg = c.base.yellow,
+        fg = c.base.black,
+        bold = true,
+        underline = false,
+      },
+    }
+  end,
+}

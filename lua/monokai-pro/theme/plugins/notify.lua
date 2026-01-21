@@ -1,59 +1,63 @@
-local M = {}
+local colors = require("monokai-pro.colors")
 
---- @param c Colorscheme The color palette
---- @param config Config
---- @param hp Helper
-function M.get(c, config, hp)
-  local isBackgroundClear = vim.tbl_contains(config.background_clear, "notify")
-  local notify_groups = {
-    NotifyERRORBorder = { fg = hp.blend(c.inputValidation.errorBorder, 0.3) },
-    NotifyWARNBorder = { fg = hp.blend(c.inputValidation.warningBorder, 0.3) },
-    NotifyINFOBorder = { fg = hp.blend(c.inputValidation.infoBorder, 0.3) },
-    NotifyDEBUGBorder = { fg = hp.blend(c.base.dimmed2, 0.3) },
-    NotifyTRACEBorder = { fg = hp.blend(c.base.magenta, 0.3) },
-    NotifyERRORIcon = { fg = c.inputValidation.errorForeground },
-    NotifyWARNIcon = { fg = c.inputValidation.warningForeground },
-    NotifyINFOIcon = { fg = c.inputValidation.infoForeground },
-    NotifyDEBUGIcon = { fg = c.base.white },
-    NotifyTRACEIcon = { fg = c.base.magenta },
-    NotifyERRORTitle = { link = "NotifyERRORIcon" },
-    NotifyWARNTitle = { link = "NotifyWARNIcon" },
-    NotifyINFOTitle = { link = "NotifyINFOIcon" },
-    NotifyDEBUGTitle = { fg = c.base.dimmed2 },
-    NotifyTRACETitle = { fg = c.base.magenta },
-    NotifyERRORBody = { link = "Normal" },
-    NotifyWARNBody = { link = "Normal" },
-    NotifyINFOBody = { link = "Normal" },
-    NotifyDEBUGBody = { link = "Normal" },
-    NotifyTRACEBody = { link = "Normal" },
-    NotifyBackground = { link = "Normal" },
-  }
-  if not isBackgroundClear then
-    local BORDER = "Border"
-    local ICON = "Icon"
-    local TITLE = "Title"
-    local BODY = "Body"
-    for group, hlValue in pairs(notify_groups) do
-      if string.match(group, BORDER) then
-        notify_groups[group] = {
-          bg = c.notifications.background,
-          fg = c.notifications.background,
-        }
-      end
-      if string.match(group, ICON) or string.match(group, TITLE) then
-        notify_groups[group] = vim.tbl_deep_extend("force", hlValue or {}, {
-          bg = c.notifications.background,
-        })
-      end
-      if string.match(group, BODY) or group == "NotifyBackground" then
-        notify_groups[group] = {
-          bg = c.notifications.background,
-          fg = c.notifications.foreground,
-        }
-      end
+---@type MonokaiPro.PluginSpec
+return {
+  name = "rcarriga/nvim-notify",
+  lazy = { module = "notify" },
+
+  highlights = function(c, config)
+    local is_clear = vim.tbl_contains(config.background_clear or {}, "notify")
+
+    -- stylua: ignore
+    if is_clear then
+      return {
+        NotifyERRORBorder = { fg = colors.blend(c.inputValidation.errorBorder, 0.3, c.editor.background) },
+        NotifyWARNBorder  = { fg = colors.blend(c.inputValidation.warningBorder, 0.3, c.editor.background) },
+        NotifyINFOBorder  = { fg = colors.blend(c.inputValidation.infoBorder, 0.3, c.editor.background) },
+        NotifyDEBUGBorder = { fg = colors.blend(c.base.dimmed2, 0.3, c.editor.background) },
+        NotifyTRACEBorder = { fg = colors.blend(c.base.magenta, 0.3, c.editor.background) },
+        NotifyERRORIcon   = { fg = c.inputValidation.errorForeground },
+        NotifyWARNIcon    = { fg = c.inputValidation.warningForeground },
+        NotifyINFOIcon    = { fg = c.inputValidation.infoForeground },
+        NotifyDEBUGIcon   = { fg = c.base.white },
+        NotifyTRACEIcon   = { fg = c.base.magenta },
+        NotifyERRORTitle  = { link = "NotifyERRORIcon" },
+        NotifyWARNTitle   = { link = "NotifyWARNIcon" },
+        NotifyINFOTitle   = { link = "NotifyINFOIcon" },
+        NotifyDEBUGTitle  = { fg = c.base.dimmed2 },
+        NotifyTRACETitle  = { fg = c.base.magenta },
+        NotifyERRORBody   = { link = "Normal" },
+        NotifyWARNBody    = { link = "Normal" },
+        NotifyINFOBody    = { link = "Normal" },
+        NotifyDEBUGBody   = { link = "Normal" },
+        NotifyTRACEBody   = { link = "Normal" },
+        NotifyBackground  = { link = "Normal" },
+      }
     end
-  end
-  return notify_groups
-end
 
-return M
+    -- stylua: ignore
+    return {
+      NotifyERRORBorder = { bg = c.notifications.background, fg = c.notifications.background },
+      NotifyWARNBorder  = { bg = c.notifications.background, fg = c.notifications.background },
+      NotifyINFOBorder  = { bg = c.notifications.background, fg = c.notifications.background },
+      NotifyDEBUGBorder = { bg = c.notifications.background, fg = c.notifications.background },
+      NotifyTRACEBorder = { bg = c.notifications.background, fg = c.notifications.background },
+      NotifyERRORIcon   = { bg = c.notifications.background, fg = c.inputValidation.errorForeground },
+      NotifyWARNIcon    = { bg = c.notifications.background, fg = c.inputValidation.warningForeground },
+      NotifyINFOIcon    = { bg = c.notifications.background, fg = c.inputValidation.infoForeground },
+      NotifyDEBUGIcon   = { bg = c.notifications.background, fg = c.base.white },
+      NotifyTRACEIcon   = { bg = c.notifications.background, fg = c.base.magenta },
+      NotifyERRORTitle  = { bg = c.notifications.background, fg = c.inputValidation.errorForeground },
+      NotifyWARNTitle   = { bg = c.notifications.background, fg = c.inputValidation.warningForeground },
+      NotifyINFOTitle   = { bg = c.notifications.background, fg = c.inputValidation.infoForeground },
+      NotifyDEBUGTitle  = { bg = c.notifications.background, fg = c.base.dimmed2 },
+      NotifyTRACETitle  = { bg = c.notifications.background, fg = c.base.magenta },
+      NotifyERRORBody   = { bg = c.notifications.background, fg = c.notifications.foreground },
+      NotifyWARNBody    = { bg = c.notifications.background, fg = c.notifications.foreground },
+      NotifyINFOBody    = { bg = c.notifications.background, fg = c.notifications.foreground },
+      NotifyDEBUGBody   = { bg = c.notifications.background, fg = c.notifications.foreground },
+      NotifyTRACEBody   = { bg = c.notifications.background, fg = c.notifications.foreground },
+      NotifyBackground  = { bg = c.notifications.background, fg = c.notifications.foreground },
+    }
+  end,
+}

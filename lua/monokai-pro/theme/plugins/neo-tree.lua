@@ -1,86 +1,44 @@
-local M = {}
+---@type MonokaiPro.PluginSpec
+return {
+  name = "nvim-neo-tree/neo-tree.nvim",
+  lazy = { module = "neo-tree" },
 
---- @param c Colorscheme The color palette
---- @param config Config
-function M.get(c, config, _)
-  local isBackgroundClear = vim.tbl_contains(config.background_clear, "neo-tree")
-  local sidebar_bg = isBackgroundClear and c.editor.background or c.sideBar.background
-  return {
-    NeoTreeNormal = { bg = sidebar_bg, fg = c.sideBar.foreground },
-    NeoTreeEndOfBuffer = {
-      bg = sidebar_bg,
-      fg = sidebar_bg,
-    },
-    NeoTreeNormalNC = { bg = sidebar_bg, fg = c.sideBar.foreground },
-    NeoTreeSignColumn = { bg = sidebar_bg, fg = c.sideBar.foreground },
-    NeoTreeStatusLine = { bg = sidebar_bg, fg = sidebar_bg },
-    NeoTreeCursor = {
-      bg = c.list.activeSelectionBackground,
-      bg_base = sidebar_bg,
-    },
-    NeoTreeCursorLine = {
-      bg = c.list.activeSelectionBackground,
-      bg_base = sidebar_bg,
-      bold = true,
-    },
-    NeoTreeCursorLineSign = {
-      bg = c.list.activeSelectionBackground,
-      bg_base = sidebar_bg,
-    },
-    NeoTreeWinSeparator = {
-      bg = c.editor.background,
-      fg = isBackgroundClear and c.base.black or c.editor.background,
-    },
-    NeoTreeRootName = {
-      -- bg = C.sideBarSectionHeader.background,
-      fg = c.sideBarSectionHeader.foreground,
-      bold = true,
-    },
-    NeoTreeDirectoryIcon = { fg = c.sideBar.foreground },
-    NeoTreeDirectoryName = { fg = c.sideBar.foreground },
-    NeoTreeGitAdded = { fg = c.gitDecoration.addedResourceForeground },
-    NeoTreeGitConflict = { fg = c.gitDecoration.conflictingResourceForeground },
-    NeoTreeGitDeleted = { fg = c.gitDecoration.deletedResourceForeground },
-    NeoTreeGitIgnored = { fg = c.gitDecoration.ignoredResourceForeground },
-    NeoTreeGitModified = { fg = c.gitDecoration.modifiedResourceForeground }, -- unstaged
-    NeoTreeGitStaged = { fg = c.gitDecoration.stageModifiedResourceForeground },
-    NeoTreeGitRenamed = { fg = c.gitDecoration.untrackedResourceForeground },
-    NeoTreeGitUntracked = { fg = c.gitDecoration.untrackedResourceForeground },
-    NeoTreeIndentMarker = { link = "IndentBlanklineChar" },
-    NeoTreeExpander = { link = "NeoTreeDirectoryIcon" },
-    NeoTreeFloatNormal = {
-      bg = c.editorSuggestWidget.background,
-      fg = c.editorSuggestWidget.foreground,
-    },
-    NeoTreeFloatBorder = {
-      bg = sidebar_bg,
-      fg = c.editorSuggestWidget.background,
-    },
-    NeoTreeTitleBar = {
-      bg = c.editorSuggestWidget.background,
-      fg = c.base.yellow,
-      bold = true,
-    },
-    NeoTreeFloatTitle = {
-      fg = c.base.yellow,
-      bg = sidebar_bg,
-      bold = true,
-    },
-    NeoTreeTabActive = {
-      bg = c.button.hoverBackground,
-      fg = c.button.foreground,
-      bold = true,
-    },
-    NeoTreeTabInactive = { bg = c.button.background, fg = c.button.foreground },
-    NeoTreeTabSeparatorActive = {
-      bg = c.button.hoverBackground,
-      fg = c.button.separator,
-    },
-    NeoTreeTabSeparatorInactive = {
-      bg = c.button.background,
-      fg = c.button.separator,
-    },
-  }
-end
+  highlights = function(c, config)
+    local is_clear = vim.tbl_contains(config.background_clear or {}, "neo-tree")
+    local sidebar_bg = is_clear and c.editor.background or c.sideBar.background
 
-return M
+    -- stylua: ignore
+    return {
+      NeoTreeNormal               = { fg = c.sideBar.foreground, bg = sidebar_bg },
+      NeoTreeEndOfBuffer          = { fg = sidebar_bg, bg = sidebar_bg },
+      NeoTreeNormalNC             = { fg = c.sideBar.foreground, bg = sidebar_bg },
+      NeoTreeSignColumn           = { fg = c.sideBar.foreground, bg = sidebar_bg },
+      NeoTreeStatusLine           = { fg = sidebar_bg, bg = sidebar_bg },
+      NeoTreeCursor               = { bg = c.list.activeSelectionBackground },
+      NeoTreeCursorLine           = { bg = c.list.activeSelectionBackground, bold = true },
+      NeoTreeCursorLineSign       = { bg = c.list.activeSelectionBackground },
+      NeoTreeWinSeparator         = { fg = is_clear and c.base.black or c.editor.background, bg = c.editor.background },
+      NeoTreeRootName             = { fg = c.sideBarSectionHeader.foreground, bold = true },
+      NeoTreeDirectoryIcon        = { fg = c.sideBar.foreground },
+      NeoTreeDirectoryName        = { fg = c.sideBar.foreground },
+      NeoTreeGitAdded             = { fg = c.gitDecoration.addedResourceForeground },
+      NeoTreeGitConflict          = { fg = c.gitDecoration.conflictingResourceForeground },
+      NeoTreeGitDeleted           = { fg = c.gitDecoration.deletedResourceForeground },
+      NeoTreeGitIgnored           = { fg = c.gitDecoration.ignoredResourceForeground },
+      NeoTreeGitModified          = { fg = c.gitDecoration.modifiedResourceForeground },
+      NeoTreeGitStaged            = { fg = c.gitDecoration.stageModifiedResourceForeground },
+      NeoTreeGitRenamed           = { fg = c.gitDecoration.untrackedResourceForeground },
+      NeoTreeGitUntracked         = { fg = c.gitDecoration.untrackedResourceForeground },
+      NeoTreeIndentMarker         = { link = "IndentBlanklineChar" },
+      NeoTreeExpander             = { link = "NeoTreeDirectoryIcon" },
+      NeoTreeFloatNormal          = { fg = c.editorSuggestWidget.foreground, bg = c.editorSuggestWidget.background },
+      NeoTreeFloatBorder          = { fg = c.editorSuggestWidget.background, bg = sidebar_bg },
+      NeoTreeTitleBar             = { fg = c.base.yellow, bg = c.editorSuggestWidget.background, bold = true },
+      NeoTreeFloatTitle           = { fg = c.base.yellow, bg = sidebar_bg, bold = true },
+      NeoTreeTabActive            = { fg = c.button.foreground, bg = c.button.hoverBackground, bold = true },
+      NeoTreeTabInactive          = { bg = c.button.background, fg = c.button.foreground },
+      NeoTreeTabSeparatorActive   = { fg = c.button.separator, bg = c.button.hoverBackground },
+      NeoTreeTabSeparatorInactive = { fg = c.button.separator, bg = c.button.background },
+    }
+  end,
+}

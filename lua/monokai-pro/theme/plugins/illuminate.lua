@@ -1,12 +1,13 @@
-local M = {}
+---@type MonokaiPro.PluginSpec
+return {
+  name = "RRethy/vim-illuminate",
+  lazy = { module = "illuminate" },
 
---- @param c Colorscheme The color palette
-function M.get(c, _, _)
-  return {
-    IlluminatedWordRead = { bg = c.editor.wordHighlightBackground },
-    IlluminatedWordText = { bg = c.editor.selectionHighlightBackground },
-    IlluminatedWordWrite = { bg = c.editor.wordHighlightStrongBackground },
-  }
-end
-
-return M
+  highlights = function(c)
+    return {
+      IlluminatedWordRead  = { bg = c.editor.wordHighlightBackground },
+      IlluminatedWordText  = { bg = c.editor.selectionHighlightBackground },
+      IlluminatedWordWrite = { bg = c.editor.wordHighlightStrongBackground },
+    }
+  end,
+}
