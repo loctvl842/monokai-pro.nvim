@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.26.1...v2.0.0) (2026-01-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* add lazy loading support for plugin highlights
+
+### Features
+
+* add lazy loading support for plugin highlights ([4344cd4](https://github.com/loctvl842/monokai-pro.nvim/commit/4344cd4d09d7ee0f642847b56b401807bcd20f13))
+
 ## [1.26.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.26.0...v1.26.1) (2025-08-03)
 
 
