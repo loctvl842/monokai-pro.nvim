@@ -1,4 +1,4 @@
-*monokai-pro.txt*       For Neovim >= 0.8.0       Last change: 2026 January 21
+*monokai-pro.txt*       For Neovim >= 0.8.0       Last change: 2026 January 23
 
 ==============================================================================
 Table of Contents                              *monokai-pro-table-of-contents*
@@ -14,6 +14,14 @@ Table of Contents                              *monokai-pro-table-of-contents*
   - License                                              |monokai-pro-license|
 1. Links                                                   |monokai-pro-links|
 
+
+  monokai-pro.nvim is under active development.
+  Version **v2.0.0** involves a large internal refactor, so some short-term
+  regressions are expected. If you encounter issues, please report them here
+  <https://github.com/loctvl842/monokai-pro.nvim/issues> — they help stabilize
+  the next release.
+  If you are maintaining a fork with fixes, please consider contributing upstream
+  via pull requests so improvements benefit the whole community.
 
 FILTERS                                                  *monokai-pro-filters*
 
