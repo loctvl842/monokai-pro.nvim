@@ -10,6 +10,13 @@
   </p>
 </div>
 
+> monokai-pro.nvim is under active development.
+>
+> Version **v2.0.0** involves a large internal refactor, so some short-term regressions are expected.
+> If you encounter issues, please report them [here](https://github.com/loctvl842/monokai-pro.nvim/issues) — they help stabilize the next release.
+>
+> If you are maintaining a fork with fixes, please consider contributing upstream via pull requests so improvements benefit the whole community.
+
 ![monokai-pro-macbook](https://user-images.githubusercontent.com/80513079/218453999-87c957f1-658d-49a6-bf67-291d3e46fa9a.png)
 
 ## Filters
