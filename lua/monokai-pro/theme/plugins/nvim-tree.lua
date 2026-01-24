@@ -21,7 +21,7 @@ return {
       NvimTreeEmptyFolderName  = { fg = c.sideBar.foreground, italic = true },
       NvimTreeImageFile        = { fg = c.base.white },
       NvimTreeSpecialFile      = { fg = c.base.white },
-      NvimTreeCursorLine       = { bg = c.list.activeSelectionBackground, bg_base = sidebar_bg },
+      NvimTreeCursorLine       = { bg = c.list.activeSelectionBackground },
 
       NvimTreeGitIgnored       = { fg = c.gitDecoration.ignoredResourceForeground },
       NvimTreeGitignoreIcon    = { fg = c.gitDecoration.ignoredResourceForeground },
