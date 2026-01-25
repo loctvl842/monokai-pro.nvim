@@ -271,6 +271,55 @@ LIGHTLINE ~
 <
 
 
+NVCHAD ~
+
+monokai-pro.nvim can be integrated with NvChad
+<https://github.com/NvChad/NvChad>’s base46 theme system, enabling theme
+toggle functionality.
+
+**Step 1:** Create theme files in your NvChad config:
+
+>lua
+    -- lua/themes/monokai-pro.lua
+    return require("monokai-pro").nvchad()
+<
+
+>lua
+    -- lua/themes/monokai-pro-light.lua
+    return require("monokai-pro").nvchad("light")
+<
+
+**Step 2:** Update your `chadrc.lua`:
+
+>lua
+    M.base46 = {
+      theme = "monokai-pro",
+      theme_toggle = { "monokai-pro", "monokai-pro-light" },
+    }
+<
+
+**Step 3:** Ensure monokai-pro is installed (without loading the colorscheme):
+
+>lua
+    {
+      "loctvl842/monokai-pro.nvim",
+      lazy = false,
+      priority = 1000,
+      config = function()
+        require("monokai-pro").setup()
+        -- Don't call vim.cmd.colorscheme() - let NvChad handle it
+      end,
+    }
+<
+
+You can also create theme files for other filters:
+
+>lua
+    -- lua/themes/monokai-pro-spectrum.lua
+    return require("monokai-pro").nvchad("spectrum")
+<
+
+
 CUSTOMIZATION                                      *monokai-pro-customization*
 
 
