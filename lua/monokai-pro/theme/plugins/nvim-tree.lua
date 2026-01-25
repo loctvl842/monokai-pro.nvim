@@ -13,6 +13,7 @@ return {
       NvimTreeIndentMarker     = { link = "IndentBlanklineChar" },
 
       NvimTreeNormal           = { bg = sidebar_bg, fg = c.sideBar.foreground },
+      NvimTreeNormalNC         = { bg = sidebar_bg, fg = c.sideBar.foreground },
       NvimTreeEndOfBuffer      = { bg = sidebar_bg, fg = sidebar_bg },
       NvimTreeWinSeparator     = { bg = c.editor.background, fg = isBackgroundClear and c.base.black or c.editor.background },
 

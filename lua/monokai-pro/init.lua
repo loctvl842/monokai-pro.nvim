@@ -63,4 +63,11 @@ function M.get_palette(filter)
   return palette_module.load(filter or config_module.get().filter or "pro")
 end
 
+--- Get colors in NvChad's base46 theme format
+---@param filter? MonokaiPro.Filter
+---@return table NvChad base46 theme table with base_30, base_16, and type
+function M.nvchad(filter)
+  return require("monokai-pro.nvchad").get(filter)
+end
+
 return M
