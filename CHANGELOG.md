@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.1.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v2.0.0...v2.1.0) (2026-01-25)
+
+
+### Features
+
+* **NvChad:** resolve [#154](https://github.com/loctvl842/monokai-pro.nvim/issues/154) ([ac5d0c4](https://github.com/loctvl842/monokai-pro.nvim/commit/ac5d0c46bbf0106d04ebc9069745737baa366c62))
+* **Snacks:** improve picker [#147](https://github.com/loctvl842/monokai-pro.nvim/issues/147), [#143](https://github.com/loctvl842/monokai-pro.nvim/issues/143) ([01e7b27](https://github.com/loctvl842/monokai-pro.nvim/commit/01e7b2758afca7c56c7c5ef235352e80cc592c0d))
+
+
+### Bug Fixes
+
+* **bufferline:** icons lose colors ([c6b5d5a](https://github.com/loctvl842/monokai-pro.nvim/commit/c6b5d5a311fba344b828c64d85dbf350d9d18358))
+* **filter:** restore extra colorscheme filter ([37e43e9](https://github.com/loctvl842/monokai-pro.nvim/commit/37e43e95f896b662ef9b5391ba5bb8f443360111))
+* **nvim-tree:** no more bg-base, [#161](https://github.com/loctvl842/monokai-pro.nvim/issues/161) ([363e955](https://github.com/loctvl842/monokai-pro.nvim/commit/363e955d153679fa12958810744e4738e3921df2))
+
 ## [2.0.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v1.26.1...v2.0.0) (2026-01-21)
 
 
