@@ -8,6 +8,18 @@ return {
     local is_context_pro = plugin_config.context_highlight == "pro"
     local is_context_underline = plugin_config.context_start_underline
 
+    local augroup = vim.api.nvim_create_augroup("MonokaiProBufferline", { clear = true })
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      group = augroup,
+      pattern = "*",
+      callback = function()
+        local ok, ibl = pcall(require, "ibl.highlights")
+        if ok then
+          ibl.setup()
+        end
+      end,
+    })
+
     -- stylua: ignore
     return {
       IndentBlanklineChar         = { fg = c.editorIndentGuide.background },
@@ -23,7 +35,7 @@ return {
 
       -- IblIndent (v3 API)
       IblIndent                   = { fg = c.editorIndentGuide.background },
-      IblScope                    = is_context_pro and { fg = c.base.blue } or { fg = c.editorIndentGuide.activeBackground },
+      IblScope                    = is_context_pro and { fg = c.base.red } or { fg = c.editorIndentGuide.activeBackground },
     }
   end,
 }

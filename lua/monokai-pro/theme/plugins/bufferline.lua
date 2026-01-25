@@ -41,23 +41,10 @@ local function generate_icon_highlights(icon_hl_name, icon_color)
   return highlights
 end
 
---- Get the current tab state
----@return table|nil
-local function get_tab()
-  return state.tab
-end
-
----@class MonokaiPro.PluginSpec.Bufferline : MonokaiPro.PluginSpec
----@field generate_icon_highlights fun(icon_hl_name: string|nil, icon_color: string|nil): table<string, vim.api.keyset.highlight>
----@field get_tab fun(): table|nil
----@type MonokaiPro.PluginSpec.Bufferline
+---@type MonokaiPro.PluginSpec
 return {
   name = "akinsho/bufferline.nvim",
   lazy = { module = "bufferline" },
-
-  -- Extra exports for bufferline icon handling
-  generate_icon_highlights = generate_icon_highlights,
-  get_tab = get_tab,
 
   highlights = function(c, config)
     local bufferline_config = config.plugins and config.plugins.bufferline or {}
@@ -134,10 +121,7 @@ return {
 
     --- Setup autocmds for bufferline icons
     local function setup_bufferline_icons()
-      local augroup = vim.api.nvim_create_augroup("MonokaiProBufferline", { clear = true })
-
       vim.api.nvim_create_autocmd({ "ColorScheme", "BufEnter" }, {
-        group = augroup,
         pattern = "*",
         callback = function()
           local icon_ok, web_devicons = pcall(require, "nvim-web-devicons")

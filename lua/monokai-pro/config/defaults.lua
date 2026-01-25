@@ -96,7 +96,7 @@ local defaults = {
       bold = true,
     },
     indent_blankline = {
-      context_highlight = "default",
+      context_highlight = "pro",
       context_start_underline = false,
     },
   },

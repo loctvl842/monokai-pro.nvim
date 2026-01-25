@@ -43,13 +43,4 @@ function M.apply(plugin_name)
   M.pending_specs[plugin_name] = nil
 end
 
---- Reset all state (used when colorscheme reloads)
-function M.reset()
-  M.applied_plugins = {}
-  M.module_to_plugin = {}
-  M.pending_specs = {}
-  M.scheme = nil
-  M.config = nil
-end
-
 return M

@@ -17,6 +17,7 @@ end
 --- Load the colorscheme
 function M.load()
   theme_module.load()
+  vim.api.nvim_exec_autocmds("ColorScheme", { pattern = vim.g.colors_name })
 end
 
 --- Switch to a specific filter
@@ -24,6 +25,7 @@ end
 function M.set_filter(filter)
   if not config_module.is_valid_filter(filter) then
     vim.notify(
+      -- style: ignore
       string.format("MonokaiPro: Invalid filter '%s'. Valid options: %s", filter, table.concat(config_module.get_filters(), ", ")),
       vim.log.levels.WARN
     )

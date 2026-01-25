@@ -6,13 +6,6 @@ local colors = require("monokai-pro.colors")
 ---@class MonokaiPro.ThemeModule
 local M = {}
 
--- Cache for highlight groups
----@type table<string, vim.api.keyset.highlight>|nil
-local highlight_cache = nil
-
----@type MonokaiPro.Filter|nil
-local cached_filter = nil
-
 --- Set terminal colors
 ---@param scheme MonokaiPro.Scheme
 local function set_terminal_colors(scheme)
@@ -73,11 +66,6 @@ function M.build()
   local config = config_module.get()
   local filter = config.filter or "pro"
 
-  -- Return cached highlights if filter hasn't changed
-  if highlight_cache and cached_filter == filter then
-    return highlight_cache
-  end
-
   -- Load palette (with potential user overrides)
   local palette = palette_module.load(filter)
   if config.override_palette then
@@ -98,11 +86,7 @@ function M.build()
     end
   end
 
-  -- Build highlights
-  highlight_cache = build_highlights(scheme, config)
-  cached_filter = filter
-
-  return highlight_cache
+  return build_highlights(scheme, config)
 end
 
 --- Load the theme
@@ -140,8 +124,6 @@ end
 
 --- Clear the highlight cache
 function M.clear_cache()
-  highlight_cache = nil
-  cached_filter = nil
   palette_module.clear_cache()
 
   -- Clear registry caches

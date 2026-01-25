@@ -41,4 +41,26 @@ function M.register(module_name, plugin_name)
   state.module_to_plugin[module_name] = plugin_name
 end
 
+--- Setup module trigger for a plugin
+---@param spec MonokaiPro.PluginSpec Plugin spec
+---@param modules string|string[] Module(s) to trigger on
+function M.setup(spec, modules)
+  if type(modules) == "string" then
+    modules = { modules }
+  end
+
+  for _, mod in ipairs(modules) do
+    if package.loaded[mod] ~= nil then
+      state.apply(spec.name)
+      goto continue
+    end
+  end
+
+  for _, mod in ipairs(modules) do
+    M.register(mod, spec.name)
+  end
+
+  ::continue::
+end
+
 return M

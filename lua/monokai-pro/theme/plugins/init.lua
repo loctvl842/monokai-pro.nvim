@@ -66,9 +66,6 @@ end
 function M.generate(scheme, config)
   local highlights = {}
 
-  -- Reset trigger state for fresh colorscheme load
-  state.reset()
-
   -- Store scheme/config for lazy application
   state.scheme = scheme
   state.config = config
@@ -82,13 +79,15 @@ function M.generate(scheme, config)
     end
 
     local lazy_config = spec.lazy
+    local eager = lazy_config == false or lazy_config == nil or state.applied_plugins[spec.name] == true
 
-    if lazy_config == false or lazy_config == nil then
+    if eager then
       -- Eager: apply immediately
       local plugin_highlights = spec.highlights(scheme, config)
       highlights = vim.tbl_deep_extend("force", highlights, plugin_highlights)
       state.applied_plugins[spec.name] = true
     else
+      assert(lazy_config ~= nil, "Lazy config should not be nil here")
       -- Lazy: setup triggers
       state.pending_specs[spec.name] = spec
 
@@ -97,23 +96,7 @@ function M.generate(scheme, config)
       end
 
       if lazy_config.module then
-        ---@type string[]
-        local modules = {}
-
-        local m = lazy_config.module
-        -- stylua: ignore
-        if type(m) == "string" then modules = { m } elseif type(m) == "table" then modules = m end
-        for _, mod in ipairs(modules) do
-          if package.loaded[mod] ~= nil then
-            highlights = vim.tbl_deep_extend("force", highlights, spec.highlights(scheme, config))
-            state.applied_plugins[spec.name] = true
-            goto continue
-          end
-        end
-
-        for _, mod in ipairs(modules) do
-          module_trigger.register(mod, spec.name)
-        end
+        module_trigger.setup(spec, lazy_config.module)
       end
     end
 
