@@ -56,7 +56,7 @@ return {
 
       -- Signs and line numbers
       SignColumn = { bg = scheme.editor.background },
-      LineNr = { bg = scheme.editor.background, fg = scheme.editorLineNumber.foreground },
+      LineNr = { fg = scheme.editorLineNumber.foreground },
 
       -- Matching
       MatchParen = { fg = scheme.base.yellow, bold = true, underline = true },

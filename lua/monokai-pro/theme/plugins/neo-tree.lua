@@ -29,7 +29,7 @@ return {
       NeoTreeGitStaged            = { fg = c.gitDecoration.stageModifiedResourceForeground },
       NeoTreeGitRenamed           = { fg = c.gitDecoration.untrackedResourceForeground },
       NeoTreeGitUntracked         = { fg = c.gitDecoration.untrackedResourceForeground },
-      NeoTreeIndentMarker         = { link = "IndentBlanklineChar" },
+      NeoTreeIndentMarker         = { fg = c.editorIndentGuide.background },
       NeoTreeExpander             = { link = "NeoTreeDirectoryIcon" },
       NeoTreeFloatNormal          = { fg = c.editorSuggestWidget.foreground, bg = c.editorSuggestWidget.background },
       NeoTreeFloatBorder          = { fg = c.editorSuggestWidget.background, bg = sidebar_bg },
