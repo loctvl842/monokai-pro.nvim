@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v2.1.0...v2.1.1) (2026-02-02)
+
+
+### Bug Fixes
+
+* broken rainbow-delimeters ([ffb6586](https://github.com/loctvl842/monokai-pro.nvim/commit/ffb6586648a2bfda65f661b8ea0c7a5d9624f5c3))
+* broken rainbow-delimiters ([cec3008](https://github.com/loctvl842/monokai-pro.nvim/commit/cec3008f2e329eafb42043d96142ffde30c5b0cc))
+
 ## [2.1.0](https://github.com/loctvl842/monokai-pro.nvim/compare/v2.0.0...v2.1.0) (2026-01-25)
 
 
