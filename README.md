@@ -156,7 +156,7 @@ Each plugin spec can define a `lazy` field:
 
 ```lua
 require("monokai-pro").setup({
-  disabled_plugins = { "bufferline", "neo-tree" },
+  disabled_plugins = { "akinsho/bufferline.nvim", "nvim-neo-tree/neo-tree.nvim" },
 })
 ```
 
