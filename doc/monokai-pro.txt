@@ -1,4 +1,5 @@
-*monokai-pro.txt*       For Neovim >= 0.8.0      Last change: 2026 February 02
+*monokai-pro.txt*
+                             For Neovim >= 0.8.0    Last change: 2026 April 27
 
 ==============================================================================
 Table of Contents                              *monokai-pro-table-of-contents*
