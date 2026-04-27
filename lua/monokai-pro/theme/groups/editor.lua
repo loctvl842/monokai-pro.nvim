@@ -5,8 +5,6 @@ return {
   name = "editor",
 
   highlights = function(scheme, config)
-    local float_win_clear = vim.tbl_contains(config.background_clear or {}, "float_win")
-
     return {
       -- Basic editor highlights
       ColorColumn = { bg = scheme.base.dimmed5 },
@@ -75,41 +73,25 @@ return {
       NormalNC = { bg = scheme.editor.background, fg = scheme.editor.foreground },
 
       -- Floating windows
-      NormalFloat = float_win_clear and {
+      NormalFloat = {
         bg = scheme.editor.background,
-        fg = scheme.editorSuggestWidget.foreground,
-      } or {
-        bg = scheme.base.black,
         fg = scheme.base.dimmed1,
       },
-      FloatBorder = float_win_clear and {
+      FloatBorder = {
         bg = scheme.editor.background,
         fg = scheme.editorSuggestWidget.foreground,
-      } or {
-        bg = scheme.editor.background,
-        fg = scheme.base.black,
       },
-      FloatTitle = float_win_clear and {
-        bg = scheme.editor.background,
-        fg = scheme.base.yellow,
-        bold = true,
-      } or {
+      FloatTitle = {
         bg = scheme.base.yellow,
         fg = scheme.base.black,
       },
 
       -- Popup menu
-      Pmenu = float_win_clear and {
-        bg = scheme.editor.background,
-        fg = scheme.editorSuggestWidget.foreground,
-      } or {
+      Pmenu = {
         bg = scheme.editorSuggestWidget.background,
         fg = scheme.editorSuggestWidget.foreground,
       },
-      PmenuSel = float_win_clear and {
-        bg = colors.blend(scheme.editorSuggestWidget.selectedBackground, 0.7, scheme.editor.background),
-        bold = true,
-      } or {
+      PmenuSel = {
         bg = scheme.editorSuggestWidget.selectedBackground,
         bold = true,
       },
@@ -141,7 +123,10 @@ return {
       StatusLineTermNC = { fg = scheme.statusBar.background },
 
       -- Tab line
-      Tabline = { bg = scheme.tab.inactiveBackground, fg = colors.blend(scheme.base.white, 0.6, scheme.tab.inactiveBackground) },
+      Tabline = {
+        bg = scheme.tab.inactiveBackground,
+        fg = colors.blend(scheme.base.white, 0.6, scheme.tab.inactiveBackground),
+      },
       TablineFill = { bg = scheme.editorGroupHeader.tabsBackground },
       TablineSel = { bg = scheme.tab.activeBackground, fg = scheme.tab.activeForeground },
 

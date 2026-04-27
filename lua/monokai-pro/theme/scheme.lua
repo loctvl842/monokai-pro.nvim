@@ -238,7 +238,7 @@ function M.build(palette, config)
   scheme.editorSuggestWidget = {
     background = p.dimmed5,
     border = p.dimmed5,
-    foreground = p.dimmed1,
+    foreground = p.dimmed2,
     highlightForeground = p.text,
     selectedBackground = p.dimmed3,
   }
