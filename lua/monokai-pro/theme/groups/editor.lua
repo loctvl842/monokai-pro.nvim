@@ -74,8 +74,8 @@ return {
 
       -- Floating windows
       NormalFloat = {
-        bg = scheme.editor.background,
-        fg = scheme.base.dimmed1,
+        bg = scheme.editorSuggestWidget.background,
+        fg = scheme.editorSuggestWidget.foreground,
       },
       FloatBorder = {
         bg = scheme.editor.background,
