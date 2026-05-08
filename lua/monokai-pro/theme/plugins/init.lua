@@ -73,17 +73,43 @@ local function load_plugin_module(entry)
   return nil
 end
 
+-- Lazy trigger state (module-level, avoids separate triggers module on warm path)
+local lazy_state = {
+  module_to_plugin = {}, -- require() module name → registry entry
+  applied = {},          -- plugin mod name → true
+  scheme = nil,          ---@type MonokaiPro.Scheme|nil
+  config = nil,          ---@type MonokaiPro.Config|nil
+  searcher_installed = false,
+}
+
+--- Apply highlights for a lazy plugin when its trigger fires
+---@param entry MonokaiPro.PluginEntry
+local function apply_lazy_plugin(entry)
+  if lazy_state.applied[entry.mod] then
+    return
+  end
+  lazy_state.applied[entry.mod] = true
+
+  local spec = load_plugin_module(entry)
+  if spec and lazy_state.scheme then
+    local highlights = spec.highlights(lazy_state.scheme, lazy_state.config)
+    local nvim_set_hl = vim.api.nvim_set_hl
+    for group, opts in pairs(highlights) do
+      nvim_set_hl(0, group, opts)
+    end
+  end
+end
+
 --- Generate all plugin highlights (eager ones only, lazy ones are deferred)
 ---@param scheme MonokaiPro.Scheme
 ---@param config MonokaiPro.Config
 ---@return table<string, vim.api.keyset.highlight>
 function M.generate(scheme, config)
-  local state = require("monokai-pro.theme.triggers")
   local highlights = {}
 
   -- Store scheme/config for lazy application
-  state.scheme = scheme
-  state.config = config
+  lazy_state.scheme = scheme
+  lazy_state.config = config
 
   -- Install module loader and register lazy triggers
   M.setup_triggers(config)
@@ -93,16 +119,13 @@ function M.generate(scheme, config)
       goto continue
     end
 
-    local lazy_config = entry.lazy
-    local eager = not lazy_config or state.applied_plugins[entry.name] == true
-
-    if eager then
+    if not entry.lazy or lazy_state.applied[entry.mod] then
       -- Eager: require module and apply immediately
       local spec = load_plugin_module(entry)
       if spec then
         local plugin_highlights = spec.highlights(scheme, config)
         highlights = vim.tbl_deep_extend("force", highlights, plugin_highlights)
-        state.applied_plugins[entry.name] = true
+        lazy_state.applied[entry.mod] = true
       end
     end
 
@@ -113,54 +136,82 @@ function M.generate(scheme, config)
 end
 
 --- Setup lazy triggers for all lazy plugins (must be called even on cache hit)
---- This installs the module loader and registers event/module triggers so that
---- lazy plugin highlights are applied when the plugin is actually loaded.
+--- Inlines all trigger logic to avoid requiring separate trigger modules.
 ---@param config MonokaiPro.Config
 function M.setup_triggers(config)
-  local state = require("monokai-pro.theme.triggers")
-  local module_trigger = require("monokai-pro.theme.triggers.module")
+  ---@diagnostic disable-next-line: deprecated
+  local searchers = package.searchers or package.loaders
 
-  -- Install module loader once
-  module_trigger.install()
+  -- Install module searcher once
+  if not lazy_state.searcher_installed then
+    table.insert(searchers, 2, function(modname)
+      local entry = lazy_state.module_to_plugin[modname]
+      if entry then
+        apply_lazy_plugin(entry)
+      end
+      return nil
+    end)
+    lazy_state.searcher_installed = true
+  end
+
+  -- Batch event triggers: event → list of entries
+  local event_entries = {}
 
   for _, entry in ipairs(M.registry) do
     if not is_enabled(entry, config) then
       goto continue
     end
 
-    local lazy_config = entry.lazy
-    if not lazy_config or state.applied_plugins[entry.name] then
+    local lc = entry.lazy
+    if not lc or lazy_state.applied[entry.mod] then
       goto continue
     end
 
-    -- Already registered
-    if state.pending_specs[entry.name] then
-      goto continue
+    -- Register module triggers (just table assignments, no function calls)
+    if lc.module then
+      local modules = type(lc.module) == "string" and { lc.module } or lc.module
+      for _, mod in ipairs(modules) do
+        if package.loaded[mod] then
+          apply_lazy_plugin(entry)
+          goto continue
+        end
+        lazy_state.module_to_plugin[mod] = entry
+      end
     end
 
-    -- Lazy: register triggers without requiring the module
-    local pending_spec = {
-      name = entry.name,
-      lazy = lazy_config,
-      highlights = function(s, c)
-        local spec = load_plugin_module(entry)
-        return spec and spec.highlights(s, c) or {}
-      end,
-    }
-    state.pending_specs[entry.name] = pending_spec
-
-    if lazy_config.event then
-      local event_trigger = require("monokai-pro.theme.triggers.event")
-      event_trigger.setup(pending_spec, lazy_config.event)
-    end
-
-    -- Only setup module trigger if the event trigger didn't already apply it
-    if lazy_config.module and not state.applied_plugins[entry.name] then
-      module_trigger.setup(pending_spec, lazy_config.module)
+    -- Collect event triggers for batching
+    if lc.event and not lazy_state.applied[entry.mod] then
+      local events = type(lc.event) == "string" and { lc.event } or lc.event
+      for _, event in ipairs(events) do
+        if (event == "VimEnter" or event == "UIEnter") and vim.v.vim_did_enter == 1 then
+          apply_lazy_plugin(entry)
+          goto continue
+        end
+        event_entries[event] = event_entries[event] or {}
+        event_entries[event][#event_entries[event] + 1] = entry
+      end
     end
 
     ::continue::
   end
+
+  -- Create batched event autocmds (one per event type, not per plugin)
+  for event, entries in pairs(event_entries) do
+    vim.api.nvim_create_autocmd(event, {
+      once = true,
+      callback = function()
+        for _, entry in ipairs(entries) do
+          apply_lazy_plugin(entry)
+        end
+      end,
+    })
+  end
+end
+
+--- Get the lazy trigger state (for external access, e.g. theme/init.lua)
+---@return table
+function M.get_lazy_state()
+  return lazy_state
 end
 
 --- Load specs (for backward compatibility with clear_cache and external callers)
@@ -182,6 +233,11 @@ function M.clear_cache()
   for _, entry in ipairs(M.registry) do
     package.loaded["monokai-pro.theme.plugins." .. entry.mod] = nil
   end
+  -- Reset lazy trigger state
+  lazy_state.module_to_plugin = {}
+  lazy_state.applied = {}
+  lazy_state.scheme = nil
+  lazy_state.config = nil
 end
 
 return M

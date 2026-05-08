@@ -1,5 +1,3 @@
-local colors = require("monokai-pro.colors")
-
 --- Trigger state management for lazy loading plugin highlights
 ---@class MonokaiPro.TriggerState
 local M = {}
@@ -37,6 +35,7 @@ function M.apply(plugin_name)
   end
 
   local highlights = spec.highlights(M.scheme, M.config)
+  local colors = require("monokai-pro.colors")
   colors.apply_highlights(highlights)
 
   M.applied_plugins[plugin_name] = true

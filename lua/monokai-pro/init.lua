@@ -2,7 +2,6 @@
 local M = {}
 
 local config_module = require("monokai-pro.config")
-local theme_module = require("monokai-pro.theme")
 
 --- Setup the colorscheme with user options
 ---@param user_config? MonokaiPro.Config
@@ -12,7 +11,7 @@ end
 
 --- Load the colorscheme
 function M.load()
-  theme_module.load()
+  require("monokai-pro.theme").load()
 
   -- Defer command creation to avoid loading commands module during startup
   vim.schedule(function()
@@ -36,7 +35,7 @@ function M.set_filter(filter)
   end
 
   config_module.extend({ filter = filter })
-  theme_module.clear_cache()
+  require("monokai-pro.theme").clear_cache()
   M.load()
 end
 
@@ -49,7 +48,7 @@ end
 --- Get the current scheme
 ---@return MonokaiPro.Scheme
 function M.get_scheme()
-  return theme_module.get_scheme()
+  return require("monokai-pro.theme").get_scheme()
 end
 
 --- Get color utilities

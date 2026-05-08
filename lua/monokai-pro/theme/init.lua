@@ -1,5 +1,4 @@
 local config_module = require("monokai-pro.config")
-local colors = require("monokai-pro.colors")
 
 ---@class MonokaiPro.ThemeModule
 local M = {}
@@ -228,15 +227,19 @@ function M.load()
     })
   end
 
-  colors.apply_highlights(highlights)
+  -- Apply highlights directly (avoids requiring colors module on warm path)
+  local nvim_set_hl = vim.api.nvim_set_hl
+  for group, opts in pairs(highlights) do
+    nvim_set_hl(0, group, opts)
+  end
 
   -- Always setup lazy plugin triggers (even on cache hit) so that plugin
   -- highlights are applied when plugins like neo-tree, telescope, etc. load
   local plugins = require("monokai-pro.theme.plugins")
   plugins.setup_triggers(config)
-  local state = require("monokai-pro.theme.triggers")
-  state.scheme = cached_scheme
-  state.config = config
+  local lazy_state = plugins.get_lazy_state()
+  lazy_state.scheme = cached_scheme
+  lazy_state.config = config
 
   -- Set terminal colors (use cached values on cache hit, no scheme rebuild)
   if config.terminal_colors then
