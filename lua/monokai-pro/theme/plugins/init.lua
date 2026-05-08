@@ -1,4 +1,4 @@
---- Plugin registry with auto-discovery and lazy loading support
+--- Plugin registry with static discovery and lazy loading support
 ---@class MonokaiPro.Theme.Plugins
 local M = {}
 
@@ -6,11 +6,24 @@ local state = require("monokai-pro.theme.triggers")
 local event_trigger = require("monokai-pro.theme.triggers.event")
 local module_trigger = require("monokai-pro.theme.triggers.module")
 
+-- Static registry: all plugin module names (no filesystem scanning)
+-- stylua: ignore
+M.plugin_names = {
+  "aerial",    "alpha",     "blink",         "bufferline",
+  "cmp",       "coc",       "dashboard",     "fidget",
+  "fzf-lua",   "gitsigns",  "illuminate",    "indent-blankline",
+  "lazy",      "lsp",       "mason",         "mini",
+  "neo-tree",  "noice",     "notify",        "nvim-navic",
+  "nvim-tree", "packer",    "rainbow-delimiters", "renamer",
+  "scrollbar", "snacks",    "telescope",     "toggleterm",
+  "treesitter","ufo",       "which-key",     "wilder",
+}
+
 --- Cache for loaded specs
 ---@type MonokaiPro.PluginSpec[]|nil
 local specs_cache = nil
 
---- Discover and load all plugin specs from this directory
+--- Load all plugin specs from the static registry
 ---@return MonokaiPro.PluginSpec[]
 function M.load_specs()
   if specs_cache then
@@ -18,16 +31,11 @@ function M.load_specs()
   end
 
   local specs = {}
-  local plugin_dir = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":h")
-
-  for _, file in ipairs(vim.fn.glob(plugin_dir .. "/*.lua", false, true)) do
-    local name = vim.fn.fnamemodify(file, ":t:r")
-    if name ~= "init" then
-      local module_path = "monokai-pro.theme.plugins." .. name
-      local ok, spec = pcall(require, module_path)
-      if ok and type(spec) == "table" and spec.highlights then
-        table.insert(specs, spec)
-      end
+  for _, name in ipairs(M.plugin_names) do
+    local module_path = "monokai-pro.theme.plugins." .. name
+    local ok, spec = pcall(require, module_path)
+    if ok and type(spec) == "table" and spec.highlights then
+      specs[#specs + 1] = spec
     end
   end
 

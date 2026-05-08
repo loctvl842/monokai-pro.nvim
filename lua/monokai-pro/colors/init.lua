@@ -15,11 +15,7 @@ local convert = require("monokai-pro.colors.convert")
 ---@param group string
 ---@param opts vim.api.keyset.highlight
 local function apply_highlight(group, opts)
-  if opts.link then
-    vim.api.nvim_command("hi! link " .. group .. " " .. opts.link)
-  else
-    vim.api.nvim_set_hl(0, group, opts)
-  end
+  vim.api.nvim_set_hl(0, group, opts)
 end
 
 ---@type MonokaiPro.Colors

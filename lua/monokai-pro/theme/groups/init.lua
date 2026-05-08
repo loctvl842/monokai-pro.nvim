@@ -1,12 +1,15 @@
---- Groups registry with auto-discovery
+--- Groups registry with static discovery
 ---@class MonokaiPro.Theme.Groups
 local M = {}
+
+-- Static registry: all group module names (no filesystem scanning)
+M.group_names = { "editor", "extra", "semantic", "syntax" }
 
 --- Cache for loaded specs
 ---@type MonokaiPro.GroupSpec[]|nil
 local specs_cache = nil
 
---- Discover and load all group specs from this directory
+--- Load all group specs from the static registry
 ---@return MonokaiPro.GroupSpec[]
 function M.load_specs()
   if specs_cache then
@@ -14,16 +17,11 @@ function M.load_specs()
   end
 
   local specs = {}
-  local groups_dir = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":h")
-
-  for _, file in ipairs(vim.fn.glob(groups_dir .. "/*.lua", false, true)) do
-    local name = vim.fn.fnamemodify(file, ":t:r")
-    if name ~= "init" then
-      local module_path = "monokai-pro.theme.groups." .. name
-      local ok, spec = pcall(require, module_path)
-      if ok and type(spec) == "table" and spec.highlights then
-        table.insert(specs, spec)
-      end
+  for _, name in ipairs(M.group_names) do
+    local module_path = "monokai-pro.theme.groups." .. name
+    local ok, spec = pcall(require, module_path)
+    if ok and type(spec) == "table" and spec.highlights then
+      specs[#specs + 1] = spec
     end
   end
 

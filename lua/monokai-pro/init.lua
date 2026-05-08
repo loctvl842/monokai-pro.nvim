@@ -8,15 +8,16 @@ local theme_module = require("monokai-pro.theme")
 ---@param user_config? MonokaiPro.Config
 function M.setup(user_config)
   config_module.setup(user_config)
-
-  -- Create user commands
-  local commands = require("monokai-pro.commands")
-  commands.create()
 end
 
 --- Load the colorscheme
 function M.load()
   theme_module.load()
+
+  -- Create user commands on first load (deferred from setup)
+  local commands = require("monokai-pro.commands")
+  commands.create()
+
   vim.api.nvim_exec_autocmds("ColorScheme", { pattern = vim.g.colors_name })
 end
 
