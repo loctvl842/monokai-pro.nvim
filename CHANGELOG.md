@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.1.4](https://github.com/loctvl842/monokai-pro.nvim/compare/v2.1.3...v2.1.4) (2026-05-08)
+
+
+### Bug Fixes
+
+* defer loading devicons ([dfe3791](https://github.com/loctvl842/monokai-pro.nvim/commit/dfe37919bf2427d306cdc68e6d1857ab7e762e8d))
+
+
+### Performance Improvements
+
+* cache scheme and terminal colors, defer commands, lazy-require triggers ([7212282](https://github.com/loctvl842/monokai-pro.nvim/commit/7212282bfa88ed21d3cd8c1203ece1cc2f290a3f))
+* inline trigger system and defer module loading ([91d8ebe](https://github.com/loctvl842/monokai-pro.nvim/commit/91d8ebe32aca8eca0fd2532d95018748980e7443))
+
 ## [2.1.3](https://github.com/loctvl842/monokai-pro.nvim/compare/v2.1.2...v2.1.3) (2026-05-08)
 
 
