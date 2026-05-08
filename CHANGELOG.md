@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.2](https://github.com/loctvl842/monokai-pro.nvim/compare/v2.1.1...v2.1.2) (2026-05-08)
+
+
+### Bug Fixes
+
+* NormalFloat should use editorSuggestWidget ([369394b](https://github.com/loctvl842/monokai-pro.nvim/commit/369394bdb9fab242a2bcc71592248089a2522f8b))
+
+
+### Performance Improvements
+
+* reduce startup time and variance ([378e4a4](https://github.com/loctvl842/monokai-pro.nvim/commit/378e4a49f6b8dc6cf2748b116326e6f4dff84833))
+
 ## [2.1.1](https://github.com/loctvl842/monokai-pro.nvim/compare/v2.1.0...v2.1.1) (2026-02-02)
 
 
