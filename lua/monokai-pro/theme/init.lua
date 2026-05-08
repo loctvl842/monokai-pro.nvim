@@ -1,18 +1,70 @@
 local config_module = require("monokai-pro.config")
-local palette_module = require("monokai-pro.palette")
-local scheme_module = require("monokai-pro.theme.scheme")
 local colors = require("monokai-pro.colors")
 
 ---@class MonokaiPro.ThemeModule
 local M = {}
 
---- Cached highlight table and the filter it was built for
----@type table<string, vim.api.keyset.highlight>|nil
-local highlights_cache = nil
----@type string|nil
-local cache_filter = nil
 ---@type MonokaiPro.Scheme|nil
 local cached_scheme = nil
+
+--- Disk cache helpers
+local cache = {}
+
+---@param filter string
+---@return string
+function cache.file(filter)
+  return vim.fn.stdpath("cache") .. "/monokai-pro-" .. filter .. ".json"
+end
+
+---@param filter string
+---@return table|nil
+function cache.read(filter)
+  local ok, ret = pcall(function()
+    local fd = assert(io.open(cache.file(filter), "r"))
+    local data = fd:read("*a")
+    fd:close()
+    return vim.json.decode(data, { luanil = { object = true, array = true } })
+  end)
+  return ok and ret or nil
+end
+
+---@param filter string
+---@param data table
+function cache.write(filter, data)
+  pcall(function()
+    local path = cache.file(filter)
+    vim.fn.mkdir(vim.fn.fnamemodify(path, ":h"), "p")
+    local fd = assert(io.open(path, "w+"))
+    fd:write(vim.json.encode(data))
+    fd:close()
+  end)
+end
+
+function cache.clear()
+  for _, filter in ipairs({ "pro", "classic", "octagon", "machine", "ristretto", "spectrum", "light" }) do
+    pcall(os.remove, cache.file(filter))
+  end
+end
+
+--- Build cache inputs for validation (must match to use cached highlights)
+--- Uses lightweight config fingerprint to avoid rebuilding scheme for validation
+---@param config MonokaiPro.Config
+---@return table
+local function cache_inputs(config)
+  return {
+    filter = config.filter or "pro",
+    styles = config.styles,
+    transparent_background = config.transparent_background,
+    inc_search = config.inc_search,
+    background_clear = config.background_clear,
+    disabled_plugins = config.disabled_plugins,
+    plugins = config.plugins,
+    -- override functions invalidate cache (can't be serialized/compared)
+    has_override = config.override ~= nil,
+    has_override_palette = config.override_palette ~= nil,
+    has_override_scheme = config.override_scheme ~= nil,
+  }
+end
 
 --- Set terminal colors
 ---@param scheme MonokaiPro.Scheme
@@ -42,11 +94,12 @@ local function set_terminal_colors(scheme)
   vim.g.terminal_color_14 = scheme.base.cyan
 end
 
---- Build palette and scheme for the current config
+--- Build palette and scheme for the current config (lazy-requires palette/scheme modules)
 ---@param config MonokaiPro.Config
 ---@return MonokaiPro.Scheme scheme
 local function build_scheme(config)
   local filter = config.filter or "pro"
+  local palette_module = require("monokai-pro.palette")
   local palette = palette_module.load(filter)
 
   if config.override_palette then
@@ -56,6 +109,7 @@ local function build_scheme(config)
     end
   end
 
+  local scheme_module = require("monokai-pro.theme.scheme")
   local scheme = scheme_module.build(palette, config)
 
   if config.override_scheme then
@@ -68,7 +122,7 @@ local function build_scheme(config)
   return scheme
 end
 
---- Build the complete highlight table
+--- Build the complete highlight table (expensive — requires all group/plugin modules)
 ---@param scheme MonokaiPro.Scheme
 ---@param config MonokaiPro.Config
 ---@return table<string, vim.api.keyset.highlight>
@@ -94,24 +148,25 @@ local function build_highlights(scheme, config)
   return highlights
 end
 
---- Build the theme (with caching)
+--- Build the theme (with disk + memory caching)
 ---@return table<string, vim.api.keyset.highlight>
 function M.build()
   local config = config_module.get()
   local filter = config.filter or "pro"
 
-  -- Return cached highlights if filter hasn't changed
-  if highlights_cache and cache_filter == filter then
-    return highlights_cache
+  -- Try disk cache (no scheme build needed for validation)
+  local inputs = cache_inputs(config)
+  local disk = cache.read(filter)
+  if disk and vim.deep_equal(inputs, disk.inputs) then
+    return disk.highlights
   end
 
+  -- Cache miss: build scheme + highlights
   local scheme = build_scheme(config)
+  cached_scheme = scheme
   local highlights = build_highlights(scheme, config)
 
-  -- Cache results
-  highlights_cache = highlights
-  cache_filter = filter
-  cached_scheme = scheme
+  cache.write(filter, { highlights = highlights, inputs = inputs })
 
   return highlights
 end
@@ -127,26 +182,31 @@ function M.load()
   vim.g.colors_name = "monokai-pro"
 
   local config = config_module.get()
-
-  -- Build scheme and highlights (cached on repeated loads with same filter)
-  local scheme = build_scheme(config)
   local filter = config.filter or "pro"
 
+  -- Try disk cache first (avoids requiring groups/plugins/triggers modules)
+  local inputs = cache_inputs(config)
+  local disk = cache.read(filter)
   local highlights
-  if highlights_cache and cache_filter == filter then
-    highlights = highlights_cache
+
+  if disk and vim.deep_equal(inputs, disk.inputs) then
+    highlights = disk.highlights
   else
+    -- Cache miss: full build
+    local scheme = build_scheme(config)
+    cached_scheme = scheme
     highlights = build_highlights(scheme, config)
-    highlights_cache = highlights
-    cache_filter = filter
+    cache.write(filter, { highlights = highlights, inputs = inputs })
   end
-  cached_scheme = scheme
 
   colors.apply_highlights(highlights)
 
-  -- Set terminal colors (reuse scheme, no rebuild)
+  -- Set terminal colors (build scheme only if needed)
   if config.terminal_colors then
-    set_terminal_colors(scheme)
+    if not cached_scheme then
+      cached_scheme = build_scheme(config)
+    end
+    set_terminal_colors(cached_scheme)
   end
 
   -- Defer devicons to UIEnter to avoid blocking startup
@@ -163,13 +223,12 @@ function M.load()
   end
 end
 
---- Clear the highlight cache
+--- Clear the highlight cache (both memory and disk)
 function M.clear_cache()
-  highlights_cache = nil
-  cache_filter = nil
   cached_scheme = nil
+  cache.clear()
 
-  palette_module.clear_cache()
+  require("monokai-pro.palette").clear_cache()
 
   -- Clear registry caches
   local groups = require("monokai-pro.theme.groups")
@@ -181,7 +240,6 @@ end
 --- Get the current scheme for the active filter
 ---@return MonokaiPro.Scheme
 function M.get_scheme()
-  -- Return cached scheme if available
   if cached_scheme then
     return cached_scheme
   end

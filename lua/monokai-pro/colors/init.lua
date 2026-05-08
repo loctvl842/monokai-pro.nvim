@@ -30,8 +30,9 @@ local M = {
   hex_to_rgb = convert.hex_to_rgb,
   rgb_to_hex = convert.rgb_to_hex,
   apply_highlights = function(highlights)
+    local nvim_set_hl = vim.api.nvim_set_hl
     for group, opts in pairs(highlights) do
-      apply_highlight(group, opts)
+      nvim_set_hl(0, group, opts)
     end
   end,
 }
