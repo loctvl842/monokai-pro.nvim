@@ -14,9 +14,11 @@ end
 function M.load()
   theme_module.load()
 
-  -- Create user commands on first load (deferred from setup)
-  local commands = require("monokai-pro.commands")
-  commands.create()
+  -- Defer command creation to avoid loading commands module during startup
+  vim.schedule(function()
+    local commands = require("monokai-pro.commands")
+    commands.create()
+  end)
 
   vim.api.nvim_exec_autocmds("ColorScheme", { pattern = vim.g.colors_name })
 end

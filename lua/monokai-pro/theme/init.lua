@@ -66,32 +66,49 @@ local function cache_inputs(config)
   }
 end
 
---- Set terminal colors
+--- Extract terminal color values from scheme for caching
 ---@param scheme MonokaiPro.Scheme
-local function set_terminal_colors(scheme)
-  vim.g.terminal_color_0 = scheme.base.black
-  vim.g.terminal_color_8 = scheme.base.dimmed3
+---@return table<string, string>
+local function extract_terminal_colors(scheme)
+  return {
+    black = scheme.base.black,
+    dimmed3 = scheme.base.dimmed3,
+    white = scheme.base.white,
+    red = scheme.base.red,
+    green = scheme.base.green,
+    yellow = scheme.base.yellow,
+    blue = scheme.base.blue,
+    magenta = scheme.base.magenta,
+    cyan = scheme.base.cyan,
+  }
+end
 
-  vim.g.terminal_color_7 = scheme.base.white
-  vim.g.terminal_color_15 = scheme.base.white
+--- Set terminal colors from a scheme or cached terminal colors table
+---@param tc table Terminal colors (either a scheme with base.* or a flat table)
+local function set_terminal_colors(tc)
+  vim.g.terminal_color_0 = tc.black
+  vim.g.terminal_color_8 = tc.dimmed3
 
-  vim.g.terminal_color_1 = scheme.base.red
-  vim.g.terminal_color_9 = scheme.base.red
+  vim.g.terminal_color_7 = tc.white
+  vim.g.terminal_color_15 = tc.white
 
-  vim.g.terminal_color_2 = scheme.base.green
-  vim.g.terminal_color_10 = scheme.base.green
+  vim.g.terminal_color_1 = tc.red
+  vim.g.terminal_color_9 = tc.red
 
-  vim.g.terminal_color_3 = scheme.base.yellow
-  vim.g.terminal_color_11 = scheme.base.yellow
+  vim.g.terminal_color_2 = tc.green
+  vim.g.terminal_color_10 = tc.green
 
-  vim.g.terminal_color_4 = scheme.base.blue
-  vim.g.terminal_color_12 = scheme.base.blue
+  vim.g.terminal_color_3 = tc.yellow
+  vim.g.terminal_color_11 = tc.yellow
 
-  vim.g.terminal_color_5 = scheme.base.magenta
-  vim.g.terminal_color_13 = scheme.base.magenta
+  vim.g.terminal_color_4 = tc.blue
+  vim.g.terminal_color_12 = tc.blue
 
-  vim.g.terminal_color_6 = scheme.base.cyan
-  vim.g.terminal_color_14 = scheme.base.cyan
+  vim.g.terminal_color_5 = tc.magenta
+  vim.g.terminal_color_13 = tc.magenta
+
+  vim.g.terminal_color_6 = tc.cyan
+  vim.g.terminal_color_14 = tc.cyan
 end
 
 --- Build palette and scheme for the current config (lazy-requires palette/scheme modules)
@@ -157,7 +174,7 @@ function M.build()
   -- Try disk cache (no scheme build needed for validation)
   local inputs = cache_inputs(config)
   local disk = cache.read(filter)
-  if disk and vim.deep_equal(inputs, disk.inputs) then
+  if disk and disk.scheme and vim.deep_equal(inputs, disk.inputs) then
     return disk.highlights
   end
 
@@ -166,7 +183,12 @@ function M.build()
   cached_scheme = scheme
   local highlights = build_highlights(scheme, config)
 
-  cache.write(filter, { highlights = highlights, inputs = inputs })
+  cache.write(filter, {
+    highlights = highlights,
+    inputs = inputs,
+    scheme = scheme,
+    terminal_colors = extract_terminal_colors(scheme),
+  })
 
   return highlights
 end
@@ -184,29 +206,45 @@ function M.load()
   local config = config_module.get()
   local filter = config.filter or "pro"
 
-  -- Try disk cache first (avoids requiring groups/plugins/triggers modules)
+  -- Try disk cache first (avoids requiring palette/scheme/groups/plugins modules)
   local inputs = cache_inputs(config)
   local disk = cache.read(filter)
   local highlights
-
-  if disk and vim.deep_equal(inputs, disk.inputs) then
+  if disk and disk.scheme and vim.deep_equal(inputs, disk.inputs) then
     highlights = disk.highlights
+    -- Restore scheme from cache (avoids build_scheme)
+    cached_scheme = disk.scheme
   else
+    disk = nil
     -- Cache miss: full build
     local scheme = build_scheme(config)
     cached_scheme = scheme
     highlights = build_highlights(scheme, config)
-    cache.write(filter, { highlights = highlights, inputs = inputs })
+    cache.write(filter, {
+      highlights = highlights,
+      inputs = inputs,
+      scheme = scheme,
+      terminal_colors = extract_terminal_colors(scheme),
+    })
   end
 
   colors.apply_highlights(highlights)
 
-  -- Set terminal colors (build scheme only if needed)
+  -- Always setup lazy plugin triggers (even on cache hit) so that plugin
+  -- highlights are applied when plugins like neo-tree, telescope, etc. load
+  local plugins = require("monokai-pro.theme.plugins")
+  plugins.setup_triggers(config)
+  local state = require("monokai-pro.theme.triggers")
+  state.scheme = cached_scheme
+  state.config = config
+
+  -- Set terminal colors (use cached values on cache hit, no scheme rebuild)
   if config.terminal_colors then
-    if not cached_scheme then
-      cached_scheme = build_scheme(config)
+    if disk and disk.terminal_colors then
+      set_terminal_colors(disk.terminal_colors)
+    else
+      set_terminal_colors(extract_terminal_colors(cached_scheme))
     end
-    set_terminal_colors(cached_scheme)
   end
 
   -- Apply devicons (Defers if UI hasn't entered yet)

@@ -2,10 +2,6 @@
 ---@class MonokaiPro.Theme.Plugins
 local M = {}
 
-local state = require("monokai-pro.theme.triggers")
-local event_trigger = require("monokai-pro.theme.triggers.event")
-local module_trigger = require("monokai-pro.theme.triggers.module")
-
 --- Inline plugin registry: metadata is declared here so we never need to
 --- require() a lazy plugin module until its trigger fires.
 --- Only "eager" entries (lazy = false/nil) are required at startup.
@@ -82,14 +78,15 @@ end
 ---@param config MonokaiPro.Config
 ---@return table<string, vim.api.keyset.highlight>
 function M.generate(scheme, config)
+  local state = require("monokai-pro.theme.triggers")
   local highlights = {}
 
   -- Store scheme/config for lazy application
   state.scheme = scheme
   state.config = config
 
-  -- Install module loader once
-  module_trigger.install()
+  -- Install module loader and register lazy triggers
+  M.setup_triggers(config)
 
   for _, entry in ipairs(M.registry) do
     if not is_enabled(entry, config) then
@@ -107,32 +104,63 @@ function M.generate(scheme, config)
         highlights = vim.tbl_deep_extend("force", highlights, plugin_highlights)
         state.applied_plugins[entry.name] = true
       end
-    else
-      -- Lazy: register triggers without requiring the module
-      local pending_spec = {
-        name = entry.name,
-        lazy = lazy_config,
-        highlights = function(s, c)
-          local spec = load_plugin_module(entry)
-          return spec and spec.highlights(s, c) or {}
-        end,
-      }
-      state.pending_specs[entry.name] = pending_spec
-
-      if lazy_config.event then
-        event_trigger.setup(pending_spec, lazy_config.event)
-      end
-
-      -- Only setup module trigger if the event trigger didn't already apply it
-      if lazy_config.module and not state.applied_plugins[entry.name] then
-        module_trigger.setup(pending_spec, lazy_config.module)
-      end
     end
 
     ::continue::
   end
 
   return highlights
+end
+
+--- Setup lazy triggers for all lazy plugins (must be called even on cache hit)
+--- This installs the module loader and registers event/module triggers so that
+--- lazy plugin highlights are applied when the plugin is actually loaded.
+---@param config MonokaiPro.Config
+function M.setup_triggers(config)
+  local state = require("monokai-pro.theme.triggers")
+  local module_trigger = require("monokai-pro.theme.triggers.module")
+
+  -- Install module loader once
+  module_trigger.install()
+
+  for _, entry in ipairs(M.registry) do
+    if not is_enabled(entry, config) then
+      goto continue
+    end
+
+    local lazy_config = entry.lazy
+    if not lazy_config or state.applied_plugins[entry.name] then
+      goto continue
+    end
+
+    -- Already registered
+    if state.pending_specs[entry.name] then
+      goto continue
+    end
+
+    -- Lazy: register triggers without requiring the module
+    local pending_spec = {
+      name = entry.name,
+      lazy = lazy_config,
+      highlights = function(s, c)
+        local spec = load_plugin_module(entry)
+        return spec and spec.highlights(s, c) or {}
+      end,
+    }
+    state.pending_specs[entry.name] = pending_spec
+
+    if lazy_config.event then
+      local event_trigger = require("monokai-pro.theme.triggers.event")
+      event_trigger.setup(pending_spec, lazy_config.event)
+    end
+
+    -- Only setup module trigger if the event trigger didn't already apply it
+    if lazy_config.module and not state.applied_plugins[entry.name] then
+      module_trigger.setup(pending_spec, lazy_config.module)
+    end
+
+    ::continue::
+  end
 end
 
 --- Load specs (for backward compatibility with clear_cache and external callers)
