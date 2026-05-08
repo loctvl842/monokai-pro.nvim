@@ -209,17 +209,24 @@ function M.load()
     set_terminal_colors(cached_scheme)
   end
 
-  -- Defer devicons to UIEnter to avoid blocking startup
+  -- Apply devicons (Defers if UI hasn't entered yet)
   if config.devicons then
-    vim.api.nvim_create_autocmd("UIEnter", {
-      once = true,
-      callback = function()
-        local ok, devicons = pcall(require, "monokai-pro.integrations.devicons")
-        if ok then
-          devicons.setup()
-        end
-      end,
-    })
+    local function apply_devicons()
+      local ok, devicons = pcall(require, "monokai-pro.integrations.devicons")
+      if ok then
+        devicons.setup()
+      end
+    end
+
+    if vim.v.vim_did_enter == 1 then
+      -- UI already ready, apply on next event loop tick to avoid blocking
+      vim.schedule(apply_devicons)
+    else
+      vim.api.nvim_create_autocmd("UIEnter", {
+        once = true,
+        callback = apply_devicons,
+      })
+    end
   end
 end
 
