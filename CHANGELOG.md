@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.3](https://github.com/loctvl842/monokai-pro.nvim/compare/v2.1.2...v2.1.3) (2026-05-08)
+
+
+### Performance Improvements
+
+* reduce startup time with disk cache and deferred loading ([c95c7de](https://github.com/loctvl842/monokai-pro.nvim/commit/c95c7de74f495dc2b7f74a1ee0977a67e65e7c23))
+
 ## [2.1.2](https://github.com/loctvl842/monokai-pro.nvim/compare/v2.1.1...v2.1.2) (2026-05-08)
 
 
