@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.5](https://github.com/loctvl842/monokai-pro.nvim/compare/v2.1.4...v2.1.5) (2026-05-15)
+
+
+### Bug Fixes
+
+* reset filter to 'pro' when loading default colorscheme ([383aeb7](https://github.com/loctvl842/monokai-pro.nvim/commit/383aeb7be68af15ce038f59870ebb44e2d6e31c4))
+
 ## [2.1.4](https://github.com/loctvl842/monokai-pro.nvim/compare/v2.1.3...v2.1.4) (2026-05-08)
 
 
