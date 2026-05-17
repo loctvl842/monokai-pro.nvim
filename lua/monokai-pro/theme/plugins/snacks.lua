@@ -8,6 +8,7 @@ return {
     local highlights = {
       SnacksDashboardNormal  = { bg = c.editor.background, fg = c.editor.foreground },
       SnacksDashboardDesc    = { fg = c.base.dimmed1 },
+      SnacksDashboardDir     = { fg = c.base.dimmed2 },
       SnacksDashboardIcon    = { fg = c.base.blue },
       SnacksDashboardFooter  = { fg = c.base.green },
       SnacksDashboardHeader  = { fg = c.base.yellow },
@@ -27,7 +28,10 @@ return {
       SnacksPickerDir           = { fg = c.sideBar.foreground },
 
       -- Git
-      SnacksPickerGitStatusUntracked = { fg = c.gitDecoration.untrackedResourceForeground }
+      SnacksPickerGitStatusUntracked = { fg = c.gitDecoration.untrackedResourceForeground },
+
+      -- Indentation
+      SnacksIndent = { fg = c.editorIndentGuide.background },
     }
     local rainbow = {
       c.base.red,
